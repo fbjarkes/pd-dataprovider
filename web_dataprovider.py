@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8; py-indent-offset:4 -*-
+
 from datetime import datetime, timedelta
 import logging as logger
 import concurrent.futures
@@ -6,30 +9,28 @@ import pandas as pd
 import requests_cache
 import pandas_datareader.data as web
 
-
 class WebDataprovider:
     """
     """
-
+    session = None
     logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
-
-    def __add_ticker(self, ticker, df):
-        df['Ticker'] = ticker
-        return df
-
-    def __init__(self, cache_name='cache', expire_days=3):
-        expire_after = (None if expire_days is (None or 0) else timedelta(days=expire_days))
-        self.session = requests_cache.CachedSession(cache_name=cache_name, backend='sqlite', expire_after=expire_after)
-
-        logger.info("Using cache '{0}' with {1} items. Expires ?".format(cache_name, len(self.session.cache.responses)))
 
     def get_data_parallel(self, tickers, from_date, to_date, workers=2, timeframe='day', provider='google'):
         """
-        Download data in parallel
+        Download historical data in parallel
+        :param tickers:
+        :param from_date: e.g. '2016-01-01'
+        :param to_date: e.g. '2017-01-01'
+        :param workers:
+        :param timeframe:
+        :param provider:
+        :return:
         """
+
         dataframes = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-            futures = {executor.submit(self.get_data, ticker, from_date, to_date, timeframe, provider): ticker for ticker in tickers}
+            futures = {executor.submit(self.get_data, ticker, from_date, to_date, timeframe, provider): ticker for
+                       ticker in tickers}
             for future in concurrent.futures.as_completed(futures):
                 ticker = futures[future]
                 try:
@@ -38,7 +39,6 @@ class WebDataprovider:
                     print("Skipping {ticker}: {error}".format(ticker=ticker, error=exc))
                 else:
                     dataframes.append(data)
-
 
         # TODO: adding latest, i.e. current (delayed) price if market is open
         return dataframes
@@ -70,3 +70,27 @@ class WebDataprovider:
             return self.__add_ticker(ticker, sorted)
         else:
             return self.__add_ticker(ticker, transdat)
+
+    def __add_ticker(self, ticker, df):
+        df['Ticker'] = ticker
+        return df
+
+
+class CachedWebDataprovider(WebDataprovider):
+    """
+    A sqlite cache supported version of WebDataprovider
+    """
+
+    def __init__(self, cache_name='cache', expire_days=3):
+        expire_after = (None if expire_days is (None or 0) else timedelta(days=expire_days))
+        self.session = requests_cache.CachedSession(cache_name=cache_name, backend='sqlite',
+                                                    expire_after=expire_after)
+        logger.info("Using cache '{0}' with {1} items. Expires ?".format(cache_name, len(self.session.cache.responses)))
+
+
+def main():
+    provider = WebDataprovider()
+    print(provider.get_data_parallel(['spy','aapl'],from_date='2016-12-01', to_date='2016-12-31'))
+
+if __name__ == '__main__':
+    main()
