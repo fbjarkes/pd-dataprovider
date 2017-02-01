@@ -9,7 +9,7 @@ import pandas as pd
 import requests_cache
 import pandas_datareader.data as web
 
-class WebDataProvider:
+class DataProvider:
     """
     """
     session = None
@@ -76,7 +76,7 @@ class WebDataProvider:
         return df
 
 
-class CachedWebDatapProvider(WebDataProvider):
+class CachedDataProvider(DataProvider):
     """
     A sqlite cache supported version of WebDataprovider
     """
@@ -89,7 +89,7 @@ class CachedWebDatapProvider(WebDataProvider):
 
 
 def main():
-    provider = WebDataProvider()
+    provider = DataProvider()
     print(provider.get_data_parallel(['spy','aapl'],from_date='2016-12-01', to_date='2016-12-31'))
 
 if __name__ == '__main__':
