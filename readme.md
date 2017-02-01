@@ -1,8 +1,8 @@
-Wrapper for pandas_datareader WebReader
+Wrapper for pandas-datareader.
 
-## Installation
+### Installation
 
-## Features
-* Parallel download
-* Transform timeframe
+### Features
+* Multithreaded downloads
+* Transform timeframes
 * Non-historical (delayed) data 

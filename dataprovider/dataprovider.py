@@ -53,7 +53,7 @@ class DataProvider:
         end = datetime.strptime(to_date, "%Y-%m-%d")
         data = web.DataReader(ticker, provider, start=start, end=end, session=self.session, pause=1)
 
-        # From: http://blog.yhat.com/posts/stock-data-python.html
+        # Transformation logic from: http://blog.yhat.com/posts/stock-data-python.html
         transdat = data.loc[:, ["Open", "High", "Low", "Close"]]
         if timeframe == 'week':
             transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[1])  # Identify weeks
