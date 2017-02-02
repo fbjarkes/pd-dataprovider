@@ -55,8 +55,8 @@ class DataProvider:
             close = resp.loc[ticker]['last']
             last_time = resp.loc[ticker]['time']
 
-            #TODO: is there an easier way to construct correct datetime from only '8pm'?
-            #NOTE: this will be correct as long as EST is on the same day as local time for the host
+            # TODO: is there an easier way to construct correct datetime from only '8pm'?
+            # NOTE: this will work as long as 'utcnow()' is the same day as EST
             last_dt = datetime.combine(self.get_today_est(), dp.parse(last_time).time())
 
         df = pd.DataFrame({"Ticker": ticker, "Open": [open], "High": [high], "Low": [low], "Close": [close]})
