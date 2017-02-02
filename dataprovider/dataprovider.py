@@ -101,6 +101,8 @@ class DataProvider:
                 else:
                     dataframes.append(data)
 
+        #TODO: if self.quote then request quotes using 50 tickers chunks (instead of one request per ticker)
+
         return dataframes
 
     def get_data(self, ticker, from_date, to_date, timeframe='day', provider='google'):
@@ -155,10 +157,8 @@ class CachedDataProvider(DataProvider):
                                                     expire_after=expire_after)
         logger.info("Using cache '{0}' with {1} items. Expires ?".format(cache_name, len(self.session.cache.responses)))
 
-
 class AWSDataProvider(DataProvider):
     pass
-
 
 def main():
     provider = DataProvider(quote=True)
