@@ -5,15 +5,76 @@ from datetime import datetime, timedelta
 import logging as logger
 import concurrent.futures
 
+import dateutil.parser as dp
+from pytz import timezone
+import numpy as np
 import pandas as pd
 import requests_cache
 import pandas_datareader.data as web
+import pandas_datareader
 
 class DataProvider:
     """
     """
-    session = None
+
     logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
+
+    session = None
+
+    def __init__(self, quote):
+        self.quote = quote
+
+    def get_today_est(self):
+        """
+        Get the current EST day e.g.  '20170201'
+        """
+        localized_utc = timezone("Europe/London").localize(datetime.utcnow())
+        return localized_utc.astimezone(timezone("US/Eastern"))
+
+    def get_quote(self, ticker, provider):
+        """
+        Return dataframe with only latest traded price.
+
+        :param ticker:
+        :param today_est:
+        :param provider:
+        :return: pandas DataFrame
+        """
+        open = np.nan
+        high = np.nan
+        low = np.nan
+        close = np.nan
+
+        if provider == 'google':
+            resp = pandas_datareader.get_quote_google([ticker])
+            close = resp.loc[ticker]['last']
+            last_dt = resp.loc[ticker]['time']
+
+        if provider == 'yahoo':
+            resp = pandas_datareader.get_quote_yahoo([ticker])
+            close = resp.loc[ticker]['last']
+            last_time = resp.loc[ticker]['time']
+
+            #TODO: is there an easier way to construct correct datetime from only '8pm'?
+            #NOTE: this will be correct as long as EST is on the same day as local time for the host
+            last_dt = datetime.combine(self.get_today_est(), dp.parse(last_time).time())
+
+        df = pd.DataFrame({"Ticker": ticker, "Open": [open], "High": [high], "Low": [low], "Close": [close]})
+        df = df.set_index(pd.DatetimeIndex([last_dt.strftime('%Y%m%d')]))
+
+        return df
+
+    def _add_quote(self, historical, ticker, provider):
+        quote = self.get_quote(ticker, provider)
+        quote_dt = quote.index[0].strftime("%Y-%m-%d")
+
+        if quote_dt in historical.index:
+            logger.warning("Skipping quote for {0} since {1} is in historical".format(ticker, quote_dt))
+        else:
+            historical = historical.append(quote)
+
+        return historical
+
 
     def get_data_parallel(self, tickers, from_date, to_date, workers=2, timeframe='day', provider='google'):
         """
@@ -40,7 +101,6 @@ class DataProvider:
                 else:
                     dataframes.append(data)
 
-        # TODO: adding latest, i.e. current (delayed) price if market is open
         return dataframes
 
     def get_data(self, ticker, from_date, to_date, timeframe='day', provider='google'):
@@ -67,9 +127,15 @@ class DataProvider:
                 dataframes = dataframes.append(df)
 
             sorted = dataframes.sort_index()
-            return self.__add_ticker(ticker, sorted)
+            historical = self.__add_ticker(ticker, sorted)
+
         else:
-            return self.__add_ticker(ticker, transdat)
+            historical = self.__add_ticker(ticker, transdat)
+
+        if self.quote:
+            historical = self._add_quote(historical, ticker, provider)
+
+        return historical
 
     def __add_ticker(self, ticker, df):
         df['Ticker'] = ticker
@@ -81,16 +147,23 @@ class CachedDataProvider(DataProvider):
     A sqlite cache supported version of WebDataprovider
     """
 
-    def __init__(self, cache_name='cache', expire_days=3):
+    def __init__(self, quote=False, cache_name='cache', expire_days=3):
+        super().__init__(quote)
+
         expire_after = (None if expire_days is (None or 0) else timedelta(days=expire_days))
         self.session = requests_cache.CachedSession(cache_name=cache_name, backend='sqlite',
                                                     expire_after=expire_after)
         logger.info("Using cache '{0}' with {1} items. Expires ?".format(cache_name, len(self.session.cache.responses)))
 
 
+class AWSDataProvider(DataProvider):
+    pass
+
+
 def main():
-    provider = DataProvider()
-    print(provider.get_data_parallel(['spy','aapl'],from_date='2016-12-01', to_date='2016-12-31'))
+    provider = DataProvider(quote=True)
+    #print(provider.get_data_parallel(['spy','aapl'],from_date='2016-12-01', to_date='2016-12-31'))
+    print(provider.get_quote('SPY','yahoo'))
 
 if __name__ == '__main__':
     main()

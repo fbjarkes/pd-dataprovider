@@ -7,7 +7,7 @@ from dataprovider.dataprovider import CachedDataProvider
 
 class TestTimeFrames(unittest.TestCase):
 
-    provider = CachedDataProvider(cache_name='tests',expire_days=0)
+    provider = CachedDataProvider(cache_name='test_timeframes',expire_days=0)
 
     def test_daily_to_weekly(self):
         spy_daily = self.provider.get_data('SPY','2016-01-01','2017-01-01')
@@ -18,5 +18,10 @@ class TestTimeFrames(unittest.TestCase):
 
 
     def daily_to_monthly(self):
-        #TODO: verify montly conversion
+        #TODO: verify monthly conversion
         pass
+
+
+
+if __name__ == '__main__':
+    unittest.main()
