@@ -157,9 +157,10 @@ class CachedDataProvider(DataProvider):
         expire_after = (None if expire_days is (None or 0) else timedelta(days=expire_days))
         self.session = requests_cache.CachedSession(cache_name=cache_name, backend='sqlite',
                                                     expire_after=expire_after)
-        logger.info("Using cache '{0}' with {1} items. Expires ?".format(cache_name, len(self.session.cache.responses)))
+        logger.info("Using cache '{0}' with {1} items.".format(cache_name, len(self.session.cache.responses)))
 
-class AWSDataProvider(DataProvider):
+class S3DataProvider(DataProvider):
+    #TODO: get data from files stored on S3
     pass
 
 def main():
