@@ -22,7 +22,9 @@ class DataProvider:
     session = None
 
     def __init__(self, quote):
+        # TODO: if self.quote then request quotes using 50 tickers chunks (instead of one request per ticker)
         self.quote = quote
+        self.errors = 0
 
     def get_today_est(self):
         """
@@ -76,7 +78,7 @@ class DataProvider:
         return historical
 
 
-    def get_data_parallel(self, tickers, from_date, to_date, workers=2, timeframe='day', provider='google'):
+    def get_data_parallel(self, tickers, from_date, to_date, max_workers=5, timeframe='day', provider='google'):
         """
         Download historical data in parallel
         :param tickers:
@@ -89,7 +91,7 @@ class DataProvider:
         """
 
         dataframes = []
-        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {executor.submit(self.get_data, ticker, from_date, to_date, timeframe, provider): ticker for
                        ticker in tickers}
             for future in concurrent.futures.as_completed(futures):
@@ -97,11 +99,11 @@ class DataProvider:
                 try:
                     data = future.result()
                 except Exception as exc:
-                    print("Skipping {ticker}: {error}".format(ticker=ticker, error=exc))
+                    logger.warning("Skipping {ticker}: {error}".format(ticker=ticker, error=exc))
                 else:
                     dataframes.append(data)
 
-        #TODO: if self.quote then request quotes using 50 tickers chunks (instead of one request per ticker)
+        self.errors = len(dataframes) - len(tickers)
 
         return dataframes
 
