@@ -7,3 +7,4 @@ TODO
 * Multithreaded downloads
 * Transform timeframes
 * Non-historical (delayed) data 
+* Trading day of the year

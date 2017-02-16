@@ -13,6 +13,7 @@ import requests_cache
 import pandas_datareader.data as web
 import pandas_datareader
 
+
 class DataProvider:
     """
     """
@@ -21,10 +22,11 @@ class DataProvider:
 
     session = None
 
-    def __init__(self, quote):
+    def __init__(self, quote, add_trading_days):
         # TODO: if self.quote then request quotes using 50 tickers chunks (instead of one request per ticker)
         self.quote = quote
         self.errors = 0
+        self.add_trading_days = add_trading_days
 
     def get_today_est(self):
         """
@@ -119,7 +121,7 @@ class DataProvider:
         data = web.DataReader(ticker, provider, start=start, end=end, session=self.session, pause=1)
 
         #TODO: use pandas resample()?
-        # Transformation logic from: http://blog.yhat.com/posts/stock-data-python.html
+        # From: http://blog.yhat.com/posts/stock-data-python.html
         transdat = data.loc[:, ["Open", "High", "Low", "Close"]]
         if timeframe == 'week':
             transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[1])  # Identify weeks
@@ -136,15 +138,30 @@ class DataProvider:
             historical = self.__add_ticker(ticker, sorted)
 
         else:
-            historical = self.__add_ticker(ticker, transdat)
+            historical = self.__add_ticker(ticker, data)
 
         if self.quote:
             historical = self._add_quote(historical, ticker, provider)
+
+        if self.add_trading_days:
+            historical = self.__add_trading_days(historical, "Trading_day")
+
 
         return historical
 
     def __add_ticker(self, ticker, df):
         df['Ticker'] = ticker
+        return df
+
+    def __add_trading_days(self, df, column_name):
+        groups = df.groupby(df.index.year)
+        for group in groups:
+            yearly = group[1]
+            day = 1
+            for index, row in yearly.iterrows():
+                df.loc[index, 'Day'] = day
+                day += 1
+
         return df
 
 
@@ -153,8 +170,8 @@ class CachedDataProvider(DataProvider):
     A sqlite cache supported version of WebDataprovider
     """
 
-    def __init__(self, quote=False, cache_name='cache', expire_days=3):
-        super().__init__(quote)
+    def __init__(self, quote=False, cache_name='cache', expire_days=3, trading_days=False):
+        super().__init__(quote, trading_days)
 
         expire_after = (None if expire_days is (None or 0) else timedelta(days=expire_days))
         self.session = requests_cache.CachedSession(cache_name=cache_name, backend='sqlite',
