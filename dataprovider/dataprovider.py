@@ -80,7 +80,7 @@ class DataProvider:
 
     def get_data_parallel(self, tickers, from_date, to_date, max_workers=5, timeframe='day', provider='google'):
         """
-        Download historical data in parallel
+        Download historical data in parallel, using 'get_data()' method.
         :param tickers:
         :param from_date: e.g. '2016-01-01'
         :param to_date: e.g. '2017-01-01'
@@ -111,12 +111,14 @@ class DataProvider:
         """
         Note this will only get historical data.
         """
+        ticker = ticker.upper()
         logger.info("%s: %s to %s, provider=%s" % (ticker, from_date, to_date, provider))
 
         start = datetime.strptime(from_date, "%Y-%m-%d")
         end = datetime.strptime(to_date, "%Y-%m-%d")
         data = web.DataReader(ticker, provider, start=start, end=end, session=self.session, pause=1)
 
+        #TODO: use pandas resample()?
         # Transformation logic from: http://blog.yhat.com/posts/stock-data-python.html
         transdat = data.loc[:, ["Open", "High", "Low", "Close"]]
         if timeframe == 'week':
