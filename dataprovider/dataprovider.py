@@ -144,7 +144,7 @@ class DataProvider:
             historical = self._add_quote(historical, ticker, provider)
 
         if self.add_trading_days:
-            historical = self.__add_trading_days(historical, "Trading_day")
+            historical = self.__add_trading_days(historical, "Day")
 
 
         return historical
@@ -159,7 +159,7 @@ class DataProvider:
             yearly = group[1]
             day = 1
             for index, row in yearly.iterrows():
-                df.loc[index, 'Day'] = day
+                df.loc[index, column_name] = day
                 day += 1
 
         return df
