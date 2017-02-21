@@ -183,7 +183,7 @@ class S3DataProvider(DataProvider):
     pass
 
 def main():
-    provider = DataProvider(quote=True)
+    provider = DataProvider(quote=True, add_trading_days=False)
     #print(provider.get_data_parallel(['spy','aapl'],from_date='2016-12-01', to_date='2016-12-31'))
     print(provider.get_quote('SPY','yahoo'))
 

@@ -1,10 +1,19 @@
 Wrapper for pandas-datareader.
 
 ### Installation
-TODO
+```
+$ git clone https://github.com/fbjarkes/dataprovider.git
+$ pip install -r dataprovider/requirements.txt
+$ cd dataprovider && dataprovider/setup.py install
+```
 
 ### Features
 * Multithreaded downloads
 * Transform timeframes
-* Non-historical (delayed) data 
+* Add quotes (possibly delayed)  
 * Trading day of the year
+
+### TODO
+* Load data exported from Infront Terminal
+* Load data from other custom sources
+* Handle Swedish stocks 
