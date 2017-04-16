@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8; py-indent-offset:4 -*-
+
+
 import sqlite3
 import os.path
 import pandas as pd

@@ -11,9 +11,11 @@ $ sudo ./setup.py install
 ```
 
 ### Tests
+Run from tests directory to use existing sqlite test data:
 ```
-$ ./tests/test_data.py
-$ ./tests/test_timeframe.py
+$ cd tests/
+$ ./test_data.py
+$ ./test_timeframe.py
 ```
 
 ### Features
