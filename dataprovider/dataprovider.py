@@ -54,6 +54,7 @@ class DataProvider:
             close = resp.loc[ticker]['last']
             last_dt = resp.loc[ticker]['time']
 
+
         if provider == 'yahoo':
             resp = pandas_datareader.get_quote_yahoo([ticker])
             close = resp.loc[ticker]['last']
@@ -83,7 +84,7 @@ class DataProvider:
     def get_data_parallel(self, tickers, from_date, to_date, max_workers=5, timeframe='day', provider='google'):
         """
         Download historical data in parallel, using 'get_data()' method.
-        :param tickers:
+        :param tickers: a list of tickers
         :param from_date: e.g. '2016-01-01'
         :param to_date: e.g. '2017-01-01'
         :param workers:
@@ -91,7 +92,6 @@ class DataProvider:
         :param provider:
         :return:
         """
-
         dataframes = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {executor.submit(self.get_data, ticker, from_date, to_date, timeframe, provider): ticker for
@@ -120,7 +120,8 @@ class DataProvider:
         end = datetime.strptime(to_date, "%Y-%m-%d")
         data = web.DataReader(ticker, provider, start=start, end=end, session=self.session, pause=1)
 
-        #TODO: use pandas resample()?
+        #TODO: how to handle some nan values, just ffill?
+
         # From: http://blog.yhat.com/posts/stock-data-python.html
         transdat = data.loc[:, ["Open", "High", "Low", "Close"]]
         if timeframe == 'week':
@@ -179,13 +180,26 @@ class CachedDataProvider(DataProvider):
         logger.info("Using cache '{0}' with {1} items.".format(cache_name, len(self.session.cache.responses)))
 
 class S3DataProvider(DataProvider):
-    #TODO: get data from files stored on S3
+    #TODO: get Infront exported data from files stored on S3
+    # Assumes default AWS profile is correctly configured
+    # S3DataProvider(bucket)
+    # dp = S3DataProvider("70-bucket")
+    # dp.get_data_parallel(tickers,prefixes,suffixes, from_date, to_date)
+    # df_list = dp.get_data_parallel(['SPY','QQQ','ASSA B'],['NYSF','NSQ','SSE'], ['TXT']), from_date='2016-12-01', to_date='2016-12-31')
+    pass
+
+class SQLiteDataProvider(DataProvider):
+    # TODO: get data from custom SQLite DB file
+    # Default format: "datetime, open, high, low, close, vol, rth"
+    # SQLiteDataProvider(db_filepath, table)
+    # dp = SQLiteDataProvider('tickdata_db.sql','TICKERS_5MIN') ['SPY','VXX'])
+    # df_list = dp.get_data(['SPY','VXX'], from_date='2016-12-01', to_date='2016-12-31')
     pass
 
 def main():
     provider = DataProvider(quote=True, add_trading_days=False)
-    #print(provider.get_data_parallel(['spy','aapl'],from_date='2016-12-01', to_date='2016-12-31'))
-    print(provider.get_quote('SPY','yahoo'))
+    print(provider.get_data_parallel(['^OMX'],from_date='2016-12-01', to_date='2017-12-31', provider="yahoo"))
+    #print(provider.get_quote('SPY','yahoo'))
 
 if __name__ == '__main__':
     main()

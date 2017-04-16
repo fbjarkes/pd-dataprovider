@@ -12,8 +12,3 @@ $ cd dataprovider && dataprovider/setup.py install
 * Transform timeframes
 * Add quotes (possibly delayed)  
 * Trading day of the year
-
-### TODO
-* Load data exported from Infront Terminal
-* Load data from other custom sources
-* Handle Swedish stocks 
