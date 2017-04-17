@@ -1,17 +1,19 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
-from datetime import datetime, timedelta
-import logging as logger
 import concurrent.futures
+import logging as logger
+from datetime import datetime, timedelta
 
 import dateutil.parser as dp
-from pytz import timezone
 import numpy as np
 import pandas as pd
-import requests_cache
-import pandas_datareader.data as web
 import pandas_datareader
+import pandas_datareader.data as web
+import requests_cache
+from pytz import timezone
+
+from utils.validator import Validator
 
 
 class DataProvider:
@@ -27,6 +29,7 @@ class DataProvider:
         self.quote = quote
         self.errors = 0
         self.add_trading_days = add_trading_days
+        self.validator = Validator()
 
     def get_today_est(self):
         """
@@ -54,7 +57,6 @@ class DataProvider:
             close = resp.loc[ticker]['last']
             last_dt = resp.loc[ticker]['time']
 
-
         if provider == 'yahoo':
             resp = pandas_datareader.get_quote_yahoo([ticker])
             close = resp.loc[ticker]['last']
@@ -64,7 +66,8 @@ class DataProvider:
             # NOTE: this will work as long as 'utcnow()' is the same day as EST
             last_dt = datetime.combine(self.get_today_est(), dp.parse(last_time).time())
 
-        df = pd.DataFrame({"Ticker": ticker, "Open": [open], "High": [high], "Low": [low], "Close": [close]})
+        df = pd.DataFrame(
+            {"Ticker": ticker, "Open": [open], "High": [high], "Low": [low], "Close": [close]})
         df = df.set_index(pd.DatetimeIndex([last_dt.strftime('%Y%m%d')]))
 
         return df
@@ -74,14 +77,15 @@ class DataProvider:
         quote_dt = quote.index[0].strftime("%Y-%m-%d")
 
         if quote_dt in historical.index:
-            logger.warning("Skipping quote for {0} since {1} is in historical".format(ticker, quote_dt))
+            logger.warning(
+                "Skipping quote for {0} since {1} is in historical".format(ticker, quote_dt))
         else:
             historical = historical.append(quote)
 
         return historical
 
-
-    def get_data_parallel(self, tickers, from_date, to_date, max_workers=5, timeframe='day', provider='google'):
+    def get_data_parallel(self, tickers, from_date, to_date, max_workers=5, timeframe='day',
+                          provider='google'):
         """
         Download historical data in parallel, using 'get_data()' method.
         :param tickers: a list of tickers
@@ -94,8 +98,11 @@ class DataProvider:
         """
         dataframes = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {executor.submit(self.get_data, ticker, from_date, to_date, timeframe, provider): ticker for
-                       ticker in tickers}
+            futures = {
+                executor.submit(self.get_data, ticker, from_date, to_date, timeframe,
+                                provider): ticker
+                for
+                ticker in tickers}
             for future in concurrent.futures.as_completed(futures):
                 ticker = futures[future]
                 try:
@@ -120,19 +127,23 @@ class DataProvider:
         end = datetime.strptime(to_date, "%Y-%m-%d")
         data = web.DataReader(ticker, provider, start=start, end=end, session=self.session, pause=1)
 
-        #TODO: how to handle some nan values, just ffill?
+        self.validator.validate_nan(data, ticker)
+        self.validator.validate_dates(data, ticker, from_date, to_date)
 
         # From: http://blog.yhat.com/posts/stock-data-python.html
         transdat = data.loc[:, ["Open", "High", "Low", "Close"]]
         if timeframe == 'week':
-            transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[1])  # Identify weeks
+            transdat["week"] = pd.to_datetime(transdat.index).map(
+                lambda x: x.isocalendar()[1])  # Identify weeks
             transdat["year"] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[0])
 
-            grouped = transdat.groupby(list(set(["year", "week"])))  # Group by year and other appropriate variable
+            grouped = transdat.groupby(
+                list(set(["year", "week"])))  # Group by year and other appropriate variable
             dataframes = pd.DataFrame({"Open": [], "High": [], "Low": [], "Close": []})
             for name, group in grouped:
-                df = pd.DataFrame({"Open": group.iloc[0, 0], "High": max(group.High), "Low": min(group.Low),
-                                   "Close": group.iloc[-1, 3]}, index=[group.index[0]])
+                df = pd.DataFrame(
+                    {"Open": group.iloc[0, 0], "High": max(group.High), "Low": min(group.Low),
+                     "Close": group.iloc[-1, 3]}, index=[group.index[0]])
                 dataframes = dataframes.append(df)
 
             sorted = dataframes.sort_index()
@@ -146,7 +157,6 @@ class DataProvider:
 
         if self.add_trading_days:
             historical = self.__add_trading_days(historical, "Day")
-
 
         return historical
 
@@ -177,16 +187,19 @@ class CachedDataProvider(DataProvider):
         expire_after = (None if expire_days is (None or 0) else timedelta(days=expire_days))
         self.session = requests_cache.CachedSession(cache_name=cache_name, backend='sqlite',
                                                     expire_after=expire_after)
-        logger.info("Using cache '{0}' with {1} items.".format(cache_name, len(self.session.cache.responses)))
+        logger.info("Using cache '{0}' with {1} items.".format(cache_name,
+                                                               len(self.session.cache.responses)))
+
 
 class S3DataProvider(DataProvider):
-    #TODO: get Infront exported data from files stored on S3
+    # TODO: get Infront exported data from files stored on S3
     # Assumes default AWS profile is correctly configured
     # S3DataProvider(bucket)
     # dp = S3DataProvider("70-bucket")
     # dp.get_data_parallel(tickers,prefixes,suffixes, from_date, to_date)
     # df_list = dp.get_data_parallel(['SPY','QQQ','ASSA B'],['NYSF','NSQ','SSE'], ['TXT']), from_date='2016-12-01', to_date='2016-12-31')
     pass
+
 
 class SQLiteDataProvider(DataProvider):
     # TODO: get data from custom SQLite DB file
@@ -196,10 +209,14 @@ class SQLiteDataProvider(DataProvider):
     # df_list = dp.get_data(['SPY','VXX'], from_date='2016-12-01', to_date='2016-12-31')
     pass
 
+
 def main():
     provider = DataProvider(quote=True, add_trading_days=False)
-    print(provider.get_data_parallel(['^OMX'],from_date='2016-12-01', to_date='2017-12-31', provider="yahoo"))
-    #print(provider.get_quote('SPY','yahoo'))
+    print(provider.get_data_parallel(['TLT'], from_date='2016-01-01', to_date='2016-10-01'))
+    # print(provider.get_data_parallel(['^OMX'], from_date='2016-12-01', to_date='2017-12-31',
+    #                                     provider="yahoo"))
+    # print(provider.get_quote('SPY','yahoo'))
+
 
 if __name__ == '__main__':
     main()
