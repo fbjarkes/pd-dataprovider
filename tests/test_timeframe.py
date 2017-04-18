@@ -3,7 +3,7 @@
 
 import unittest
 
-from dataprovider.dataprovider import CachedDataProvider
+from dataprovider.web_dataprovider import CachedDataProvider
 
 class TestTimeFrames(unittest.TestCase):
 

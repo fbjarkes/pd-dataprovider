@@ -13,14 +13,14 @@ import pandas_datareader.data as web
 import requests_cache
 from pytz import timezone
 
-from utils.validator import Validator
-
+from qa_dataprovider.validator import Validator
 
 class DataProvider:
     """
     """
 
     logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
+    urllib3_logger = logger.getLogger('urllib3').setLevel(logger.WARNING)
 
     session = None
 
@@ -96,6 +96,7 @@ class DataProvider:
         :param provider:
         :return:
         """
+
         dataframes = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {
@@ -190,24 +191,6 @@ class CachedDataProvider(DataProvider):
         logger.info("Using cache '{0}' with {1} items.".format(cache_name,
                                                                len(self.session.cache.responses)))
 
-
-class S3DataProvider(DataProvider):
-    # TODO: get Infront exported data from files stored on S3
-    # Assumes default AWS profile is correctly configured
-    # S3DataProvider(bucket)
-    # dp = S3DataProvider("70-bucket")
-    # dp.get_data_parallel(tickers,prefixes,suffixes, from_date, to_date)
-    # df_list = dp.get_data_parallel(['SPY','QQQ','ASSA B'],['NYSF','NSQ','SSE'], ['TXT']), from_date='2016-12-01', to_date='2016-12-31')
-    pass
-
-
-class SQLiteDataProvider(DataProvider):
-    # TODO: get data from custom SQLite DB file
-    # Default format: "datetime, open, high, low, close, vol, rth"
-    # SQLiteDataProvider(db_filepath, table)
-    # dp = SQLiteDataProvider('tickdata_db.sql','TICKERS_5MIN') ['SPY','VXX'])
-    # df_list = dp.get_data(['SPY','VXX'], from_date='2016-12-01', to_date='2016-12-31')
-    pass
 
 
 def main():
