@@ -11,6 +11,9 @@ from abc import ABCMeta, abstractmethod
 import pandas as pd
 
 
+
+#TODO: implement DataProvider with get_data(), get_data_parallell()
+#TODO: should add tradingday, weekly, etc. using same code
 class QuandlDataProvider:
 
     logging.basicConfig(level=logging.DEBUG, format='%(filename)s: %(message)s')
@@ -19,14 +22,8 @@ class QuandlDataProvider:
     _name = "QuandlDataProvider"
     _paths = ["~/Dropbox/quandl/spy", "~/Dropbox/quandl/ndx","~/Dropbox/quandl/iwm"]
 
-    #TODO: use python3 keyword args?
     def __init__(self, paths=_paths):
         self.paths = paths
-
-
-
-
-
 
     def get_data(self, tickers, param1, param2):
         df_list = []
