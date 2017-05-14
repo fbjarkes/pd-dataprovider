@@ -15,6 +15,7 @@ from pytz import timezone
 
 from qa_dataprovider.validator import Validator
 
+#TODO: make ABCMeta and refactor web only stuff
 class DataProvider:
     """
     """
@@ -195,9 +196,9 @@ class CachedDataProvider(DataProvider):
 
 def main():
     provider = DataProvider(quote=True, add_trading_days=False)
-    print(provider.get_data_parallel(['TLT'], from_date='2016-01-01', to_date='2016-10-01'))
-    # print(provider.get_data_parallel(['^OMX'], from_date='2016-12-01', to_date='2017-12-31',
-    #                                     provider="yahoo"))
+    #print(provider.get_data_parallel(['EURUSD'], from_date='2016-01-01', to_date='2016-10-01'))
+    print(provider.get_data_parallel(['^EURUSD'], from_date='2016-12-01', to_date='2017-12-31',
+                                         provider="yahoo"))
     # print(provider.get_quote('SPY','yahoo'))
 
 
