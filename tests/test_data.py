@@ -3,14 +3,14 @@
 
 import unittest
 
-from qa_dataprovider.web_dataprovider import CachedDataProvider
+from qa_dataprovider.web_dataprovider import CachedWebDataProvider
 
 class TestData(unittest.TestCase):
 
-    provider = CachedDataProvider(cache_name='test_data', expire_days=0, trading_days=True)
+    provider = CachedWebDataProvider('google', cache_name='test_data', expire_days=0)
 
     def test_daily_trading_days(self):
-        spy_daily = self.provider.get_data('SPY','2010-01-01','2017-01-01')
+        spy_daily = self.provider.get_data(['SPY'],'2010-01-01','2017-01-01')[0]
         assert spy_daily.loc['20160104']['Day'] == 1 # Monday Jan. 4
         assert spy_daily.loc['20160108']['Day'] == 5 # Friday Jan. 8
         assert spy_daily.loc['20160111']['Day'] == 6  # Monday Jan. 11
@@ -18,9 +18,18 @@ class TestData(unittest.TestCase):
 
 
     def test_weekly_volume(self):
-        spy_daily = self.provider.get_data('SPY','2010-01-01','2017-01-01')
-        spy_weekly = self.provider.get_data('SPY', '2010-01-01', '2017-01-01', timeframe='week')
-        #TODO: assert volume in weekly bar is the sum of its days
+        spy_daily = self.provider.get_data(['SPY'], '2010-01-01', '2017-01-01')[0]
+        spy_weekly = self.provider.get_data(['SPY'], '2010-01-01', '2017-01-01',
+                                            timeframe='week')[0]
+        #print(spy_daily.loc['20160104'])
+        #print(spy_daily.loc['20160105'])
+        #print(spy_daily.loc['20160106'])
+        #print(spy_daily.loc['20160107'])
+        #print(spy_daily.loc['20160108'])
+        #print(spy_weekly.loc['20160104'])
+
+        assert spy_daily.loc['20160104':'20160108', 'Volume'].sum() == \
+               spy_weekly.loc['20160104']['Volume']
 
 if __name__ == '__main__':
     unittest.main()

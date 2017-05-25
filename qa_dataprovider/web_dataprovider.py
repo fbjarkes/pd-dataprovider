@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
-import concurrent.futures
 import logging as logger
 from datetime import datetime, timedelta
+
 
 import dateutil.parser as dp
 import numpy as np
@@ -14,30 +14,62 @@ import requests_cache
 from pytz import timezone
 
 from qa_dataprovider.validator import Validator
+from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
-#TODO: make ABCMeta and refactor web only stuff
-class DataProvider:
-    """
-    """
 
-    logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
+class WebDataProvider(GenericDataProvider):
+
     urllib3_logger = logger.getLogger('urllib3').setLevel(logger.WARNING)
-
     session = None
 
-    def __init__(self, quote, add_trading_days):
-        # TODO: if self.quote then request quotes using 50 tickers chunks (instead of one request per ticker)
-        self.quote = quote
-        self.errors = 0
-        self.add_trading_days = add_trading_days
-        self.validator = Validator()
 
-    def get_today_est(self):
+    def __init__(self, provider, quotes=False, **kwargs):
+        # TODO: if self.quote then request quotes using 50 tickers chunks (instead of one request per ticker)
+        self.provider = provider
+        self.errors = 0
+        self.validator = Validator()
+        self.quotes = quotes
+
+
+    #TODO: memoize call?
+    def _get_data_internal(self, ticker, from_date, to_date, timeframe):
+        ticker = ticker.upper()
+        logger.info("%s: %s to %s, provider=%s" % (ticker, from_date, to_date, self.provider))
+
+        start = datetime.strptime(from_date, "%Y-%m-%d")
+        end = datetime.strptime(to_date, "%Y-%m-%d")
+        data = web.DataReader(ticker, self.provider, start=start, end=end, session=self.session, pause=1)
+
+        self.validator.validate_nan(data, ticker)
+        self.validator.validate_dates(data, ticker, from_date, to_date)
+
+        if timeframe == 'week':
+            data = self.transform_week(data)
+
+        if timeframe == 'month':
+            # TODO: monthly
+            pass
+
+        historical = self.__add_ticker(ticker, data)
+
+        if self.quotes:
+            historical = self._add_quote(historical, ticker, self.provider)
+
+        if timeframe == 'day':
+            historical = self.__add_trading_days(historical, "Day")
+
+        return historical
+
+
+
+    def _get_today_est(self):
         """
         Get the current EST day e.g.  '20170201'
         """
+        #TODO: just set once in __init__
         localized_utc = timezone("Europe/London").localize(datetime.utcnow())
         return localized_utc.astimezone(timezone("US/Eastern"))
+
 
     def get_quote(self, ticker, provider):
         """
@@ -65,7 +97,7 @@ class DataProvider:
 
             # TODO: is there an easier way to construct correct datetime from only '8pm'?
             # NOTE: this will work as long as 'utcnow()' is the same day as EST
-            last_dt = datetime.combine(self.get_today_est(), dp.parse(last_time).time())
+            last_dt = datetime.combine(self._get_today_est(), dp.parse(last_time).time())
 
         df = pd.DataFrame(
             {"Ticker": ticker, "Open": [open], "High": [high], "Low": [low], "Close": [close]})
@@ -85,83 +117,6 @@ class DataProvider:
 
         return historical
 
-    def get_data_parallel(self, tickers, from_date, to_date, max_workers=5, timeframe='day',
-                          provider='google'):
-        """
-        Download historical data in parallel, using 'get_data()' method.
-        :param tickers: a list of tickers
-        :param from_date: e.g. '2016-01-01'
-        :param to_date: e.g. '2017-01-01'
-        :param workers:
-        :param timeframe:
-        :param provider:
-        :return:
-        """
-
-        dataframes = []
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {
-                executor.submit(self.get_data, ticker, from_date, to_date, timeframe,
-                                provider): ticker
-                for
-                ticker in tickers}
-            for future in concurrent.futures.as_completed(futures):
-                ticker = futures[future]
-                try:
-                    data = future.result()
-                except Exception as exc:
-                    logger.warning("Skipping {ticker}: {error}".format(ticker=ticker, error=exc))
-                else:
-                    dataframes.append(data)
-
-        self.errors = len(dataframes) - len(tickers)
-
-        return dataframes
-
-    def get_data(self, ticker, from_date, to_date, timeframe='day', provider='google'):
-        """
-        Note this will only get historical data.
-        """
-        ticker = ticker.upper()
-        logger.info("%s: %s to %s, provider=%s" % (ticker, from_date, to_date, provider))
-
-        start = datetime.strptime(from_date, "%Y-%m-%d")
-        end = datetime.strptime(to_date, "%Y-%m-%d")
-        data = web.DataReader(ticker, provider, start=start, end=end, session=self.session, pause=1)
-
-        self.validator.validate_nan(data, ticker)
-        self.validator.validate_dates(data, ticker, from_date, to_date)
-
-        # From: http://blog.yhat.com/posts/stock-data-python.html
-        transdat = data.loc[:, ["Open", "High", "Low", "Close"]]
-        if timeframe == 'week':
-            transdat["week"] = pd.to_datetime(transdat.index).map(
-                lambda x: x.isocalendar()[1])  # Identify weeks
-            transdat["year"] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[0])
-
-            grouped = transdat.groupby(
-                list(set(["year", "week"])))  # Group by year and other appropriate variable
-            dataframes = pd.DataFrame({"Open": [], "High": [], "Low": [], "Close": []})
-            for name, group in grouped:
-                df = pd.DataFrame(
-                    {"Open": group.iloc[0, 0], "High": max(group.High), "Low": min(group.Low),
-                     "Close": group.iloc[-1, 3]}, index=[group.index[0]])
-                dataframes = dataframes.append(df)
-
-            sorted = dataframes.sort_index()
-            historical = self.__add_ticker(ticker, sorted)
-
-        else:
-            historical = self.__add_ticker(ticker, data)
-
-        if self.quote:
-            historical = self._add_quote(historical, ticker, provider)
-
-        if self.add_trading_days:
-            historical = self.__add_trading_days(historical, "Day")
-
-        return historical
-
     def __add_ticker(self, ticker, df):
         df['Ticker'] = ticker
         return df
@@ -178,14 +133,14 @@ class DataProvider:
         return df
 
 
-class CachedDataProvider(DataProvider):
+class CachedWebDataProvider(WebDataProvider):
     """
     A sqlite cache supported version of WebDataprovider
     """
 
-    def __init__(self, quote=False, cache_name='cache', expire_days=3, trading_days=False):
-        super().__init__(quote, trading_days)
-
+    #def __init__(self, quote=False, cache_name='cache', expire_days=3, trading_days=False):
+    def __init__(self, provider, quotes=False, cache_name='cache', expire_days=3, **kwargs):
+        super().__init__(provider, quotes, **kwargs)
         expire_after = (None if expire_days is (None or 0) else timedelta(days=expire_days))
         self.session = requests_cache.CachedSession(cache_name=cache_name, backend='sqlite',
                                                     expire_after=expire_after)
@@ -195,12 +150,9 @@ class CachedDataProvider(DataProvider):
 
 
 def main():
-    provider = DataProvider(quote=True, add_trading_days=False)
-    #print(provider.get_data_parallel(['EURUSD'], from_date='2016-01-01', to_date='2016-10-01'))
-    print(provider.get_data_parallel(['^EURUSD'], from_date='2016-12-01', to_date='2017-12-31',
-                                         provider="yahoo"))
-    # print(provider.get_quote('SPY','yahoo'))
-
+    provider = CachedWebDataProvider('google')
+    print(provider.get_data(['SPY','QQQ','TLT','GLD'], from_date='2010-01-01',
+                            to_date='2016-12-31', max_workers=10))
 
 if __name__ == '__main__':
     main()

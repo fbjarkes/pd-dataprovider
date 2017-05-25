@@ -7,7 +7,7 @@ except ImportError:
 
 
 setup(name='qa-dataprovider',
-      version='0.2.2',
+      version='0.2.3',
       description='Wrapper for pandas DataReader and other data sources',
       author='',
       author_email='',
