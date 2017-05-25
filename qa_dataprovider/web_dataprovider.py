@@ -27,7 +27,6 @@ class WebDataProvider(GenericDataProvider):
         # TODO: if self.quote then request quotes using 50 tickers chunks (instead of one request per ticker)
         self.provider = provider
         self.errors = 0
-        self.validator = Validator()
         self.quotes = quotes
 
 
@@ -40,27 +39,7 @@ class WebDataProvider(GenericDataProvider):
         end = datetime.strptime(to_date, "%Y-%m-%d")
         data = web.DataReader(ticker, self.provider, start=start, end=end, session=self.session, pause=1)
 
-        self.validator.validate_nan(data, ticker)
-        self.validator.validate_dates(data, ticker, from_date, to_date)
-
-        if timeframe == 'week':
-            data = self.transform_week(data)
-
-        if timeframe == 'month':
-            # TODO: monthly
-            pass
-
-        historical = self.__add_ticker(ticker, data)
-
-        if self.quotes:
-            historical = self._add_quote(historical, ticker, self.provider)
-
-        if timeframe == 'day':
-            historical = self.__add_trading_days(historical, "Day")
-
-        return historical
-
-
+        return self._post_process(data, ticker, from_date, to_date, timeframe)
 
     def _get_today_est(self):
         """
@@ -71,7 +50,7 @@ class WebDataProvider(GenericDataProvider):
         return localized_utc.astimezone(timezone("US/Eastern"))
 
 
-    def get_quote(self, ticker, provider):
+    def __get_quote(self, ticker):
         """
         Return dataframe with only latest traded price.
 
@@ -85,12 +64,12 @@ class WebDataProvider(GenericDataProvider):
         low = np.nan
         close = np.nan
 
-        if provider == 'google':
+        if self.provider == 'google':
             resp = pandas_datareader.get_quote_google([ticker])
             close = resp.loc[ticker]['last']
             last_dt = resp.loc[ticker]['time']
 
-        if provider == 'yahoo':
+        if self.provider == 'yahoo':
             resp = pandas_datareader.get_quote_yahoo([ticker])
             close = resp.loc[ticker]['last']
             last_time = resp.loc[ticker]['time']
@@ -105,32 +84,20 @@ class WebDataProvider(GenericDataProvider):
 
         return df
 
-    def _add_quote(self, historical, ticker, provider):
-        quote = self.get_quote(ticker, provider)
-        quote_dt = quote.index[0].strftime("%Y-%m-%d")
+    def _add_quotes(self, data, ticker):
+        if self.quotes:
+            quote = self.__get_quote(ticker)
+            quote_dt = quote.index[0].strftime("%Y-%m-%d")
 
-        if quote_dt in historical.index:
-            logger.warning(
-                "Skipping quote for {0} since {1} is in historical".format(ticker, quote_dt))
-        else:
-            historical = historical.append(quote)
+            if quote_dt in data.index:
+                logger.warning(
+                    "Skipping quote for {0} since {1} is in historical".format(ticker, quote_dt))
+            else:
+                data = data.append(quote)
 
-        return historical
+        return data
 
-    def __add_ticker(self, ticker, df):
-        df['Ticker'] = ticker
-        return df
 
-    def __add_trading_days(self, df, column_name):
-        groups = df.groupby(df.index.year)
-        for group in groups:
-            yearly = group[1]
-            day = 1
-            for index, row in yearly.iterrows():
-                df.loc[index, column_name] = day
-                day += 1
-
-        return df
 
 
 class CachedWebDataProvider(WebDataProvider):
