@@ -3,3 +3,4 @@ requests_cache
 pandas_datareader
 pytz
 bizdays
+pandas-market-calendars

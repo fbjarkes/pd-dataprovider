@@ -11,11 +11,9 @@ $ sudo ./setup.py install
 ```
 
 ### Tests
-Run from tests directory to use existing sqlite test data:
+Run tests in tests folder:
 ```
-$ cd tests/
-$ ./test_data.py
-$ ./test_timeframe.py
+tests/$ python3 -m unittest discover
 ```
 
 ### Features

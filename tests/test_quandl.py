@@ -23,6 +23,14 @@ class TestQuandl(unittest.TestCase):
         assert daily.loc['20160111']['Day'] == 6  # Monday Jan. 11
         assert daily.loc['20161230']['Day'] == 252  #240? Friday Dec. 30
 
+    def test_filter_days(self):
+        import pandas_market_calendars as mcal
+        nyse = mcal.get_calendar('NYSE')
+
+        days = nyse.valid_days(start_date='2000-01-01', end_date='2017-01-01')
+        daily = self.provider.get_data(['DIS'], '2000-01-01', '2017-01-01')[0]
+        assert len(days) == len(daily)
+
 
 if __name__ == '__main__':
     unittest.main()

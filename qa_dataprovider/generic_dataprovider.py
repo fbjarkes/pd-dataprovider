@@ -5,6 +5,7 @@ import logging as logger
 from abc import ABCMeta, abstractmethod
 import concurrent.futures
 from functools import reduce
+import timeit
 
 import pandas as pd
 
@@ -47,7 +48,7 @@ class GenericDataProvider(metaclass=ABCMeta):
                 try:
                     data = future.result()
                 except Exception as exc:
-                    logger.warning("Skipping {ticker}: {error}".format(ticker=ticker, error=exc))
+                    logger.warning("Skipping {}: error message: {}".format(ticker, exc))
                 else:
                     dataframes.append(data)
 
@@ -63,8 +64,14 @@ class GenericDataProvider(metaclass=ABCMeta):
             'to': to_date
         }
         # First validate, then transform (if necessary), then add metadata
-        funcs = [self._validate, self._transform, self._add_meta_data]
+        funcs = [self._filter_dates, self._validate, self._transform, self._add_meta_data]
+
         return reduce((lambda result, func: func(result, func_args)), funcs, data)
+
+    def _filter_dates(self, data, kwargs):
+        from_date = kwargs['from']
+        to_date = kwargs['to']
+        return pd.DataFrame(data[from_date:to_date])
 
     def _transform(self, data, kwargs):
         if kwargs['timeframe'] == 'week':
