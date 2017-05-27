@@ -5,24 +5,29 @@ import logging as logger
 from abc import ABCMeta, abstractmethod
 import concurrent.futures
 from functools import reduce
-import timeit
 
-import pandas as pd
-
+from qa_dataprovider.post_processor import PostProcessor
 from qa_dataprovider.validator import Validator
 
 
 class GenericDataProvider(metaclass=ABCMeta):
 
     logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
-    validator = Validator()
+    post_processor = PostProcessor()
 
     @abstractmethod
     def _get_data_internal(self, ticker, from_date, to_date, timeframe):
         pass
 
     @abstractmethod
-    def _add_quotes(self, data, ticker):
+    def add_quotes(self, data, ticker):
+        """
+        If quotes are available by this provider, append quotes row to data.
+        
+        :param data dataframe: pd.DataFrame
+        :param ticker string: The ticker, eg. 'SPY'
+        :return: pd.DataFrame
+        """
         pass
 
     #TODO: should work with intraday data also with exactly this interface?
@@ -61,73 +66,19 @@ class GenericDataProvider(metaclass=ABCMeta):
             'ticker': ticker,
             'timeframe': timeframe,
             'from': from_date,
-            'to': to_date
+            'to': to_date,
+            'provider': self,
         }
-        # First validate, then transform (if necessary), then add metadata
-        funcs = [self._filter_dates, self._validate, self._transform, self._add_meta_data]
+
+        # Post process data in this order:
+        funcs = [self.post_processor.filter_dates,
+                 self.post_processor.validate,
+                 self.post_processor.add_quotes,
+                 self.post_processor.transform_timeframe,
+                 self.post_processor.add_trading_days
+                 ]
 
         return reduce((lambda result, func: func(result, func_args)), funcs, data)
 
-    def _filter_dates(self, data, kwargs):
-        from_date = kwargs['from']
-        to_date = kwargs['to']
-        return pd.DataFrame(data[from_date:to_date])
-
-    def _transform(self, data, kwargs):
-        if kwargs['timeframe'] == 'week':
-            data = self._transform_week(data)
-
-        # TODO: monthly
-        if kwargs['timeframe'] == 'month':
-            pass
-
-        return data
-
-    def _validate(self, data, kwargs):
-        self.validator.validate_nan(data, kwargs['ticker'])
-        self.validator.validate_dates(data, kwargs['ticker'], kwargs['from'], kwargs['to'])
-        return data
-
-    def _add_meta_data(self, data, kwargs):
-        data = self._add_quotes(data, kwargs['ticker'])
-
-        if kwargs['timeframe'] == 'day':
-            data = self.__add_trading_days(data, "Day")
-
-        data['Ticker'] = kwargs['ticker']
-
-        return data
-
-    def _transform_week(self, data):
-        # From: http://blog.yhat.com/posts/stock-data-python.html
-        transdat = data.loc[:, ["Open", "High", "Low", "Close", 'Volume']]
-
-        transdat["week"] = pd.to_datetime(transdat.index).map(
-            lambda x: x.isocalendar()[1])  # Identify weeks
-        transdat["year"] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[0])
-        # Group by year and other appropriate variable
-        grouped = transdat.groupby(list(set(["year", "week"])))
-        dataframes = pd.DataFrame({"Open": [], "High": [], "Low": [], "Close": [], "Volume": []})
-        for name, group in grouped:
-            df = pd.DataFrame(
-                {"Open": group.iloc[0, 0], "High": max(group.High), "Low": min(group.Low),
-                 "Close": group.iloc[-1, 3], "Volume": group.Volume.sum()},
-                index=[group.index[0]])
-            dataframes = dataframes.append(df)
-        sorted = dataframes.sort_index()
-
-        return sorted
-
-
-    def __add_trading_days(self, df, column_name):
-        groups = df.groupby(df.index.year)
-        for group in groups:
-            yearly = group[1]
-            day = 1
-            for index, row in yearly.iterrows():
-                df.loc[index, column_name] = day
-                day += 1
-
-        return df
 
 

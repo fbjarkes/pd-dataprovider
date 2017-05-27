@@ -83,7 +83,7 @@ class WebDataProvider(GenericDataProvider):
 
         return df
 
-    def _add_quotes(self, data, ticker):
+    def add_quotes(self, data, ticker):
         if self.quotes:
             quote = self.__get_quote(ticker)
             quote_dt = quote.index[0].strftime("%Y-%m-%d")

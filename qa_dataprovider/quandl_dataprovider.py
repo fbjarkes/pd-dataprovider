@@ -7,7 +7,7 @@ from qa_dataprovider.generic_dataprovider import GenericDataProvider
 import pandas as pd
 
 
-class QuandlDataProvider(GenericDataProvider):
+class QuandlFileDataProvider(GenericDataProvider):
     """
     #https://www.quandl.com/search?query=
 
@@ -45,7 +45,8 @@ class QuandlDataProvider(GenericDataProvider):
                                   .format(f.name, len(df), df.index[0], df.index[-1]))
                 return self._post_process(df, ticker, from_date, to_date, timeframe)
 
-    def _add_quotes(self, data, ticker):
+
+    def add_quotes(self, data, ticker):
         """
         Quotes are not available...         
         """
@@ -55,7 +56,7 @@ class QuandlDataProvider(GenericDataProvider):
 if __name__ == '__main__':
     paths = ["/home/fbjarkes/Dropbox/quandl/spy", "/home/fbjarkes/Dropbox/quandl/ndx",
              "/home/fbjarkes/Dropbox/quandl/iwm"]
-    provider = QuandlDataProvider(paths)
+    provider = QuandlFileDataProvider(paths)
     dailys = provider.get_data(['DIS','KO','BA','MSFT'], '2010-01-01', '2016-12-31',
                                max_workers=5, timeframe='week')
     print(dailys[0].tail())

@@ -8,12 +8,12 @@ import logging
 import pandas as pd
 
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
-from qa_dataprovider.quandl_dataprovider import QuandlDataProvider
+from qa_dataprovider.quandl_dataprovider import QuandlFileDataProvider
 
 
 class TestQuandl(unittest.TestCase):
 
-    provider = QuandlDataProvider(["data"])
+    provider = QuandlFileDataProvider(["data"])
 
     def test_daily_trading_days(self):
         daily = self.provider.get_data(['DIS'],'2010-01-01','2017-01-01')[0]
