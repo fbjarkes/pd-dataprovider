@@ -7,7 +7,7 @@ from qa_dataprovider.web_dataprovider import CachedWebDataProvider
 
 class TestData(unittest.TestCase):
 
-    provider = CachedWebDataProvider('google', cache_name='test_data', expire_days=0)
+    provider = CachedWebDataProvider('google', expire_days=0)
 
     def test_daily_trading_days(self):
         spy_daily = self.provider.get_data(['SPY'],'2010-01-01','2017-01-01')[0]
