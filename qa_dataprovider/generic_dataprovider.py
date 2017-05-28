@@ -75,7 +75,8 @@ class GenericDataProvider(metaclass=ABCMeta):
                  self.post_processor.validate,
                  self.post_processor.add_quotes,
                  self.post_processor.transform_timeframe,
-                 self.post_processor.add_trading_days
+                 self.post_processor.add_trading_days,
+                 self.post_processor.add_meta_data
                  ]
 
         return reduce((lambda result, func: func(result, func_args)), funcs, data)
