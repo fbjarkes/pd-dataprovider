@@ -39,7 +39,7 @@ class GenericDataProvider(metaclass=ABCMeta):
         :param string from_date: Start date, e.g. '2016-01-01'
         :param string to_date: End date, e.g. '2017-01-01'
         :param int workers: Number of threads
-        :return:
+        :return: List with dataframes
         """
         dataframes = []
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
