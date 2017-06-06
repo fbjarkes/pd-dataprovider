@@ -13,7 +13,6 @@ import pandas_datareader.data as web
 import requests_cache
 from pytz import timezone
 
-from qa_dataprovider.validator import Validator
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
 

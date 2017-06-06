@@ -15,6 +15,7 @@ class GenericDataProvider(metaclass=ABCMeta):
     logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
     post_processor = PostProcessor()
 
+
     @abstractmethod
     def _get_data_internal(self, ticker, from_date, to_date, timeframe):
         pass
@@ -55,7 +56,8 @@ class GenericDataProvider(metaclass=ABCMeta):
                 except Exception as exc:
                     logger.warning("Skipping {}: error message: {}".format(ticker, exc))
                 else:
-                    dataframes.append(data)
+                    if data is not None:
+                        dataframes.append(data)
 
         self.errors = len(dataframes) - len(tickers)
 

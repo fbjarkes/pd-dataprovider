@@ -2,6 +2,7 @@
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
 import logging
+import os
 
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 import pandas as pd
@@ -20,7 +21,6 @@ class QuandlFileDataProvider(GenericDataProvider):
     logger = logging
 
     NAME = "QuandlDataProvider"
-    #PATHS = ["~/Dropbox/quandl/spy", "~/Dropbox/quandl/ndx", "~/Dropbox/quandl/iwm"]
 
     def __init__(self, paths):
         """
@@ -37,13 +37,17 @@ class QuandlFileDataProvider(GenericDataProvider):
 
     def _get_data_internal(self, ticker, from_date, to_date, timeframe):
         for path in self.paths:
-            with open(path + "/" + ticker + ".csv") as f:
-                df = pd.read_csv(f)
+            file_path = path + "/" + ticker + ".csv"
+            if os.path.exists(file_path):
+                with open(file_path) as f:
+                    df = pd.read_csv(f)
 
-                df = df.set_index(pd.DatetimeIndex(df['Date'])).sort_index()
-                self.logger.info("{}, {:d} rows ({} to {})"
-                                  .format(f.name, len(df), df.index[0], df.index[-1]))
-                return self._post_process(df, ticker, from_date, to_date, timeframe)
+                    df = df.set_index(pd.DatetimeIndex(df['Date'])).sort_index()
+                    self.logger.info("{}, {:d} rows ({} to {})"
+                                      .format(f.name, len(df), df.index[0], df.index[-1]))
+                    return self._post_process(df, ticker, from_date, to_date, timeframe)
+
+        self.logger.info("{} not found in {}".format(ticker, self.paths))
 
 
     def add_quotes(self, data, ticker):
