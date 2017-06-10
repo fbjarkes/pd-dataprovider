@@ -22,9 +22,8 @@ class PostProcessor:
         if kwargs['timeframe'] == 'week':
             data = self._transform_week(data)
 
-        # TODO: monthly
         if kwargs['timeframe'] == 'month':
-            pass
+            data = self._transform_month(data)
 
         return data
 
@@ -50,6 +49,28 @@ class PostProcessor:
         transdat["year"] = pd.to_datetime(transdat.index).map(lambda x: x.isocalendar()[0])
         # Group by year and other appropriate variable
         grouped = transdat.groupby(list(set(["year", "week"])))
+        dataframes = pd.DataFrame({"Open": [], "High": [], "Low": [], "Close": [], "Volume": []})
+        for name, group in grouped:
+            df = pd.DataFrame(
+                {"Open": group.iloc[0, 0], "High": max(group.High), "Low": min(group.Low),
+                 "Close": group.iloc[-1, 3], "Volume": group.Volume.sum()},
+                index=[group.index[0]])
+            dataframes = dataframes.append(df)
+        sorted = dataframes.sort_index()
+
+        return sorted
+
+    def _transform_month(self, data):
+
+        transdat = data.loc[:, ["Open", "High", "Low", "Close", 'Volume']]
+
+
+        transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.week)
+        transdat["year"] = pd.to_datetime(transdat.index).map(lambda x: x.year)
+        transdat["month"] = pd.to_datetime(transdat.index).map(lambda x: x.month)
+
+        # Group by year and other appropriate variable
+        grouped = transdat.groupby(list(set(["year", "month"])))
         dataframes = pd.DataFrame({"Open": [], "High": [], "Low": [], "Close": [], "Volume": []})
         for name, group in grouped:
             df = pd.DataFrame(
