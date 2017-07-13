@@ -82,6 +82,9 @@ class PostProcessor:
 
         return sorted
 
+    def add_day_of_month(self, data, kwargs):
+        pass #TODO
+
     def add_trading_days(self, data, kwargs):
         if kwargs['timeframe'] == 'day':
             data = self.__add_trading_days(data, "Day")
