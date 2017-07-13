@@ -35,7 +35,13 @@ class WebDataProvider(GenericDataProvider):
 
         start = datetime.strptime(from_date, "%Y-%m-%d")
         end = datetime.strptime(to_date, "%Y-%m-%d")
-        data = web.DataReader(ticker, self.provider, start=start, end=end, session=self.session, pause=1)
+
+        if self.provider == 'yahoo':
+            import fix_yahoo_finance as yf
+            data = yf.download(ticker, start=start, end=end)
+
+        else:
+            data = web.DataReader(ticker, self.provider, start=start, end=end, session=self.session, pause=1)
 
         return self._post_process(data, ticker, from_date, to_date, timeframe)
 
@@ -114,7 +120,7 @@ class CachedWebDataProvider(WebDataProvider):
 
 def main():
     provider = CachedWebDataProvider('google')
-    print(provider.get_data(['SPY','QQQ','TLT','GLD'], from_date='2010-01-01',
+    print(provider.get_data(['SPY', 'QQQ', 'TLT', 'GLD'], from_date='2010-01-01',
                             to_date='2016-12-31', max_workers=10))
 
 if __name__ == '__main__':

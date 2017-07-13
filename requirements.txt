@@ -3,3 +3,4 @@ requests_cache
 pandas_datareader
 pytz
 pandas-market-calendars
+urllib3
