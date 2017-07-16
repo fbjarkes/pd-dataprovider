@@ -3,13 +3,13 @@
 
 import unittest
 
-from qa_dataprovider.quandl_dataprovider import QuandlFileDataProvider
+from qa_dataprovider.csv_dataprovider import CsvFileDataProvider
 from qa_dataprovider.web_dataprovider import CachedWebDataProvider
 
 class TestTimeFrames(unittest.TestCase):
 
     provider = CachedWebDataProvider('google')
-    file_provider = QuandlFileDataProvider(['data'])
+    file_provider = CsvFileDataProvider(['data'])
 
     def test_daily_to_weekly(self):
         spy_daily = self.provider.get_data(['SPY'],'2016-01-01','2017-01-01')[0]

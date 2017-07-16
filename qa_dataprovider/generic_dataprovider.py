@@ -15,6 +15,7 @@ class GenericDataProvider(metaclass=ABCMeta):
     logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
     post_processor = PostProcessor()
 
+    errors = 0
 
     @abstractmethod
     def _get_data_internal(self, ticker, from_date, to_date, timeframe):
