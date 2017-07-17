@@ -13,7 +13,6 @@ from qa_dataprovider.validator import Validator
 
 class GenericDataProvider(metaclass=ABCMeta):
 
-    logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
     post_processor = PostProcessor()
 
     errors = 0

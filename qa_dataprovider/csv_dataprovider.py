@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
+
 import logging
 import os
 
@@ -20,7 +21,7 @@ class CsvFileDataProvider(GenericDataProvider):
     logging.basicConfig(level=logging.DEBUG, format='%(filename)s: %(message)s')
     logger = logging
 
-    def __init__(self, paths, prefix=None):
+    def __init__(self, paths, prefix=[]):
         """
         Initialize with a list of paths for which each call to get_data() tries to open
         csv file directly in paths. 
@@ -38,10 +39,8 @@ class CsvFileDataProvider(GenericDataProvider):
 
     def _get_data_internal(self, ticker, from_date, to_date, timeframe):
         for path in self.paths:
-            if self.prefix:
-                filenames = ["{}/{}_{}.{}".format(path, prefix, ticker,'csv') for prefix in self.prefix]
-            else:
-                filenames = ["{}/{}.{}".format(path,ticker,'csv')]
+            filenames = ["{}/{}_{}.{}".format(path, prefix, ticker,'csv') for prefix in self.prefix]
+            filenames.append("{}/{}.{}".format(path,ticker,'csv'))
 
             for filename in filenames:
                 self.logger.debug("Trying '{}'".format(filename))
