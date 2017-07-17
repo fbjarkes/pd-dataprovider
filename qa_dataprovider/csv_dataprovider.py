@@ -20,7 +20,7 @@ class CsvFileDataProvider(GenericDataProvider):
     logging.basicConfig(level=logging.DEBUG, format='%(filename)s: %(message)s')
     logger = logging
 
-    def __init__(self, paths):
+    def __init__(self, paths, prefix=None):
         """
         Initialize with a list of paths for which each call to get_data() tries to open
         csv file directly in paths. 
@@ -30,20 +30,28 @@ class CsvFileDataProvider(GenericDataProvider):
         being used.
         
         :param list paths: A list of paths containing csv-files  
+        :param list prefix: An optional list of prefixes e.g. ['NYS','NYSF'] will find file  
+        "NYS_AAPL.csv" or "NYSF_AAPL.csv"
         """
         self.paths = paths
+        self.prefix = prefix
 
     def _get_data_internal(self, ticker, from_date, to_date, timeframe):
-
         for path in self.paths:
-            file_path = "{}/{}.{}".format(path,ticker,'csv')
-            if os.path.exists(file_path):
-                with open(file_path) as f:
-                    df = pd.read_csv(f)
-                    df = df.set_index(pd.DatetimeIndex(df['Date'])).sort_index()
-                    self.logger.info("{}, {:d} rows ({} to {})"
-                                      .format(f.name, len(df), df.index[0], df.index[-1]))
-                    return self._post_process(df, ticker, from_date, to_date, timeframe)
+            if self.prefix:
+                filenames = ["{}/{}_{}.{}".format(path, prefix, ticker,'csv') for prefix in self.prefix]
+            else:
+                filenames = ["{}/{}.{}".format(path,ticker,'csv')]
+
+            for filename in filenames:
+                self.logger.debug("Trying '{}'".format(filename))
+                if os.path.exists(filename):
+                    with open(filename) as f:
+                        df = pd.read_csv(f)
+                        df = df.set_index(pd.DatetimeIndex(df['Date'])).sort_index()
+                        self.logger.info("{}, {:d} rows ({} to {})"
+                                          .format(f.name, len(df), df.index[0], df.index[-1]))
+                        return self._post_process(df, ticker, from_date, to_date, timeframe)
 
         self.logger.info("{} not found in {}".format(ticker, self.paths))
 

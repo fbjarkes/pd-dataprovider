@@ -16,7 +16,7 @@ from pytz import timezone
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
 #TODO: use wrapper framework like https://github.com/ranaroussi/ezibpy?
-class IBDataprovider(GenericDataProvider):
+class IBDataProvider(GenericDataProvider):
     def _get_data_internal(self, ticker, from_date, to_date, timeframe):
         pass
 

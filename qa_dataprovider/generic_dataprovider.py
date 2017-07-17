@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
+import sys, traceback
 import logging as logger
 from abc import ABCMeta, abstractmethod
 import concurrent.futures
@@ -55,6 +56,8 @@ class GenericDataProvider(metaclass=ABCMeta):
                 try:
                     data = future.result()
                 except Exception as exc:
+                    #TODO: only print stack trace if verbose is DEBUG
+                    traceback.print_exc(file=sys.stderr)
                     logger.warning("Skipping {}: error message: {}".format(ticker, exc))
                 else:
                     if data is not None:

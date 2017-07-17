@@ -19,6 +19,11 @@ class Validator:
 
     def validate_dates(self, data, ticker, from_date, to_date):
         nyse_days = len(self.nyse.valid_days(start_date=from_date, end_date=to_date))
+
+        if len(data) == 0:
+            raise Exception("No data available from {} to {}. Verify tick data by "
+                            "provider includes these dates.".format(from_date, to_date))
+
         if ((nyse_days / len(data)) - 1) > 0.2:
             logger.warning("WARNING: {:s} has only {:d} rows, expecting approx. {:d} rows"
                            .format(ticker, len(data), nyse_days))
