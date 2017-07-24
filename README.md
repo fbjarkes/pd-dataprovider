@@ -2,12 +2,9 @@ Wrapper for pandas-datareader. Python3 required.
 
 ### Installation
 ```
-$ git clone https://github.com/fbjarkes/dataprovider.git
-$ pip3 install -r dataprovider/requirements.txt
-$ cd dataprovider 
-$ ./setup.py install
-or
-$ sudo ./setup.py install
+$ git clone https://github.com/fbjarkes/qa-dataprovider.git
+$ cd qa-dataprovider && pip3 install -r requirements.txt
+$ ./setup.py develop 
 ```
 
 ### Tests
