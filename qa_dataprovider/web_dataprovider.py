@@ -21,11 +21,11 @@ class WebDataProvider(GenericDataProvider):
     urllib3_logger = logger.getLogger('urllib3').setLevel(logger.WARNING)
     session = None
 
-    def __init__(self, provider, quotes=False, **kwargs):
+    def __init__(self, provider, get_quotes=False, **kwargs):
         # TODO: if self.quote then request quotes using 50 tickers chunks (instead of one request per ticker)
         self.provider = provider
         self.errors = 0
-        self.quotes = quotes
+        self.quotes = get_quotes
 
 
     #TODO: memoize call?
@@ -108,13 +108,13 @@ class CachedWebDataProvider(WebDataProvider):
 
     CACHE_NAME = 'cache'
 
-    def __init__(self, provider, quotes=False, cache_name=CACHE_NAME, expire_days=3, **kwargs):
-        super().__init__(provider, quotes, **kwargs)
+    def __init__(self, provider, get_quotes=False, cache_name=CACHE_NAME, expire_days=3, **kwargs):
+        super().__init__(provider, get_quotes, **kwargs)
         expire_after = (None if expire_days is (None or 0) else timedelta(days=expire_days))
         self.session = requests_cache.CachedSession(cache_name=cache_name, backend='sqlite',
                                                     expire_after=expire_after)
-        logger.info("Using cache '{0}' with {1} items.".format(cache_name,
-                                                               len(self.session.cache.responses)))
+        logger.info("Using cache '{0}' with {1} items.".
+                    format(cache_name, len(self.session.cache.responses)))
 
 
 

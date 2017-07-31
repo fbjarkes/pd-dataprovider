@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
-import logging as logger
+import logging
 from datetime import datetime, timedelta
 
 
@@ -11,41 +11,52 @@ import pandas as pd
 import pandas_datareader
 import pandas_datareader.data as web
 import requests_cache
+from ib_insync import IB, Stock
 from pytz import timezone
 
-# TODO: check if it only imports when using this class
-#import ibapi
-#from ib_insync import *
 
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
-#TODO: use wrapper framework like https://github.com/ranaroussi/ezibpy?
+
 class IBDataProvider(GenericDataProvider):
 
     CLIENT_ID = 0
+
+    logging.basicConfig(level=logging.DEBUG, format='%(filename)s: %(message)s')
+    logger = logging
 
     @staticmethod
     def get_unique_id():
         IBDataProvider.CLIENT_ID += 1
         return IBDataProvider.CLIENT_ID
 
-    def __init__(self):
+    def __init__(self, host: str="127.0.0.1", port: int= 7496, timeout: int=10):
         self.client_id = IBDataProvider.get_unique_id()
-        ib = IB()
-        ib.connect('127.0.0.1', 7497, clientId=1)
 
-    def _get_data_internal(self, ticker, from_date, to_date, timeframe):
-        pass
+        self.ib = IB()
+        self.ib.connect(host, port, clientId=self.client_id, timeout=timeout)
+
+    def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str) -> \
+            pd.DataFrame:
+
+        contract = Stock(ticker, 'SMART', 'USD')
+        print("BEFORE")
+        tmp = self.ib.reqHeadTimeStamp(contract, whatToShow='TRADES', useRTH=True)
+        #bars = self.ib.reqHistoricalData(contract, endDateTime='', durationStr="1000 D",
+        #                                 barSizeSetting='1 day', whatToShow="TRADES", useRTH=True)
+        print("AFTER")
+        print(tmp)
+        #print(bars)
+        return pd.DataFrame()
 
     def add_quotes(self, data, ticker):
         pass
 
-
+    def _finish(self):
+        self.ib.disconnect()
 
 if __name__ == '__main__':
     ib = IBDataProvider()
-
-    dailys = ib.get_data(['SPY'], '2010-01-01', '2016-12-31',
-                               max_workers=5, timeframe='week')
+    dailys = ib.get_data(['SPY'], '2010-01-01', '2016-12-31', max_workers=5, timeframe='week')
     print(dailys[0].tail())
-    print(dailys[1].tail())
+    #print(dailys[1].tail())

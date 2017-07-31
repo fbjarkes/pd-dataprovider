@@ -6,6 +6,7 @@ import logging as logger
 from abc import ABCMeta, abstractmethod
 import concurrent.futures
 from functools import reduce
+import pandas as pd
 
 from qa_dataprovider.post_processor import PostProcessor
 from qa_dataprovider.validator import Validator
@@ -18,7 +19,8 @@ class GenericDataProvider(metaclass=ABCMeta):
     errors = 0
 
     @abstractmethod
-    def _get_data_internal(self, ticker, from_date, to_date, timeframe):
+    def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str) -> \
+            pd.DataFrame:
         pass
 
     @abstractmethod
@@ -31,6 +33,13 @@ class GenericDataProvider(metaclass=ABCMeta):
         :return: pd.DataFrame
         """
         pass
+
+    def _finish(self):
+        """        
+        Do any post data fetching activities, e.g. disconnect, exit async loop, etc.
+        """
+        pass
+
 
     #TODO: should work with intraday data also with exactly this interface?
     def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1):
@@ -63,6 +72,8 @@ class GenericDataProvider(metaclass=ABCMeta):
                         dataframes.append(data)
 
         self.errors = len(dataframes) - len(tickers)
+
+        self._finish()
 
         return dataframes
 

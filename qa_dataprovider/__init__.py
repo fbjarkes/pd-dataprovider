@@ -56,5 +56,5 @@ class Factory:
             raise Exception("Not implemented yet")
 
         else:
-            return CachedWebDataProvider(provider, expire_days=0, quote=get_quotes)
+            return CachedWebDataProvider(provider, expire_days=0, get_quotes=get_quotes)
 
