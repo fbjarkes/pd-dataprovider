@@ -11,7 +11,7 @@ import pandas as pd
 import pandas_datareader
 import pandas_datareader.data as web
 import requests_cache
-from ib_insync import IB, Stock
+
 from pytz import timezone
 
 
@@ -27,11 +27,11 @@ class IBDataProvider(GenericDataProvider):
 
     @staticmethod
     def get_unique_id():
-        IBDataProvider.CLIENT_ID += 1
-        return IBDataProvider.CLIENT_ID
+        AsyncIBDataProvider.CLIENT_ID += 1
+        return AsyncIBDataProvider.CLIENT_ID
 
     def __init__(self, host: str="127.0.0.1", port: int= 7496, timeout: int=10):
-        self.client_id = IBDataProvider.get_unique_id()
+        self.client_id = AsyncIBDataProvider.get_unique_id()
 
         self.ib = IB()
         self.ib.connect(host, port, clientId=self.client_id, timeout=timeout)
@@ -56,7 +56,7 @@ class IBDataProvider(GenericDataProvider):
         self.ib.disconnect()
 
 if __name__ == '__main__':
-    ib = IBDataProvider()
+    ib = AsyncIBDataProvider()
     dailys = ib.get_data(['SPY'], '2010-01-01', '2016-12-31', max_workers=5, timeframe='week')
     print(dailys[0].tail())
     #print(dailys[1].tail())

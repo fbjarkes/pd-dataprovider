@@ -40,8 +40,6 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         pass
 
-
-    #TODO: should work with intraday data also with exactly this interface?
     def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1):
         """
         Fetch a dataframe for each ticker, using the internal method with multiple threads

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
-from qa_dataprovider.ib_dataprovider import IBDataProvider
+from qa_dataprovider.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.csv_dataprovider import CsvFileDataProvider
 from qa_dataprovider.web_dataprovider import CachedWebDataProvider
 
@@ -13,7 +13,7 @@ class Factory:
     @staticmethod
     def make_provider( provider, clear_cache=False, get_quotes=False, **kwargs):
         if provider == 'ib':
-            return IBDataProvider(expire_days=0, clear_cache=clear_cache)
+            return AsyncIBDataProvider(expire_days=0, clear_cache=clear_cache)
 
         elif provider == 'quandl':
             return CsvFileDataProvider(
