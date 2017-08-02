@@ -13,7 +13,7 @@ class Factory:
     @staticmethod
     def make_provider( provider, clear_cache=False, get_quotes=False, **kwargs):
         if provider == 'ib':
-            return AsyncIBDataProvider(expire_days=0, clear_cache=clear_cache)
+            return AsyncIBDataProvider()
 
         elif provider == 'quandl':
             return CsvFileDataProvider(

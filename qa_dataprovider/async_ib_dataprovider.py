@@ -37,36 +37,24 @@ class AsyncIBDataProvider(GenericDataProvider):
         self.timeout = timeout
 
     def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1) -> [pd.DataFrame]:
-        # 1. Connect
         self.ib = IB()
         self.ib.connect(self.host, self.port, clientId=self.client_id, timeout=self.timeout)
-        print("after connect")
+
         df_list = []
-        #loop = asyncio.get_event_loop()
+
         for ticker in tickers:
             df_list.append(self._get_data_internal(ticker, from_date, to_date, timeframe))
-            #df_list = loop.run_until_complete(asyncio.gather(
-            #    self._get_data_internal(ticker, from_date, to_date, timeframe)
-            #))
 
-            #df = asyncio.ensure_future(self._get_data_internal(ticker, from_date, to_date,
-            # timeframe))
-            #df_list.append()
-            # 2. call async get_data_internal for each ticker (Limit concurrency to max_workers)
-            # 3. then apply each post processing function
-
-        # 4. await
-        #loop.close()
-        # 5. disconnect()
         self.ib.disconnect()
         return df_list
 
     def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str)\
             -> pd.DataFrame:
-        #print("before")
-        #asyncio.sleep(5)
-        #print("after")
 
+        if timeframe != "day":
+            raise Exception("Not implemented")
+
+        self.logger.warning("Historical data is limited to 365 Days")
         #contract = Stock('OMXS30', 'OMS', 'SEK')
         #contract = Index("AD-NSD", "NASDAQ","USD")
         #contract = Index("COMP", "NASDAQ", "USD")
@@ -78,27 +66,28 @@ class AsyncIBDataProvider(GenericDataProvider):
         #contract = Forex(pair="USDSEK")
         #contract = Forex(pair="USDJPY")
         #contract = Future("ES","201709",exchange="GLOBEX")
-        if ticker == "N225":
-            contract = Index('N225', 'OSE.JPN', 'JPY')
-        if ticker == "OMXS30":
-            contract = Future("OMXS30","201708",exchange="OMS")
-        if ticker == "USDJPY":
-            contract = Forex(pair="USDJPY")
-        print("before")
+        #contract = Index('N225', 'OSE.JPN', 'JPY')
+        #contract = Future("OMXS30","201708",exchange="OMS")
+        #contract = Forex(pair="USDJPY")
 
+        contract = Stock(ticker,"ARCA","USD")
+        from_dt = datetime.strptime(from_date, '%Y-%m-%d')
+        to_dt = datetime.strptime(to_date, '%Y-%m-%d')
+        days = (to_dt-from_dt).days
         whatToShow = 'MIDPOINT' if isinstance(
             contract, (Forex, CFD, Commodity)) else 'TRADES'
-        date = self.ib.reqHeadTimeStamp(contract, whatToShow=whatToShow, useRTH=True)
-        print("Data from:", date)
+        #date = self.ib.reqHeadTimeStamp(contract, whatToShow=whatToShow, useRTH=True)
+        #print("Data from:", date)
         print("Before bars")
-        bars = self.ib.reqHistoricalData(
-            contract,
-            endDateTime='',
-            durationStr='60 D',
-            barSizeSetting='1 hour',
-            whatToShow=whatToShow,
-            useRTH=True,
-            formatDate=1)
+        bars = self.ib.reqDailyBars(contract, 2017)
+        # bars = self.ib.reqHistoricalData(
+        #     contract,
+        #     endDateTime=to_date,
+        #     durationStr=F'{days} D',
+        #     barSizeSetting='1 day',
+        #     whatToShow=whatToShow,
+        #     useRTH=True,
+        #     formatDate=1)
         #print("after")
         #print(tmp)
         print("after bars")
@@ -109,8 +98,11 @@ class AsyncIBDataProvider(GenericDataProvider):
 
 if __name__ == '__main__':
     ib = AsyncIBDataProvider()
-    dailys = ib.get_data(['N225'], '2010-01-01', '2016-12-31', max_workers=5,
-                         timeframe='week')
+    dailys = ib.get_data(['XLE', 'SPY','XPH'], '2010-01-01', '2016-12-31', max_workers=5)
+
+    #dailys = provider.get_data(['DIS', 'KO', 'BA', 'MSFT'], '2010-01-01', '2016-12-31',
+    #                           max_workers=5, timeframe='week')
+
     for df in dailys:
         print(df.head())
         print(df.tail())
