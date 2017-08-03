@@ -75,7 +75,7 @@ class GenericDataProvider(metaclass=ABCMeta):
 
         return dataframes
 
-    def _post_process(self, data, ticker,from_date, to_date, timeframe):
+    def _post_process(self, data, ticker, from_date, to_date, timeframe):
         func_args = {
             'ticker': ticker,
             'timeframe': timeframe,

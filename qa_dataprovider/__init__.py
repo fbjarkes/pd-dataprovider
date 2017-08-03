@@ -5,14 +5,14 @@ from qa_dataprovider.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.csv_dataprovider import CsvFileDataProvider
 from qa_dataprovider.web_dataprovider import CachedWebDataProvider
 
-AVAILABLE_PROVIDERS = ['google', 'yahoo','stooq','ib','ig','sql','quandl','nasdaq','infront']
+AVAILABLE_PROVIDERS = ['google', 'yahoo','stooq','ibasync','ig','sql','quandl','nasdaq','infront']
 
 
 class Factory:
 
     @staticmethod
     def make_provider( provider, clear_cache=False, get_quotes=False, **kwargs):
-        if provider == 'ib':
+        if provider == 'ibasync':
             return AsyncIBDataProvider()
 
         elif provider == 'quandl':

@@ -30,7 +30,7 @@ class AsyncIBDataProvider(GenericDataProvider):
         AsyncIBDataProvider.CLIENT_ID += 1
         return AsyncIBDataProvider.CLIENT_ID
 
-    def __init__(self, host: str="127.0.0.1", port: int= 7496, timeout: int=10):
+    def __init__(self, host: str='127.0.0.1', port: int= 7496, timeout: int=10):
         self.client_id = AsyncIBDataProvider.get_unique_id()
         self.port = port
         self.host = host
@@ -51,54 +51,51 @@ class AsyncIBDataProvider(GenericDataProvider):
     def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str)\
             -> pd.DataFrame:
 
-        if timeframe != "day":
+        if timeframe == 'day':
+
+            from_dt = datetime.strptime(from_date, "%Y-%m-%d")
+            to_dt = datetime.strptime(to_date, "%Y-%m-%d")
+            days = (to_dt-from_dt).days # TODO: Calendar days or trading days?
+
+            if days > 365:
+                self.logger.warning(F"Historical data is limited to 365 Days. "
+                                    F"Only requesting for year '{from_dt.year}'")
+                days = 365
+                to_dt = datetime(from_dt.year, 12, 31, 23, 59, 59)
+
+
+            if to_dt > datetime.today():
+                to_dt = None
+
+            contract = Stock(ticker,'ARCA','USD')
+
+            whatToShow = 'MIDPOINT' if isinstance(contract, (Forex, CFD, Commodity)) else 'TRADES'
+            #bars = self.ib.reqDailyBars(contract, 2016)
+            bars = self.ib.reqHistoricalData(contract, endDateTime=to_dt, durationStr=F"{days} D",
+                barSizeSetting="1 day",
+                whatToShow=whatToShow,
+                useRTH=True,
+                formatDate=1)
+
+            df = self.__to_dataframe(bars)
+            df = self._post_process(df, ticker.upper(), from_date, to_date, timeframe)
+
+            return df
+        else:
             raise Exception("Not implemented")
 
-        self.logger.warning("Historical data is limited to 365 Days")
-        #contract = Stock('OMXS30', 'OMS', 'SEK')
-        #contract = Index("AD-NSD", "NASDAQ","USD")
-        #contract = Index("COMP", "NASDAQ", "USD")
-        #contract = Index('OMXS30', 'OMS', 'SEK')
-        #contract = Stock('HM.B', 'SFB', 'SEK')
-        #contract = Stock('BA', 'NYSE', 'USD')
-        #contract = Index('TICK-NASD', 'NASDAQ', 'USD')
-        #contract = Forex(pair="EURGBP")
-        #contract = Forex(pair="USDSEK")
-        #contract = Forex(pair="USDJPY")
-        #contract = Future("ES","201709",exchange="GLOBEX")
-        #contract = Index('N225', 'OSE.JPN', 'JPY')
-        #contract = Future("OMXS30","201708",exchange="OMS")
-        #contract = Forex(pair="USDJPY")
-
-        contract = Stock(ticker,"ARCA","USD")
-        from_dt = datetime.strptime(from_date, '%Y-%m-%d')
-        to_dt = datetime.strptime(to_date, '%Y-%m-%d')
-        days = (to_dt-from_dt).days
-        whatToShow = 'MIDPOINT' if isinstance(
-            contract, (Forex, CFD, Commodity)) else 'TRADES'
-        #date = self.ib.reqHeadTimeStamp(contract, whatToShow=whatToShow, useRTH=True)
-        #print("Data from:", date)
-        print("Before bars")
-        bars = self.ib.reqDailyBars(contract, 2017)
-        # bars = self.ib.reqHistoricalData(
-        #     contract,
-        #     endDateTime=to_date,
-        #     durationStr=F'{days} D',
-        #     barSizeSetting='1 day',
-        #     whatToShow=whatToShow,
-        #     useRTH=True,
-        #     formatDate=1)
-        #print("after")
-        #print(tmp)
-        print("after bars")
-        return util.df(bars)
+    def __to_dataframe(self, bars):
+        data = [{'Date':pd.to_datetime(b.date), 'Open': b.open, 'High': b.high, 'Low': b.low,
+                      'Close':b.close, 'Volume':b.volume} for b in bars]
+        df = pd.DataFrame(data).set_index('Date')
+        return df
 
     def add_quotes(self, data, ticker):
-        pass
+        return data
 
 if __name__ == '__main__':
     ib = AsyncIBDataProvider()
-    dailys = ib.get_data(['XLE', 'SPY','XPH'], '2010-01-01', '2016-12-31', max_workers=5)
+    dailys = ib.get_data(['OMXS30'], '2017-01-01', '2017-05-31', max_workers=5)
 
     #dailys = provider.get_data(['DIS', 'KO', 'BA', 'MSFT'], '2010-01-01', '2016-12-31',
     #                           max_workers=5, timeframe='week')
