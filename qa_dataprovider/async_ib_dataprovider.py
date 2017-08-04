@@ -2,18 +2,10 @@
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
 import logging
-from datetime import datetime, timedelta
-import asyncio
+from datetime import datetime
 
-import dateutil.parser as dp
-import numpy as np
 import pandas as pd
-import pandas_datareader
-import pandas_datareader.data as web
-import requests_cache
-from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, util, Contract
-from pytz import timezone
-
+from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, BarData
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
 
@@ -51,9 +43,12 @@ class AsyncIBDataProvider(GenericDataProvider):
             -> pd.DataFrame:
 
         if timeframe == 'day':
-            bars = self.__get_daily(from_date, ticker, to_date)
+            symbol, bars = self.__get_daily(from_date, ticker, to_date)
             df = self.__to_dataframe(bars)
-            df = self._post_process(df, ticker.upper(), from_date, to_date, timeframe)
+            df = self._post_process(df, symbol, from_date, to_date, timeframe)
+
+            row = df.iloc[-1]
+            self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")
 
             return df
         else:
@@ -156,35 +151,7 @@ class AsyncIBDataProvider(GenericDataProvider):
         else:
             return Stock(symbol, exchange, currency)
 
-
-    # def __extract_symbol(self,  ticker: str, type: str='STK', exchange: str='ARCA',
-    #                      currency_or_expire: str='USD') -> tuple:
-    #     if ticker.count(':') == 3:
-    #         type, exchange, symbol, currency_or_expire = ticker.split(':')
-    #     elif ticker.count(':') == 2:
-    #         exchange, symbol, currency_or_expire = ticker.split(':')
-    #     elif ticker.count(':') == 1:
-    #         exchange, symbol = ticker.split(':')
-    #         if exchange == 'FX':
-    #             type = 'FX'
-    #
-    #     else:
-    #         symbol = ticker
-    #     return type, symbol, exchange, currency_or_expire
-    #
-    # def __create_contract(self, ticker) -> Contract:
-    #     type, symbol, exchange, currency_or_expire = self.__extract_symbol(ticker)
-    #
-    #     if type == 'FX':
-    #         return Forex(pair=symbol)
-    #     if type == 'IND':
-    #         return Index(symbol, exchange, currency_or_expire)
-    #     if type == 'FUT':
-    #         return Future(symbol, currency_or_expire, exchange=exchange)
-    #     else:
-    #         return Stock(symbol, exchange, currency_or_expire)
-
-    def __get_daily(self, from_date, ticker, to_date):
+    def __get_daily(self, from_date: str, ticker:str , to_date:str) -> (str, [BarData]):
         from_dt = datetime.strptime(from_date, "%Y-%m-%d")
         today = datetime.strptime(to_date, "%Y-%m-%d")
         to_dt = datetime(today.year, today.month, today.day, 23, 59, 59)
@@ -205,13 +172,12 @@ class AsyncIBDataProvider(GenericDataProvider):
                                          whatToShow=whatToShow,
                                          useRTH=True,
                                          formatDate=1)
-        return bars
+        return contract.symbol, bars
 
     def __to_dataframe(self, bars):
         data = [{'Date':pd.to_datetime(b.date), 'Open': b.open, 'High': b.high, 'Low': b.low,
                       'Close':b.close, 'Volume':b.volume} for b in bars]
         df = pd.DataFrame(data).set_index('Date')
-        print(df.tail())
         return df
 
     def add_quotes(self, data, ticker):
@@ -219,14 +185,7 @@ class AsyncIBDataProvider(GenericDataProvider):
 
 if __name__ == '__main__':
     ib = AsyncIBDataProvider()
-    #dailys = ib.get_data(['FUT:GLOBEX:ES:201709'],'2017-01-01', '2017-12-31', max_workers=5)
-    #dailys = ib.get_data(['SFB:HM.B:SEK'], '2017-01-01', '2017-12-31', max_workers=5)
-    dailys = ib.get_data(['IND:OMS:OMXS30:SEK','FX:USDJPY','SPY','FUT:GLOBEX:ES:201709','NYSE:BA','SFB:HM.B:SEK'],
-                          '2017-01-01', '2017-12-31', max_workers=5)
-
-    #dailys = provider.get_data(['DIS', 'KO', 'BA', 'MSFT'], '2010-01-01', '2016-12-31',
-    #                           max_workers=5, timeframe='week')
-
+    dailys = ib.get_data(['OMXS30-IND-OMS-SEK'], '2017-01-01', '2017-12-31')
     for df in dailys:
         print(df.head())
         print(df.tail())
