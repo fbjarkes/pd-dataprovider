@@ -5,7 +5,7 @@ from qa_dataprovider.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.csv_dataprovider import CsvFileDataProvider
 from qa_dataprovider.web_dataprovider import CachedWebDataProvider
 
-AVAILABLE_PROVIDERS = ['google', 'yahoo','stooq','ibasync','ig','sql','quandl','nasdaq','infront']
+AVAILABLE_PROVIDERS = ['google', 'yahoo','ibasync','sql','quandl','infront']
 
 
 class Factory:
