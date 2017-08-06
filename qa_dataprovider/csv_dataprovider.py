@@ -63,10 +63,17 @@ class CsvFileDataProvider(GenericDataProvider):
 
 
 if __name__ == '__main__':
-    paths = ["/home/fbjarkes/Dropbox/quandl/spy", "/home/fbjarkes/Dropbox/quandl/ndx",
-             "/home/fbjarkes/Dropbox/quandl/iwm"]
+    # paths = ["/home/fbjarkes/Dropbox/quandl/spy", "/home/fbjarkes/Dropbox/quandl/ndx",
+    #          "/home/fbjarkes/Dropbox/quandl/iwm"]
+    # provider = CsvFileDataProvider(paths)
+    # dailys = provider.get_data(['DIS','KO','BA','MSFT'], '2010-01-01', '2016-12-31',
+    #                            max_workers=5, timeframe='week')
+    # print(dailys[0].tail())
+    # print(dailys[1].tail())
+
+    paths = ['/home/fbjarkes/Dropbox/ib/']
     provider = CsvFileDataProvider(paths)
-    dailys = provider.get_data(['DIS','KO','BA','MSFT'], '2010-01-01', '2016-12-31',
-                               max_workers=5, timeframe='week')
-    print(dailys[0].tail())
-    print(dailys[1].tail())
+    dailys = provider.get_data(['USDJPY'], '2010-01-01', '2016-12-31',
+                               max_workers=5, timeframe='day')
+    print(dailys[0])
+    # print(dailys[1].tail())

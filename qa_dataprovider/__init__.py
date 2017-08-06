@@ -5,7 +5,7 @@ from qa_dataprovider.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.csv_dataprovider import CsvFileDataProvider
 from qa_dataprovider.web_dataprovider import CachedWebDataProvider
 
-AVAILABLE_PROVIDERS = ['google', 'yahoo','ibasync','sql','quandl','infront']
+AVAILABLE_PROVIDERS = ['google', 'yahoo','ibasync', 'ibfile','sql','quandl','infront']
 
 
 class Factory:
@@ -15,9 +15,18 @@ class Factory:
         if provider == 'ibasync':
             return AsyncIBDataProvider()
 
+        elif provider == 'ibfile':
+            return CsvFileDataProvider(
+                [
+                    '../../quandl/ib',
+                    '../quandl/ib',
+                ])
+
         elif provider == 'quandl':
             return CsvFileDataProvider(
                 [
+                    '../../quandl/ib',
+                    '../quandl/ib',
                     '../../quandl/iwm',
                     '../quandl/iwm',
                     '../../quandl/spy',
