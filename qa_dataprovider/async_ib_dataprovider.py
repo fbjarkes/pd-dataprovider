@@ -177,8 +177,12 @@ class AsyncIBDataProvider(GenericDataProvider):
     def __to_dataframe(self, bars):
         data = [{'Date':pd.to_datetime(b.date), 'Open': b.open, 'High': b.high, 'Low': b.low,
                       'Close':b.close, 'Volume':b.volume} for b in bars]
-        df = pd.DataFrame(data).set_index('Date')
-        return df
+
+        if len(data) > 0:
+            return pd.DataFrame(data).set_index('Date')
+        else:
+            return pd.DataFrame()
+
 
     def add_quotes(self, data, ticker):
         return data
