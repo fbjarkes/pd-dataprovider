@@ -48,6 +48,8 @@ class AsyncIBDataProvider(GenericDataProvider):
 
         if timeframe == 'day':
             symbol, bars = self.__get_daily(from_date, ticker, to_date)
+            #TODO: use symbol from ticker instead
+            symbol = ticker.split('-')[0]
             df = self.__to_dataframe(bars)
             df = self._post_process(df, symbol, from_date, to_date, timeframe)
 

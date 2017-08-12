@@ -8,6 +8,40 @@ import pandas as pd
 from qa_dataprovider import AsyncIBDataProvider
 
 
+
+#!/usr/bin/env python3
+# -*- coding: utf-8; py-indent-offset:4 -*-
+
+
+import click
+import pandas as pd
+
+from qa_dataprovider import AsyncIBDataProvider
+
+
+@click.command()
+@click.option('--file', type=click.Path(exists=True), help="Read tickers from file")
+@click.option('--timeframe')
+def ib_intraday(file, timeframe):
+
+    ib = AsyncIBDataProvider()
+
+    tickers = []
+    with open(file) as f:
+        tickers = [ticker.rstrip() for ticker in f.readlines()]
+
+    df_list = ib.get_data(tickers, from_date=None, to_date=None, timeframe=timeframe)
+
+    for i, df in enumerate(df_list):
+        if len(df) > 0:
+            last_date = df.index[-1].name
+            name = f"{df[0]['Ticker']}_{last_date}"
+            print(f"Writing {len(df)} rows to {name}.csv")
+            df.to_csv(f"{name}.csv", header=True)
+        else:
+            print(f"No data for '{tickers[i]}'")
+
+
 @click.command()
 @click.option('--years', default="2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,"
                                  "2004,2003,2002,2001,2000", help="Comma separated list of years",
@@ -67,6 +101,7 @@ def main(tickers: str, years: str):
     ib = AsyncIBDataProvider()
 
     total = pd.DataFrame()
+    #TODO: do all tickers in one call
     for i, y in enumerate(years.split(',')):
         try:
             df = ib.get_data([tickers], f'{y}-01-01', f'{y}-12-31')
