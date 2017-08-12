@@ -2,41 +2,45 @@
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
 import logging
+import traceback
 from datetime import datetime
+import random
 
 import pandas as pd
+import sys
 from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, BarData
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
 
 class AsyncIBDataProvider(GenericDataProvider):
 
-    CLIENT_ID = 0
-
     logging.basicConfig(level=logging.DEBUG, format='%(filename)s: %(message)s')
     logger = logging
 
-    @staticmethod
-    def get_unique_id():
-        AsyncIBDataProvider.CLIENT_ID += 1
-        return AsyncIBDataProvider.CLIENT_ID
-
     def __init__(self, host: str='127.0.0.1', port: int= 7496, timeout: int=60):
-        self.client_id = AsyncIBDataProvider.get_unique_id()
         self.port = port
         self.host = host
         self.timeout = timeout
 
     def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1) -> [pd.DataFrame]:
         self.ib = IB()
-        self.ib.connect(self.host, self.port, clientId=self.client_id, timeout=self.timeout)
+
+        self.ib.connect(self.host, self.port, clientId=int(random.uniform(1,1000)),
+                        timeout=self.timeout)
 
         df_list = []
 
         for ticker in tickers:
-            df_list.append(self._get_data_internal(ticker, from_date, to_date, timeframe))
+            try:
+                df_list.append(self._get_data_internal(ticker, from_date, to_date, timeframe))
+            except Exception as exc:
+                traceback.print_exc(file=sys.stderr)
+                self.logger.warning("Skipping {}: error message: {}".format(ticker, exc))
 
         self.ib.disconnect()
+
+        self.errors = len(df_list) - len(tickers)
+
         return df_list
 
     def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str)\
