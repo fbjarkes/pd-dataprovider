@@ -19,18 +19,18 @@ import pandas as pd
 from qa_dataprovider import AsyncIBDataProvider
 
 
-@click.command()
+#@click.command()
 @click.option('--file', type=click.Path(exists=True), help="Read tickers from file")
 @click.option('--timeframe')
 def main(file, timeframe):
 
     ib = AsyncIBDataProvider()
 
-    tickers = []
-    with open(file) as f:
-        tickers = [ticker.rstrip() for ticker in f.readlines()]
+    #tickers = []
+    #with open(file) as f:
+    #    tickers = [ticker.rstrip() for ticker in f.readlines()]
 
-
+    tickers = ['SPY']
     df_list = ib.get_data(tickers, from_date=None, to_date=None, timeframe=timeframe)
 
     for i, df in enumerate(df_list):
@@ -46,6 +46,8 @@ def main(file, timeframe):
 
 
 if __name__ == '__main__':
-    main()
+    #main()
+
+    main(None, "5min")
 
 
