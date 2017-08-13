@@ -21,14 +21,22 @@ class AsyncIBDataProvider(GenericDataProvider):
         self.port = port
         self.host = host
         self.timeout = timeout
-
-    def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1) -> [pd.DataFrame]:
         self.ib = IB()
 
-        self.ib.connect(self.host, self.port, clientId=int(random.uniform(1,1000)),
-                        timeout=self.timeout)
+    def disconnect(self):
+        self.ib.disconnect()
+
+    def connect(self):
+        self.ib.connect(self.host, self.port, clientId=int(random.uniform(1, 1000)),
+                       timeout=self.timeout)
+
+    def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1,
+                 keep_alive=False) -> [pd.DataFrame]:
 
         df_list = []
+
+        if not keep_alive:
+            self.connect()
 
         for ticker in tickers:
             try:
@@ -37,7 +45,8 @@ class AsyncIBDataProvider(GenericDataProvider):
                 traceback.print_exc(file=sys.stderr)
                 self.logger.warning("Skipping {}: error message: {}".format(ticker, exc))
 
-        self.ib.disconnect()
+        if not keep_alive:
+            self.ib.disconnect()
 
         self.errors = len(df_list) - len(tickers)
 
@@ -48,7 +57,6 @@ class AsyncIBDataProvider(GenericDataProvider):
 
         if timeframe == 'day':
             symbol, bars = self.__get_daily(from_date, ticker, to_date)
-            #TODO: use symbol from ticker instead
             symbol = ticker.split('-')[0]
             df = self.__to_dataframe(bars)
             df = self._post_process(df, symbol, from_date, to_date, timeframe)

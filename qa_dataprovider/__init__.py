@@ -18,15 +18,13 @@ class Factory:
         elif provider == 'ibfile':
             return CsvFileDataProvider(
                 [
-                    '../../quandl/ib',
-                    '../quandl/ib',
+                    '../../ibfile',
+                    '../ibfile',
                 ])
 
         elif provider == 'quandl':
             return CsvFileDataProvider(
                 [
-                    '../../quandl/ib',
-                    '../quandl/ib',
                     '../../quandl/iwm',
                     '../quandl/iwm',
                     '../../quandl/spy',
@@ -49,13 +47,6 @@ class Factory:
                 [
                     '../../nasdaq',
                     '../infront'
-                ])
-
-        elif provider == 'stooq':
-            return CsvFileDataProvider(
-                [
-                    '../../stooq',
-                    '../stooq'
                 ])
 
         elif provider == 'sql':
