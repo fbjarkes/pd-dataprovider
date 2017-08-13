@@ -25,7 +25,13 @@ from qa_dataprovider import AsyncIBDataProvider
               show_default=True)
 @click.option('--ticker', default="SPY", help="Only one ticker.",
               show_default=True)
-def main(ticker: str, years: str):
+@click.option('--host', default="127.0.0.1", help="IB host",
+              show_default=True)
+@click.option('--port', default="7496", help="IB port", type=click.INT,
+              show_default=True)
+@click.option('--timeout', default="60", help="IB connection timout", type=click.INT,
+              show_default=True)
+def main(ticker: str, years: str, host: str, port: int, timeout: int):
     """
     TICKER # Stock type and SMART exchange
 
@@ -75,7 +81,7 @@ def main(ticker: str, years: str):
     :param years:
     :return:
     """
-    ib = AsyncIBDataProvider()
+    ib = AsyncIBDataProvider(host, port, timeout)
     ib.connect()
 
     total = pd.DataFrame()
