@@ -3,7 +3,7 @@
 
 import logging
 import traceback
-from datetime import datetime
+from datetime import datetime, timedelta
 import random
 
 import pandas as pd
@@ -31,7 +31,7 @@ class AsyncIBDataProvider(GenericDataProvider):
                        timeout=self.timeout)
 
     def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1,
-                 keep_alive=False) -> [pd.DataFrame]:
+                 keep_alive=False, transform: str='day') -> [pd.DataFrame]:
 
         df_list = []
 
@@ -40,7 +40,8 @@ class AsyncIBDataProvider(GenericDataProvider):
 
         for ticker in tickers:
             try:
-                df_list.append(self._get_data_internal(ticker, from_date, to_date, timeframe))
+                df_list.append(self._get_data_internal(ticker, from_date, to_date, timeframe,
+                                                       transform))
             except Exception as exc:
                 traceback.print_exc(file=sys.stderr)
                 self.logger.warning("Skipping {}: error message: {}".format(ticker, exc))
@@ -52,8 +53,8 @@ class AsyncIBDataProvider(GenericDataProvider):
 
         return df_list
 
-    def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str)\
-            -> pd.DataFrame:
+    def _get_data_internal(self, ticker: str, from_date: str, to_date: str,
+                           timeframe: str, transform: str='day') -> pd.DataFrame:
 
         if timeframe == 'day':
             symbol, bars = self.__get_daily(from_date, ticker, to_date)
@@ -65,8 +66,31 @@ class AsyncIBDataProvider(GenericDataProvider):
             self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")
 
             return df
+        elif timeframe == '5min':
+            if to_date is None:
+                to_date = f"{(datetime.now()):%Y-%m-%d}"
+            to_dt = datetime.strptime(to_date, "%Y-%m-%d")
+
+            if from_date is not None:
+                from_dt = datetime.strptime(from_date, "%Y-%m-%d")
+                if (to_dt - from_dt).days >= 30:
+                    duration = '30 D'
+                    from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
+            else:
+                from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
+                duration = '30 D'
+
+            symbol, bars = self.__get_intraday(ticker, to_date, duration, '5 mins')
+            symbol = ticker.split('-')[0]
+            df = self.__to_dataframe(bars)
+            #df = pd.DataFrame.from_csv("SPY.csv")
+
+            row = df.iloc[-1]
+            df = self._post_process(df, symbol, from_date, to_date, timeframe, transform=transform)
+            #self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")
+            return df
         else:
-            raise Exception("Not implemented")
+            raise Exception(f"{timeframe} not implemented!")
 
     @staticmethod
     def exctract_symbol(ticker: str, type: str='STK', exchange: str='ARCA',
@@ -165,14 +189,28 @@ class AsyncIBDataProvider(GenericDataProvider):
         else:
             return Stock(symbol, exchange, currency)
 
+
+    def __get_intraday(self, ticker: str, to_date: str,duration: str,
+                       barsize:str) -> (str, [BarData]):
+        to_dt = datetime.strptime(f"{to_date} 11:59", '%Y-%m-%d %H:%M')
+        contract = AsyncIBDataProvider.parse_contract(ticker)
+        whatToShow = 'MIDPOINT' if isinstance(contract, (Forex, CFD, Commodity)) else 'TRADES'
+        bars = self.ib.reqHistoricalData(contract, endDateTime=to_dt, durationStr=duration,
+                                         barSizeSetting=barsize,
+                                         whatToShow=whatToShow,
+                                         useRTH=False,
+                                         formatDate=1)
+        return contract.symbol, bars
+
+
     def __get_daily(self, from_date: str, ticker:str , to_date:str) -> (str, [BarData]):
         from_dt = datetime.strptime(from_date, "%Y-%m-%d")
         today = datetime.strptime(to_date, "%Y-%m-%d")
         to_dt = datetime(today.year, today.month, today.day, 23, 59, 59)
         days = (to_dt - from_dt).days
         if days > 365:
-            self.logger.warning(F"Historical data is limited to 365 Days. "
-                                F"Only requesting for year '{from_dt.year}'")
+            self.logger.warning(f"Historical data is limited to 365 Days. "
+                                f"Only requesting for year '{from_dt.year}'")
             days = 365
             to_dt = datetime(from_dt.year, 12, 31, 23, 59, 59)
         if to_dt > datetime.today():
@@ -182,7 +220,7 @@ class AsyncIBDataProvider(GenericDataProvider):
         whatToShow = 'MIDPOINT' if isinstance(contract, (Forex, CFD, Commodity)) else 'TRADES'
         # bars = self.ib.reqDailyBars(contract, 2016)
         bars = self.ib.reqHistoricalData(contract, endDateTime=to_dt, durationStr=F"{days} D",
-                                         barSizeSetting="1 day",
+                                         barSizeSetting='1 day',
                                          whatToShow=whatToShow,
                                          useRTH=True,
                                          formatDate=1)

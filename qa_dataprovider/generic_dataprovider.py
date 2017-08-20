@@ -75,7 +75,7 @@ class GenericDataProvider(metaclass=ABCMeta):
 
         return dataframes
 
-    def _post_process(self, data, ticker, from_date, to_date, timeframe):
+    def _post_process(self, data, ticker, from_date, to_date, timeframe, **kwargs):
         func_args = {
             'ticker': ticker,
             'timeframe': timeframe,
@@ -83,7 +83,7 @@ class GenericDataProvider(metaclass=ABCMeta):
             'to': to_date,
             'provider': self,
         }
-
+        func_args.update(**kwargs)
         # Post process data in this order:
         funcs = [self.post_processor.filter_dates,
                  self.post_processor.validate,

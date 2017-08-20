@@ -1,53 +1,29 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
-
-import click
-import pandas as pd
-
 from qa_dataprovider import AsyncIBDataProvider
 
 
-
-#!/usr/bin/env python3
-# -*- coding: utf-8; py-indent-offset:4 -*-
-
-
-import click
-import pandas as pd
-
-from qa_dataprovider import AsyncIBDataProvider
-
-
-#@click.command()
-@click.option('--file', type=click.Path(exists=True), help="Read tickers from file")
-@click.option('--timeframe')
-def main(file, timeframe):
-
+def download(file, timeframe, transform):
     ib = AsyncIBDataProvider()
+    with open(file) as f:
+        tickers = [ticker.rstrip() for ticker in f.readlines()]
 
-    #tickers = []
-    #with open(file) as f:
-    #    tickers = [ticker.rstrip() for ticker in f.readlines()]
-
-    tickers = ['SPY']
-    df_list = ib.get_data(tickers, from_date=None, to_date=None, timeframe=timeframe)
+    df_list = ib.get_data(tickers, from_date=None, to_date=None,
+                          timeframe=timeframe,
+                          transform=transform)
 
     for i, df in enumerate(df_list):
         if len(df) > 0:
-            #last_date = df.index[-1].name
-            #name = f"{df[0]['Ticker']}_{last_date}"
-
-            name = f"{df[0]['Ticker']}"
+            name = f"{df['Ticker'].iloc[0]}"
             print(f"Writing {len(df)} rows to {name}.csv")
-            df.to_csv(f"{name}.csv", header=True)
+            df.to_csv(f"{name}.csv", header=True,
+                      columns=['Open','High','Low','Close','Volume','Ticker'])
         else:
             print(f"No data for '{tickers[i]}'")
 
 
 if __name__ == '__main__':
-    #main()
-
-    main(None, "5min")
+    download(None, "5min",'5min')
 
 

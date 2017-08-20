@@ -24,6 +24,10 @@ class PostProcessor:
 
         if kwargs['timeframe'] == 'month':
             data = self._transform_month(data)
+        if 'transform' in kwargs:
+            if kwargs['transform'] != kwargs['timeframe']:
+                # TODO: transform
+                raise Exception(f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")
 
         return data
 
