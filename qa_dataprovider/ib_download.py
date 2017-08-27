@@ -7,7 +7,7 @@ from qa_dataprovider import AsyncIBDataProvider
 def download(file, timeframe, transform):
     ib = AsyncIBDataProvider()
     with open(file) as f:
-        tickers = [ticker.rstrip() for ticker in f.readlines()]
+        tickers = list(filter(lambda x: x[0] != '#',[ticker.rstrip() for ticker in f.readlines()]))
 
     df_list = ib.get_data(tickers, from_date=None, to_date=None,
                           timeframe=timeframe,

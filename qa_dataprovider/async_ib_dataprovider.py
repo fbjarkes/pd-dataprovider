@@ -94,9 +94,15 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     @staticmethod
     def exctract_symbol(ticker: str, type: str='STK', exchange: str='ARCA',
-                        currency: str= 'USD', expire='') -> tuple:
+                        currency: str= 'USD', expire='', multiplier='') -> tuple:
 
-        if ticker.count('-') == 3:
+        if ticker.count('-') == 4:
+            symbol, type, exchange, currency, multiplier = ticker.split('-')
+            if type.isdigit():
+                expire = type
+                type = "FUT"
+
+        elif ticker.count('-') == 3:
             symbol, type, exchange, currency = ticker.split('-')
             if type.isdigit():
                 expire = type
@@ -124,7 +130,7 @@ class AsyncIBDataProvider(GenericDataProvider):
         else:
             symbol = ticker
 
-        return type, symbol, exchange, currency, expire
+        return type, symbol, exchange, currency, expire, multiplier
 
     @staticmethod
     def parse_contract(ticker):
@@ -177,15 +183,15 @@ class AsyncIBDataProvider(GenericDataProvider):
         
         :return: 
         """
-        contract_type, symbol, exchange, currency, expire = AsyncIBDataProvider.exctract_symbol(
-            ticker)
+        contract_type, symbol, exchange, currency, expire, multiplier = \
+            AsyncIBDataProvider.exctract_symbol(ticker)
 
         if contract_type == 'FX':
             return Forex(pair=symbol)
         if contract_type == 'IND':
             return Index(symbol, exchange, currency)
         if contract_type == 'FUT':
-            return Future(symbol, expire, exchange, currency=currency)
+            return Future(symbol, expire, exchange, currency=currency, multiplier=multiplier)
         else:
             return Stock(symbol, exchange, currency)
 
