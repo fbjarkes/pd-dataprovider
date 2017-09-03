@@ -40,7 +40,8 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         pass
 
-    def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1):
+    def get_data(self, tickers, from_date, to_date, timeframe='day', transform='day',
+                 max_workers=1):
         """
         Fetch a dataframe for each ticker, using the internal method with multiple threads
         
@@ -54,8 +55,8 @@ class GenericDataProvider(metaclass=ABCMeta):
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {
                 executor.submit(self._get_data_internal,
-                                ticker, from_date, to_date, timeframe): ticker for ticker in
-                tickers}
+                                ticker, from_date, to_date, timeframe, transform): ticker for
+                ticker in tickers}
 
             for future in concurrent.futures.as_completed(futures):
                 ticker = futures[future]
@@ -75,10 +76,11 @@ class GenericDataProvider(metaclass=ABCMeta):
 
         return dataframes
 
-    def _post_process(self, data, ticker, from_date, to_date, timeframe, **kwargs):
+    def _post_process(self, data, ticker, from_date, to_date, timeframe, transform, **kwargs):
         func_args = {
             'ticker': ticker,
             'timeframe': timeframe,
+            'transform': transform,
             'from': from_date,
             'to': to_date,
             'provider': self,

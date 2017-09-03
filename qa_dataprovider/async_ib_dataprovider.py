@@ -60,7 +60,7 @@ class AsyncIBDataProvider(GenericDataProvider):
             symbol, bars = self.__get_daily(from_date, ticker, to_date)
             symbol = ticker.split('-')[0]
             df = self.__to_dataframe(bars)
-            df = self._post_process(df, symbol, from_date, to_date, timeframe)
+            df = self._post_process(df, symbol, from_date, to_date, timeframe, transform)
 
             row = df.iloc[-1]
             self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")

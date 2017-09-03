@@ -29,7 +29,7 @@ class WebDataProvider(GenericDataProvider):
 
 
     #TODO: memoize call?
-    def _get_data_internal(self, ticker, from_date, to_date, timeframe):
+    def _get_data_internal(self, ticker, from_date, to_date, timeframe, transform):
         ticker = ticker.upper()
         logger.info("%s: %s to %s, provider=%s" % (ticker, from_date, to_date, self.provider))
 
@@ -43,7 +43,7 @@ class WebDataProvider(GenericDataProvider):
         else:
             data = web.DataReader(ticker, self.provider, start=start, end=end, session=self.session, pause=1)
 
-        return self._post_process(data, ticker, from_date, to_date, timeframe)
+        return self._post_process(data, ticker, from_date, to_date, timeframe, transform)
 
     def _get_today_est(self):
         """

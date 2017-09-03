@@ -19,15 +19,15 @@ class PostProcessor:
         return pd.DataFrame(data[from_date:to_date])
 
     def transform_timeframe(self, data, kwargs):
-        if kwargs['timeframe'] == 'week':
-            data = self._transform_week(data)
+        if kwargs['timeframe'] == 'day':
+            if kwargs['transform'] == 'week':
+                data = self._transform_week(data)
 
-        if kwargs['timeframe'] == 'month':
-            data = self._transform_month(data)
-        if 'transform' in kwargs:
-            if kwargs['transform'] != kwargs['timeframe']:
-                # TODO: transform
-                raise Exception(f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")
+            if kwargs['transform'] == 'month':
+                data = self._transform_month(data)
+        else:
+            raise Exception(
+                f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")
 
         return data
 
