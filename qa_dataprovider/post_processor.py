@@ -16,6 +16,7 @@ class PostProcessor:
     def filter_dates(self, data, kwargs):
         from_date = kwargs['from']
         to_date = kwargs['to']
+
         return pd.DataFrame(data[from_date:to_date])
 
     def transform_timeframe(self, data, kwargs):
@@ -25,10 +26,12 @@ class PostProcessor:
 
             if kwargs['transform'] == 'month':
                 data = self._transform_month(data)
+        elif kwargs['transform'] == kwargs['timeframe']:
+            # Nothing to do
+            pass
         else:
             raise Exception(
                 f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")
-
         return data
 
     def validate(self, data, kwargs):
