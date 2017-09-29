@@ -26,9 +26,8 @@ class PostProcessor:
 
             if kwargs['transform'] == 'month':
                 data = self._transform_month(data)
-        elif kwargs['transform'] == kwargs['timeframe']:
-            # Nothing to do
-            pass
+        elif kwargs['timeframe'] == kwargs['transform']:
+            pass # Let it pass regardless of timeframe
         else:
             raise Exception(
                 f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")
@@ -95,7 +94,6 @@ class PostProcessor:
     def add_trading_days(self, data, kwargs):
         if kwargs['timeframe'] == 'day':
             data = self.__add_trading_days(data, "Day")
-
         return data
 
     def __add_trading_days(self, df, column_name):
