@@ -8,11 +8,14 @@ import random
 
 import pandas as pd
 import sys
+import pytz
 from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, BarData
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
 
 class AsyncIBDataProvider(GenericDataProvider):
+
+    us_eastern = pytz.timezone('America/New_York')
 
     logging.basicConfig(level=logging.DEBUG, format='%(filename)s: %(message)s')
     logger = logging
@@ -205,7 +208,7 @@ class AsyncIBDataProvider(GenericDataProvider):
                                          barSizeSetting=barsize,
                                          whatToShow=whatToShow,
                                          useRTH=False,
-                                         formatDate=1)
+                                         formatDate=2)
         return contract.symbol, bars
 
 
@@ -233,8 +236,9 @@ class AsyncIBDataProvider(GenericDataProvider):
         return contract.symbol, bars
 
     def __to_dataframe(self, bars):
-        data = [{'Date':pd.to_datetime(b.date), 'Open': b.open, 'High': b.high, 'Low': b.low,
-                      'Close':b.close, 'Volume':b.volume} for b in bars]
+        data = [{'Date':pd.to_datetime(b.date.astimezone(self.us_eastern).replace(tzinfo=None)),
+                 'Open': b.open, 'High': b.high, 'Low': b.low, 'Close':b.close,
+                 'Volume':b.volume} for b in bars]
 
         if len(data) > 0:
             return pd.DataFrame(data).set_index('Date')
