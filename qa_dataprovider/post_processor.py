@@ -19,6 +19,12 @@ class PostProcessor:
 
         return pd.DataFrame(data[from_date:to_date])
 
+    def filter_rth(self, data, kwargs):
+        if 'rth' in kwargs:
+            return data.between_time('09:30', '16:00')
+        else:
+            return data
+
     def transform_timeframe(self, data, kwargs):
         if kwargs['timeframe'] == 'day':
             if kwargs['transform'] == 'week':
@@ -36,6 +42,7 @@ class PostProcessor:
     def validate(self, data, kwargs):
         self.validator.validate_nan(data, kwargs['ticker'])
         self.validator.validate_dates(data, kwargs['ticker'], kwargs['from'], kwargs['to'])
+        self.validator.validate_timeframe(data, kwargs['timeframe'])
         return data
 
     def add_quotes(self, data, kwargs):

@@ -27,3 +27,10 @@ class Validator:
         if ((nyse_days / len(data)) - 1) > 0.2:
             logger.warning("WARNING: {:s} has only {:d} rows, expecting approx. {:d} rows"
                            .format(ticker, len(data), nyse_days))
+
+    def validate_timeframe(self, df, timeframe):
+        delta = (df.index[1] - df.index[0])
+        if delta.seconds == 300 and timeframe != '5min':
+            raise Exception(f"Timeframe missmatch: expected '{timeframe}' but have {delta.seconds} "
+                            f"seconds")
+

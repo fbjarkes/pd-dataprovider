@@ -4,6 +4,7 @@
 from qa_dataprovider.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.csv_dataprovider import CsvFileDataProvider
 from qa_dataprovider.web_dataprovider import CachedWebDataProvider
+from qa_dataprovider.sql_dataprovider import SQLDataProvider
 
 AVAILABLE_PROVIDERS = ['google', 'yahoo','ibasync', 'ibfile','sql','quandl','infront']
 
@@ -50,8 +51,11 @@ class Factory:
                 ])
 
         elif provider == 'sql':
-            raise Exception("Not implemented yet")
-
+            return SQLDataProvider(
+                [
+                    '../../sql/tickdata_5min.db',
+                    '../sql/tickdata_5min.db'
+                ])
         elif provider == 'ig':
             raise Exception("Not implemented yet")
 
