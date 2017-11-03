@@ -30,7 +30,9 @@ class Factory:
                     '../../quandl/spy',
                     '../quandl/spy',
                     '../../quandl/ndx',
-                    '../quandl/ndx'
+                    '../quandl/ndx',
+                    '../quandl/chris',
+                    '../../quandl/chris'
                 ])
 
         elif provider == 'infront':
