@@ -37,7 +37,7 @@ class CsvFileDataProvider(GenericDataProvider):
         self.paths = paths
         self.prefix = prefix
 
-    def _get_data_internal(self, ticker, from_date, to_date, timeframe, transform):
+    def _get_data_internal(self, ticker, from_date, to_date, timeframe, transform, **kwargs):
         for path in self.paths:
             filenames = ["{}/{}_{}.{}".format(path, prefix, ticker,'csv') for prefix in self.prefix]
             filenames.append("{}/{}.{}".format(path,ticker,'csv'))
@@ -50,7 +50,8 @@ class CsvFileDataProvider(GenericDataProvider):
                         df = df.set_index(pd.DatetimeIndex(df['Date'])).sort_index()
                         self.logger.info("{}, {:d} rows ({} to {})"
                                           .format(f.name, len(df), df.index[0], df.index[-1]))
-                        return self._post_process(df, ticker, from_date, to_date, timeframe, transform)
+                        return self._post_process(df, ticker, from_date, to_date, timeframe,
+                                                  transform, **kwargs)
 
         self.logger.info("{} not found in {}".format(ticker, self.paths))
 
