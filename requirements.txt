@@ -4,3 +4,4 @@ pandas_datareader
 pytz
 pandas-market-calendars
 urllib3
+#ib_insync # python 3.6

@@ -32,6 +32,9 @@ class PostProcessor:
 
             if kwargs['transform'] == 'month':
                 data = self._transform_month(data)
+        if kwargs['timeframe'] == '5min':
+            if kwargs['transform'] == '1h':
+                data = self._transform_hour(data)
         elif kwargs['timeframe'] == kwargs['transform']:
             pass # Let it pass regardless of timeframe
         else:
@@ -72,6 +75,16 @@ class PostProcessor:
         sorted = dataframes.sort_index()
 
         return sorted
+
+    def _transform_hour(self, data):
+        conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
+        # TODO: remove 16:00 bar? Official close is Open of 16:00 bar?
+        # TODO: if RTH modify first datetime index each day to '9:30' (data is correct but looks odd)
+
+        resampled = data.resample('60Min', how=conversion, base=0)
+
+        return resampled.dropna()
+
 
     def _transform_month(self, data):
 

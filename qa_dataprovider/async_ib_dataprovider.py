@@ -21,6 +21,7 @@ class AsyncIBDataProvider(GenericDataProvider):
     logger = logging
 
     def __init__(self, host: str='127.0.0.1', port: int= 7496, timeout: int=60):
+    #def __init__(self, host: str='192.168.10.187', port: int= 7496, timeout: int=60):
         self.port = port
         self.host = host
         self.timeout = timeout
