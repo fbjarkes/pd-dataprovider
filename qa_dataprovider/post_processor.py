@@ -29,10 +29,9 @@ class PostProcessor:
         if kwargs['timeframe'] == 'day':
             if kwargs['transform'] == 'week':
                 data = self._transform_week(data)
-
             if kwargs['transform'] == 'month':
                 data = self._transform_month(data)
-        if kwargs['timeframe'] == '5min':
+        elif kwargs['timeframe'] == '5min':
             if kwargs['transform'] == '1h':
                 data = self._transform_hour(data)
         elif kwargs['timeframe'] == kwargs['transform']:
