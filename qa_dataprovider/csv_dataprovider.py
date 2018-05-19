@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
 
@@ -12,10 +12,10 @@ import pandas as pd
 
 class CsvFileDataProvider(GenericDataProvider):
     """
-    #https://www.quandl.com/search?query=
-
-    #Download:
-    #for i in `cat ~/Dropbox/tickers/ndx.txt`; do wget https://www.quandl.com/api/v3/datasets/WIKI/$i.csv ; done
+    Expecting data in the following format (case sensitive):
+        Date,Open,High,Low,Close,Change,Settle,Volume,Previous Day Open Interest
+        2017-11-02,54.53,55.1,54.27,55.04,0.29,54.89,35326.0,95525.0
+        ...
     """
 
     logging.basicConfig(level=logging.DEBUG, format='%(filename)s: %(message)s')

@@ -12,7 +12,6 @@ import pytz
 from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, BarData
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
-
 class AsyncIBDataProvider(GenericDataProvider):
 
     us_eastern = pytz.timezone('America/New_York')
