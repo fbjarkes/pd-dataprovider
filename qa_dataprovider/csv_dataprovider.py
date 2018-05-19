@@ -12,7 +12,8 @@ import pandas as pd
 
 class CsvFileDataProvider(GenericDataProvider):
     """
-    Expecting data in the following format (case sensitive):
+    Expecting data to have Columns (case sensitive): Date, Open, High, Low, Close, Volume
+    Example:
         Date,Open,High,Low,Close,Change,Settle,Volume,Previous Day Open Interest
         2017-11-02,54.53,55.1,54.27,55.04,0.29,54.89,35326.0,95525.0
         ...
