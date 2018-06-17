@@ -16,7 +16,6 @@ class PostProcessor:
     def filter_dates(self, data, kwargs):
         from_date = kwargs['from']
         to_date = kwargs['to']
-
         return pd.DataFrame(data[from_date:to_date])
 
     def filter_rth(self, data, kwargs):
@@ -36,6 +35,9 @@ class PostProcessor:
                 data = self._transform_hour(data)
         elif kwargs['timeframe'] == kwargs['transform']:
             pass # Let it pass regardless of timeframe
+        elif kwargs['timeframe'] == '1min':
+            if kwargs['transform'] == '5min':
+                data = self._transform_min(5, data)
         else:
             raise Exception(
                 f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")
@@ -79,16 +81,16 @@ class PostProcessor:
         conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
         # TODO: remove 16:00 bar? Official close is Open of 16:00 bar?
         # TODO: if RTH modify first datetime index each day to '9:30' (data is correct but looks odd)
-
-        resampled = data.resample('60Min', how=conversion, base=0)
-
+        resampled = data.resample('60Min').agg(conversion)
         return resampled.dropna()
 
+    def _transform_min(self, to_tf, data):
+        conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
+        resampled = data.resample(f"{to_tf}Min").agg(conversion)
+        return resampled.dropna()
 
     def _transform_month(self, data):
-
         transdat = data.loc[:, ["Open", "High", "Low", "Close", 'Volume']]
-
 
         transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.week)
         transdat["year"] = pd.to_datetime(transdat.index).map(lambda x: x.year)
@@ -123,5 +125,4 @@ class PostProcessor:
             for index, row in yearly.iterrows():
                 df.loc[index, column_name] = day
                 day += 1
-
         return df
