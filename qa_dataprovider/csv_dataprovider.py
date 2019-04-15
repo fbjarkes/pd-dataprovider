@@ -4,10 +4,11 @@
 
 import logging
 import os
+import time
 
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 import pandas as pd
-
+import numpy as np
 
 
 class CsvFileDataProvider(GenericDataProvider):
@@ -43,12 +44,21 @@ class CsvFileDataProvider(GenericDataProvider):
             filenames = ["{}/{}_{}.{}".format(path, prefix, ticker,'csv') for prefix in self.prefix]
             filenames.append("{}/{}.{}".format(path,ticker,'csv'))
 
+            dt_format = "%Y-%m-%d %H:%M:%S"
+
             for filename in filenames:
                 self.logger.debug("Trying '{}'".format(filename))
                 if os.path.exists(filename):
                     with open(filename) as f:
-                        df = pd.read_csv(f)
-                        df = df.set_index(pd.DatetimeIndex(df['Date'])).sort_index()
+                        #df = pd.read_csv(f)
+                        start = time.time()
+                        df = pd.read_csv(f, dtype={'Open': np.float32, 'High': np.float32, 'Low': np.float32,
+                                                   'Close': np.float32}, parse_dates=True, index_col='Date')
+                        print(f"Done in {time.time() - start}s")
+                        df = df.sort_index()
+
+
+                        #df = df.set_index(pd.DatetimeIndex(df['Date'])).sort_index()
                         self.logger.info("{}, {:d} rows ({} to {})"
                                           .format(f.name, len(df), df.index[0], df.index[-1]))
                         return self._post_process(df, ticker, from_date, to_date, timeframe,
@@ -68,6 +78,8 @@ if __name__ == '__main__':
     home = os.environ['USERPROFILE']
     paths = [f"{home}/Dropbox/csv/"]
     provider = CsvFileDataProvider(paths)
-    dailys = provider.get_data(['OMXS30 F18-OMF_1 Minute'], '2010-01-01', '2016-12-31', timeframe='1min', transform='5min')
+    #dailys = provider.get_data(['OMXS30 F18-OMF_1 Minute'], '2017-12-01', '2017-12-31', timeframe='1min', transform='1h')
+    dailys = provider.get_data(['USDJPY'], '2016-12-01', '2016-12-31', timeframe='1min',
+                               transform='1h')
     print(dailys[0])
     # print(dailys[1].tail())

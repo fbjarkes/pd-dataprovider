@@ -38,6 +38,8 @@ class PostProcessor:
         elif kwargs['timeframe'] == '1min':
             if kwargs['transform'] == '5min':
                 data = self._transform_min(5, data)
+            if kwargs['transform'] == '1h':
+                data = self._transform_hour(data)
         else:
             raise Exception(
                 f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")

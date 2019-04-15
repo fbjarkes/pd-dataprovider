@@ -63,7 +63,7 @@ class GenericDataProvider(metaclass=ABCMeta):
                 try:
                     data = future.result()
                 except Exception as exc:
-                    #traceback.print_exc(file=sys.stderr)
+                    traceback.print_exc(file=sys.stderr)
                     logger.debug("",exc_info=True)
                     logger.warning("Skipping {}: error message: {}".format(ticker, exc))
                 else:

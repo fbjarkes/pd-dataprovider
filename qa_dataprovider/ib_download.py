@@ -6,7 +6,7 @@ import pandas as pd
 from qa_dataprovider import AsyncIBDataProvider
 
 
-def download_years(ticker: str, years: str, host: str, port: int, timeout: int):
+def download_years(tickers: str, years: str, host: str, port: int, timeout: int):
     """
     TICKER # Stock type and SMART exchange
 
@@ -59,21 +59,22 @@ def download_years(ticker: str, years: str, host: str, port: int, timeout: int):
     ib = AsyncIBDataProvider(host, port, timeout)
     ib.connect()
 
-    total = pd.DataFrame()
-    for i, y in enumerate(years.split(',')):
-        try:
-            df = ib.get_data([ticker], f'{y}-01-01', f'{y}-12-31', keep_alive=True)
-            total = total.append(df)
-        except Exception as e:
-            print(f"Error for {y}: '{e}'. Stopping.")
-            break
+    for ticker in tickers.split(','):
+        total = pd.DataFrame()
+        for i, y in enumerate(years.split(',')):
+            try:
+                df = ib.get_data([ticker], f'{y}-01-01', f'{y}-12-31', keep_alive=True)
+                total = total.append(df)
+            except Exception as e:
+                print(f"Error for {y}: '{e}'. Stopping.")
+                break
+
+        name = f"{total['Ticker'].iloc[0]}"
+        total = total.sort_index(ascending=True)
+        print(f"Writing {len(total)} rows to {name}.csv")
+        total.to_csv(f"{name}.csv", header=True)
 
     ib.disconnect()
-    name = f"{total['Ticker'].iloc[0]}"
-    total = total.sort_index(ascending=True)
-    print(f"Writing {len(total)} rows to {name}.csv")
-    total.to_csv(f"{name}.csv", header=True)
-
 
 def download(file, timeframe, transform):
     ib = AsyncIBDataProvider()
