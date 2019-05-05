@@ -30,6 +30,8 @@ class PostProcessor:
                 data = self._transform_week(data)
             if kwargs['transform'] == 'month':
                 data = self._transform_month(data)
+            if "D" in kwargs['transform'] and kwargs['transform'] != "1D":
+                data = self._transform_day(data, kwargs['transform'][:-1])
         elif kwargs['timeframe'] == '5min':
             if kwargs['transform'] == '1h':
                 data = self._transform_hour(data)
@@ -84,6 +86,11 @@ class PostProcessor:
         # TODO: remove 16:00 bar? Official close is Open of 16:00 bar?
         # TODO: if RTH modify first datetime index each day to '9:30' (data is correct but looks odd)
         resampled = data.resample('60Min').agg(conversion)
+        return resampled.dropna()
+
+    def _transform_day(self, data, transform):
+        conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
+        resampled = data.resample(f"{transform}D").agg(conversion)
         return resampled.dropna()
 
     def _transform_min(self, to_tf, data):
