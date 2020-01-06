@@ -56,6 +56,16 @@ class Factory:
                     f"{home}/csv",
                     f"{home}/Dropbox/csv",
                 ])
+        elif provider == 'tradingview':
+            return CsvFileDataProvider(
+                [
+                    f"csv",
+                    f"{home}/csv",
+                    f"{home}/Dropbox/csv",
+                ],
+                col_names=['time','open','high','low','close'],
+                epoch=True
+            )
         elif provider == 'infront':
             return CsvFileDataProvider(
                 [
