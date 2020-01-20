@@ -39,6 +39,35 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         pass
 
+    def get_datas(self, tickers, from_date, to_date, **kwargs):
+        """
+        Tickers map example:
+        [
+            {'ticker': 'AAPL', 'timeframe': 'day', 'transform': 'week'},
+            {'ticker': 'AAPL', 'timeframe': 'day', 'transform': 'month'}
+        ]
+
+        Return example:
+        [
+            {'name': 'AAPL', 'df': pd.DataFrame, 'timeframe': 'week'}
+            {'name': 'AAPL', 'df': pd.DataFrame, 'timeframe': 'month'}
+        ]
+
+        :param list tickers: tickers map with symbol, timeframe and transformed timeframe
+        :param string from_date: Start date, e.g. '2016-01-01'
+        :param string to_date: End date, e.g. '2017-01-01'
+        :return: dict with data frames and metadata
+        """
+        datas = []
+
+        for ticker_data in tickers:
+            datas.append(self._get_data_internal(ticker_data['ticker'], from_date, to_date, ticker_data['timeframe'],
+                                                 ticker_data['transform']))
+        self.errors = len(datas) - len(tickers)
+        self._finish()
+
+        return datas
+
     def get_data(self, tickers, from_date, to_date, timeframe='day', transform='day',
                  max_workers=1, **kwargs):
         """
@@ -71,7 +100,6 @@ class GenericDataProvider(metaclass=ABCMeta):
                         dataframes.append(data)
 
         self.errors = len(dataframes) - len(tickers)
-
         self._finish()
 
         return dataframes

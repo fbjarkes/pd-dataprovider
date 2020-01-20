@@ -19,11 +19,12 @@ class CsvFileDataProvider(GenericDataProvider):
         2017-11-02,54.53,55.1,54.27,55.04,0.29,54.89,35326.0,95525.0
         ...
     """
+    DEFAULT_COL_NAMES = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
     logging.basicConfig(level=logging.DEBUG,
                         format='%(filename)s: %(message)s')
     logger = logging
 
-    def __init__(self, paths, prefix=[], col_names=['Date', 'Open', 'High', 'Low', 'Close'], epoch=False):
+    def __init__(self, paths, prefix=[], col_names=DEFAULT_COL_NAMES, epoch=False):
         """
         Initialize with a list of paths for which each call to get_data() tries to open
         csv file directly in paths. 
@@ -54,10 +55,16 @@ class CsvFileDataProvider(GenericDataProvider):
                 if os.path.exists(filename):
                     with open(filename) as f:
                         df = pd.read_csv(f, dtype={self.col_names[1]: np.float32, self.col_names[2]: np.float32, self.col_names[3]: np.float32,
-                                                   self.col_names[4]: np.float32}, parse_dates=True, index_col=self.col_names[0])
+                                                   self.col_names[4]: np.float32, self.col_names[5]: np.float32}, parse_dates=True, index_col=self.col_names[0])
                         df = df.sort_index()
                         if self.epoch:
                             df.index = pd.to_datetime(df.index, unit='s')
+
+                        if not all(elem in self.col_names for elem in self.DEFAULT_COL_NAMES):
+                            df.rename(columns = {self.col_names[1]: 'Open', self.col_names[2]: 'High',
+                                                 self.col_names[3]: 'Low', self.col_names[4]: 'Close',
+                                                 self.col_names[5]: 'Volume'},
+                                      inplace = True)
                         self.logger.info("{}, {:d} rows ({} to {})"
                                          .format(f.name, len(df), df.index[0], df.index[-1]))
                         return self._post_process(df, ticker, from_date, to_date, timeframe,
@@ -75,9 +82,12 @@ class CsvFileDataProvider(GenericDataProvider):
 if __name__ == '__main__':
     paths = [f"/Users/{os.environ['USER']}/Dropbox/csv/"]
     #provider = CsvFileDataProvider(paths)
-    provider = CsvFileDataProvider(paths, col_names=['time','open','high','low','close'], epoch=True)
-    #dailys = provider.get_data(['OMXS30 F18-OMF_1 Minute'], '2017-12-01', '2017-12-31', timeframe='1min', transform='1h')
+    provider = CsvFileDataProvider(paths, col_names=['time','open','high','low','close','Volume'], epoch=True)
+    #data = provider.get_data(['OMXS30 F18-OMF_1 Minute'], '2017-12-01', '2017-12-31', timeframe='1min', transform='1h')
     #datas = provider.get_data(['USDJPY'], '2016-12-01', '2016-12-31', timeframe='1min',transform='1h')
-    #datas = provider.get_data(['OMXS30_5min'], '2020-01-01', '2020-01-31', timeframe='5min', transform='1h')
-    datas = provider.get_data(['AMEX_VXX, D'], '2013-01-01', '2015-01-31', timeframe='day', transform='day')
-    print(datas[0])
+    ticker_data = [
+       {'ticker': 'AMEX_SPY_D', 'timeframe': 'day', 'transform': 'week'},
+       {'ticker': 'AMEX_SPY_D', 'timeframe': 'day', 'transform': 'month'}
+    ]
+    datas = provider.get_datas(ticker_data, '2013-01-01', '2015-01-31')
+    print(datas)
