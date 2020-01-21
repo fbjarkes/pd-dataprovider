@@ -67,7 +67,7 @@ class GenericDataProvider(metaclass=ABCMeta):
             data['ticker'] = ticker_data['ticker']
             data['df'] = self._get_data_internal(ticker_data['ticker'], from_date, to_date, ticker_data['timeframe'],
                                                  ticker_data['transform'])
-            data['timeframe'] = ticker_data['timeframe']
+            data['timeframe'] = ticker_data['transform']
             datas.append(data)
 
         self.errors = len(datas) - len(tickers_data)
