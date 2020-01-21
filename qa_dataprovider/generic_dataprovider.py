@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
-import sys, traceback
+import sys
+import traceback
 import logging as logger
 from abc import ABCMeta, abstractmethod
 import concurrent.futures
@@ -10,6 +11,7 @@ import pandas as pd
 
 from qa_dataprovider.post_processor import PostProcessor
 from qa_dataprovider.validator import Validator
+
 
 class GenericDataProvider(metaclass=ABCMeta):
 
@@ -26,7 +28,7 @@ class GenericDataProvider(metaclass=ABCMeta):
     def add_quotes(self, data, ticker):
         """
         If quotes are available by this provider, append quotes row to data.
-        
+
         :param data dataframe: pd.DataFrame
         :param ticker string: The ticker, eg. 'SPY'
         :return: pd.DataFrame
@@ -39,7 +41,7 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         pass
 
-    def get_datas(self, tickers, from_date, to_date, **kwargs):
+    def get_datas(self, tickers_data, from_date, to_date, **kwargs):
         """
         Tickers map example:
         [
@@ -49,8 +51,8 @@ class GenericDataProvider(metaclass=ABCMeta):
 
         Return example:
         [
-            {'name': 'AAPL', 'df': pd.DataFrame, 'timeframe': 'week'}
-            {'name': 'AAPL', 'df': pd.DataFrame, 'timeframe': 'month'}
+            {'ticker': 'AAPL', 'df': pd.DataFrame, 'timeframe': 'week'}
+            {'ticker': 'AAPL', 'df': pd.DataFrame, 'timeframe': 'month'}
         ]
 
         :param list tickers: tickers map with symbol, timeframe and transformed timeframe
@@ -60,10 +62,15 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         datas = []
 
-        for ticker_data in tickers:
-            datas.append(self._get_data_internal(ticker_data['ticker'], from_date, to_date, ticker_data['timeframe'],
-                                                 ticker_data['transform']))
-        self.errors = len(datas) - len(tickers)
+        for ticker_data in tickers_data:
+            data = {}
+            data['ticker']: ticker_data['ticker']
+            data['df'] = self._get_data_internal(ticker_data['ticker'], from_date, to_date, ticker_data['timeframe'],
+                                                 ticker_data['transform'])
+            data['timeframe'] = ticker_data['timeframe']
+            datas.append(data)
+
+        self.errors = len(datas) - len(tickers_data)
         self._finish()
 
         return datas
@@ -72,7 +79,7 @@ class GenericDataProvider(metaclass=ABCMeta):
                  max_workers=1, **kwargs):
         """
         Fetch a dataframe for each ticker, using the internal method with multiple threads
-        
+
         :param list tickers: A list of tickers
         :param string from_date: Start date, e.g. '2016-01-01'
         :param string to_date: End date, e.g. '2017-01-01'
@@ -93,8 +100,9 @@ class GenericDataProvider(metaclass=ABCMeta):
                     data = future.result()
                 except Exception as exc:
                     traceback.print_exc(file=sys.stderr)
-                    logger.debug("",exc_info=True)
-                    logger.warning("Skipping {}: error message: {}".format(ticker, exc))
+                    logger.debug("", exc_info=True)
+                    logger.warning(
+                        "Skipping {}: error message: {}".format(ticker, exc))
                 else:
                     if data is not None:
                         dataframes.append(data)
@@ -125,6 +133,3 @@ class GenericDataProvider(metaclass=ABCMeta):
                  ]
 
         return reduce((lambda result, func: func(result, func_args)), funcs, data)
-
-
-
