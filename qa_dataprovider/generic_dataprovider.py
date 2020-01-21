@@ -64,7 +64,7 @@ class GenericDataProvider(metaclass=ABCMeta):
 
         for ticker_data in tickers_data:
             data = {}
-            data['ticker']: ticker_data['ticker']
+            data['ticker'] = ticker_data['ticker']
             data['df'] = self._get_data_internal(ticker_data['ticker'], from_date, to_date, ticker_data['timeframe'],
                                                  ticker_data['transform'])
             data['timeframe'] = ticker_data['timeframe']
