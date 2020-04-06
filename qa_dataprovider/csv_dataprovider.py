@@ -80,14 +80,17 @@ class CsvFileDataProvider(GenericDataProvider):
 
 
 if __name__ == '__main__':
-    paths = [f"/Users/{os.environ['USER']}/Dropbox/csv/"]
+    #paths = [f"/Users/{os.environ['USER']}/Dropbox/csv/"]
+    paths = [f"/Users/{os.environ['USER']}/Dropbox/alphavantage/csv/"]
     #provider = CsvFileDataProvider(paths)
-    provider = CsvFileDataProvider(paths, col_names=['time','open','high','low','close','Volume'], epoch=True)
+    #provider = CsvFileDataProvider(paths, col_names=['time','open','high','low','close','Volume'], epoch=True)
+    provider = CsvFileDataProvider(paths, col_names=['timestamp', 'open', 'high', 'low', 'close', 'Volume'], epoch=False)
     #data = provider.get_data(['OMXS30 F18-OMF_1 Minute'], '2017-12-01', '2017-12-31', timeframe='1min', transform='1h')
     #datas = provider.get_data(['USDJPY'], '2016-12-01', '2016-12-31', timeframe='1min',transform='1h')
     ticker_data = [
-       {'ticker': 'AMEX_SPY_D', 'timeframe': 'day', 'transform': 'week'},
-       {'ticker': 'AMEX_SPY_D', 'timeframe': 'day', 'transform': 'month'}
+        {'ticker': 'intraday_5min_IBM', 'timeframe': '5min', 'transform': '5min'},
+        #{'ticker': 'AMEX_SPY_D', 'timeframe': 'day', 'transform': 'week'},
+        #{'ticker': 'AMEX_SPY_D', 'timeframe': 'day', 'transform': 'month'}
     ]
-    datas = provider.get_datas(ticker_data, '2013-01-01', '2015-01-31')
+    datas = provider.get_datas(ticker_data, '2020-04-02 10:00:00', '2020-04-03 15:00:00')
     print(datas)

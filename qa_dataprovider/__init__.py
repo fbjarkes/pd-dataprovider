@@ -66,6 +66,16 @@ class Factory:
                 col_names=['time','open','high','low','close'],
                 epoch=True
             )
+        elif provider == 'alphavantage':
+            return CsvFileDataProvider(
+                [
+                    f"csv",
+                    f"{home}/csv",
+                    f"{home}/Dropbox/alphavantage",
+                ],
+                col_names=['timestamp','open','high','low','close'],
+                epoch=False
+            )
         elif provider == 'infront':
             return CsvFileDataProvider(
                 [
