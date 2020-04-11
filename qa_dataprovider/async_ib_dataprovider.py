@@ -20,7 +20,6 @@ class AsyncIBDataProvider(GenericDataProvider):
     logger = logging
 
     def __init__(self, host: str='127.0.0.1', port: int= 7496, timeout: int=60):
-    #def __init__(self, host: str='192.168.10.187', port: int= 7496, timeout: int=60):
         self.port = port
         self.host = host
         self.timeout = timeout
@@ -69,6 +68,31 @@ class AsyncIBDataProvider(GenericDataProvider):
             self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")
 
             return df
+
+        elif timeframe == '60min':
+            if to_date is None:
+                to_date = f"{(datetime.now()):%Y-%m-%d}"
+            to_dt = datetime.strptime(to_date, "%Y-%m-%d")
+
+            if from_date is not None:
+                from_dt = datetime.strptime(from_date, "%Y-%m-%d")
+                if (to_dt - from_dt).days >= 30:
+                    duration = '30 D'
+                    from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
+            else:
+                from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
+                duration = '30 D'
+
+            symbol, bars = self.__get_intraday(ticker, to_date, duration, '1 hour')
+            symbol = ticker.split('-')[0]
+            df = self.__to_dataframe(bars, tz_fix=True)
+            #df = pd.DataFrame.from_csv("SPY.csv")
+
+            row = df.iloc[-1]
+            df = self._post_process(df, symbol, from_date, to_date, timeframe, transform=transform)
+            #self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")
+            return df
+
         elif timeframe == '5min':
             if to_date is None:
                 to_date = f"{(datetime.now()):%Y-%m-%d}"
@@ -257,8 +281,9 @@ class AsyncIBDataProvider(GenericDataProvider):
 
 if __name__ == '__main__':
     ib = AsyncIBDataProvider()
-    dailys = ib.get_data(['OMXS30-IND-OMS-SEK'], '2017-01-01', '2017-12-31')
-    for df in dailys:
+    df_list = ib.get_data(['JBL'], '2020-03-01', '2020-04-08', timeframe='60min', transform='60min')
+
+    for df in df_list:
         print(df.head())
         print(df.tail())
     #print(dailys[0].tail())
