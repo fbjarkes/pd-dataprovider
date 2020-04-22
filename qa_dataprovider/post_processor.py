@@ -5,6 +5,7 @@ import logging as logger
 
 import pandas as pd
 
+from qa_dataprovider.data import Data
 from qa_dataprovider.validator import Validator
 
 
@@ -33,15 +34,18 @@ class PostProcessor:
             if "D" in kwargs['transform'] and kwargs['transform'] != "1D":
                 data = self._transform_day(data, kwargs['transform'][:-1])
         elif kwargs['timeframe'] == '5min':
-            if kwargs['transform'] == '1h':
+            if kwargs['transform'] == '60min':
                 data = self._transform_hour(data)
         elif kwargs['timeframe'] == kwargs['transform']:
             pass # Let it pass regardless of timeframe
         elif kwargs['timeframe'] == '1min':
             if kwargs['transform'] == '5min':
                 data = self._transform_min(5, data)
-            if kwargs['transform'] == '1h':
+            if kwargs['transform'] == '60min':
                 data = self._transform_hour(data)
+        elif kwargs['timeframe'] == '60min':
+            if kwargs['transform'] == '240min':
+                data = self._transform_min(240, data)
         else:
             raise Exception(
                 f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")
@@ -49,17 +53,21 @@ class PostProcessor:
 
     def validate(self, data, kwargs):
         self.validator.validate_nan(data, kwargs['ticker'])
-        self.validator.validate_dates(data, kwargs['ticker'], kwargs['from'], kwargs['to'])
-        self.validator.validate_timeframe(data, kwargs['timeframe'])
+        #self.validator.validate_dates(data, kwargs['ticker'], kwargs['from'], kwargs['to'])
+        #self.validator.validate_timeframe(data, kwargs['timeframe'])
         return data
 
     def add_quotes(self, data, kwargs):
         data = kwargs['provider'].add_quotes(data, kwargs['ticker'])
         return data
 
-    def add_meta_data(self, data, kwargs):
-        data['Ticker'] = kwargs['ticker']
-        return data
+    def add_meta_data(self, df, kwargs):
+        df['Ticker'] = kwargs['ticker']
+        return df
+
+    def fill_na(self, df, kwargs):
+        df.fillna(method='ffill', inplace=True)
+        return df
 
     def _transform_week(self, data):
         # From: http://blog.yhat.com/posts/stock-data-python.html

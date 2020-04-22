@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
 import logging
@@ -10,7 +10,11 @@ import pandas as pd
 import sys
 import pytz
 from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, BarData
+
+from qa_dataprovider.data import Data
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
+from qa_dataprovider.symbol_data import SymbolData
+
 
 class AsyncIBDataProvider(GenericDataProvider):
 
@@ -20,10 +24,12 @@ class AsyncIBDataProvider(GenericDataProvider):
     logger = logging
 
     def __init__(self, host: str='127.0.0.1', port: int= 7496, timeout: int=60):
+        super(AsyncIBDataProvider, self).__init__(chunk_size=10)
         self.port = port
         self.host = host
         self.timeout = timeout
         self.ib = IB()
+
 
     def disconnect(self):
         self.ib.disconnect()
@@ -32,92 +38,83 @@ class AsyncIBDataProvider(GenericDataProvider):
         self.ib.connect(self.host, self.port, clientId=int(random.uniform(1, 1000)),
                        timeout=self.timeout)
 
-    def get_data(self, tickers, from_date, to_date, timeframe='day', max_workers=1,
-                 keep_alive=False, transform: str='day') -> [pd.DataFrame]:
+    def _initialize(self):
+        self.connect()
+
+    def _finish(self):
+        self.disconnect()
+
+    def get_data(self, symbol_datas: [SymbolData], max_workers=1, keep_alive=False) -> [pd.DataFrame]:
 
         df_list = []
 
         if not keep_alive:
             self.connect()
 
-        for ticker in tickers:
+        for symbol_data in symbol_datas:
             try:
-                df_list.append(self._get_data_internal(ticker, from_date, to_date, timeframe,
-                                                       transform))
+                df_list.append(self._get_data_internal(symbol_data))
             except Exception as exc:
                 traceback.print_exc(file=sys.stderr)
-                self.logger.warning("Skipping {}: error message: {}".format(ticker, exc))
+                self.logger.warning("Skipping {}: error message: {}".format(symbol_data.symbol, exc))
 
         if not keep_alive:
             self.ib.disconnect()
 
-        self.errors = len(df_list) - len(tickers)
+        self.errors = len(df_list) - len(symbol_datas)
 
         return df_list
 
-    def _get_data_internal(self, ticker: str, from_date: str, to_date: str,
-                           timeframe: str, transform: str='day') -> pd.DataFrame:
+    async def _get_data_internal_async(self, symbol_data: SymbolData, **kwargs) -> pd.DataFrame:
+        return self._get_data_internal(symbol_data)
 
-        if timeframe == 'day':
-            symbol, bars = self.__get_daily(from_date, ticker, to_date)
-            symbol = ticker.split('-')[0]
-            df = self.__to_dataframe(bars)
-            df = self._post_process(df, symbol, from_date, to_date, timeframe, transform)
+    def _get_data_internal(self, symbol_data: SymbolData) -> pd.DataFrame:
+        if symbol_data.timeframe == 'day':
+            symbol, bars = self.__get_daily(symbol_data.start, symbol_data.symbol, symbol_data.end)
+            symbol = symbol_data.symbol.split('-')[0]
+            dataframe = self.__to_dataframe(bars)
 
-            row = df.iloc[-1]
-            self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")
 
-            return df
-
-        elif timeframe == '60min':
-            if to_date is None:
+        elif symbol_data.timeframe == '60min':
+            if symbol_data.end is None:
                 to_date = f"{(datetime.now()):%Y-%m-%d}"
             to_dt = datetime.strptime(to_date, "%Y-%m-%d")
-
-            if from_date is not None:
-                from_dt = datetime.strptime(from_date, "%Y-%m-%d")
+            duration = '30 D'
+            if symbol_data.start is not None:
+                from_dt = datetime.strptime(symbol_data.start, "%Y-%m-%d")
                 if (to_dt - from_dt).days >= 30:
-                    duration = '30 D'
                     from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
             else:
                 from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
-                duration = '30 D'
 
-            symbol, bars = self.__get_intraday(ticker, to_date, duration, '1 hour')
-            symbol = ticker.split('-')[0]
-            df = self.__to_dataframe(bars, tz_fix=True)
-            #df = pd.DataFrame.from_csv("SPY.csv")
+            symbol, bars = self.__get_intraday(symbol_data.symbol, symbol_data.end, duration, '1 hour', rth_only)
+            symbol = symbol_data.symbol.split('-')[0]
+            dataframe = self.__to_dataframe(bars, tz_fix=True)
 
-            row = df.iloc[-1]
-            df = self._post_process(df, symbol, from_date, to_date, timeframe, transform=transform)
-            #self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")
-            return df
-
-        elif timeframe == '5min':
-            if to_date is None:
+        elif symbol_data.timeframe == '5min':
+            if symbol_data.end is None:
                 to_date = f"{(datetime.now()):%Y-%m-%d}"
             to_dt = datetime.strptime(to_date, "%Y-%m-%d")
-
-            if from_date is not None:
-                from_dt = datetime.strptime(from_date, "%Y-%m-%d")
+            duration = '30 D'
+            if symbol_data.start is not None:
+                from_dt = datetime.strptime(symbol_data.start, "%Y-%m-%d")
                 if (to_dt - from_dt).days >= 30:
-                    duration = '30 D'
                     from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
             else:
                 from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
-                duration = '30 D'
 
-            symbol, bars = self.__get_intraday(ticker, to_date, duration, '5 mins')
-            symbol = ticker.split('-')[0]
-            df = self.__to_dataframe(bars, tz_fix=True)
-            #df = pd.DataFrame.from_csv("SPY.csv")
-
-            row = df.iloc[-1]
-            df = self._post_process(df, symbol, from_date, to_date, timeframe, transform=transform)
-            #self.logger.info(f"{row.name}: {row['Ticker']} quote: {row['Close']}")
-            return df
+            symbol, bars = self.__get_intraday(symbol_data.symbol, to_date, duration, '5 mins', rth_only)
+            symbol = symbol_data.symbol.split('-')[0]
+            dataframe = self.__to_dataframe(bars, tz_fix=True)
         else:
-            raise Exception(f"{timeframe} not implemented!")
+            raise Exception(f"{symbol_data.timeframe} not implemented!")
+
+        df = dataframe
+        if dataframe.empty:
+            self.logger.warning(f"Got empty df for {symbol_data.symbol}, for {symbol_data.start} to {symbol_data.end}")
+        else:
+            df = self._post_process(dataframe, symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform)
+        return df
 
     @staticmethod
     def exctract_symbol(ticker: str, type: str='STK', exchange: str='ARCA',
@@ -224,14 +221,14 @@ class AsyncIBDataProvider(GenericDataProvider):
 
 
     def __get_intraday(self, ticker: str, to_date: str,duration: str,
-                       barsize:str) -> (str, [BarData]):
+                       barsize:str, rth_only: bool) -> (str, [BarData]):
         to_dt = datetime.strptime(f"{to_date} 11:59", '%Y-%m-%d %H:%M')
         contract = AsyncIBDataProvider.parse_contract(ticker)
         whatToShow = 'MIDPOINT' if isinstance(contract, (Forex, CFD, Commodity)) else 'TRADES'
         bars = self.ib.reqHistoricalData(contract, endDateTime=to_dt, durationStr=duration,
                                          barSizeSetting=barsize,
                                          whatToShow=whatToShow,
-                                         useRTH=False,
+                                         useRTH=rth_only,
                                          formatDate=2)
         return contract.symbol, bars
 
@@ -281,7 +278,8 @@ class AsyncIBDataProvider(GenericDataProvider):
 
 if __name__ == '__main__':
     ib = AsyncIBDataProvider()
-    df_list = ib.get_data(['JBL'], '2020-03-01', '2020-04-08', timeframe='60min', transform='60min')
+    #df_list = ib.get_data(['JBL'], '2020-03-01', '2020-04-08', timeframe='60min', transform='60min')
+    df_list = ib.get_data(['JBL'], '2020-03-01', '2020-04-08', timeframe='day', transform='day')
 
     for df in df_list:
         print(df.head())

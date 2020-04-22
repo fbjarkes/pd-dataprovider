@@ -8,7 +8,7 @@ from qa_dataprovider.csv_dataprovider import CsvFileDataProvider
 from qa_dataprovider.web_dataprovider import CachedWebDataProvider
 from qa_dataprovider.sql_dataprovider import SQLDataProvider
 
-AVAILABLE_PROVIDERS = ['ibasync', 'ibfile', 'sql', 'quandl', 'infront', 'csv']
+AVAILABLE_PROVIDERS = ['ibasync', 'ibfile', 'sql', 'quandl', 'infront', 'csv', 'tradingview']
 
 
 class Factory:
@@ -63,7 +63,7 @@ class Factory:
                     f"{home}/csv",
                     f"{home}/Dropbox/csv",
                 ],
-                col_names=['time','open','high','low','close'],
+                col_names=['time','open','high','low','close', 'volume'],
                 epoch=True
             )
         elif provider == 'alphavantage':
@@ -71,9 +71,9 @@ class Factory:
                 [
                     f"csv",
                     f"{home}/csv",
-                    f"{home}/Dropbox/alphavantage",
+                    f"{home}/Dropbox/alphavantage/csv",
                 ],
-                col_names=['timestamp','open','high','low','close'],
+                col_names=['timestamp','open','high','low','close', 'volume'],
                 epoch=False
             )
         elif provider == 'infront':

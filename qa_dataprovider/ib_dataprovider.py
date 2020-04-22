@@ -17,7 +17,7 @@ from pytz import timezone
 
 from qa_dataprovider.generic_dataprovider import GenericDataProvider
 
-
+@DeprecationWarning
 class IBDataProvider(GenericDataProvider):
 
     CLIENT_ID = 0

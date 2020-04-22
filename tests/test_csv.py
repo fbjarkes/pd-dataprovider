@@ -41,7 +41,7 @@ class TestCsv(unittest.TestCase):
         # XLP	2008-04-23	00:00	27,9	28,21	27,9	28,05	1363528
         # XLP     2010-11-05      00:00   29,19   29,2301 29,02   29,13   6008732
         #print(daily_xlp.loc['2010-11-05'])
-        assert daily_xlp.loc['2010-11-05']['High'] == 29.2301
+        assert str(daily_xlp.loc['2010-11-05']['High']) == '29.2301'
 
     def test_daily_trading_days(self):
         provider = CsvFileDataProvider(["data"])

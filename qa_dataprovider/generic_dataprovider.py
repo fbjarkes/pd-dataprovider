@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; py-indent-offset:4 -*-
-
+import asyncio
 import sys
 import traceback
 import logging as logger
@@ -9,18 +9,24 @@ import concurrent.futures
 from functools import reduce
 import pandas as pd
 
+from qa_dataprovider.data import Data
 from qa_dataprovider.post_processor import PostProcessor
+from qa_dataprovider.symbol_data import SymbolData
 from qa_dataprovider.validator import Validator
 
 
 class GenericDataProvider(metaclass=ABCMeta):
 
     post_processor = PostProcessor()
-
-    errors = 0
+    chunk_size = 100
 
     @abstractmethod
-    def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str) -> \
+    def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str, transform: str) -> \
+            pd.DataFrame:
+        pass
+
+    @abstractmethod
+    def _get_data_internal_async(self, ticker: str, from_date: str, to_date: str, timeframe: str, transform: str) -> \
             pd.DataFrame:
         pass
 
@@ -35,48 +41,59 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         pass
 
+    def __init__(self, chunk_size=100):
+        self.errors = 0
+        self.chunk_size = chunk_size
+
+    def _initialize(self):
+        """
+        Do initialization, e.g. connecting etc.
+        """
+        pass
+
     def _finish(self):
         """        
         Do any post data fetching activities, e.g. disconnect, exit async loop, etc.
         """
         pass
 
-    def get_datas(self, tickers_data, from_date, to_date, **kwargs):
-        """
-        Tickers map example:
-        [
-            {'ticker': 'AAPL', 'timeframe': 'day', 'transform': 'week'},
-            {'ticker': 'AAPL', 'timeframe': 'day', 'transform': 'month'}
-        ]
-
-        Return example:
-        [
-            {'ticker': 'AAPL', 'df': pd.DataFrame, 'timeframe': 'week'}
-            {'ticker': 'AAPL', 'df': pd.DataFrame, 'timeframe': 'month'}
-        ]
-
-        :param list tickers: tickers map with symbol, timeframe and transformed timeframe
-        :param string from_date: Start date, e.g. '2016-01-01'
-        :param string to_date: End date, e.g. '2017-01-01'
-        :return: dict with data frames and metadata
-        """
+    def get_datas(self, symbol_datas: [SymbolData]) -> [Data]:
         datas = []
+        self._initialize()
 
-        for ticker_data in tickers_data:
-            data = {}
-            data['ticker'] = ticker_data['ticker']
-            data['df'] = self._get_data_internal(ticker_data['ticker'], from_date, to_date, ticker_data['timeframe'],
-                                                 ticker_data['transform'])
-            data['timeframe'] = ticker_data['transform']
-            datas.append(data)
+        for symbol_data in symbol_datas:
+            df = self._get_data_internal(symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform)
+            #d = Data(df, symbol_data.symbol, symbol_data.timeframe, symbol_data.)
+            datas.append(d)
 
-        self.errors = len(datas) - len(tickers_data)
+        self.errors = len(datas) - len(symbol_data)
         self._finish()
 
         return datas
 
+    def create_data_class(self, lst):
+        datas = []
+        for df, symbol_data in lst:
+            datas.append(Data(df, symbol_data.symbol, symbol_data.timeframe, df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
+        return datas
+
+    def chunks(self, l, n):
+        n = max(1, n)
+        return (l[i:i + n] for i in range(0, len(l), n))
+
+    async def get_datas_async(self, symbols_data: [SymbolData]) -> [Data]:
+        self._initialize()
+        chunks = self.chunks(symbols_data, self.chunk_size)
+        datas = []
+        for chunk in chunks:
+            dfs = await asyncio.gather(*[self._get_data_internal_async(symbol_data) for symbol_data in chunk])
+            datas += self.create_data_class(zip(dfs, chunk))
+        self._finish()
+        return datas
+
+    #TODO: Use SymbolData
     def get_data(self, tickers, from_date, to_date, timeframe='day', transform='day',
-                 max_workers=1, **kwargs):
+                 max_workers=1, **kwargs) -> [pd.DataFrame]:
         """
         Fetch a dataframe for each ticker, using the internal method with multiple threads
 
@@ -87,6 +104,7 @@ class GenericDataProvider(metaclass=ABCMeta):
         :return: List with dataframes
         """
         dataframes = []
+
         with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {
                 executor.submit(self._get_data_internal,
@@ -128,8 +146,10 @@ class GenericDataProvider(metaclass=ABCMeta):
                  self.post_processor.validate,
                  self.post_processor.add_quotes,
                  self.post_processor.transform_timeframe,
+                 self.post_processor.fill_na,
                  self.post_processor.add_trading_days,
-                 self.post_processor.add_meta_data
+                 self.post_processor.add_meta_data,
+                 #self.post_processor.make_data_class
                  ]
 
         return reduce((lambda result, func: func(result, func_args)), funcs, data)
