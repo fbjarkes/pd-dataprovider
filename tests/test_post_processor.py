@@ -3,7 +3,7 @@
 
 import unittest
 
-from qa_dataprovider.csv_dataprovider import CsvFileDataProvider
+from qa_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
 import pandas as pd
 
 
@@ -42,7 +42,7 @@ class TestPostProcessor(unittest.TestCase):
         provider = CsvFileDataProvider(["data"])
         df_list = provider.get_data(['SPY'], '2016-01-01', '2016-12-31', transform='2D')
         df = df_list[0]
-        #print(df)
+
         assert str(df.loc['2016-01-04']['Open']) == "200.53"
         assert str(df.loc['2016-01-04']['High']) == "201.9"
         assert str(df.loc['2016-01-04']['Low']) == "198.59"

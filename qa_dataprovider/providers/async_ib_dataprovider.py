@@ -11,9 +11,8 @@ import sys
 import pytz
 from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, BarData
 
-from qa_dataprovider.data import Data
-from qa_dataprovider.generic_dataprovider import GenericDataProvider
-from qa_dataprovider.symbol_data import SymbolData
+from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
+from qa_dataprovider.model.symbol_data import SymbolData
 
 
 class AsyncIBDataProvider(GenericDataProvider):
@@ -24,7 +23,7 @@ class AsyncIBDataProvider(GenericDataProvider):
     logger = logging
 
     def __init__(self, host: str='127.0.0.1', port: int= 7496, timeout: int=60):
-        super(AsyncIBDataProvider, self).__init__(chunk_size=10)
+        super(AsyncIBDataProvider, self).__init__(chunk_size=20)
         self.port = port
         self.host = host
         self.timeout = timeout
@@ -78,7 +77,7 @@ class AsyncIBDataProvider(GenericDataProvider):
         elif symbol_data.timeframe == '60min':
             if symbol_data.end is None:
                 to_date = f"{(datetime.now()):%Y-%m-%d}"
-            to_dt = datetime.strptime(to_date, "%Y-%m-%d")
+            to_dt = datetime.strptime(symbol_data.end, "%Y-%m-%d")
             duration = '30 D'
             if symbol_data.start is not None:
                 from_dt = datetime.strptime(symbol_data.start, "%Y-%m-%d")
@@ -87,14 +86,14 @@ class AsyncIBDataProvider(GenericDataProvider):
             else:
                 from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
 
-            symbol, bars = self.__get_intraday(symbol_data.symbol, symbol_data.end, duration, '1 hour', rth_only)
+            symbol, bars = self.__get_intraday(symbol_data.symbol, symbol_data.end, duration, '1 hour', symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self.__to_dataframe(bars, tz_fix=True)
 
         elif symbol_data.timeframe == '5min':
             if symbol_data.end is None:
                 to_date = f"{(datetime.now()):%Y-%m-%d}"
-            to_dt = datetime.strptime(to_date, "%Y-%m-%d")
+            to_dt = datetime.strptime(symbol_data.end, "%Y-%m-%d")
             duration = '30 D'
             if symbol_data.start is not None:
                 from_dt = datetime.strptime(symbol_data.start, "%Y-%m-%d")
@@ -103,7 +102,7 @@ class AsyncIBDataProvider(GenericDataProvider):
             else:
                 from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
 
-            symbol, bars = self.__get_intraday(symbol_data.symbol, to_date, duration, '5 mins', rth_only)
+            symbol, bars = self.__get_intraday(symbol_data.symbol, symbol_data.end, duration, '5 mins', symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self.__to_dataframe(bars, tz_fix=True)
         else:

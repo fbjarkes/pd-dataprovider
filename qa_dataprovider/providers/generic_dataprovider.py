@@ -9,10 +9,9 @@ import concurrent.futures
 from functools import reduce
 import pandas as pd
 
-from qa_dataprovider.data import Data
-from qa_dataprovider.post_processor import PostProcessor
-from qa_dataprovider.symbol_data import SymbolData
-from qa_dataprovider.validator import Validator
+from qa_dataprovider.model.data import Data
+from qa_dataprovider.utils.post_processor import PostProcessor
+from qa_dataprovider.model.symbol_data import SymbolData
 
 
 class GenericDataProvider(metaclass=ABCMeta):
@@ -74,7 +73,8 @@ class GenericDataProvider(metaclass=ABCMeta):
     def create_data_class(self, lst):
         datas = []
         for df, symbol_data in lst:
-            datas.append(Data(df, symbol_data.symbol, symbol_data.timeframe, df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
+            if not df.empty:
+                datas.append(Data(df, symbol_data.symbol, symbol_data.timeframe, df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
         return datas
 
     def chunks(self, l, n):

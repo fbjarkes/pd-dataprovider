@@ -11,10 +11,10 @@ from qa_dataprovider.providers.sql_dataprovider import SQLDataProvider
 AVAILABLE_PROVIDERS = ['ibasync', 'ibfile', 'sql', 'quandl', 'infront', 'csv', 'tradingview']
 
 
-class Factory:
+class ProviderFactory:
 
     @staticmethod
-    def make_provider(provider, clear_cache=False, get_quotes=False, **kwargs):
+    def make_provider(provider, get_quotes=False, **kwargs):
         home = ''
         if 'HOME' in os.environ:
             home = f"{os.environ['HOME']}"

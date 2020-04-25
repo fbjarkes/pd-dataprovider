@@ -2,20 +2,10 @@
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
 import logging
-from datetime import datetime, timedelta
 
-
-import dateutil.parser as dp
-import numpy as np
 import pandas as pd
-import pandas_datareader
-import pandas_datareader.data as web
-import requests_cache
 
-from pytz import timezone
-
-
-from qa_dataprovider.generic_dataprovider import GenericDataProvider
+from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
 
 @DeprecationWarning
 class IBDataProvider(GenericDataProvider):

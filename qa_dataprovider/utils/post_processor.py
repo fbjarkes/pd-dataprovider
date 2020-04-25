@@ -5,8 +5,7 @@ import logging as logger
 
 import pandas as pd
 
-from qa_dataprovider.data import Data
-from qa_dataprovider.validator import Validator
+from qa_dataprovider.utils.validator import Validator
 
 
 class PostProcessor:

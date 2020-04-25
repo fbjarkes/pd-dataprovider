@@ -4,14 +4,10 @@ import asyncio
 import logging
 import os
 
-from aiofile import AIOFile, LineReader, Writer
-
-import time
-
-from qa_dataprovider.generic_dataprovider import GenericDataProvider
+from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
 import pandas as pd
 import numpy as np
-from qa_dataprovider.symbol_data import SymbolData
+from qa_dataprovider.model.symbol_data import SymbolData
 
 
 class CsvFileDataProvider(GenericDataProvider):

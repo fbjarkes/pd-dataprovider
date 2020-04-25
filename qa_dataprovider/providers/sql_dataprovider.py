@@ -5,11 +5,10 @@
 import sqlite3
 import os.path
 import pandas as pd
-import numpy as np
 import logging
 
 #TODO: use "odo" to load into dataframe?
-from qa_dataprovider.generic_dataprovider import GenericDataProvider
+from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
 
 
 class SQLDataProvider(GenericDataProvider):
