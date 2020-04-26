@@ -17,7 +17,7 @@ class GenericDataProvider(metaclass=ABCMeta):
     post_processor = PostProcessor()
     chunk_size = 100
 
-    logger = logging.getLogger(__name__)
+    _logger = logging.getLogger(__name__)
 
     @abstractmethod
     def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str, transform: str) -> \
@@ -43,7 +43,7 @@ class GenericDataProvider(metaclass=ABCMeta):
     def __init__(self, logger, verbose: int = 0, chunk_size: int = 100):
         self.errors = 0
         self.chunk_size = chunk_size
-        log_helper.init_logging([self.logger, logger], verbose)
+        log_helper.init_logging([self._logger, logger], verbose)
 
     def _initialize(self):
         """
@@ -119,8 +119,8 @@ class GenericDataProvider(metaclass=ABCMeta):
                     data = future.result()
                 except Exception as exc:
                     traceback.print_exc(file=sys.stderr)
-                    logger.debug("", exc_info=True)
-                    logger.warning(
+                    self._logger.debug("", exc_info=True)
+                    self._logger.warning(
                         "Skipping {}: error message: {}".format(ticker, exc))
                 else:
                     if data is not None:
