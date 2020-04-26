@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8; py-indent-offset:4 -*-
 import unittest
 
 from ib_insync import Stock, Index, Forex, Future
-from qa_dataprovider import AsyncIBDataProvider
+from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 
 
 class TestIb(unittest.TestCase):
