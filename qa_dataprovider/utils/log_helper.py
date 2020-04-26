@@ -1,7 +1,7 @@
 import logging
 
 
-def init_logging(loggers: [logging.Logger], verbose: int = 0):
+def init_logging(loggers, verbose):
     logging.Logger.manager.root.setLevel(logging.WARNING)
     level = logging.WARNING
     if verbose == 1:

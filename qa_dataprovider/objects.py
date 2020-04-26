@@ -16,7 +16,7 @@ class SymbolData:
 @dataclass
 class Data:
     df: pd.DataFrame = None
-    symbol: str = None
-    timeframe: str = None
-    start: datetime = None
-    end: datetime = None
+    symbol: str = ''
+    timeframe: str = ''
+    start: datetime = ''
+    end: datetime = ''

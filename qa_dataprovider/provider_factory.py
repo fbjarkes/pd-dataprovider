@@ -1,11 +1,7 @@
-#!/usr/bin/env python
-# -*- coding: utf-8; py-indent-offset:4 -*-
-
 import os
 
 from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
-from qa_dataprovider.providers.web_dataprovider import CachedWebDataProvider
 from qa_dataprovider.providers.sql_dataprovider import SQLDataProvider
 
 AVAILABLE_PROVIDERS = ['ibasync', 'ibfile', 'sql', 'quandl', 'infront', 'csv', 'tradingview']
