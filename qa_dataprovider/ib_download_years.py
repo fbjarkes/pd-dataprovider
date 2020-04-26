@@ -3,7 +3,7 @@
 
 import click
 import pandas as pd
-from qa_dataprovider import AsyncIBDataProvider
+from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.objects import SymbolData
 
 
