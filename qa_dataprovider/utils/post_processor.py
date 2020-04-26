@@ -5,7 +5,7 @@ import logging as logger
 
 import pandas as pd
 
-from qa_dataprovider.validator import Validator
+from qa_dataprovider.utils.validator import Validator
 
 
 class PostProcessor:
@@ -18,27 +18,53 @@ class PostProcessor:
         to_date = kwargs['to']
         return pd.DataFrame(data[from_date:to_date])
 
+    def filter_rth(self, data, kwargs):
+        if 'rth' in kwargs:
+            return data.between_time('09:30', '16:00')
+        else:
+            return data
+
     def transform_timeframe(self, data, kwargs):
-        if kwargs['timeframe'] == 'week':
-            data = self._transform_week(data)
-
-        if kwargs['timeframe'] == 'month':
-            data = self._transform_month(data)
-
+        if kwargs['timeframe'] == 'day':
+            if kwargs['transform'] == 'week':
+                data = self._transform_week(data)
+            if kwargs['transform'] == 'month':
+                data = self._transform_month(data)
+            if "D" in kwargs['transform'] and kwargs['transform'] != "1D":
+                data = self._transform_day(data, kwargs['transform'][:-1])
+        elif kwargs['timeframe'] == '5min':
+            if kwargs['transform'] == '60min':
+                data = self._transform_hour(data)
+        elif kwargs['timeframe'] == kwargs['transform']:
+            pass # Let it pass regardless of timeframe
+        elif kwargs['timeframe'] == '1min':
+            if kwargs['transform'] == '5min':
+                data = self._transform_min(5, data)
+            if kwargs['transform'] == '60min':
+                data = self._transform_hour(data)
+        elif kwargs['timeframe'] == '60min':
+            if kwargs['transform'] == '240min':
+                data = self._transform_min(240, data)
+        else:
+            raise Exception(
+                f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")
         return data
 
     def validate(self, data, kwargs):
         self.validator.validate_nan(data, kwargs['ticker'])
-        self.validator.validate_dates(data, kwargs['ticker'], kwargs['from'], kwargs['to'])
         return data
 
     def add_quotes(self, data, kwargs):
         data = kwargs['provider'].add_quotes(data, kwargs['ticker'])
         return data
 
-    def add_meta_data(self, data, kwargs):
-        data['Ticker'] = kwargs['ticker']
-        return data
+    def add_meta_data(self, df, kwargs):
+        df['Ticker'] = kwargs['ticker']
+        return df
+
+    def fill_na(self, df, kwargs):
+        df.fillna(method='ffill', inplace=True)
+        return df
 
     def _transform_week(self, data):
         # From: http://blog.yhat.com/posts/stock-data-python.html
@@ -60,10 +86,25 @@ class PostProcessor:
 
         return sorted
 
+    def _transform_hour(self, data):
+        conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
+        # TODO: remove 16:00 bar? Official close is Open of 16:00 bar?
+        # TODO: if RTH modify first datetime index each day to '9:30' (data is correct but looks odd)
+        resampled = data.resample('60Min').agg(conversion)
+        return resampled.dropna()
+
+    def _transform_day(self, data, transform):
+        conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
+        resampled = data.resample(f"{transform}D").agg(conversion)
+        return resampled.dropna()
+
+    def _transform_min(self, to_tf, data):
+        conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
+        resampled = data.resample(f"{to_tf}Min").agg(conversion)
+        return resampled.dropna()
+
     def _transform_month(self, data):
-
         transdat = data.loc[:, ["Open", "High", "Low", "Close", 'Volume']]
-
 
         transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.week)
         transdat["year"] = pd.to_datetime(transdat.index).map(lambda x: x.year)
@@ -88,7 +129,6 @@ class PostProcessor:
     def add_trading_days(self, data, kwargs):
         if kwargs['timeframe'] == 'day':
             data = self.__add_trading_days(data, "Day")
-
         return data
 
     def __add_trading_days(self, df, column_name):
@@ -99,5 +139,4 @@ class PostProcessor:
             for index, row in yearly.iterrows():
                 df.loc[index, column_name] = day
                 day += 1
-
         return df
