@@ -12,9 +12,8 @@ class Validator:
         self.nyse = mcal.get_calendar('NYSE')
 
     def validate_nan(self, df, ticker):
-        # TODO: how to handle some nan values, just ffill?
-        #nan_rows = pd.isnull(df).any(1).nonzero()[0]
-        nan_rows = pd.isnull(df).any(1)
+        nan_rows = pd.isnull(df).any(1).to_numpy().nonzero()[0]
+        #nan_rows = pd.isnull(df).any(1)
         if len(nan_rows) > 0:
             logger.warning("WARNING: {:s} has {:d} rows with NaN".format(ticker, len(nan_rows)))
 

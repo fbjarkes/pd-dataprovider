@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
 import logging
@@ -19,23 +18,20 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     us_eastern = pytz.timezone('America/New_York')
 
-    logging.basicConfig(level=logging.DEBUG, format='%(filename)s: %(message)s')
-    logger = logging
+    logger = logging.getLogger(__name__)
 
-    def __init__(self, host: str='127.0.0.1', port: int= 7496, timeout: int=60):
-        super(AsyncIBDataProvider, self).__init__(chunk_size=20)
+    def __init__(self, host: str = '127.0.0.1', port: int = 7496, timeout: int = 60, verbose: int = 0):
+        super(AsyncIBDataProvider, self).__init__(self.logger, verbose, chunk_size=20)
         self.port = port
         self.host = host
         self.timeout = timeout
         self.ib = IB()
 
-
     def disconnect(self):
         self.ib.disconnect()
 
     def connect(self):
-        self.ib.connect(self.host, self.port, clientId=int(random.uniform(1, 1000)),
-                       timeout=self.timeout)
+        self.ib.connect(self.host, self.port, clientId=int(random.uniform(1, 10000)), timeout=self.timeout, readonly=True)
 
     def _initialize(self):
         self.connect()
@@ -68,11 +64,12 @@ class AsyncIBDataProvider(GenericDataProvider):
         return self._get_data_internal(symbol_data)
 
     def _get_data_internal(self, symbol_data: SymbolData) -> pd.DataFrame:
+        self.logger.info(f"Getting symbol data: {symbol_data}")
+
         if symbol_data.timeframe == 'day':
             symbol, bars = self.__get_daily(symbol_data.start, symbol_data.symbol, symbol_data.end)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self.__to_dataframe(bars)
-
 
         elif symbol_data.timeframe == '60min':
             if symbol_data.end is None:
@@ -110,9 +107,10 @@ class AsyncIBDataProvider(GenericDataProvider):
 
         df = dataframe
         if dataframe.empty:
-            self.logger.warning(f"Got empty df for {symbol_data.symbol}, for {symbol_data.start} to {symbol_data.end}")
+            self.logger.warning(f"Got empty df for {symbol_data}")
         else:
             df = self._post_process(dataframe, symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform)
+
         return df
 
     @staticmethod

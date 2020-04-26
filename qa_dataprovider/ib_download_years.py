@@ -7,7 +7,7 @@ from qa_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.model.symbol_data import SymbolData
 
 
-def download_years(symbols: str, years: str, host: str, port: int, timeout: int):
+def download_years(symbols: str, years: str, host: str, port: int, timeout: int, verbose: int):
     """
     TICKER # Stock type and SMART exchange
 
@@ -53,8 +53,7 @@ def download_years(symbols: str, years: str, host: str, port: int, timeout: int)
 
     TICKER-OPT-EXCHANGE-CURRENCY-YYYYMMDD-STRIKE-RIGHT-MULT # OPT
     """
-
-    ib = AsyncIBDataProvider(host, port, timeout)
+    ib = AsyncIBDataProvider(host, port, timeout, verbose)
     ib.connect()
 
     for symbol in symbols.split(','):
@@ -86,9 +85,11 @@ def download_years(symbols: str, years: str, host: str, port: int, timeout: int)
               show_default=True)
 @click.option('--timeout', default="60", help="IB connection timout", type=click.INT,
               show_default=True)
-def main(symbols: str, years: str, host: str, port: int, timeout: int):
-    download_years(symbols, years, host, port, timeout)
+@click.option('-v', '--verbose', count=True)
+def main(symbols: str, years: str, host: str, port: int, timeout: int, verbose: int):
+    download_years(symbols, years, host, port, timeout, verbose)
 
 
 if __name__ == '__main__':
     main()
+    #main('ZM', '2020', '127.0.0.1', '7496', 60, 2)

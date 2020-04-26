@@ -52,8 +52,6 @@ class PostProcessor:
 
     def validate(self, data, kwargs):
         self.validator.validate_nan(data, kwargs['ticker'])
-        #self.validator.validate_dates(data, kwargs['ticker'], kwargs['from'], kwargs['to'])
-        #self.validator.validate_timeframe(data, kwargs['timeframe'])
         return data
 
     def add_quotes(self, data, kwargs):

@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8; py-indent-offset:4 -*-
 import asyncio
 import sys
 import traceback
-import logging as logger
+import logging
 from abc import ABCMeta, abstractmethod
 import concurrent.futures
 from functools import reduce
@@ -12,12 +10,15 @@ import pandas as pd
 from qa_dataprovider.model.data import Data
 from qa_dataprovider.utils.post_processor import PostProcessor
 from qa_dataprovider.model.symbol_data import SymbolData
+import qa_dataprovider.utils.log_helper as log_helper
 
 
 class GenericDataProvider(metaclass=ABCMeta):
 
     post_processor = PostProcessor()
     chunk_size = 100
+
+    logger = logging.getLogger(__name__)
 
     @abstractmethod
     def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str, transform: str) -> \
@@ -40,9 +41,10 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         pass
 
-    def __init__(self, chunk_size=100):
+    def __init__(self, logger, verbose: int = 0, chunk_size: int = 100):
         self.errors = 0
         self.chunk_size = chunk_size
+        log_helper.init_logging([self.logger, logger], verbose)
 
     def _initialize(self):
         """
@@ -63,7 +65,7 @@ class GenericDataProvider(metaclass=ABCMeta):
         for symbol_data in symbol_datas:
             df = self._get_data_internal(symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform)
             #d = Data(df, symbol_data.symbol, symbol_data.timeframe, symbol_data.)
-            datas.append(d)
+            datas.append(df)
 
         self.errors = len(datas) - len(symbol_data)
         self._finish()
