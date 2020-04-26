@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # -*- coding: utf-8; py-indent-offset:4 -*-
 
 import click
@@ -52,11 +52,8 @@ def download_years(symbols: str, years: str, host: str, port: int, timeout: int)
     TICKER-OPT-EXCHANGE-CURRENCY-YYYYMMDD-STRIKE-RIGHT # OPT
 
     TICKER-OPT-EXCHANGE-CURRENCY-YYYYMMDD-STRIKE-RIGHT-MULT # OPT
-
-    :param ticker:
-    :param years:
-    :return:
     """
+
     ib = AsyncIBDataProvider(host, port, timeout)
     ib.connect()
 
@@ -64,8 +61,9 @@ def download_years(symbols: str, years: str, host: str, port: int, timeout: int)
         total = pd.DataFrame()
         for i, y in enumerate(years.split(',')):
             try:
-                df_list = ib.get_data([SymbolData(symbol, 'day', 'day', f'{y}-01-01'), f'{y}-12-31'], keep_alive=True)
-                total.append(df_list[0])
+                df_list = ib.get_data(
+                    [SymbolData(symbol, 'day', 'day', f'{y}-01-01', f'{y}-12-31')], keep_alive=True)
+                total = total.append(df_list[0])
             except Exception as e:
                 print(f"Error for {y}: '{e}'. Stopping.")
                 break
@@ -88,12 +86,9 @@ def download_years(symbols: str, years: str, host: str, port: int, timeout: int)
               show_default=True)
 @click.option('--timeout', default="60", help="IB connection timout", type=click.INT,
               show_default=True)
-def main(tickers: str, years: str, host: str, port: int, timeout: int):
-    download_years(tickers, years, host, port, timeout)
+def main(symbols: str, years: str, host: str, port: int, timeout: int):
+    download_years(symbols, years, host, port, timeout)
 
 
 if __name__ == '__main__':
     main()
-
-
-
