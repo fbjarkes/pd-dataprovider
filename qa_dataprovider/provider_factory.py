@@ -14,7 +14,7 @@ AVAILABLE_PROVIDERS = ['ibasync', 'ibfile', 'sql', 'quandl', 'infront', 'csv', '
 class ProviderFactory:
 
     @staticmethod
-    def make_provider(provider, get_quotes=False, **kwargs):
+    def make_provider(provider :str, verbose: int = 0, get_quotes: bool = False, **kwargs):
         home = ''
         if 'HOME' in os.environ:
             home = f"{os.environ['HOME']}"
@@ -22,7 +22,7 @@ class ProviderFactory:
             home = f"{os.environ['USERPROFILE']}"
 
         if provider == 'ibasync':
-            return AsyncIBDataProvider()
+            return AsyncIBDataProvider(verbose=verbose)
 
         elif provider == 'ibfile':
             return CsvFileDataProvider(
@@ -92,6 +92,6 @@ class ProviderFactory:
                     f"{home}/sql/tickdata_5min.db",
                     f"{home}/Dropbox/sql/tickdata_5min.db",
                 ])
-        else:
-            return CachedWebDataProvider(provider, expire_days=0, get_quotes=get_quotes)
+
+        raise Exception(f"Invalid provider {provider}")
 

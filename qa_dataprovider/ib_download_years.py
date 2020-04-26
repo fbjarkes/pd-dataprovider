@@ -4,7 +4,7 @@
 import click
 import pandas as pd
 from qa_dataprovider import AsyncIBDataProvider
-from qa_dataprovider.model.symbol_data import SymbolData
+from qa_dataprovider.objects import SymbolData
 
 
 def download_years(symbols: str, years: str, host: str, port: int, timeout: int, verbose: int):

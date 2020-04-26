@@ -7,9 +7,8 @@ import concurrent.futures
 from functools import reduce
 import pandas as pd
 
-from qa_dataprovider.model.data import Data
 from qa_dataprovider.utils.post_processor import PostProcessor
-from qa_dataprovider.model.symbol_data import SymbolData
+from qa_dataprovider.objects import SymbolData, Data
 import qa_dataprovider.utils.log_helper as log_helper
 
 

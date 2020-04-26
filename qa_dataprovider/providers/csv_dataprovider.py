@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8; py-indent-offset:4 -*-
 import asyncio
 import logging
 import os
@@ -7,7 +5,7 @@ import os
 from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
 import pandas as pd
 import numpy as np
-from qa_dataprovider.model.symbol_data import SymbolData
+from qa_dataprovider.objects import SymbolData
 
 
 class CsvFileDataProvider(GenericDataProvider):
@@ -21,9 +19,9 @@ class CsvFileDataProvider(GenericDataProvider):
     DEFAULT_COL_NAMES = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume']
     logging.basicConfig(level=logging.DEBUG,
                         format='%(filename)s: %(message)s')
-    logger = logging
+    logger = logging.getLogger(__name__)
 
-    def __init__(self, paths, prefix=[], col_names=DEFAULT_COL_NAMES, epoch=False):
+    def __init__(self, paths, verbose = 0, prefix=[], col_names=DEFAULT_COL_NAMES, epoch=False):
         """
         Initialize with a list of paths for which each call to get_data() tries to open
         csv file directly in paths. 
@@ -38,6 +36,7 @@ class CsvFileDataProvider(GenericDataProvider):
         :param list col_names: Specify custom column names
         :param epoch: Datetimes in epoch or as string
         """
+        super(CsvFileDataProvider, self).__init__(self.logger, verbose)
         self.paths = paths
         self.prefix = prefix
         self.col_names = col_names
@@ -72,7 +71,6 @@ class CsvFileDataProvider(GenericDataProvider):
 
                         data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, **kwargs)
                         return data
-        #self.logger.info("{} not found in {}".format(ticker, self.paths))
         raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))
 
     def _get_data_internal(self, ticker, from_date, to_date, timeframe, transform, **kwargs) -> pd.DataFrame:

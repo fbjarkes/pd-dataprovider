@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8; py-indent-offset:4 -*-
-
 import unittest
 
 import pandas_market_calendars as mcal
