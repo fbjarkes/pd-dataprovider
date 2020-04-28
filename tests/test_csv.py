@@ -4,7 +4,6 @@ import pandas_market_calendars as mcal
 
 from qa_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
 
-
 class TestCsv(unittest.TestCase):
 
     def test_daily_trading_days(self):

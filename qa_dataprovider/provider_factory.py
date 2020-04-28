@@ -1,3 +1,4 @@
+import os
 from configparser import ConfigParser
 from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
@@ -8,7 +9,8 @@ class ProviderFactory:
     @staticmethod
     def make_provider(provider :str, verbose: int = 0, **kwargs):
         cfg = ConfigParser()
-        cfg.read('config.cfg')
+        cwd = os.path.dirname(os.path.realpath(__file__))
+        cfg.read(f"{os.path.split(cwd)[0]}/qa_dataprovider.ini")
 
         if provider == 'ibasync':
             return AsyncIBDataProvider(verbose=verbose)
