@@ -62,7 +62,11 @@ def download_years(symbols: str, years: str, host: str, port: int, timeout: int,
             try:
                 df_list = ib.get_data(
                     [SymbolData(symbol, 'day', 'day', f'{y}-01-01', f'{y}-12-31')], keep_alive=True)
-                total = total.append(df_list[0])
+                if df_list[0].empty:
+                    print(f"No data for {y}. Stopping")
+                    break
+                else:
+                    total = total.append(df_list[0])
             except Exception as e:
                 print(f"Error for {y}: '{e}'. Stopping.")
                 break
