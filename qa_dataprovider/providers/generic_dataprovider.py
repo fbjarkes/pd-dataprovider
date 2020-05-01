@@ -94,41 +94,18 @@ class GenericDataProvider(metaclass=ABCMeta):
         self._finish()
         return datas
 
-    #TODO: Use SymbolData
-    def get_data(self, tickers, from_date, to_date, timeframe='day', transform='day',
-                 max_workers=1, **kwargs) -> [pd.DataFrame]:
-        """
-        Fetch a dataframe for each ticker, using the internal method with multiple threads
-
-        :param list tickers: A list of tickers
-        :param string from_date: Start date, e.g. '2016-01-01'
-        :param string to_date: End date, e.g. '2017-01-01'
-        :param int workers: Number of threads
-        :return: List with dataframes
-        """
+    def get_data(self, symbol_datas: [SymbolData]) -> [pd.DataFrame]:
         dataframes = []
+        self._initialize()
+        for symbol_data in symbol_datas:
+            try:
+                dataframes.append(self._get_data_internal(symbol_data))
+            except Exception as exc:
+                traceback.print_exc(file=sys.stderr)
+                self.logger.warning(
+                    "Skipping {}: error message: {}".format(symbol_data.symbol, exc))
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {
-                executor.submit(self._get_data_internal,
-                                ticker, from_date, to_date, timeframe, transform, **kwargs): ticker
-                for
-                ticker in tickers}
-
-            for future in concurrent.futures.as_completed(futures):
-                ticker = futures[future]
-                try:
-                    data = future.result()
-                except Exception as exc:
-                    traceback.print_exc(file=sys.stderr)
-                    self._logger.debug("", exc_info=True)
-                    self._logger.warning(
-                        "Skipping {}: error message: {}".format(ticker, exc))
-                else:
-                    if data is not None:
-                        dataframes.append(data)
-
-        self.errors = len(dataframes) - len(tickers)
+        self.errors = len(dataframes) - len(symbol_datas)
         self._finish()
 
         return dataframes

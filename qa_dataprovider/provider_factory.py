@@ -14,7 +14,12 @@ class ProviderFactory:
 
         if provider == 'ibasync':
             return AsyncIBDataProvider(verbose=verbose,
-                                       tz='America/New_York' if kwargs.get('tz') is None else kwargs.get('tz'))
+                                       tz='America/New_York' if kwargs.get('tz') is None else kwargs.get('tz'),
+                                       host=cfg[provider]['host'],
+                                       port=int(cfg[provider]['port']),
+                                       timeout=int(cfg[provider]['timeout']),
+                                       chunk_size=int(cfg[provider]['chunk_size']),
+                                       **kwargs)
 
         elif provider in ['ibfile', 'quandl', 'csv']:
             return CsvFileDataProvider(cfg[provider]['paths'].split(), verbose=verbose)

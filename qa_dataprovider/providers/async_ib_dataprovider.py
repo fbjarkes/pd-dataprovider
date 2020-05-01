@@ -16,48 +16,29 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     logger = logging.getLogger(__name__)
 
-    def __init__(self, tz: str, host: str = '127.0.0.1', port: int = 7496, timeout: int = 60, verbose: int = 0):
-        super(AsyncIBDataProvider, self).__init__(
-            self.logger, verbose, tz, chunk_size=20)
+    def __init__(self, verbose: int, tz: str, host: str, port: int, timeout: int, chunk_size: int, **kwargs):
+        super(AsyncIBDataProvider, self).__init__(self.logger, verbose, tz,chunk_size=chunk_size)
         self.port = port
         self.host = host
         self.timeout = timeout
+        self.keep_alive = False if kwargs['keep_alive'] is None else kwargs['keep_alive']
         self.ib = IB()
 
     def disconnect(self):
         self.ib.disconnect()
 
     def connect(self):
-        self.ib.connect(self.host, self.port, clientId=int(
-            random.uniform(1, 10000)), timeout=self.timeout, readonly=True)
+        id = int(random.uniform(1, 10000))
+        self.logger.info(f"IBAsync: {self.host}:{self.port}, timeout={self.timeout}")
+        self.ib.connect(self.host, self.port, clientId=id, timeout=self.timeout, readonly=True)
 
     def _initialize(self):
-        self.connect()
-
-    def _finish(self):
-        self.disconnect()
-
-    def get_data(self, symbol_datas: [SymbolData], max_workers=1, keep_alive=False) -> [pd.DataFrame]:
-
-        df_list = []
-
-        if not keep_alive:
+        if not self.ib.isConnected():
             self.connect()
 
-        for symbol_data in symbol_datas:
-            try:
-                df_list.append(self._get_data_internal(symbol_data))
-            except Exception as exc:
-                traceback.print_exc(file=sys.stderr)
-                self.logger.warning(
-                    "Skipping {}: error message: {}".format(symbol_data.symbol, exc))
-
-        if not keep_alive:
-            self.ib.disconnect()
-
-        self.errors = len(df_list) - len(symbol_datas)
-
-        return df_list
+    def _finish(self):
+        if not self.keep_alive:
+            self.disconnect()
 
     async def _get_data_internal_async(self, symbol_data: SymbolData, **kwargs) -> pd.DataFrame:
         return self._get_data_internal(symbol_data)
