@@ -5,4 +5,4 @@ pytz
 pandas-market-calendars
 urllib3
 aiofile
-#ib_insync # python 3.6
+ib_insync

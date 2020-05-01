@@ -1,5 +1,3 @@
-# -*- coding: utf-8; py-indent-offset:4 -*-
-
 import logging
 import traceback
 from datetime import datetime, timedelta

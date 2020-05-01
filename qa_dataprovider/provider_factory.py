@@ -16,23 +16,26 @@ class ProviderFactory:
             return AsyncIBDataProvider(verbose=verbose)
 
         elif provider in ['ibfile', 'quandl', 'csv']:
-            return CsvFileDataProvider(cfg[provider]['paths'].split())
+            return CsvFileDataProvider(cfg[provider]['paths'].split(), verbose=verbose)
 
         elif provider == 'tradingview':
             return CsvFileDataProvider(
                 cfg[provider]['paths'].split(),
+                verbose=verbose,
                 col_names=['time','open','high','low','close', 'volume'],
                 epoch=True
             )
         elif provider == 'avfile':
             return CsvFileDataProvider(
                 cfg[provider]['paths'].split(),
+                verbose=verbose,
                 col_names=['timestamp','open','high','low','close', 'volume'],
                 epoch=False
             )
         elif provider == 'infront':
             return CsvFileDataProvider(
                 cfg[provider]['paths'].split(),
+                verbose=verbose,
                 prefix=['NSQ', 'NYS', 'NYSF', 'SSE', ''] if kwargs.get('prefix') is None else kwargs.get('prefix')
             )
 
