@@ -14,13 +14,11 @@ from qa_dataprovider.objects import SymbolData
 
 class AsyncIBDataProvider(GenericDataProvider):
 
-    us_eastern = pytz.timezone('America/New_York')
-
     logger = logging.getLogger(__name__)
 
-    def __init__(self, host: str = '127.0.0.1', port: int = 7496, timeout: int = 60, verbose: int = 0):
+    def __init__(self, tz: str, host: str = '127.0.0.1', port: int = 7496, timeout: int = 60, verbose: int = 0):
         super(AsyncIBDataProvider, self).__init__(
-            self.logger, verbose, chunk_size=20)
+            self.logger, verbose, tz, chunk_size=20)
         self.port = port
         self.host = host
         self.timeout = timeout
@@ -68,10 +66,10 @@ class AsyncIBDataProvider(GenericDataProvider):
         self.logger.info(f"Getting symbol data: {symbol_data}")
 
         if symbol_data.timeframe == 'day':
-            symbol, bars = self.__get_daily(
+            symbol, bars = self._get_daily(
                 symbol_data.start, symbol_data.symbol, symbol_data.end)
             symbol = symbol_data.symbol.split('-')[0]
-            dataframe = self.__to_dataframe(bars)
+            dataframe = self._to_dataframe(bars)
 
         elif symbol_data.timeframe == '60min':
             if symbol_data.end is None:
@@ -85,10 +83,10 @@ class AsyncIBDataProvider(GenericDataProvider):
             else:
                 from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
 
-            symbol, bars = self.__get_intraday(
+            symbol, bars = self._get_intraday(
                 symbol_data.symbol, symbol_data.end, duration, '1 hour', symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
-            dataframe = self.__to_dataframe(bars, tz_fix=True)
+            dataframe = self._to_dataframe(bars, tz_fix=True)
 
         elif symbol_data.timeframe == '5min':
             if symbol_data.end is None:
@@ -102,10 +100,10 @@ class AsyncIBDataProvider(GenericDataProvider):
             else:
                 from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
 
-            symbol, bars = self.__get_intraday(
+            symbol, bars = self._get_intraday(
                 symbol_data.symbol, symbol_data.end, duration, '5 mins', symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
-            dataframe = self.__to_dataframe(bars, tz_fix=True)
+            dataframe = self._to_dataframe(bars, tz_fix=True)
         else:
             raise Exception(f"{symbol_data.timeframe} not implemented!")
 
@@ -220,8 +218,8 @@ class AsyncIBDataProvider(GenericDataProvider):
         else:
             return Stock(symbol, exchange, currency)
 
-    def __get_intraday(self, ticker: str, to_date: str, duration: str,
-                       barsize: str, rth_only: bool) -> (str, [BarData]):
+    def _get_intraday(self, ticker: str, to_date: str, duration: str,
+                      barsize: str, rth_only: bool) -> (str, [BarData]):
         to_dt = datetime.strptime(f"{to_date} 11:59", '%Y-%m-%d %H:%M')
         contract = AsyncIBDataProvider.parse_contract(ticker)
         whatToShow = 'MIDPOINT' if isinstance(
@@ -233,7 +231,7 @@ class AsyncIBDataProvider(GenericDataProvider):
                                          formatDate=2)
         return contract.symbol, bars
 
-    def __get_daily(self, from_date: str, ticker: str, to_date: str) -> (str, [BarData]):
+    def _get_daily(self, from_date: str, ticker: str, to_date: str) -> (str, [BarData]):
         from_dt = datetime.strptime(from_date, "%Y-%m-%d")
         today = datetime.strptime(to_date, "%Y-%m-%d")
         to_dt = datetime(today.year, today.month, today.day, 23, 59, 59)
@@ -257,9 +255,9 @@ class AsyncIBDataProvider(GenericDataProvider):
                                          formatDate=1)
         return contract.symbol, bars
 
-    def __to_dataframe(self, bars, tz_fix=False):
+    def _to_dataframe(self, bars, tz_fix=False):
         if tz_fix:
-            data = [{'Date': pd.to_datetime(b.date.astimezone(self.us_eastern).replace(tzinfo=None)),
+            data = [{'Date': pd.to_datetime(b.date.astimezone(self.tz).replace(tzinfo=None)),
                      'Open': b.open, 'High': b.high, 'Low': b.low, 'Close': b.close,
                      'Volume': b.volume} for b in bars]
         else:

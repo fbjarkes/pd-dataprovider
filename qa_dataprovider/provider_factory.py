@@ -13,7 +13,8 @@ class ProviderFactory:
         cfg.read(f"{os.path.split(cwd)[0]}/qa_dataprovider.ini")
 
         if provider == 'ibasync':
-            return AsyncIBDataProvider(verbose=verbose)
+            return AsyncIBDataProvider(verbose=verbose,
+                                       tz='America/New_York' if kwargs.get('tz') is None else kwargs.get('tz'))
 
         elif provider in ['ibfile', 'quandl', 'csv']:
             return CsvFileDataProvider(cfg[provider]['paths'].split(), verbose=verbose)

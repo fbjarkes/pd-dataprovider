@@ -6,6 +6,7 @@ from abc import ABCMeta, abstractmethod
 import concurrent.futures
 from functools import reduce
 import pandas as pd
+import pytz
 
 from qa_dataprovider.utils.post_processor import PostProcessor
 from qa_dataprovider.objects import SymbolData, Data
@@ -40,9 +41,10 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         pass
 
-    def __init__(self, logger, verbose: int = 0, chunk_size: int = 100):
+    def __init__(self, logger, verbose: int, tz, chunk_size: int = 100):
         self.errors = 0
         self.chunk_size = chunk_size
+        self.tz = pytz.timezone(tz)
         log_helper.init_logging([self._logger, logger], verbose)
 
     def _initialize(self):
