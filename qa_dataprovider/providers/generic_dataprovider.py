@@ -21,7 +21,7 @@ class GenericDataProvider(metaclass=ABCMeta):
     _logger = logging.getLogger(__name__)
 
     @abstractmethod
-    def _get_data_internal(self, ticker: str, from_date: str, to_date: str, timeframe: str, transform: str) -> \
+    def _get_data_internal(self, symbol_data: SymbolData) -> \
             pd.DataFrame:
         pass
 
@@ -62,13 +62,16 @@ class GenericDataProvider(metaclass=ABCMeta):
     def get_datas(self, symbol_datas: [SymbolData]) -> [Data]:
         datas = []
         self._initialize()
+        chunks = self.chunks(symbol_datas, self.chunk_size)
+        for chunk in chunks:
+            #dfs = await asyncio.gather(*[self._get_data_internal_async(symbol_data) for symbol_data in chunk])
+            dataframes = []
+            for symbol_data in chunk:
+                df = self._get_data_internal(symbol_data)
+                dataframes.append(df)
+            datas += self.create_data_class(zip(dataframes, chunk))
 
-        for symbol_data in symbol_datas:
-            df = self._get_data_internal(symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform)
-            #d = Data(df, symbol_data.symbol, symbol_data.timeframe, symbol_data.)
-            datas.append(df)
-
-        self.errors = len(datas) - len(symbol_data)
+        self.errors = len(datas) - len(symbol_datas)
         self._finish()
 
         return datas
@@ -77,16 +80,16 @@ class GenericDataProvider(metaclass=ABCMeta):
         datas = []
         for df, symbol_data in lst:
             if not df.empty:
-                datas.append(Data(df, symbol_data.symbol, symbol_data.timeframe, df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
+                datas.append(Data(df, symbol_data.symbol, symbol_data.transform, df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
         return datas
 
     def chunks(self, l, n):
         n = max(1, n)
         return (l[i:i + n] for i in range(0, len(l), n))
 
-    async def get_datas_async(self, symbols_data: [SymbolData]) -> [Data]:
+    async def get_datas_async(self, symbol_datas: [SymbolData]) -> [Data]:
         self._initialize()
-        chunks = self.chunks(symbols_data, self.chunk_size)
+        chunks = self.chunks(symbol_datas, self.chunk_size)
         datas = []
         for chunk in chunks:
             dfs = await asyncio.gather(*[self._get_data_internal_async(symbol_data) for symbol_data in chunk])
@@ -94,7 +97,7 @@ class GenericDataProvider(metaclass=ABCMeta):
         self._finish()
         return datas
 
-    def get_data(self, symbol_datas: [SymbolData]) -> [pd.DataFrame]:
+    def get_dataframe(self, symbol_datas: [SymbolData]) -> [pd.DataFrame]:
         dataframes = []
         self._initialize()
         for symbol_data in symbol_datas:

@@ -61,7 +61,7 @@ def download_years(symbols: str, years: str, verbose: int):
         total = pd.DataFrame()
         for i, y in enumerate(years.split(',')):
             try:
-                df_list = ib.get_data(
+                df_list = ib.get_dataframe(
                     [SymbolData(symbol, 'day', 'day', f'{y}-01-01', f'{y}-12-31')])
                 if df_list[0].empty:
                     print(f"No data for {y}. Stopping")

@@ -16,12 +16,14 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     logger = logging.getLogger(__name__)
 
-    def __init__(self, verbose: int, tz: str, host: str, port: int, timeout: int, chunk_size: int, **kwargs):
+    def __init__(self, verbose: int, host: str, port: int, timeout: int, chunk_size: int, tz='America/New_York', **kwargs):
         super(AsyncIBDataProvider, self).__init__(self.logger, verbose, tz,chunk_size=chunk_size)
         self.port = port
         self.host = host
         self.timeout = timeout
-        self.keep_alive = False if kwargs['keep_alive'] is None else kwargs['keep_alive']
+        self.keep_alive = False
+        if 'keep_alive' in kwargs:
+            self.keep_alive = kwargs['keep_alive']
         self.ib = IB()
 
     def disconnect(self):
@@ -259,7 +261,7 @@ class AsyncIBDataProvider(GenericDataProvider):
 if __name__ == '__main__':
     ib = AsyncIBDataProvider()
     #df_list = ib.get_data(['JBL'], '2020-03-01', '2020-04-08', timeframe='60min', transform='60min')
-    df_list = ib.get_data(['JBL'], '2020-03-01',
+    df_list = ib.get_dataframe(['JBL'], '2020-03-01',
                           '2020-04-08', timeframe='day', transform='day')
 
     for df in df_list:

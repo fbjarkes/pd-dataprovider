@@ -14,7 +14,6 @@ class ProviderFactory:
 
         if provider == 'ibasync':
             return AsyncIBDataProvider(verbose=verbose,
-                                       tz='America/New_York' if kwargs.get('tz') is None else kwargs.get('tz'),
                                        host=cfg[provider]['host'],
                                        port=int(cfg[provider]['port']),
                                        timeout=int(cfg[provider]['timeout']),

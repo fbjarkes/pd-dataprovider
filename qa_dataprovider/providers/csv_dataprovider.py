@@ -36,13 +36,13 @@ class CsvFileDataProvider(GenericDataProvider):
         :param list col_names: Specify custom column names
         :param epoch: Datetimes in epoch or as string
         """
-        super(CsvFileDataProvider, self).__init__(self.logger, verbose)
+        super(CsvFileDataProvider, self).__init__(self.logger, verbose, tz='America/New_York')
         self.paths = paths
         self.prefix = prefix
         self.col_names = col_names
         self.epoch = epoch
 
-    async def _get_data_internal_async(self, symbol_data: SymbolData, **kwargs):
+    async def _get_data_internal_async(self, symbol_data: SymbolData, **kwargs) -> pd.DataFrame:
         for path in self.paths:
             filenames = [
                 "{}/{}_{}.{}".format(path, prefix, symbol_data.symbol, 'csv') for prefix in self.prefix]
@@ -73,11 +73,11 @@ class CsvFileDataProvider(GenericDataProvider):
                         return data
         raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))
 
-    def _get_data_internal(self, ticker, from_date, to_date, timeframe, transform, **kwargs) -> pd.DataFrame:
+    def _get_data_internal(self, symbol_data: SymbolData, **kwargs) -> pd.DataFrame:
         for path in self.paths:
             filenames = [
-                "{}/{}_{}.{}".format(path, prefix, ticker, 'csv') for prefix in self.prefix]
-            filenames.append("{}/{}.{}".format(path, ticker, 'csv'))
+                "{}/{}_{}.{}".format(path, prefix, symbol_data.symbol, 'csv') for prefix in self.prefix]
+            filenames.append("{}/{}.{}".format(path, symbol_data.symbol, 'csv'))
 
             for filename in filenames:
                 self.logger.debug("Trying '{}'".format(filename))
@@ -97,10 +97,10 @@ class CsvFileDataProvider(GenericDataProvider):
                         self.logger.info("{}, {:d} rows ({} to {})"
                                          .format(f.name, len(df), df.index[0], df.index[-1]))
 
-                        return self._post_process(df, ticker, from_date, to_date, timeframe,
-                                                  transform, **kwargs)
+                        data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, **kwargs)
+                        return data
 
-        self.logger.info("{} not found in {}".format(ticker, self.paths))
+        self.logger.info("{} not found in {}".format(symbol_data.symbol, self.paths))
 
     def add_quotes(self, data, ticker):
         """
