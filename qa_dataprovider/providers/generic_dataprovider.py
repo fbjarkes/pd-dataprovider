@@ -15,7 +15,6 @@ import qa_dataprovider.utils.log_helper as log_helper
 
 class GenericDataProvider(metaclass=ABCMeta):
 
-    post_processor = PostProcessor()
     chunk_size = 100
 
     _logger = logging.getLogger(__name__)
@@ -46,6 +45,7 @@ class GenericDataProvider(metaclass=ABCMeta):
         self.chunk_size = chunk_size
         self.tz = pytz.timezone(tz)
         log_helper.init_logging([self._logger, logger], verbose)
+        self.post_processor = PostProcessor(logger)
 
     def _initialize(self):
         """
@@ -64,7 +64,6 @@ class GenericDataProvider(metaclass=ABCMeta):
         self._initialize()
         chunks = self.chunks(symbol_datas, self.chunk_size)
         for chunk in chunks:
-            #dfs = await asyncio.gather(*[self._get_data_internal_async(symbol_data) for symbol_data in chunk])
             dataframes = []
             for symbol_data in chunk:
                 df = self._get_data_internal(symbol_data)
@@ -97,7 +96,7 @@ class GenericDataProvider(metaclass=ABCMeta):
         self._finish()
         return datas
 
-    def get_dataframe(self, symbol_datas: [SymbolData]) -> [pd.DataFrame]:
+    def get_dataframes(self, symbol_datas: [SymbolData]) -> [pd.DataFrame]:
         dataframes = []
         self._initialize()
         for symbol_data in symbol_datas:

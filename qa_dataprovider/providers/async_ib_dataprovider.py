@@ -261,7 +261,7 @@ class AsyncIBDataProvider(GenericDataProvider):
 if __name__ == '__main__':
     ib = AsyncIBDataProvider()
     #df_list = ib.get_data(['JBL'], '2020-03-01', '2020-04-08', timeframe='60min', transform='60min')
-    df_list = ib.get_dataframe(['JBL'], '2020-03-01',
+    df_list = ib.get_dataframes(['JBL'], '2020-03-01',
                           '2020-04-08', timeframe='day', transform='day')
 
     for df in df_list:

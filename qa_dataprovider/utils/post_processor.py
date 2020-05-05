@@ -1,17 +1,17 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8; py-indent-offset:4 -*-
-
-import logging as logger
-
+import logging
 import pandas as pd
 
+from qa_dataprovider.utils import log_helper
 from qa_dataprovider.utils.validator import Validator
 
 
 class PostProcessor:
 
-    logger.basicConfig(level=logger.INFO, format='%(filename)s: %(message)s')
+    logger = logging.getLogger(__name__)
     validator = Validator()
+
+    def __init__(self, verbose):
+        log_helper.init_logging([self.logger], verbose)
 
     def filter_dates(self, data, kwargs):
         from_date = kwargs['from']
@@ -19,7 +19,8 @@ class PostProcessor:
         return pd.DataFrame(data[from_date:to_date])
 
     def filter_rth(self, data, kwargs):
-        if 'rth' in kwargs:
+        if kwargs['timeframe'] not in ['day', 'week', 'month'] and 'rth_only' in kwargs and kwargs['rth_only']:
+            self.logger.debug('Filtering for RTH only')
             return data.between_time('09:30', '16:00')
         else:
             return data
@@ -67,6 +68,7 @@ class PostProcessor:
         return df
 
     def _transform_week(self, data):
+        self.logger.debug(f"Transforming to 1 week")
         # From: http://blog.yhat.com/posts/stock-data-python.html
         transdat = data.loc[:, ["Open", "High", "Low", "Close", 'Volume']]
 
@@ -87,6 +89,7 @@ class PostProcessor:
         return sorted
 
     def _transform_hour(self, data):
+        self.logger.debug(f"Transforming to 1H")
         conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
         # TODO: remove 16:00 bar? Official close is Open of 16:00 bar?
         # TODO: if RTH modify first datetime index each day to '9:30' (data is correct but looks odd)
@@ -94,16 +97,19 @@ class PostProcessor:
         return resampled.dropna()
 
     def _transform_day(self, data, transform):
+        self.logger.debug(f"Transforming to 1D")
         conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
         resampled = data.resample(f"{transform}D").agg(conversion)
         return resampled.dropna()
 
     def _transform_min(self, to_tf, data):
+        self.logger.debug(f"Transforming to {to_tf}")
         conversion = {'Open': 'first', 'High': 'max', 'Low': 'min', 'Close': 'last', 'Volume': 'sum'}
         resampled = data.resample(f"{to_tf}Min").agg(conversion)
         return resampled.dropna()
 
     def _transform_month(self, data):
+        self.logger.debug(f"Transforming to 1M")
         transdat = data.loc[:, ["Open", "High", "Low", "Close", 'Volume']]
 
         transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.week)
@@ -127,11 +133,11 @@ class PostProcessor:
         pass #TODO
 
     def add_trading_days(self, data, kwargs):
-        if kwargs['timeframe'] == 'day':
-            data = self.__add_trading_days(data, "Day")
+        if kwargs['transform'] == 'day':
+            data = self._add_trading_days(data, "Day")
         return data
 
-    def __add_trading_days(self, df, column_name):
+    def _add_trading_days(self, df, column_name):
         groups = df.groupby(df.index.year)
         for group in groups:
             yearly = group[1]

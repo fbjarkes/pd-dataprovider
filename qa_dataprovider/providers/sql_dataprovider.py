@@ -45,5 +45,5 @@ class SQLDataProvider(GenericDataProvider):
 
 if __name__ == '__main__':
     data_provider = SQLDataProvider(["/home/fbjarkes/Dropbox/Tickdata_db/tickdata_5min.db"])
-    data = data_provider.get_dataframe(['SPY'], '2016-01-05 ', '2016-01-31', timeframe='5min', transform='5min')[0]
+    data = data_provider.get_dataframes(['SPY'], '2016-01-05 ', '2016-01-31', timeframe='5min', transform='5min')[0]
     print(data)

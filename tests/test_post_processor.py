@@ -13,17 +13,15 @@ class TestPostProcessor(unittest.TestCase):
 
     def test_filter_rth(self):
         provider = CsvFileDataProvider(["data"])
-
-        #df = provider.get_data(['AAPL_2017-11-03'], '2017-10-10', '2017-10-31', timeframe='5min', transform='5min', rth=True)[0]
-        df = provider.get_dataframe([SymbolData('AAPL_2017-11-03', '5min', '5min', '2017-10-10', '2017-10-31')])
+        df = provider.get_dataframes([SymbolData('AAPL_2017-11-03', '5min', '5min', '2017-10-10', '2017-10-31', rth_only=True)])[0]
         assert len(df.at_time('09:25:00')) == 0
         assert len(df.at_time('09:30:00')) > 0
         assert len(df.at_time('16:05:00')) == 0
 
     def test_resample_timeframe(self):
-        provider = CsvFileDataProvider(["data"])
+        provider = CsvFileDataProvider(["data"], verbose=2)
         #df = provider.get_data(['AAPL_2018-01-06'], '2017-12-10', '2017-12-31', timeframe='5min', transform='60min', rth=True)[0]
-        df = provider.get_dataframe([SymbolData('AAPL_2018-01-06', '5min', '60min', '2017-12-10', '2017-12-31')])[0]
+        df = provider.get_dataframes([SymbolData('AAPL_2018-01-06', '5min', '60min', '2017-12-10', '2017-12-31', rth_only=True)])[0]
 
         # Assert 2017-12-29 09:30: O=170.71, H=170.71, L=169.71, C=169.93
         assert str(df.loc[pd.to_datetime('2017-12-29 09:00:00')]['Open']) == "170.71"
@@ -42,7 +40,7 @@ class TestPostProcessor(unittest.TestCase):
 
 
     def test_resample_timeframe_metadata(self):
-        provider = CsvFileDataProvider(["data"])
+        provider = CsvFileDataProvider(["data"], verbose=2)
         datas = provider.get_datas([SymbolData('SPY', 'day', 'day', '2016-01-01', '2016-12-31'),
                                     SymbolData('SPY', 'day', 'week', '2016-01-01', '2016-12-31'),
                                     SymbolData('SPY', 'day', 'month', '2016-01-01', '2016-12-31')])

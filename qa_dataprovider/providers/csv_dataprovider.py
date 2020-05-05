@@ -69,7 +69,7 @@ class CsvFileDataProvider(GenericDataProvider):
                         self.logger.info("{}, {:d} rows ({} to {})"
                                          .format(f.name, len(df), df.index[0], df.index[-1]))
 
-                        data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, **kwargs)
+                        data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, rth_only=symbol_data.rth_only, **kwargs)
                         return data
         raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))
 
@@ -97,7 +97,7 @@ class CsvFileDataProvider(GenericDataProvider):
                         self.logger.info("{}, {:d} rows ({} to {})"
                                          .format(f.name, len(df), df.index[0], df.index[-1]))
 
-                        data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, **kwargs)
+                        data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, rth_only=symbol_data.rth_only, **kwargs)
                         return data
 
         self.logger.info("{} not found in {}".format(symbol_data.symbol, self.paths))
