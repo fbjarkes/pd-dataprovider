@@ -13,10 +13,12 @@ class PostProcessor:
     def __init__(self, verbose):
         log_helper.init_logging([self.logger], verbose)
 
-    def filter_dates(self, data, kwargs):
+    def filter_dates(self, df, kwargs):
         from_date = kwargs['from']
         to_date = kwargs['to']
-        return pd.DataFrame(data[from_date:to_date])
+        if from_date and to_date:
+            return pd.DataFrame(df[from_date:to_date])
+        return  df
 
     def filter_rth(self, data, kwargs):
         if kwargs['timeframe'] not in ['day', 'week', 'month'] and 'rth_only' in kwargs and kwargs['rth_only']:

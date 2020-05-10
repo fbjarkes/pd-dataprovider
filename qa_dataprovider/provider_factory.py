@@ -20,7 +20,7 @@ class ProviderFactory:
                                        chunk_size=int(cfg[provider]['chunk_size']),
                                        **kwargs)
 
-        elif provider in ['ibfile', 'quandl', 'csv']:
+        elif provider in ['ibfile', 'quandl', 'csv','ibfile_intraday']:
             return CsvFileDataProvider(cfg[provider]['paths'].split(), verbose=verbose)
 
         elif provider == 'tradingview':

@@ -66,25 +66,17 @@ class AsyncIBDataProvider(GenericDataProvider):
             else:
                 from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
 
-            symbol, bars = self._get_intraday(
-                symbol_data.symbol, symbol_data.end, duration, '1 hour', symbol_data.rth_only)
+            symbol, bars = self._get_intraday(symbol_data.symbol, symbol_data.end, duration, '1 hour',
+                                              symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self._to_dataframe(bars, tz_fix=True)
 
         elif symbol_data.timeframe == '5min':
-            if symbol_data.end is None:
-                to_date = f"{(datetime.now()):%Y-%m-%d}"
-            to_dt = datetime.strptime(symbol_data.end, "%Y-%m-%d")
+            now = f"{(datetime.now()):%Y-%m-%d}"
             duration = '30 D'
-            if symbol_data.start is not None:
-                from_dt = datetime.strptime(symbol_data.start, "%Y-%m-%d")
-                if (to_dt - from_dt).days >= 30:
-                    from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
-            else:
-                from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
 
             symbol, bars = self._get_intraday(
-                symbol_data.symbol, symbol_data.end, duration, '5 mins', symbol_data.rth_only)
+                symbol_data.symbol, now, duration, '5 mins', symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self._to_dataframe(bars, tz_fix=True)
         else:
