@@ -31,7 +31,7 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     def connect(self):
         id = int(random.uniform(1, 10000))
-        self.logger.info(f"IBAsync: {self.host}:{self.port}, timeout={self.timeout}")
+        self.logger.info(f"IBAsync: {self.host}:{self.port}, timeout={self.timeout}, id={id}")
         self.ib.connect(self.host, self.port, clientId=id, timeout=self.timeout, readonly=True)
 
     def _initialize(self):
@@ -55,18 +55,14 @@ class AsyncIBDataProvider(GenericDataProvider):
             dataframe = self._to_dataframe(bars)
 
         elif symbol_data.timeframe == '60min':
-            if symbol_data.end is None:
+            if not symbol_data.end:
                 to_date = f"{(datetime.now()):%Y-%m-%d}"
-            to_dt = datetime.strptime(symbol_data.end, "%Y-%m-%d")
-            duration = '30 D'
-            if symbol_data.start is not None:
-                from_dt = datetime.strptime(symbol_data.start, "%Y-%m-%d")
-                if (to_dt - from_dt).days >= 30:
-                    from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
             else:
-                from_date = f"{(to_dt - timedelta(days=30)):%Y-%m-%d}"
+                to_date = symbol_data.end
+            #to_dt = datetime.strptime(to_date, "%Y-%m-%d")
 
-            symbol, bars = self._get_intraday(symbol_data.symbol, symbol_data.end, duration, '1 hour',
+            duration = '30 D'
+            symbol, bars = self._get_intraday(symbol_data.symbol, to_date, duration, '1 hour',
                                               symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self._to_dataframe(bars, tz_fix=True)

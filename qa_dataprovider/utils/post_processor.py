@@ -28,6 +28,9 @@ class PostProcessor:
             return data
 
     def transform_timeframe(self, data, kwargs):
+        if kwargs['timeframe'] == kwargs['transform']:
+            return data # Let it pass regardless of timeframe
+
         if kwargs['timeframe'] == 'day':
             if kwargs['transform'] == 'week':
                 data = self._transform_week(data)
@@ -38,8 +41,11 @@ class PostProcessor:
         elif kwargs['timeframe'] == '5min':
             if kwargs['transform'] == '60min':
                 data = self._transform_hour(data)
-        elif kwargs['timeframe'] == kwargs['transform']:
-            pass # Let it pass regardless of timeframe
+            if kwargs['transform'] == 'day':
+                data = self._transform_day(data, 1)
+            if kwargs['transform'] == 'week':
+                daily = self._transform_day(data, 1)
+                data = self._transform_week(daily)
         elif kwargs['timeframe'] == '1min':
             if kwargs['transform'] == '5min':
                 data = self._transform_min(5, data)
@@ -47,6 +53,13 @@ class PostProcessor:
                 data = self._transform_hour(data)
         elif kwargs['timeframe'] == '60min':
             if kwargs['transform'] == '240min':
+                data = self._transform_min(240, data)
+        elif kwargs['timeframe'] == '15min':
+            if kwargs['transform'] == '30min':
+                data = self._transform_min(30, data)
+            elif kwargs['transform'] == '60min':
+                data = self._transform_min(60, data)
+            elif kwargs['transform'] == '240min':
                 data = self._transform_min(240, data)
         else:
             raise Exception(
@@ -62,7 +75,7 @@ class PostProcessor:
         return data
 
     def add_meta_data(self, df, kwargs):
-        df['Ticker'] = kwargs['ticker']
+        #df['Ticker'] = kwargs['ticker']
         return df
 
     def fill_na(self, df, kwargs):

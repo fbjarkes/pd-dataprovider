@@ -8,7 +8,7 @@ from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.objects import SymbolData
 
 
-def download_intraday(symbols, file, timeframe, verbose):
+def download_intraday(symbols, file, timeframe, verbose, tz='America/New_York'):
     """
     TICKER # Stock type and SMART exchange
 
@@ -54,7 +54,7 @@ def download_intraday(symbols, file, timeframe, verbose):
 
     TICKER-OPT-EXCHANGE-CURRENCY-YYYYMMDD-STRIKE-RIGHT-MULT # OPT
     """
-    ib = ProviderFactory.make_provider('ibasync', verbose=verbose, keep_alive=True)
+    ib = ProviderFactory.make_provider('ibasync', verbose=verbose, keep_alive=True, tz=tz)
     symbols = symbols.split(',')
     if file:
         with open(file) as f:
@@ -72,8 +72,9 @@ def download_intraday(symbols, file, timeframe, verbose):
 @click.option('--file', type=click.Path(exists=True), help='Read symbols from file')
 @click.option('--timeframe', default='5min')
 @click.option('-v', '--verbose', count=True)
-def main(symbols, file, timeframe, verbose):
-    download_intraday(symbols, file, timeframe, verbose)
+@click.option('--tz', default='America/New_York')
+def main(symbols, file, timeframe, verbose, tz):
+    download_intraday(symbols, file, timeframe, verbose, tz)
 
 
 if __name__ == '__main__':

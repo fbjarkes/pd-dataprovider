@@ -39,6 +39,19 @@ class TestPostProcessor(unittest.TestCase):
         assert str(df.loc[pd.to_datetime('2017-12-29 16:00:00')]['Open']) == "169.23"
 
 
+    def test_resample_multi_timeframes(self):
+        provider = CsvFileDataProvider(["data"], verbose=2)
+        (min60, daily, weekly) = provider.get_datas([SymbolData('VOLV.B_5min', '5min', '60min','','', rth_only=False),
+                                                     SymbolData('VOLV.B_5min', '5min', 'day','','', rth_only=False),
+                                                     SymbolData('VOLV.B_5min', '5min', 'week','','', rth_only=False)])
+
+        assert str(min60.df.loc[pd.to_datetime('2020-04-01 10:00:00')]['Open']) == "115.45"
+        assert str(daily.df.loc[pd.to_datetime('2020-04-01')]['Open']) == "116.0"
+        assert str(round(daily.df.loc[pd.to_datetime('2020-04-01')]['Close'],2)) == "112.83"
+        assert str(weekly.df.loc[pd.to_datetime('2020-04-14')]['Open']) == "130.0"
+
+
+
     def test_resample_timeframe_metadata(self):
         provider = CsvFileDataProvider(["data"], verbose=2)
         datas = provider.get_datas([SymbolData('SPY', 'day', 'day', '2016-01-01', '2016-12-31'),

@@ -17,6 +17,8 @@ class GenericDataProvider(metaclass=ABCMeta):
 
     chunk_size = 100
 
+    DEFAULT_COL_NAMES = ['Datetime', 'Open', 'High', 'Low', 'Close', 'Volume']
+
     _logger = logging.getLogger(__name__)
 
     @abstractmethod
@@ -25,11 +27,11 @@ class GenericDataProvider(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def _get_data_internal_async(self, ticker: str, from_date: str, to_date: str, timeframe: str, transform: str) -> \
-            pd.DataFrame:
+    def _get_data_internal_async(self, ticker: str, from_date: str, to_date: str, timeframe: str, transform: str,
+                                 **kwargs) -> pd.DataFrame:
         pass
 
-    @abstractmethod
+    #@abstractmethod
     def add_quotes(self, data, ticker):
         """
         If quotes are available by this provider, append quotes row to data.
@@ -86,12 +88,12 @@ class GenericDataProvider(metaclass=ABCMeta):
         n = max(1, n)
         return (l[i:i + n] for i in range(0, len(l), n))
 
-    async def get_datas_async(self, symbol_datas: [SymbolData]) -> [Data]:
+    async def get_datas_async(self, symbol_datas: [SymbolData], **kwargs) -> [Data]:
         self._initialize()
         chunks = self.chunks(symbol_datas, self.chunk_size)
         datas = []
         for chunk in chunks:
-            dfs = await asyncio.gather(*[self._get_data_internal_async(symbol_data) for symbol_data in chunk])
+            dfs = await asyncio.gather(*[self._get_data_internal_async(symbol_data, **kwargs) for symbol_data in chunk])
             datas += self.create_data_class(zip(dfs, chunk))
         self._finish()
         return datas
@@ -126,7 +128,6 @@ class GenericDataProvider(metaclass=ABCMeta):
         funcs = [self.post_processor.filter_dates,
                  self.post_processor.filter_rth,
                  self.post_processor.validate,
-                 self.post_processor.add_quotes,
                  self.post_processor.transform_timeframe,
                  self.post_processor.fill_na,
                  self.post_processor.add_trading_days,

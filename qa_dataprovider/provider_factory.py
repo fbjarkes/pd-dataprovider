@@ -2,6 +2,7 @@ import os
 from configparser import ConfigParser
 from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
+from qa_dataprovider.providers.json_dataprovider import JSONDataProvider
 
 
 class ProviderFactory:
@@ -43,5 +44,18 @@ class ProviderFactory:
                 verbose=verbose,
                 prefix=['NSQ', 'NYS', 'NYSF', 'SSE', ''] if kwargs.get('prefix') is None else kwargs.get('prefix')
             )
-
+        elif provider == 'alpaca':
+            return JSONDataProvider(
+                cfg[provider]['paths'].split(),
+                verbose=verbose,
+                keys=['t', 'o', 'h', 'l', 'c', 'v'],
+                epoch=True
+            )
+        elif provider == 'alpaca-file':
+            return JSONDataProvider(
+                cfg[provider]['paths'].split(),
+                verbose=verbose,
+                keys=['t', 'o', 'h', 'l', 'c', 'v'],
+                epoch=True
+            )
         raise Exception(f"Invalid provider {provider}")

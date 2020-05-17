@@ -71,7 +71,11 @@ class CsvFileDataProvider(GenericDataProvider):
 
                         data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, rth_only=symbol_data.rth_only, **kwargs)
                         return data
-        raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))
+        if 'graceful' in kwargs and kwargs['graceful']:
+            self.logger.warning("{} not found in {}".format(symbol_data.symbol, self.paths))
+            return pd.DataFrame()
+        else:
+            raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))
 
     def _get_data_internal(self, symbol_data: SymbolData, **kwargs) -> pd.DataFrame:
         for path in self.paths:

@@ -8,7 +8,7 @@ from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.objects import SymbolData
 
 
-def download_years(symbols: str, years: str, verbose: int):
+def download_years(symbols: str, file: str, years: str, verbose: int):
     """
     TICKER # Stock type and SMART exchange
 
@@ -55,9 +55,12 @@ def download_years(symbols: str, years: str, verbose: int):
     TICKER-OPT-EXCHANGE-CURRENCY-YYYYMMDD-STRIKE-RIGHT-MULT # OPT
     """
     ib = ProviderFactory.make_provider('ibasync', verbose=verbose, keep_alive=True)
-    ib.connect()
+    symbols = symbols.split(',')
+    if file:
+        with open(file) as f:
+            symbols = [ticker.rstrip() for ticker in f.readlines() if not ticker.startswith('#')]
 
-    for symbol in symbols.split(','):
+    for symbol in symbols:
         total = pd.DataFrame()
         for i, y in enumerate(years.split(',')):
             try:
@@ -77,16 +80,16 @@ def download_years(symbols: str, years: str, verbose: int):
         print(f"Writing {len(total)} rows to {name}.csv")
         total.to_csv(f"{name}.csv", header=True)
 
-    ib.disconnect()
+
 
 
 @click.command()
 @click.option('--years', default="2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997,1996,1995,1994,1993,1992,1991,1990,1989,1988,1987,1986,1985,1984", help="Comma separated list of years")
-@click.option('--symbols', default="SPY", help="Comma separated list of symbols",
-              show_default=True)
+@click.option('--symbols', default="SPY", help="Comma separated list of symbols")
+@click.option('--file', type=click.Path(exists=True), help='Read symbols from file')
 @click.option('-v', '--verbose', count=True)
-def main(symbols: str, years: str, verbose: int):
-    download_years(symbols, years, verbose)
+def main(years, symbols, file, verbose):
+    download_years(symbols, file, years, verbose)
 
 
 if __name__ == '__main__':
