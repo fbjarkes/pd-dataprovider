@@ -38,7 +38,7 @@ class JSONDataProvider(GenericDataProvider):
                                            self.keys[5]: GenericDataProvider.DEFAULT_COL_NAMES[5]},
                                   inplace = True)
                         df.set_index(GenericDataProvider.DEFAULT_COL_NAMES[0], inplace=True)
-                        df.index = pd.to_datetime(df.index, unit='s', utc=True).tz_convert(self.tz)
+                        df.index = pd.to_datetime(df.index, unit='s', utc=True).tz_convert(self.tz).tz_localize(None)
                         self.logger.info("{}, {:d} rows ({} to {})" .format(f.name, len(df), df.index[0], df.index[-1]))
 
                         data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end,

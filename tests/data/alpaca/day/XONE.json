@@ -1,0 +1,8004 @@
+{
+  "XONE": [
+    {
+      "startEpochTime": 1464062400,
+      "openPrice": 9.66,
+      "highPrice": 10.46,
+      "lowPrice": 9.46,
+      "closePrice": 10.33,
+      "volume": 295023
+    },
+    {
+      "startEpochTime": 1464148800,
+      "openPrice": 10.47,
+      "highPrice": 10.89,
+      "lowPrice": 10.37,
+      "closePrice": 10.7,
+      "volume": 334077
+    },
+    {
+      "startEpochTime": 1464235200,
+      "openPrice": 10.73,
+      "highPrice": 11.0899,
+      "lowPrice": 10.67,
+      "closePrice": 10.88,
+      "volume": 183634
+    },
+    {
+      "startEpochTime": 1464321600,
+      "openPrice": 10.78,
+      "highPrice": 11.065,
+      "lowPrice": 10.32,
+      "closePrice": 10.4,
+      "volume": 280748
+    },
+    {
+      "startEpochTime": 1464667200,
+      "openPrice": 10.46,
+      "highPrice": 10.88,
+      "lowPrice": 10.37,
+      "closePrice": 10.505,
+      "volume": 132236
+    },
+    {
+      "startEpochTime": 1464753600,
+      "openPrice": 10.51,
+      "highPrice": 10.89,
+      "lowPrice": 10.5,
+      "closePrice": 10.77,
+      "volume": 210585
+    },
+    {
+      "startEpochTime": 1464840000,
+      "openPrice": 10.82,
+      "highPrice": 10.98,
+      "lowPrice": 10.59,
+      "closePrice": 10.87,
+      "volume": 127794
+    },
+    {
+      "startEpochTime": 1464926400,
+      "openPrice": 10.88,
+      "highPrice": 10.92,
+      "lowPrice": 10.39,
+      "closePrice": 10.64,
+      "volume": 129664
+    },
+    {
+      "startEpochTime": 1465185600,
+      "openPrice": 10.71,
+      "highPrice": 11.6,
+      "lowPrice": 10.5841,
+      "closePrice": 11.45,
+      "volume": 221765
+    },
+    {
+      "startEpochTime": 1465272000,
+      "openPrice": 11.48,
+      "highPrice": 11.85,
+      "lowPrice": 11.27,
+      "closePrice": 11.29,
+      "volume": 345838
+    },
+    {
+      "startEpochTime": 1465358400,
+      "openPrice": 11.4,
+      "highPrice": 11.51,
+      "lowPrice": 10.91,
+      "closePrice": 10.96,
+      "volume": 202912
+    },
+    {
+      "startEpochTime": 1465444800,
+      "openPrice": 10.81,
+      "highPrice": 10.97,
+      "lowPrice": 10.62,
+      "closePrice": 10.74,
+      "volume": 94118
+    },
+    {
+      "startEpochTime": 1465531200,
+      "openPrice": 10.55,
+      "highPrice": 10.5694,
+      "lowPrice": 10.12,
+      "closePrice": 10.14,
+      "volume": 106591
+    },
+    {
+      "startEpochTime": 1465790400,
+      "openPrice": 10.12,
+      "highPrice": 10.37,
+      "lowPrice": 9.9121,
+      "closePrice": 10.01,
+      "volume": 141003
+    },
+    {
+      "startEpochTime": 1465876800,
+      "openPrice": 9.93,
+      "highPrice": 10.32,
+      "lowPrice": 9.78,
+      "closePrice": 10.1,
+      "volume": 100281
+    },
+    {
+      "startEpochTime": 1465963200,
+      "openPrice": 9.97,
+      "highPrice": 10.86,
+      "lowPrice": 9.97,
+      "closePrice": 10.53,
+      "volume": 198745
+    },
+    {
+      "startEpochTime": 1466049600,
+      "openPrice": 10.43,
+      "highPrice": 10.8199,
+      "lowPrice": 10.02,
+      "closePrice": 10.27,
+      "volume": 116715
+    },
+    {
+      "startEpochTime": 1466136000,
+      "openPrice": 10.31,
+      "highPrice": 10.93,
+      "lowPrice": 10.165,
+      "closePrice": 10.61,
+      "volume": 152818
+    },
+    {
+      "startEpochTime": 1466395200,
+      "openPrice": 10.79,
+      "highPrice": 11.08,
+      "lowPrice": 10.62,
+      "closePrice": 10.65,
+      "volume": 86254
+    },
+    {
+      "startEpochTime": 1466481600,
+      "openPrice": 10.66,
+      "highPrice": 10.9599,
+      "lowPrice": 10.32,
+      "closePrice": 10.76,
+      "volume": 78287
+    },
+    {
+      "startEpochTime": 1466568000,
+      "openPrice": 10.76,
+      "highPrice": 10.81,
+      "lowPrice": 10.1,
+      "closePrice": 10.14,
+      "volume": 101598
+    },
+    {
+      "startEpochTime": 1466654400,
+      "openPrice": 10.27,
+      "highPrice": 10.73,
+      "lowPrice": 10.0701,
+      "closePrice": 10.68,
+      "volume": 102485
+    },
+    {
+      "startEpochTime": 1466740800,
+      "openPrice": 10,
+      "highPrice": 10.45,
+      "lowPrice": 10,
+      "closePrice": 10.12,
+      "volume": 212044
+    },
+    {
+      "startEpochTime": 1467000000,
+      "openPrice": 10,
+      "highPrice": 10.28,
+      "lowPrice": 9.08,
+      "closePrice": 9.37,
+      "volume": 402975
+    },
+    {
+      "startEpochTime": 1467086400,
+      "openPrice": 9.78,
+      "highPrice": 10.05,
+      "lowPrice": 9.5,
+      "closePrice": 9.94,
+      "volume": 155622
+    },
+    {
+      "startEpochTime": 1467172800,
+      "openPrice": 9.97,
+      "highPrice": 10.31,
+      "lowPrice": 9.799,
+      "closePrice": 10.15,
+      "volume": 103102
+    },
+    {
+      "startEpochTime": 1467259200,
+      "openPrice": 10.2,
+      "highPrice": 10.57,
+      "lowPrice": 9.96,
+      "closePrice": 10.57,
+      "volume": 163376
+    },
+    {
+      "startEpochTime": 1467345600,
+      "openPrice": 10.57,
+      "highPrice": 10.8,
+      "lowPrice": 10.25,
+      "closePrice": 10.355,
+      "volume": 73593
+    },
+    {
+      "startEpochTime": 1467691200,
+      "openPrice": 10.22,
+      "highPrice": 10.32,
+      "lowPrice": 9.91,
+      "closePrice": 10.1,
+      "volume": 92136
+    },
+    {
+      "startEpochTime": 1467777600,
+      "openPrice": 9.97,
+      "highPrice": 10.28,
+      "lowPrice": 9.85,
+      "closePrice": 10.13,
+      "volume": 110839
+    },
+    {
+      "startEpochTime": 1467864000,
+      "openPrice": 10.18,
+      "highPrice": 10.4175,
+      "lowPrice": 10.1,
+      "closePrice": 10.27,
+      "volume": 80397
+    },
+    {
+      "startEpochTime": 1467950400,
+      "openPrice": 9.97,
+      "highPrice": 10.7,
+      "lowPrice": 9.65,
+      "closePrice": 10.58,
+      "volume": 189843
+    },
+    {
+      "startEpochTime": 1468209600,
+      "openPrice": 10.6,
+      "highPrice": 10.92,
+      "lowPrice": 10.53,
+      "closePrice": 10.57,
+      "volume": 88531
+    },
+    {
+      "startEpochTime": 1468296000,
+      "openPrice": 10.75,
+      "highPrice": 11.29,
+      "lowPrice": 10.63,
+      "closePrice": 11.06,
+      "volume": 149068
+    },
+    {
+      "startEpochTime": 1468382400,
+      "openPrice": 11.08,
+      "highPrice": 11.46,
+      "lowPrice": 10.86,
+      "closePrice": 10.91,
+      "volume": 86736
+    },
+    {
+      "startEpochTime": 1468468800,
+      "openPrice": 11.03,
+      "highPrice": 11.21,
+      "lowPrice": 10.71,
+      "closePrice": 10.725,
+      "volume": 80124
+    },
+    {
+      "startEpochTime": 1468555200,
+      "openPrice": 10.76,
+      "highPrice": 10.91,
+      "lowPrice": 10.48,
+      "closePrice": 10.72,
+      "volume": 63817
+    },
+    {
+      "startEpochTime": 1468814400,
+      "openPrice": 10.62,
+      "highPrice": 10.651,
+      "lowPrice": 10.27,
+      "closePrice": 10.37,
+      "volume": 77351
+    },
+    {
+      "startEpochTime": 1468900800,
+      "openPrice": 10.3,
+      "highPrice": 10.52,
+      "lowPrice": 10.16,
+      "closePrice": 10.2,
+      "volume": 55207
+    },
+    {
+      "startEpochTime": 1468987200,
+      "openPrice": 10.19,
+      "highPrice": 10.33,
+      "lowPrice": 10.05,
+      "closePrice": 10.145,
+      "volume": 55151
+    },
+    {
+      "startEpochTime": 1469073600,
+      "openPrice": 10.19,
+      "highPrice": 10.38,
+      "lowPrice": 9.95,
+      "closePrice": 10,
+      "volume": 53775
+    },
+    {
+      "startEpochTime": 1469160000,
+      "openPrice": 9.98,
+      "highPrice": 10.25,
+      "lowPrice": 9.86,
+      "closePrice": 10.145,
+      "volume": 90563
+    },
+    {
+      "startEpochTime": 1469419200,
+      "openPrice": 10.12,
+      "highPrice": 10.45,
+      "lowPrice": 10.09,
+      "closePrice": 10.38,
+      "volume": 136162
+    },
+    {
+      "startEpochTime": 1469505600,
+      "openPrice": 10.3,
+      "highPrice": 10.59,
+      "lowPrice": 10.28,
+      "closePrice": 10.57,
+      "volume": 57649
+    },
+    {
+      "startEpochTime": 1469592000,
+      "openPrice": 10.47,
+      "highPrice": 10.84,
+      "lowPrice": 10.38,
+      "closePrice": 10.69,
+      "volume": 43217
+    },
+    {
+      "startEpochTime": 1469678400,
+      "openPrice": 10.66,
+      "highPrice": 10.78,
+      "lowPrice": 10.38,
+      "closePrice": 10.57,
+      "volume": 55445
+    },
+    {
+      "startEpochTime": 1469764800,
+      "openPrice": 10.5,
+      "highPrice": 10.61,
+      "lowPrice": 9.95,
+      "closePrice": 10.18,
+      "volume": 79588
+    },
+    {
+      "startEpochTime": 1470024000,
+      "openPrice": 10.15,
+      "highPrice": 10.36,
+      "lowPrice": 10.0325,
+      "closePrice": 10.19,
+      "volume": 47882
+    },
+    {
+      "startEpochTime": 1470110400,
+      "openPrice": 10.2,
+      "highPrice": 10.39,
+      "lowPrice": 9.9513,
+      "closePrice": 9.99,
+      "volume": 55508
+    },
+    {
+      "startEpochTime": 1470196800,
+      "openPrice": 10.03,
+      "highPrice": 11.38,
+      "lowPrice": 9.97,
+      "closePrice": 11.29,
+      "volume": 202525
+    },
+    {
+      "startEpochTime": 1470283200,
+      "openPrice": 11.34,
+      "highPrice": 11.7,
+      "lowPrice": 10.65,
+      "closePrice": 10.7,
+      "volume": 99086
+    },
+    {
+      "startEpochTime": 1470369600,
+      "openPrice": 10.77,
+      "highPrice": 11.194,
+      "lowPrice": 10.6,
+      "closePrice": 10.97,
+      "volume": 49906
+    },
+    {
+      "startEpochTime": 1470628800,
+      "openPrice": 11.12,
+      "highPrice": 11.62,
+      "lowPrice": 11.1,
+      "closePrice": 11.29,
+      "volume": 118634
+    },
+    {
+      "startEpochTime": 1470715200,
+      "openPrice": 11.33,
+      "highPrice": 11.6,
+      "lowPrice": 11.253,
+      "closePrice": 11.6,
+      "volume": 167951
+    },
+    {
+      "startEpochTime": 1470801600,
+      "openPrice": 11.9,
+      "highPrice": 13.43,
+      "lowPrice": 11.89,
+      "closePrice": 12.71,
+      "volume": 817888
+    },
+    {
+      "startEpochTime": 1470888000,
+      "openPrice": 12.99,
+      "highPrice": 13.405,
+      "lowPrice": 12.84,
+      "closePrice": 13.345,
+      "volume": 304613
+    },
+    {
+      "startEpochTime": 1470974400,
+      "openPrice": 13.32,
+      "highPrice": 14,
+      "lowPrice": 13.31,
+      "closePrice": 13.45,
+      "volume": 225952
+    },
+    {
+      "startEpochTime": 1471233600,
+      "openPrice": 13.59,
+      "highPrice": 14,
+      "lowPrice": 13.25,
+      "closePrice": 13.85,
+      "volume": 204594
+    },
+    {
+      "startEpochTime": 1471320000,
+      "openPrice": 13.72,
+      "highPrice": 13.83,
+      "lowPrice": 13.45,
+      "closePrice": 13.72,
+      "volume": 113226
+    },
+    {
+      "startEpochTime": 1471406400,
+      "openPrice": 13.74,
+      "highPrice": 14,
+      "lowPrice": 13.45,
+      "closePrice": 13.8,
+      "volume": 207362
+    },
+    {
+      "startEpochTime": 1471492800,
+      "openPrice": 13.8,
+      "highPrice": 13.98,
+      "lowPrice": 13.66,
+      "closePrice": 13.97,
+      "volume": 117776
+    },
+    {
+      "startEpochTime": 1471579200,
+      "openPrice": 13.91,
+      "highPrice": 13.95,
+      "lowPrice": 13.521,
+      "closePrice": 13.82,
+      "volume": 94502
+    },
+    {
+      "startEpochTime": 1471838400,
+      "openPrice": 13.57,
+      "highPrice": 14.27,
+      "lowPrice": 13.57,
+      "closePrice": 13.92,
+      "volume": 143958
+    },
+    {
+      "startEpochTime": 1471924800,
+      "openPrice": 13.87,
+      "highPrice": 14.17,
+      "lowPrice": 13.74,
+      "closePrice": 13.965,
+      "volume": 99611
+    },
+    {
+      "startEpochTime": 1472011200,
+      "openPrice": 14,
+      "highPrice": 14.44,
+      "lowPrice": 14,
+      "closePrice": 14.11,
+      "volume": 153394
+    },
+    {
+      "startEpochTime": 1472097600,
+      "openPrice": 14.07,
+      "highPrice": 14.48,
+      "lowPrice": 13.8,
+      "closePrice": 14.41,
+      "volume": 201104
+    },
+    {
+      "startEpochTime": 1472184000,
+      "openPrice": 14.43,
+      "highPrice": 14.7,
+      "lowPrice": 14.01,
+      "closePrice": 14.19,
+      "volume": 167344
+    },
+    {
+      "startEpochTime": 1472443200,
+      "openPrice": 14.17,
+      "highPrice": 14.5,
+      "lowPrice": 14.1,
+      "closePrice": 14.24,
+      "volume": 86693
+    },
+    {
+      "startEpochTime": 1472529600,
+      "openPrice": 14.22,
+      "highPrice": 14.4,
+      "lowPrice": 13.92,
+      "closePrice": 14.06,
+      "volume": 124045
+    },
+    {
+      "startEpochTime": 1472616000,
+      "openPrice": 14,
+      "highPrice": 14.13,
+      "lowPrice": 13.38,
+      "closePrice": 13.45,
+      "volume": 97554
+    },
+    {
+      "startEpochTime": 1472702400,
+      "openPrice": 13.39,
+      "highPrice": 13.54,
+      "lowPrice": 13.02,
+      "closePrice": 13.34,
+      "volume": 105808
+    },
+    {
+      "startEpochTime": 1472788800,
+      "openPrice": 13.2,
+      "highPrice": 13.68,
+      "lowPrice": 13.1943,
+      "closePrice": 13.44,
+      "volume": 93334
+    },
+    {
+      "startEpochTime": 1473134400,
+      "openPrice": 14.07,
+      "highPrice": 14.55,
+      "lowPrice": 13.73,
+      "closePrice": 14.19,
+      "volume": 210624
+    },
+    {
+      "startEpochTime": 1473220800,
+      "openPrice": 14.18,
+      "highPrice": 14.49,
+      "lowPrice": 13.67,
+      "closePrice": 13.91,
+      "volume": 114010
+    },
+    {
+      "startEpochTime": 1473307200,
+      "openPrice": 14.23,
+      "highPrice": 14.23,
+      "lowPrice": 13.77,
+      "closePrice": 13.85,
+      "volume": 106107
+    },
+    {
+      "startEpochTime": 1473393600,
+      "openPrice": 13.67,
+      "highPrice": 13.88,
+      "lowPrice": 13.21,
+      "closePrice": 13.45,
+      "volume": 270519
+    },
+    {
+      "startEpochTime": 1473652800,
+      "openPrice": 13.6,
+      "highPrice": 13.74,
+      "lowPrice": 13.18,
+      "closePrice": 13.72,
+      "volume": 110380
+    },
+    {
+      "startEpochTime": 1473739200,
+      "openPrice": 13.48,
+      "highPrice": 13.65,
+      "lowPrice": 13.06,
+      "closePrice": 13.41,
+      "volume": 115089
+    },
+    {
+      "startEpochTime": 1473825600,
+      "openPrice": 13.36,
+      "highPrice": 13.63,
+      "lowPrice": 13.18,
+      "closePrice": 13.47,
+      "volume": 93109
+    },
+    {
+      "startEpochTime": 1473912000,
+      "openPrice": 13.57,
+      "highPrice": 13.79,
+      "lowPrice": 13.34,
+      "closePrice": 13.68,
+      "volume": 90888
+    },
+    {
+      "startEpochTime": 1473998400,
+      "openPrice": 13.69,
+      "highPrice": 14.04,
+      "lowPrice": 13.54,
+      "closePrice": 14.02,
+      "volume": 155077
+    },
+    {
+      "startEpochTime": 1474257600,
+      "openPrice": 14.06,
+      "highPrice": 14.177,
+      "lowPrice": 13.8,
+      "closePrice": 13.99,
+      "volume": 107422
+    },
+    {
+      "startEpochTime": 1474344000,
+      "openPrice": 13.98,
+      "highPrice": 14.3,
+      "lowPrice": 13.85,
+      "closePrice": 14.01,
+      "volume": 70262
+    },
+    {
+      "startEpochTime": 1474430400,
+      "openPrice": 14.11,
+      "highPrice": 14.31,
+      "lowPrice": 13.76,
+      "closePrice": 14.29,
+      "volume": 79203
+    },
+    {
+      "startEpochTime": 1474516800,
+      "openPrice": 14.45,
+      "highPrice": 14.4567,
+      "lowPrice": 14.28,
+      "closePrice": 14.39,
+      "volume": 89112
+    },
+    {
+      "startEpochTime": 1474603200,
+      "openPrice": 14.26,
+      "highPrice": 14.38,
+      "lowPrice": 13.89,
+      "closePrice": 14.12,
+      "volume": 58373
+    },
+    {
+      "startEpochTime": 1474862400,
+      "openPrice": 14.11,
+      "highPrice": 14.91,
+      "lowPrice": 14.11,
+      "closePrice": 14.53,
+      "volume": 208918
+    },
+    {
+      "startEpochTime": 1474948800,
+      "openPrice": 14.57,
+      "highPrice": 15.21,
+      "lowPrice": 14.54,
+      "closePrice": 15.16,
+      "volume": 304393
+    },
+    {
+      "startEpochTime": 1475035200,
+      "openPrice": 15.5,
+      "highPrice": 15.5,
+      "lowPrice": 14.81,
+      "closePrice": 15.13,
+      "volume": 233182
+    },
+    {
+      "startEpochTime": 1475121600,
+      "openPrice": 15.16,
+      "highPrice": 15.5,
+      "lowPrice": 14.9,
+      "closePrice": 15.08,
+      "volume": 179092
+    },
+    {
+      "startEpochTime": 1475208000,
+      "openPrice": 15.04,
+      "highPrice": 15.4,
+      "lowPrice": 14.91,
+      "closePrice": 15.22,
+      "volume": 199318
+    },
+    {
+      "startEpochTime": 1475467200,
+      "openPrice": 15.5,
+      "highPrice": 15.69,
+      "lowPrice": 15.0091,
+      "closePrice": 15.65,
+      "volume": 177838
+    },
+    {
+      "startEpochTime": 1475553600,
+      "openPrice": 15.75,
+      "highPrice": 15.75,
+      "lowPrice": 15.36,
+      "closePrice": 15.58,
+      "volume": 94693
+    },
+    {
+      "startEpochTime": 1475640000,
+      "openPrice": 15.68,
+      "highPrice": 16.15,
+      "lowPrice": 15.44,
+      "closePrice": 15.84,
+      "volume": 142968
+    },
+    {
+      "startEpochTime": 1475726400,
+      "openPrice": 15.85,
+      "highPrice": 15.92,
+      "lowPrice": 15.39,
+      "closePrice": 15.56,
+      "volume": 120563
+    },
+    {
+      "startEpochTime": 1475812800,
+      "openPrice": 15.51,
+      "highPrice": 15.74,
+      "lowPrice": 14.77,
+      "closePrice": 14.9,
+      "volume": 138476
+    },
+    {
+      "startEpochTime": 1476072000,
+      "openPrice": 14.85,
+      "highPrice": 15.21,
+      "lowPrice": 14.69,
+      "closePrice": 14.88,
+      "volume": 109978
+    },
+    {
+      "startEpochTime": 1476158400,
+      "openPrice": 14.75,
+      "highPrice": 14.97,
+      "lowPrice": 14.211,
+      "closePrice": 14.3,
+      "volume": 172788
+    },
+    {
+      "startEpochTime": 1476244800,
+      "openPrice": 14.16,
+      "highPrice": 14.34,
+      "lowPrice": 13.5,
+      "closePrice": 13.555,
+      "volume": 241483
+    },
+    {
+      "startEpochTime": 1476331200,
+      "openPrice": 13.5,
+      "highPrice": 13.94,
+      "lowPrice": 13.49,
+      "closePrice": 13.535,
+      "volume": 236911
+    },
+    {
+      "startEpochTime": 1476417600,
+      "openPrice": 13.68,
+      "highPrice": 13.79,
+      "lowPrice": 13.13,
+      "closePrice": 13.22,
+      "volume": 232600
+    },
+    {
+      "startEpochTime": 1476676800,
+      "openPrice": 13.18,
+      "highPrice": 13.54,
+      "lowPrice": 13.13,
+      "closePrice": 13.32,
+      "volume": 123134
+    },
+    {
+      "startEpochTime": 1476763200,
+      "openPrice": 13.49,
+      "highPrice": 13.5,
+      "lowPrice": 12.63,
+      "closePrice": 12.66,
+      "volume": 127855
+    },
+    {
+      "startEpochTime": 1476849600,
+      "openPrice": 12.57,
+      "highPrice": 12.97,
+      "lowPrice": 12.51,
+      "closePrice": 12.63,
+      "volume": 106034
+    },
+    {
+      "startEpochTime": 1476936000,
+      "openPrice": 12.57,
+      "highPrice": 12.59,
+      "lowPrice": 12.23,
+      "closePrice": 12.31,
+      "volume": 185387
+    },
+    {
+      "startEpochTime": 1477022400,
+      "openPrice": 12.13,
+      "highPrice": 12.71,
+      "lowPrice": 12.05,
+      "closePrice": 12.36,
+      "volume": 111450
+    },
+    {
+      "startEpochTime": 1477281600,
+      "openPrice": 12.52,
+      "highPrice": 12.7147,
+      "lowPrice": 12.3,
+      "closePrice": 12.42,
+      "volume": 115522
+    },
+    {
+      "startEpochTime": 1477368000,
+      "openPrice": 12.39,
+      "highPrice": 12.48,
+      "lowPrice": 12,
+      "closePrice": 12.09,
+      "volume": 105068
+    },
+    {
+      "startEpochTime": 1477454400,
+      "openPrice": 12.02,
+      "highPrice": 12.48,
+      "lowPrice": 12.01,
+      "closePrice": 12.25,
+      "volume": 134588
+    },
+    {
+      "startEpochTime": 1477540800,
+      "openPrice": 12.2,
+      "highPrice": 12.43,
+      "lowPrice": 12.04,
+      "closePrice": 12.18,
+      "volume": 83053
+    },
+    {
+      "startEpochTime": 1477627200,
+      "openPrice": 12.15,
+      "highPrice": 12.298,
+      "lowPrice": 12.0201,
+      "closePrice": 12.2,
+      "volume": 103063
+    },
+    {
+      "startEpochTime": 1477886400,
+      "openPrice": 12.14,
+      "highPrice": 12.21,
+      "lowPrice": 11.83,
+      "closePrice": 11.93,
+      "volume": 126664
+    },
+    {
+      "startEpochTime": 1477972800,
+      "openPrice": 12.1,
+      "highPrice": 12.1,
+      "lowPrice": 10.901,
+      "closePrice": 11.01,
+      "volume": 225158
+    },
+    {
+      "startEpochTime": 1478059200,
+      "openPrice": 10.92,
+      "highPrice": 11.1499,
+      "lowPrice": 10.72,
+      "closePrice": 10.79,
+      "volume": 98049
+    },
+    {
+      "startEpochTime": 1478145600,
+      "openPrice": 10.91,
+      "highPrice": 11.25,
+      "lowPrice": 10.74,
+      "closePrice": 10.81,
+      "volume": 150500
+    },
+    {
+      "startEpochTime": 1478232000,
+      "openPrice": 10.81,
+      "highPrice": 10.89,
+      "lowPrice": 10.46,
+      "closePrice": 10.47,
+      "volume": 132549
+    },
+    {
+      "startEpochTime": 1478494800,
+      "openPrice": 10.82,
+      "highPrice": 11.31,
+      "lowPrice": 10.68,
+      "closePrice": 11.19,
+      "volume": 169613
+    },
+    {
+      "startEpochTime": 1478581200,
+      "openPrice": 11.22,
+      "highPrice": 11.37,
+      "lowPrice": 10.78,
+      "closePrice": 10.99,
+      "volume": 96345
+    },
+    {
+      "startEpochTime": 1478667600,
+      "openPrice": 10.48,
+      "highPrice": 11.75,
+      "lowPrice": 10.48,
+      "closePrice": 11.72,
+      "volume": 221346
+    },
+    {
+      "startEpochTime": 1478754000,
+      "openPrice": 10.95,
+      "highPrice": 12.04,
+      "lowPrice": 10.81,
+      "closePrice": 10.81,
+      "volume": 260964
+    },
+    {
+      "startEpochTime": 1478840400,
+      "openPrice": 10.81,
+      "highPrice": 11.42,
+      "lowPrice": 10.64,
+      "closePrice": 11.22,
+      "volume": 156128
+    },
+    {
+      "startEpochTime": 1479099600,
+      "openPrice": 11.25,
+      "highPrice": 11.39,
+      "lowPrice": 10.7,
+      "closePrice": 10.78,
+      "volume": 114361
+    },
+    {
+      "startEpochTime": 1479186000,
+      "openPrice": 10.67,
+      "highPrice": 10.82,
+      "lowPrice": 10.421,
+      "closePrice": 10.59,
+      "volume": 111375
+    },
+    {
+      "startEpochTime": 1479272400,
+      "openPrice": 10.63,
+      "highPrice": 10.8282,
+      "lowPrice": 10.47,
+      "closePrice": 10.7,
+      "volume": 61369
+    },
+    {
+      "startEpochTime": 1479358800,
+      "openPrice": 10.68,
+      "highPrice": 10.8099,
+      "lowPrice": 10.5,
+      "closePrice": 10.57,
+      "volume": 65761
+    },
+    {
+      "startEpochTime": 1479445200,
+      "openPrice": 10.53,
+      "highPrice": 10.91,
+      "lowPrice": 10.52,
+      "closePrice": 10.66,
+      "volume": 96010
+    },
+    {
+      "startEpochTime": 1479704400,
+      "openPrice": 10.82,
+      "highPrice": 10.88,
+      "lowPrice": 10.42,
+      "closePrice": 10.72,
+      "volume": 119651
+    },
+    {
+      "startEpochTime": 1479790800,
+      "openPrice": 10.76,
+      "highPrice": 10.95,
+      "lowPrice": 10.56,
+      "closePrice": 10.9,
+      "volume": 80241
+    },
+    {
+      "startEpochTime": 1479877200,
+      "openPrice": 10.95,
+      "highPrice": 11.22,
+      "lowPrice": 10.8201,
+      "closePrice": 11.17,
+      "volume": 98929
+    },
+    {
+      "startEpochTime": 1480050000,
+      "openPrice": 11.26,
+      "highPrice": 11.27,
+      "lowPrice": 11.04,
+      "closePrice": 11.1,
+      "volume": 38708
+    },
+    {
+      "startEpochTime": 1480309200,
+      "openPrice": 11.04,
+      "highPrice": 11.1246,
+      "lowPrice": 10.52,
+      "closePrice": 10.55,
+      "volume": 93500
+    },
+    {
+      "startEpochTime": 1480395600,
+      "openPrice": 10.53,
+      "highPrice": 10.7499,
+      "lowPrice": 10.03,
+      "closePrice": 10.04,
+      "volume": 122657
+    },
+    {
+      "startEpochTime": 1480482000,
+      "openPrice": 10.18,
+      "highPrice": 10.244,
+      "lowPrice": 9.85,
+      "closePrice": 9.87,
+      "volume": 158985
+    },
+    {
+      "startEpochTime": 1480568400,
+      "openPrice": 9.9,
+      "highPrice": 9.953,
+      "lowPrice": 9.25,
+      "closePrice": 9.3,
+      "volume": 195177
+    },
+    {
+      "startEpochTime": 1480654800,
+      "openPrice": 9.24,
+      "highPrice": 10.02,
+      "lowPrice": 9.13,
+      "closePrice": 9.87,
+      "volume": 152361
+    },
+    {
+      "startEpochTime": 1480914000,
+      "openPrice": 9.88,
+      "highPrice": 10.36,
+      "lowPrice": 9.835,
+      "closePrice": 10.31,
+      "volume": 207182
+    },
+    {
+      "startEpochTime": 1481000400,
+      "openPrice": 10.39,
+      "highPrice": 10.4,
+      "lowPrice": 10.03,
+      "closePrice": 10.17,
+      "volume": 117586
+    },
+    {
+      "startEpochTime": 1481086800,
+      "openPrice": 10.07,
+      "highPrice": 10.29,
+      "lowPrice": 9.96,
+      "closePrice": 10.14,
+      "volume": 76998
+    },
+    {
+      "startEpochTime": 1481173200,
+      "openPrice": 10.16,
+      "highPrice": 10.64,
+      "lowPrice": 10.16,
+      "closePrice": 10.55,
+      "volume": 129521
+    },
+    {
+      "startEpochTime": 1481259600,
+      "openPrice": 10.6,
+      "highPrice": 10.71,
+      "lowPrice": 10.29,
+      "closePrice": 10.3599,
+      "volume": 122231
+    },
+    {
+      "startEpochTime": 1481518800,
+      "openPrice": 10.3,
+      "highPrice": 10.46,
+      "lowPrice": 9.98,
+      "closePrice": 10.15,
+      "volume": 88243
+    },
+    {
+      "startEpochTime": 1481605200,
+      "openPrice": 10.17,
+      "highPrice": 10.3,
+      "lowPrice": 9.92,
+      "closePrice": 10.25,
+      "volume": 89511
+    },
+    {
+      "startEpochTime": 1481691600,
+      "openPrice": 10.19,
+      "highPrice": 10.27,
+      "lowPrice": 9.95,
+      "closePrice": 9.9999,
+      "volume": 91126
+    },
+    {
+      "startEpochTime": 1481778000,
+      "openPrice": 9.96,
+      "highPrice": 10.185,
+      "lowPrice": 9.93,
+      "closePrice": 10.14,
+      "volume": 79764
+    },
+    {
+      "startEpochTime": 1481864400,
+      "openPrice": 10.16,
+      "highPrice": 10.36,
+      "lowPrice": 10.0201,
+      "closePrice": 10.33,
+      "volume": 149331
+    },
+    {
+      "startEpochTime": 1482123600,
+      "openPrice": 10.3,
+      "highPrice": 10.39,
+      "lowPrice": 10.06,
+      "closePrice": 10.1,
+      "volume": 94676
+    },
+    {
+      "startEpochTime": 1482210000,
+      "openPrice": 10.12,
+      "highPrice": 10.225,
+      "lowPrice": 9.8601,
+      "closePrice": 10.03,
+      "volume": 81270
+    },
+    {
+      "startEpochTime": 1482296400,
+      "openPrice": 9.97,
+      "highPrice": 10.0599,
+      "lowPrice": 9.33,
+      "closePrice": 9.73,
+      "volume": 215824
+    },
+    {
+      "startEpochTime": 1482382800,
+      "openPrice": 9.7,
+      "highPrice": 9.84,
+      "lowPrice": 9.45,
+      "closePrice": 9.78,
+      "volume": 129215
+    },
+    {
+      "startEpochTime": 1482469200,
+      "openPrice": 9.71,
+      "highPrice": 10.12,
+      "lowPrice": 9.71,
+      "closePrice": 10,
+      "volume": 130224
+    },
+    {
+      "startEpochTime": 1482814800,
+      "openPrice": 9.91,
+      "highPrice": 10.185,
+      "lowPrice": 9.89,
+      "closePrice": 9.95,
+      "volume": 85499
+    },
+    {
+      "startEpochTime": 1482901200,
+      "openPrice": 9.9,
+      "highPrice": 9.94,
+      "lowPrice": 9.675,
+      "closePrice": 9.75,
+      "volume": 145397
+    },
+    {
+      "startEpochTime": 1482987600,
+      "openPrice": 9.73,
+      "highPrice": 9.81,
+      "lowPrice": 9.385,
+      "closePrice": 9.5,
+      "volume": 114196
+    },
+    {
+      "startEpochTime": 1483074000,
+      "openPrice": 9.5,
+      "highPrice": 9.61,
+      "lowPrice": 9.3,
+      "closePrice": 9.35,
+      "volume": 122780
+    },
+    {
+      "startEpochTime": 1483419600,
+      "openPrice": 9.46,
+      "highPrice": 9.97,
+      "lowPrice": 9.46,
+      "closePrice": 9.94,
+      "volume": 131545
+    },
+    {
+      "startEpochTime": 1483506000,
+      "openPrice": 9.95,
+      "highPrice": 10.73,
+      "lowPrice": 9.95,
+      "closePrice": 10.7,
+      "volume": 202111
+    },
+    {
+      "startEpochTime": 1483592400,
+      "openPrice": 10.73,
+      "highPrice": 10.75,
+      "lowPrice": 10.1,
+      "closePrice": 10.2,
+      "volume": 114932
+    },
+    {
+      "startEpochTime": 1483678800,
+      "openPrice": 10.25,
+      "highPrice": 10.3,
+      "lowPrice": 9.985,
+      "closePrice": 10.02,
+      "volume": 88264
+    },
+    {
+      "startEpochTime": 1483938000,
+      "openPrice": 10.02,
+      "highPrice": 10.7725,
+      "lowPrice": 9.84,
+      "closePrice": 10.4,
+      "volume": 198317
+    },
+    {
+      "startEpochTime": 1484024400,
+      "openPrice": 10.49,
+      "highPrice": 10.675,
+      "lowPrice": 10.11,
+      "closePrice": 10.13,
+      "volume": 123133
+    },
+    {
+      "startEpochTime": 1484110800,
+      "openPrice": 10.15,
+      "highPrice": 10.35,
+      "lowPrice": 10.0121,
+      "closePrice": 10.13,
+      "volume": 87223
+    },
+    {
+      "startEpochTime": 1484197200,
+      "openPrice": 10.2,
+      "highPrice": 10.43,
+      "lowPrice": 10.05,
+      "closePrice": 10.42,
+      "volume": 92391
+    },
+    {
+      "startEpochTime": 1484283600,
+      "openPrice": 10.49,
+      "highPrice": 10.6825,
+      "lowPrice": 10.4,
+      "closePrice": 10.53,
+      "volume": 90731
+    },
+    {
+      "startEpochTime": 1484629200,
+      "openPrice": 10.45,
+      "highPrice": 10.59,
+      "lowPrice": 10.12,
+      "closePrice": 10.12,
+      "volume": 74333
+    },
+    {
+      "startEpochTime": 1484715600,
+      "openPrice": 10.13,
+      "highPrice": 10.385,
+      "lowPrice": 10.03,
+      "closePrice": 10.18,
+      "volume": 93648
+    },
+    {
+      "startEpochTime": 1484802000,
+      "openPrice": 10.27,
+      "highPrice": 10.57,
+      "lowPrice": 10.1,
+      "closePrice": 10.2,
+      "volume": 136945
+    },
+    {
+      "startEpochTime": 1484888400,
+      "openPrice": 10.25,
+      "highPrice": 10.63,
+      "lowPrice": 10.15,
+      "closePrice": 10.41,
+      "volume": 114834
+    },
+    {
+      "startEpochTime": 1485147600,
+      "openPrice": 10.38,
+      "highPrice": 10.5,
+      "lowPrice": 9.74,
+      "closePrice": 9.79,
+      "volume": 171839
+    },
+    {
+      "startEpochTime": 1485234000,
+      "openPrice": 9.87,
+      "highPrice": 9.94,
+      "lowPrice": 9.61,
+      "closePrice": 9.92,
+      "volume": 129633
+    },
+    {
+      "startEpochTime": 1485320400,
+      "openPrice": 9.85,
+      "highPrice": 10.19,
+      "lowPrice": 9.85,
+      "closePrice": 10.12,
+      "volume": 114132
+    },
+    {
+      "startEpochTime": 1485406800,
+      "openPrice": 10.2,
+      "highPrice": 10.28,
+      "lowPrice": 9.7,
+      "closePrice": 9.9,
+      "volume": 119621
+    },
+    {
+      "startEpochTime": 1485493200,
+      "openPrice": 9.87,
+      "highPrice": 9.94,
+      "lowPrice": 9.68,
+      "closePrice": 9.75,
+      "volume": 61626
+    },
+    {
+      "startEpochTime": 1485752400,
+      "openPrice": 9.75,
+      "highPrice": 10.05,
+      "lowPrice": 9.37,
+      "closePrice": 9.86,
+      "volume": 182288
+    },
+    {
+      "startEpochTime": 1485838800,
+      "openPrice": 9.86,
+      "highPrice": 10.09,
+      "lowPrice": 9.61,
+      "closePrice": 9.85,
+      "volume": 82960
+    },
+    {
+      "startEpochTime": 1485925200,
+      "openPrice": 9.91,
+      "highPrice": 10.068,
+      "lowPrice": 9.65,
+      "closePrice": 9.76,
+      "volume": 68016
+    },
+    {
+      "startEpochTime": 1486011600,
+      "openPrice": 9.71,
+      "highPrice": 9.85,
+      "lowPrice": 9.62,
+      "closePrice": 9.66,
+      "volume": 57943
+    },
+    {
+      "startEpochTime": 1486098000,
+      "openPrice": 9.74,
+      "highPrice": 9.81,
+      "lowPrice": 9.6,
+      "closePrice": 9.74,
+      "volume": 69478
+    },
+    {
+      "startEpochTime": 1486357200,
+      "openPrice": 9.79,
+      "highPrice": 9.86,
+      "lowPrice": 9.3723,
+      "closePrice": 9.54,
+      "volume": 89787
+    },
+    {
+      "startEpochTime": 1486443600,
+      "openPrice": 9.55,
+      "highPrice": 9.72,
+      "lowPrice": 9.46,
+      "closePrice": 9.5975,
+      "volume": 67417
+    },
+    {
+      "startEpochTime": 1486530000,
+      "openPrice": 9.5,
+      "highPrice": 9.73,
+      "lowPrice": 9.3804,
+      "closePrice": 9.72,
+      "volume": 83806
+    },
+    {
+      "startEpochTime": 1486616400,
+      "openPrice": 9.73,
+      "highPrice": 10.1,
+      "lowPrice": 9.681,
+      "closePrice": 10.01,
+      "volume": 124867
+    },
+    {
+      "startEpochTime": 1486702800,
+      "openPrice": 10.27,
+      "highPrice": 10.27,
+      "lowPrice": 9.97,
+      "closePrice": 10.106,
+      "volume": 103102
+    },
+    {
+      "startEpochTime": 1486962000,
+      "openPrice": 10.15,
+      "highPrice": 10.28,
+      "lowPrice": 10.03,
+      "closePrice": 10.15,
+      "volume": 60275
+    },
+    {
+      "startEpochTime": 1487048400,
+      "openPrice": 10.1,
+      "highPrice": 10.38,
+      "lowPrice": 10.03,
+      "closePrice": 10.19,
+      "volume": 136095
+    },
+    {
+      "startEpochTime": 1487134800,
+      "openPrice": 10.2,
+      "highPrice": 10.43,
+      "lowPrice": 10,
+      "closePrice": 10.16,
+      "volume": 50856
+    },
+    {
+      "startEpochTime": 1487221200,
+      "openPrice": 10.19,
+      "highPrice": 10.25,
+      "lowPrice": 10,
+      "closePrice": 10.18,
+      "volume": 71937
+    },
+    {
+      "startEpochTime": 1487307600,
+      "openPrice": 10.16,
+      "highPrice": 10.25,
+      "lowPrice": 10.04,
+      "closePrice": 10.21,
+      "volume": 76084
+    },
+    {
+      "startEpochTime": 1487653200,
+      "openPrice": 10.5,
+      "highPrice": 11.03,
+      "lowPrice": 10.5,
+      "closePrice": 10.75,
+      "volume": 290944
+    },
+    {
+      "startEpochTime": 1487739600,
+      "openPrice": 10.65,
+      "highPrice": 10.77,
+      "lowPrice": 10.5,
+      "closePrice": 10.7,
+      "volume": 124198
+    },
+    {
+      "startEpochTime": 1487826000,
+      "openPrice": 10.75,
+      "highPrice": 10.8,
+      "lowPrice": 10.42,
+      "closePrice": 10.5,
+      "volume": 137020
+    },
+    {
+      "startEpochTime": 1487912400,
+      "openPrice": 10.51,
+      "highPrice": 10.54,
+      "lowPrice": 10.25,
+      "closePrice": 10.44,
+      "volume": 84203
+    },
+    {
+      "startEpochTime": 1488171600,
+      "openPrice": 10.5,
+      "highPrice": 10.69,
+      "lowPrice": 10.34,
+      "closePrice": 10.67,
+      "volume": 68034
+    },
+    {
+      "startEpochTime": 1488258000,
+      "openPrice": 10.66,
+      "highPrice": 10.66,
+      "lowPrice": 9.85,
+      "closePrice": 9.93,
+      "volume": 136581
+    },
+    {
+      "startEpochTime": 1488344400,
+      "openPrice": 10.09,
+      "highPrice": 10.32,
+      "lowPrice": 10.0484,
+      "closePrice": 10.19,
+      "volume": 99414
+    },
+    {
+      "startEpochTime": 1488430800,
+      "openPrice": 10.27,
+      "highPrice": 10.34,
+      "lowPrice": 9.9003,
+      "closePrice": 9.96,
+      "volume": 106022
+    },
+    {
+      "startEpochTime": 1488517200,
+      "openPrice": 9.95,
+      "highPrice": 10,
+      "lowPrice": 9.73,
+      "closePrice": 9.88,
+      "volume": 131916
+    },
+    {
+      "startEpochTime": 1488776400,
+      "openPrice": 9.76,
+      "highPrice": 9.9141,
+      "lowPrice": 9.6,
+      "closePrice": 9.81,
+      "volume": 107604
+    },
+    {
+      "startEpochTime": 1488862800,
+      "openPrice": 9.77,
+      "highPrice": 10.04,
+      "lowPrice": 9.7,
+      "closePrice": 9.95,
+      "volume": 163719
+    },
+    {
+      "startEpochTime": 1488949200,
+      "openPrice": 10.01,
+      "highPrice": 10.08,
+      "lowPrice": 9.88,
+      "closePrice": 10.07,
+      "volume": 171435
+    },
+    {
+      "startEpochTime": 1489035600,
+      "openPrice": 9.96,
+      "highPrice": 10.09,
+      "lowPrice": 9.64,
+      "closePrice": 9.67,
+      "volume": 141725
+    },
+    {
+      "startEpochTime": 1489122000,
+      "openPrice": 9.84,
+      "highPrice": 10.06,
+      "lowPrice": 9.61,
+      "closePrice": 10.01,
+      "volume": 140389
+    },
+    {
+      "startEpochTime": 1489377600,
+      "openPrice": 10.07,
+      "highPrice": 10.3,
+      "lowPrice": 10.04,
+      "closePrice": 10.16,
+      "volume": 115486
+    },
+    {
+      "startEpochTime": 1489464000,
+      "openPrice": 10.1,
+      "highPrice": 10.1,
+      "lowPrice": 9.64,
+      "closePrice": 9.81,
+      "volume": 81992
+    },
+    {
+      "startEpochTime": 1489550400,
+      "openPrice": 9.88,
+      "highPrice": 10.18,
+      "lowPrice": 9.69,
+      "closePrice": 10.1199,
+      "volume": 120858
+    },
+    {
+      "startEpochTime": 1489636800,
+      "openPrice": 10.17,
+      "highPrice": 10.3,
+      "lowPrice": 10.0401,
+      "closePrice": 10.17,
+      "volume": 139387
+    },
+    {
+      "startEpochTime": 1489723200,
+      "openPrice": 9.25,
+      "highPrice": 10.45,
+      "lowPrice": 9.25,
+      "closePrice": 10.4,
+      "volume": 469860
+    },
+    {
+      "startEpochTime": 1489982400,
+      "openPrice": 10.4,
+      "highPrice": 10.45,
+      "lowPrice": 9.605,
+      "closePrice": 10.09,
+      "volume": 177415
+    },
+    {
+      "startEpochTime": 1490068800,
+      "openPrice": 10.13,
+      "highPrice": 10.2499,
+      "lowPrice": 9.75,
+      "closePrice": 9.93,
+      "volume": 134040
+    },
+    {
+      "startEpochTime": 1490155200,
+      "openPrice": 9.88,
+      "highPrice": 9.88,
+      "lowPrice": 9.62,
+      "closePrice": 9.7498,
+      "volume": 152955
+    },
+    {
+      "startEpochTime": 1490241600,
+      "openPrice": 9.74,
+      "highPrice": 10.055,
+      "lowPrice": 9.62,
+      "closePrice": 9.94,
+      "volume": 122705
+    },
+    {
+      "startEpochTime": 1490328000,
+      "openPrice": 9.97,
+      "highPrice": 10.17,
+      "lowPrice": 9.85,
+      "closePrice": 10.03,
+      "volume": 95873
+    },
+    {
+      "startEpochTime": 1490587200,
+      "openPrice": 9.85,
+      "highPrice": 10.0702,
+      "lowPrice": 9.7,
+      "closePrice": 10.01,
+      "volume": 80711
+    },
+    {
+      "startEpochTime": 1490673600,
+      "openPrice": 9.96,
+      "highPrice": 10.0799,
+      "lowPrice": 9.79,
+      "closePrice": 9.99,
+      "volume": 119828
+    },
+    {
+      "startEpochTime": 1490760000,
+      "openPrice": 9.95,
+      "highPrice": 10.25,
+      "lowPrice": 9.81,
+      "closePrice": 10.21,
+      "volume": 125817
+    },
+    {
+      "startEpochTime": 1490846400,
+      "openPrice": 10.21,
+      "highPrice": 10.22,
+      "lowPrice": 9.95,
+      "closePrice": 10.15,
+      "volume": 94522
+    },
+    {
+      "startEpochTime": 1490932800,
+      "openPrice": 10.07,
+      "highPrice": 10.25,
+      "lowPrice": 9.93,
+      "closePrice": 10.19,
+      "volume": 99926
+    },
+    {
+      "startEpochTime": 1491192000,
+      "openPrice": 10.16,
+      "highPrice": 10.2,
+      "lowPrice": 9.8,
+      "closePrice": 9.88,
+      "volume": 126824
+    },
+    {
+      "startEpochTime": 1491278400,
+      "openPrice": 9.86,
+      "highPrice": 9.99,
+      "lowPrice": 9.71,
+      "closePrice": 9.85,
+      "volume": 131641
+    },
+    {
+      "startEpochTime": 1491364800,
+      "openPrice": 9.84,
+      "highPrice": 9.98,
+      "lowPrice": 9.42,
+      "closePrice": 9.54,
+      "volume": 241994
+    },
+    {
+      "startEpochTime": 1491451200,
+      "openPrice": 9.55,
+      "highPrice": 9.75,
+      "lowPrice": 9.35,
+      "closePrice": 9.6799,
+      "volume": 126657
+    },
+    {
+      "startEpochTime": 1491537600,
+      "openPrice": 9.6,
+      "highPrice": 9.74,
+      "lowPrice": 9.47,
+      "closePrice": 9.58,
+      "volume": 105545
+    },
+    {
+      "startEpochTime": 1491796800,
+      "openPrice": 9.57,
+      "highPrice": 9.71,
+      "lowPrice": 9.4,
+      "closePrice": 9.43,
+      "volume": 101122
+    },
+    {
+      "startEpochTime": 1491883200,
+      "openPrice": 9.37,
+      "highPrice": 9.64,
+      "lowPrice": 9.29,
+      "closePrice": 9.63,
+      "volume": 108325
+    },
+    {
+      "startEpochTime": 1491969600,
+      "openPrice": 9.59,
+      "highPrice": 9.62,
+      "lowPrice": 9.44,
+      "closePrice": 9.52,
+      "volume": 45511
+    },
+    {
+      "startEpochTime": 1492056000,
+      "openPrice": 9.45,
+      "highPrice": 9.6,
+      "lowPrice": 9.34,
+      "closePrice": 9.43,
+      "volume": 52477
+    },
+    {
+      "startEpochTime": 1492401600,
+      "openPrice": 9.45,
+      "highPrice": 9.93,
+      "lowPrice": 9.4,
+      "closePrice": 9.68,
+      "volume": 137423
+    },
+    {
+      "startEpochTime": 1492488000,
+      "openPrice": 9.69,
+      "highPrice": 10.05,
+      "lowPrice": 9.65,
+      "closePrice": 9.715,
+      "volume": 122750
+    },
+    {
+      "startEpochTime": 1492574400,
+      "openPrice": 9.78,
+      "highPrice": 9.94,
+      "lowPrice": 9.64,
+      "closePrice": 9.64,
+      "volume": 65535
+    },
+    {
+      "startEpochTime": 1492660800,
+      "openPrice": 9.75,
+      "highPrice": 10.09,
+      "lowPrice": 9.7,
+      "closePrice": 9.92,
+      "volume": 151772
+    },
+    {
+      "startEpochTime": 1492747200,
+      "openPrice": 9.94,
+      "highPrice": 10.05,
+      "lowPrice": 9.7,
+      "closePrice": 9.76,
+      "volume": 80149
+    },
+    {
+      "startEpochTime": 1493006400,
+      "openPrice": 9.9,
+      "highPrice": 10.05,
+      "lowPrice": 9.8,
+      "closePrice": 9.86,
+      "volume": 117427
+    },
+    {
+      "startEpochTime": 1493092800,
+      "openPrice": 9.94,
+      "highPrice": 10.24,
+      "lowPrice": 9.94,
+      "closePrice": 10.09,
+      "volume": 220475
+    },
+    {
+      "startEpochTime": 1493179200,
+      "openPrice": 10.07,
+      "highPrice": 10.59,
+      "lowPrice": 10.01,
+      "closePrice": 10.45,
+      "volume": 181100
+    },
+    {
+      "startEpochTime": 1493265600,
+      "openPrice": 10.48,
+      "highPrice": 10.56,
+      "lowPrice": 9.93,
+      "closePrice": 10.105,
+      "volume": 176106
+    },
+    {
+      "startEpochTime": 1493352000,
+      "openPrice": 10.11,
+      "highPrice": 10.2,
+      "lowPrice": 9.95,
+      "closePrice": 10.11,
+      "volume": 79849
+    },
+    {
+      "startEpochTime": 1493611200,
+      "openPrice": 10.1,
+      "highPrice": 10.18,
+      "lowPrice": 9.97,
+      "closePrice": 10.06,
+      "volume": 45013
+    },
+    {
+      "startEpochTime": 1493697600,
+      "openPrice": 10.09,
+      "highPrice": 10.24,
+      "lowPrice": 10.04,
+      "closePrice": 10.16,
+      "volume": 65565
+    },
+    {
+      "startEpochTime": 1493784000,
+      "openPrice": 10.11,
+      "highPrice": 10.43,
+      "lowPrice": 9.96,
+      "closePrice": 10.43,
+      "volume": 113070
+    },
+    {
+      "startEpochTime": 1493870400,
+      "openPrice": 10.32,
+      "highPrice": 10.39,
+      "lowPrice": 9.761,
+      "closePrice": 10.02,
+      "volume": 105120
+    },
+    {
+      "startEpochTime": 1493956800,
+      "openPrice": 10,
+      "highPrice": 10.5,
+      "lowPrice": 9.88,
+      "closePrice": 10.37,
+      "volume": 138979
+    },
+    {
+      "startEpochTime": 1494216000,
+      "openPrice": 10.34,
+      "highPrice": 10.99,
+      "lowPrice": 10.26,
+      "closePrice": 10.81,
+      "volume": 238059
+    },
+    {
+      "startEpochTime": 1494302400,
+      "openPrice": 10.8,
+      "highPrice": 10.8,
+      "lowPrice": 10.23,
+      "closePrice": 10.53,
+      "volume": 183419
+    },
+    {
+      "startEpochTime": 1494388800,
+      "openPrice": 10.4,
+      "highPrice": 11.47,
+      "lowPrice": 10.34,
+      "closePrice": 11.3,
+      "volume": 369808
+    },
+    {
+      "startEpochTime": 1494475200,
+      "openPrice": 12.55,
+      "highPrice": 13.49,
+      "lowPrice": 11.7,
+      "closePrice": 12.96,
+      "volume": 840147
+    },
+    {
+      "startEpochTime": 1494561600,
+      "openPrice": 12.83,
+      "highPrice": 13.1,
+      "lowPrice": 12.58,
+      "closePrice": 12.82,
+      "volume": 302907
+    },
+    {
+      "startEpochTime": 1494820800,
+      "openPrice": 12.71,
+      "highPrice": 13.25,
+      "lowPrice": 12.6,
+      "closePrice": 13.16,
+      "volume": 283763
+    },
+    {
+      "startEpochTime": 1494907200,
+      "openPrice": 12.87,
+      "highPrice": 14.03,
+      "lowPrice": 12.86,
+      "closePrice": 13.99,
+      "volume": 416290
+    },
+    {
+      "startEpochTime": 1494993600,
+      "openPrice": 13.49,
+      "highPrice": 13.91,
+      "lowPrice": 13.02,
+      "closePrice": 13.12,
+      "volume": 250927
+    },
+    {
+      "startEpochTime": 1495080000,
+      "openPrice": 13.1,
+      "highPrice": 14.2,
+      "lowPrice": 12.63,
+      "closePrice": 14.14,
+      "volume": 267571
+    },
+    {
+      "startEpochTime": 1495166400,
+      "openPrice": 14.1,
+      "highPrice": 14.433,
+      "lowPrice": 13.67,
+      "closePrice": 13.74,
+      "volume": 217226
+    },
+    {
+      "startEpochTime": 1495425600,
+      "openPrice": 13.76,
+      "highPrice": 14.2329,
+      "lowPrice": 13.53,
+      "closePrice": 14.16,
+      "volume": 171074
+    },
+    {
+      "startEpochTime": 1495512000,
+      "openPrice": 14.2,
+      "highPrice": 14.4,
+      "lowPrice": 13.8,
+      "closePrice": 14.07,
+      "volume": 179014
+    },
+    {
+      "startEpochTime": 1495598400,
+      "openPrice": 14.06,
+      "highPrice": 14.11,
+      "lowPrice": 13.81,
+      "closePrice": 13.94,
+      "volume": 104615
+    },
+    {
+      "startEpochTime": 1495684800,
+      "openPrice": 14.01,
+      "highPrice": 14.194,
+      "lowPrice": 13.571,
+      "closePrice": 13.71,
+      "volume": 115547
+    },
+    {
+      "startEpochTime": 1495771200,
+      "openPrice": 13.68,
+      "highPrice": 13.97,
+      "lowPrice": 13.31,
+      "closePrice": 13.8103,
+      "volume": 82270
+    },
+    {
+      "startEpochTime": 1496116800,
+      "openPrice": 13.75,
+      "highPrice": 13.81,
+      "lowPrice": 13.25,
+      "closePrice": 13.38,
+      "volume": 107504
+    },
+    {
+      "startEpochTime": 1496203200,
+      "openPrice": 13.4,
+      "highPrice": 13.69,
+      "lowPrice": 12.61,
+      "closePrice": 13.17,
+      "volume": 167741
+    },
+    {
+      "startEpochTime": 1496289600,
+      "openPrice": 13.01,
+      "highPrice": 13.53,
+      "lowPrice": 13.001,
+      "closePrice": 13.27,
+      "volume": 119002
+    },
+    {
+      "startEpochTime": 1496376000,
+      "openPrice": 13.06,
+      "highPrice": 13.51,
+      "lowPrice": 13.06,
+      "closePrice": 13.16,
+      "volume": 111977
+    },
+    {
+      "startEpochTime": 1496635200,
+      "openPrice": 13.14,
+      "highPrice": 13.398,
+      "lowPrice": 12.9,
+      "closePrice": 13.28,
+      "volume": 107670
+    },
+    {
+      "startEpochTime": 1496721600,
+      "openPrice": 13.15,
+      "highPrice": 13.66,
+      "lowPrice": 13,
+      "closePrice": 13.5,
+      "volume": 82359
+    },
+    {
+      "startEpochTime": 1496808000,
+      "openPrice": 13.52,
+      "highPrice": 13.805,
+      "lowPrice": 13.21,
+      "closePrice": 13.61,
+      "volume": 101481
+    },
+    {
+      "startEpochTime": 1496894400,
+      "openPrice": 13.56,
+      "highPrice": 14.19,
+      "lowPrice": 13.56,
+      "closePrice": 13.9,
+      "volume": 124088
+    },
+    {
+      "startEpochTime": 1496980800,
+      "openPrice": 13.97,
+      "highPrice": 14.2348,
+      "lowPrice": 12.98,
+      "closePrice": 13.13,
+      "volume": 149637
+    },
+    {
+      "startEpochTime": 1497240000,
+      "openPrice": 12.96,
+      "highPrice": 13.3299,
+      "lowPrice": 12.65,
+      "closePrice": 13.26,
+      "volume": 115167
+    },
+    {
+      "startEpochTime": 1497326400,
+      "openPrice": 13.25,
+      "highPrice": 13.48,
+      "lowPrice": 13.2,
+      "closePrice": 13.42,
+      "volume": 54177
+    },
+    {
+      "startEpochTime": 1497412800,
+      "openPrice": 13.48,
+      "highPrice": 13.554,
+      "lowPrice": 12.84,
+      "closePrice": 13.08,
+      "volume": 88778
+    },
+    {
+      "startEpochTime": 1497499200,
+      "openPrice": 12.64,
+      "highPrice": 13.13,
+      "lowPrice": 12.5,
+      "closePrice": 13.01,
+      "volume": 83780
+    },
+    {
+      "startEpochTime": 1497585600,
+      "openPrice": 12.91,
+      "highPrice": 13.274,
+      "lowPrice": 12.66,
+      "closePrice": 12.69,
+      "volume": 155910
+    },
+    {
+      "startEpochTime": 1497844800,
+      "openPrice": 12.69,
+      "highPrice": 13.44,
+      "lowPrice": 12.69,
+      "closePrice": 13.385,
+      "volume": 139709
+    },
+    {
+      "startEpochTime": 1497931200,
+      "openPrice": 13.29,
+      "highPrice": 13.31,
+      "lowPrice": 12.78,
+      "closePrice": 12.95,
+      "volume": 77829
+    },
+    {
+      "startEpochTime": 1498017600,
+      "openPrice": 13,
+      "highPrice": 13.08,
+      "lowPrice": 12.8138,
+      "closePrice": 12.99,
+      "volume": 58109
+    },
+    {
+      "startEpochTime": 1498104000,
+      "openPrice": 13.05,
+      "highPrice": 13.3,
+      "lowPrice": 12.91,
+      "closePrice": 13.1,
+      "volume": 60651
+    },
+    {
+      "startEpochTime": 1498190400,
+      "openPrice": 13.11,
+      "highPrice": 13.32,
+      "lowPrice": 12.9596,
+      "closePrice": 13.26,
+      "volume": 61101
+    },
+    {
+      "startEpochTime": 1498449600,
+      "openPrice": 13.35,
+      "highPrice": 13.4542,
+      "lowPrice": 12.515,
+      "closePrice": 13.01,
+      "volume": 128550
+    },
+    {
+      "startEpochTime": 1498536000,
+      "openPrice": 12.93,
+      "highPrice": 13.08,
+      "lowPrice": 12.3601,
+      "closePrice": 12.41,
+      "volume": 105070
+    },
+    {
+      "startEpochTime": 1498622400,
+      "openPrice": 12.49,
+      "highPrice": 13,
+      "lowPrice": 12.16,
+      "closePrice": 12.35,
+      "volume": 77441
+    },
+    {
+      "startEpochTime": 1498708800,
+      "openPrice": 12.33,
+      "highPrice": 12.41,
+      "lowPrice": 11.52,
+      "closePrice": 12.13,
+      "volume": 119507
+    },
+    {
+      "startEpochTime": 1498795200,
+      "openPrice": 12.21,
+      "highPrice": 12.21,
+      "lowPrice": 11.37,
+      "closePrice": 11.45,
+      "volume": 109161
+    },
+    {
+      "startEpochTime": 1499054400,
+      "openPrice": 11.52,
+      "highPrice": 11.53,
+      "lowPrice": 11.06,
+      "closePrice": 11.29,
+      "volume": 65469
+    },
+    {
+      "startEpochTime": 1499227200,
+      "openPrice": 11.17,
+      "highPrice": 11.33,
+      "lowPrice": 10.92,
+      "closePrice": 11.21,
+      "volume": 92320
+    },
+    {
+      "startEpochTime": 1499313600,
+      "openPrice": 11.15,
+      "highPrice": 11.27,
+      "lowPrice": 10.89,
+      "closePrice": 10.95,
+      "volume": 58087
+    },
+    {
+      "startEpochTime": 1499400000,
+      "openPrice": 10.95,
+      "highPrice": 11.22,
+      "lowPrice": 10.87,
+      "closePrice": 11.18,
+      "volume": 53570
+    },
+    {
+      "startEpochTime": 1499659200,
+      "openPrice": 11.14,
+      "highPrice": 11.38,
+      "lowPrice": 10.985,
+      "closePrice": 11.22,
+      "volume": 77924
+    },
+    {
+      "startEpochTime": 1499745600,
+      "openPrice": 11.11,
+      "highPrice": 11.48,
+      "lowPrice": 11.11,
+      "closePrice": 11.44,
+      "volume": 79088
+    },
+    {
+      "startEpochTime": 1499832000,
+      "openPrice": 11.5,
+      "highPrice": 11.88,
+      "lowPrice": 11.46,
+      "closePrice": 11.8,
+      "volume": 59691
+    },
+    {
+      "startEpochTime": 1499918400,
+      "openPrice": 11.79,
+      "highPrice": 11.8382,
+      "lowPrice": 11.43,
+      "closePrice": 11.54,
+      "volume": 78636
+    },
+    {
+      "startEpochTime": 1500004800,
+      "openPrice": 11.5,
+      "highPrice": 11.7999,
+      "lowPrice": 11.436,
+      "closePrice": 11.68,
+      "volume": 63015
+    },
+    {
+      "startEpochTime": 1500264000,
+      "openPrice": 11.66,
+      "highPrice": 11.73,
+      "lowPrice": 11.28,
+      "closePrice": 11.53,
+      "volume": 59330
+    },
+    {
+      "startEpochTime": 1500350400,
+      "openPrice": 11.43,
+      "highPrice": 11.72,
+      "lowPrice": 11.28,
+      "closePrice": 11.43,
+      "volume": 35229
+    },
+    {
+      "startEpochTime": 1500436800,
+      "openPrice": 11.45,
+      "highPrice": 11.66,
+      "lowPrice": 11.0352,
+      "closePrice": 11.4,
+      "volume": 89251
+    },
+    {
+      "startEpochTime": 1500523200,
+      "openPrice": 11.36,
+      "highPrice": 11.575,
+      "lowPrice": 11.28,
+      "closePrice": 11.41,
+      "volume": 37998
+    },
+    {
+      "startEpochTime": 1500609600,
+      "openPrice": 11.42,
+      "highPrice": 11.63,
+      "lowPrice": 11.15,
+      "closePrice": 11.25,
+      "volume": 69767
+    },
+    {
+      "startEpochTime": 1500868800,
+      "openPrice": 11.25,
+      "highPrice": 11.41,
+      "lowPrice": 11.17,
+      "closePrice": 11.32,
+      "volume": 40107
+    },
+    {
+      "startEpochTime": 1500955200,
+      "openPrice": 11.33,
+      "highPrice": 11.62,
+      "lowPrice": 11.26,
+      "closePrice": 11.51,
+      "volume": 59059
+    },
+    {
+      "startEpochTime": 1501041600,
+      "openPrice": 11.51,
+      "highPrice": 11.6504,
+      "lowPrice": 11.2367,
+      "closePrice": 11.38,
+      "volume": 61785
+    },
+    {
+      "startEpochTime": 1501128000,
+      "openPrice": 11.44,
+      "highPrice": 11.6,
+      "lowPrice": 11.0501,
+      "closePrice": 11.39,
+      "volume": 48024
+    },
+    {
+      "startEpochTime": 1501214400,
+      "openPrice": 11.28,
+      "highPrice": 11.495,
+      "lowPrice": 11.06,
+      "closePrice": 11.24,
+      "volume": 65644
+    },
+    {
+      "startEpochTime": 1501473600,
+      "openPrice": 11.33,
+      "highPrice": 11.5,
+      "lowPrice": 10.85,
+      "closePrice": 11.27,
+      "volume": 81083
+    },
+    {
+      "startEpochTime": 1501560000,
+      "openPrice": 11.22,
+      "highPrice": 11.55,
+      "lowPrice": 11.065,
+      "closePrice": 11.21,
+      "volume": 63691
+    },
+    {
+      "startEpochTime": 1501646400,
+      "openPrice": 11.1,
+      "highPrice": 11.18,
+      "lowPrice": 10.79,
+      "closePrice": 10.94,
+      "volume": 111170
+    },
+    {
+      "startEpochTime": 1501732800,
+      "openPrice": 10.8,
+      "highPrice": 10.93,
+      "lowPrice": 10.21,
+      "closePrice": 10.3,
+      "volume": 135256
+    },
+    {
+      "startEpochTime": 1501819200,
+      "openPrice": 10.24,
+      "highPrice": 10.4699,
+      "lowPrice": 10.11,
+      "closePrice": 10.19,
+      "volume": 93736
+    },
+    {
+      "startEpochTime": 1502078400,
+      "openPrice": 10.16,
+      "highPrice": 10.5,
+      "lowPrice": 9.91,
+      "closePrice": 10,
+      "volume": 185773
+    },
+    {
+      "startEpochTime": 1502164800,
+      "openPrice": 9.7,
+      "highPrice": 9.99,
+      "lowPrice": 9.7,
+      "closePrice": 9.79,
+      "volume": 195453
+    },
+    {
+      "startEpochTime": 1502251200,
+      "openPrice": 9.61,
+      "highPrice": 9.94,
+      "lowPrice": 9.6,
+      "closePrice": 9.9,
+      "volume": 127089
+    },
+    {
+      "startEpochTime": 1502337600,
+      "openPrice": 9.55,
+      "highPrice": 9.695,
+      "lowPrice": 8.3501,
+      "closePrice": 8.48,
+      "volume": 624289
+    },
+    {
+      "startEpochTime": 1502424000,
+      "openPrice": 8.47,
+      "highPrice": 8.5395,
+      "lowPrice": 7.91,
+      "closePrice": 8.26,
+      "volume": 331122
+    },
+    {
+      "startEpochTime": 1502683200,
+      "openPrice": 8.3,
+      "highPrice": 8.38,
+      "lowPrice": 7.785,
+      "closePrice": 7.91,
+      "volume": 346889
+    },
+    {
+      "startEpochTime": 1502769600,
+      "openPrice": 7.95,
+      "highPrice": 8.07,
+      "lowPrice": 7.61,
+      "closePrice": 7.64,
+      "volume": 251257
+    },
+    {
+      "startEpochTime": 1502856000,
+      "openPrice": 7.72,
+      "highPrice": 7.78,
+      "lowPrice": 7.391,
+      "closePrice": 7.465,
+      "volume": 198135
+    },
+    {
+      "startEpochTime": 1502942400,
+      "openPrice": 7.41,
+      "highPrice": 7.51,
+      "lowPrice": 6.98,
+      "closePrice": 7.02,
+      "volume": 300702
+    },
+    {
+      "startEpochTime": 1503028800,
+      "openPrice": 6.98,
+      "highPrice": 7,
+      "lowPrice": 6.7201,
+      "closePrice": 6.9,
+      "volume": 334969
+    },
+    {
+      "startEpochTime": 1503288000,
+      "openPrice": 7,
+      "highPrice": 7.39,
+      "lowPrice": 6.92,
+      "closePrice": 7.34,
+      "volume": 199669
+    },
+    {
+      "startEpochTime": 1503374400,
+      "openPrice": 7.44,
+      "highPrice": 7.69,
+      "lowPrice": 7.37,
+      "closePrice": 7.67,
+      "volume": 196318
+    },
+    {
+      "startEpochTime": 1503460800,
+      "openPrice": 7.62,
+      "highPrice": 8.04,
+      "lowPrice": 7.57,
+      "closePrice": 8.03,
+      "volume": 191305
+    },
+    {
+      "startEpochTime": 1503547200,
+      "openPrice": 8.01,
+      "highPrice": 8.02,
+      "lowPrice": 7.59,
+      "closePrice": 7.84,
+      "volume": 195311
+    },
+    {
+      "startEpochTime": 1503633600,
+      "openPrice": 7.89,
+      "highPrice": 8.05,
+      "lowPrice": 7.76,
+      "closePrice": 7.9,
+      "volume": 64777
+    },
+    {
+      "startEpochTime": 1503892800,
+      "openPrice": 8,
+      "highPrice": 8,
+      "lowPrice": 7.72,
+      "closePrice": 7.88,
+      "volume": 69658
+    },
+    {
+      "startEpochTime": 1503979200,
+      "openPrice": 7.83,
+      "highPrice": 7.97,
+      "lowPrice": 7.73,
+      "closePrice": 7.89,
+      "volume": 79463
+    },
+    {
+      "startEpochTime": 1504065600,
+      "openPrice": 7.85,
+      "highPrice": 8.08,
+      "lowPrice": 7.8,
+      "closePrice": 7.9,
+      "volume": 93056
+    },
+    {
+      "startEpochTime": 1504152000,
+      "openPrice": 7.93,
+      "highPrice": 8.15,
+      "lowPrice": 7.83,
+      "closePrice": 8.1,
+      "volume": 133832
+    },
+    {
+      "startEpochTime": 1504238400,
+      "openPrice": 8.1,
+      "highPrice": 8.3499,
+      "lowPrice": 8,
+      "closePrice": 8.1,
+      "volume": 65472
+    },
+    {
+      "startEpochTime": 1504584000,
+      "openPrice": 8.12,
+      "highPrice": 8.6,
+      "lowPrice": 8.06,
+      "closePrice": 8.42,
+      "volume": 256454
+    },
+    {
+      "startEpochTime": 1504670400,
+      "openPrice": 8.38,
+      "highPrice": 8.6,
+      "lowPrice": 8.231,
+      "closePrice": 8.36,
+      "volume": 83772
+    },
+    {
+      "startEpochTime": 1504756800,
+      "openPrice": 8.39,
+      "highPrice": 8.54,
+      "lowPrice": 8.3473,
+      "closePrice": 8.49,
+      "volume": 103301
+    },
+    {
+      "startEpochTime": 1504843200,
+      "openPrice": 8.44,
+      "highPrice": 8.54,
+      "lowPrice": 8.35,
+      "closePrice": 8.47,
+      "volume": 58936
+    },
+    {
+      "startEpochTime": 1505102400,
+      "openPrice": 8.6,
+      "highPrice": 8.98,
+      "lowPrice": 8.5258,
+      "closePrice": 8.89,
+      "volume": 223208
+    },
+    {
+      "startEpochTime": 1505188800,
+      "openPrice": 8.9,
+      "highPrice": 9.56,
+      "lowPrice": 8.841,
+      "closePrice": 9.34,
+      "volume": 154117
+    },
+    {
+      "startEpochTime": 1505275200,
+      "openPrice": 9.39,
+      "highPrice": 9.75,
+      "lowPrice": 9.31,
+      "closePrice": 9.65,
+      "volume": 135263
+    },
+    {
+      "startEpochTime": 1505361600,
+      "openPrice": 9.6,
+      "highPrice": 10,
+      "lowPrice": 9.6,
+      "closePrice": 9.99,
+      "volume": 134276
+    },
+    {
+      "startEpochTime": 1505448000,
+      "openPrice": 10,
+      "highPrice": 10.24,
+      "lowPrice": 9.76,
+      "closePrice": 10.04,
+      "volume": 221443
+    },
+    {
+      "startEpochTime": 1505707200,
+      "openPrice": 9.92,
+      "highPrice": 10.34,
+      "lowPrice": 9.92,
+      "closePrice": 10.28,
+      "volume": 151296
+    },
+    {
+      "startEpochTime": 1505793600,
+      "openPrice": 10.34,
+      "highPrice": 10.6,
+      "lowPrice": 10.19,
+      "closePrice": 10.48,
+      "volume": 126767
+    },
+    {
+      "startEpochTime": 1505880000,
+      "openPrice": 10.5,
+      "highPrice": 10.6517,
+      "lowPrice": 9.96,
+      "closePrice": 10.31,
+      "volume": 189186
+    },
+    {
+      "startEpochTime": 1505966400,
+      "openPrice": 10.33,
+      "highPrice": 10.34,
+      "lowPrice": 9.991,
+      "closePrice": 10.29,
+      "volume": 114197
+    },
+    {
+      "startEpochTime": 1506052800,
+      "openPrice": 10.25,
+      "highPrice": 10.36,
+      "lowPrice": 10.16,
+      "closePrice": 10.28,
+      "volume": 91831
+    },
+    {
+      "startEpochTime": 1506312000,
+      "openPrice": 10.25,
+      "highPrice": 10.32,
+      "lowPrice": 9.9952,
+      "closePrice": 10.28,
+      "volume": 112035
+    },
+    {
+      "startEpochTime": 1506398400,
+      "openPrice": 10.3,
+      "highPrice": 10.97,
+      "lowPrice": 10.3,
+      "closePrice": 10.97,
+      "volume": 143829
+    },
+    {
+      "startEpochTime": 1506484800,
+      "openPrice": 11,
+      "highPrice": 11.24,
+      "lowPrice": 10.6529,
+      "closePrice": 11.12,
+      "volume": 133563
+    },
+    {
+      "startEpochTime": 1506571200,
+      "openPrice": 11.2,
+      "highPrice": 11.37,
+      "lowPrice": 10.88,
+      "closePrice": 11.34,
+      "volume": 125651
+    },
+    {
+      "startEpochTime": 1506657600,
+      "openPrice": 11.3,
+      "highPrice": 11.47,
+      "lowPrice": 11.12,
+      "closePrice": 11.381,
+      "volume": 171857
+    },
+    {
+      "startEpochTime": 1506916800,
+      "openPrice": 11.21,
+      "highPrice": 11.42,
+      "lowPrice": 11.121,
+      "closePrice": 11.18,
+      "volume": 124740
+    },
+    {
+      "startEpochTime": 1507003200,
+      "openPrice": 11.15,
+      "highPrice": 11.48,
+      "lowPrice": 11.0801,
+      "closePrice": 11.25,
+      "volume": 133025
+    },
+    {
+      "startEpochTime": 1507089600,
+      "openPrice": 11.09,
+      "highPrice": 11.39,
+      "lowPrice": 10.56,
+      "closePrice": 10.75,
+      "volume": 206758
+    },
+    {
+      "startEpochTime": 1507176000,
+      "openPrice": 10.8,
+      "highPrice": 11.07,
+      "lowPrice": 10.8,
+      "closePrice": 10.94,
+      "volume": 95080
+    },
+    {
+      "startEpochTime": 1507262400,
+      "openPrice": 10.83,
+      "highPrice": 10.955,
+      "lowPrice": 10.46,
+      "closePrice": 10.7,
+      "volume": 92888
+    },
+    {
+      "startEpochTime": 1507521600,
+      "openPrice": 10.66,
+      "highPrice": 10.76,
+      "lowPrice": 10.42,
+      "closePrice": 10.69,
+      "volume": 68766
+    },
+    {
+      "startEpochTime": 1507608000,
+      "openPrice": 10.7,
+      "highPrice": 10.81,
+      "lowPrice": 10.06,
+      "closePrice": 10.19,
+      "volume": 73532
+    },
+    {
+      "startEpochTime": 1507694400,
+      "openPrice": 10.23,
+      "highPrice": 10.33,
+      "lowPrice": 10.13,
+      "closePrice": 10.23,
+      "volume": 32996
+    },
+    {
+      "startEpochTime": 1507780800,
+      "openPrice": 10.17,
+      "highPrice": 10.5375,
+      "lowPrice": 10.02,
+      "closePrice": 10.33,
+      "volume": 64821
+    },
+    {
+      "startEpochTime": 1507867200,
+      "openPrice": 10.19,
+      "highPrice": 10.23,
+      "lowPrice": 9.71,
+      "closePrice": 10.05,
+      "volume": 209908
+    },
+    {
+      "startEpochTime": 1508126400,
+      "openPrice": 10.21,
+      "highPrice": 10.3,
+      "lowPrice": 10.0501,
+      "closePrice": 10.3,
+      "volume": 92453
+    },
+    {
+      "startEpochTime": 1508212800,
+      "openPrice": 10.24,
+      "highPrice": 10.35,
+      "lowPrice": 9.93,
+      "closePrice": 10,
+      "volume": 68631
+    },
+    {
+      "startEpochTime": 1508299200,
+      "openPrice": 9.99,
+      "highPrice": 10.24,
+      "lowPrice": 9.99,
+      "closePrice": 10.16,
+      "volume": 55334
+    },
+    {
+      "startEpochTime": 1508385600,
+      "openPrice": 10.14,
+      "highPrice": 10.14,
+      "lowPrice": 9.96,
+      "closePrice": 10.09,
+      "volume": 44339
+    },
+    {
+      "startEpochTime": 1508472000,
+      "openPrice": 10.24,
+      "highPrice": 10.94,
+      "lowPrice": 10.04,
+      "closePrice": 10.72,
+      "volume": 137949
+    },
+    {
+      "startEpochTime": 1508731200,
+      "openPrice": 10.74,
+      "highPrice": 10.9,
+      "lowPrice": 10.18,
+      "closePrice": 10.55,
+      "volume": 80910
+    },
+    {
+      "startEpochTime": 1508817600,
+      "openPrice": 10.6,
+      "highPrice": 10.95,
+      "lowPrice": 10.58,
+      "closePrice": 10.71,
+      "volume": 90487
+    },
+    {
+      "startEpochTime": 1508904000,
+      "openPrice": 10.64,
+      "highPrice": 10.64,
+      "lowPrice": 10.35,
+      "closePrice": 10.58,
+      "volume": 40779
+    },
+    {
+      "startEpochTime": 1508990400,
+      "openPrice": 10.65,
+      "highPrice": 10.71,
+      "lowPrice": 10.4355,
+      "closePrice": 10.58,
+      "volume": 43543
+    },
+    {
+      "startEpochTime": 1509076800,
+      "openPrice": 10.61,
+      "highPrice": 10.69,
+      "lowPrice": 10.2762,
+      "closePrice": 10.38,
+      "volume": 37688
+    },
+    {
+      "startEpochTime": 1509336000,
+      "openPrice": 10.25,
+      "highPrice": 10.57,
+      "lowPrice": 10.25,
+      "closePrice": 10.44,
+      "volume": 62304
+    },
+    {
+      "startEpochTime": 1509422400,
+      "openPrice": 10.41,
+      "highPrice": 10.87,
+      "lowPrice": 10.37,
+      "closePrice": 10.63,
+      "volume": 68353
+    },
+    {
+      "startEpochTime": 1509508800,
+      "openPrice": 10.31,
+      "highPrice": 10.5683,
+      "lowPrice": 10.025,
+      "closePrice": 10.37,
+      "volume": 140137
+    },
+    {
+      "startEpochTime": 1509595200,
+      "openPrice": 10.41,
+      "highPrice": 10.5,
+      "lowPrice": 10.055,
+      "closePrice": 10.41,
+      "volume": 57561
+    },
+    {
+      "startEpochTime": 1509681600,
+      "openPrice": 10.46,
+      "highPrice": 10.46,
+      "lowPrice": 10.235,
+      "closePrice": 10.33,
+      "volume": 63746
+    },
+    {
+      "startEpochTime": 1509944400,
+      "openPrice": 10.28,
+      "highPrice": 10.39,
+      "lowPrice": 10.02,
+      "closePrice": 10.34,
+      "volume": 58080
+    },
+    {
+      "startEpochTime": 1510030800,
+      "openPrice": 10.32,
+      "highPrice": 10.36,
+      "lowPrice": 10.1,
+      "closePrice": 10.16,
+      "volume": 34188
+    },
+    {
+      "startEpochTime": 1510117200,
+      "openPrice": 10.1,
+      "highPrice": 10.2,
+      "lowPrice": 9.7121,
+      "closePrice": 10.16,
+      "volume": 69418
+    },
+    {
+      "startEpochTime": 1510203600,
+      "openPrice": 10.06,
+      "highPrice": 10.19,
+      "lowPrice": 9.85,
+      "closePrice": 9.99,
+      "volume": 96301
+    },
+    {
+      "startEpochTime": 1510290000,
+      "openPrice": 9.73,
+      "highPrice": 10.48,
+      "lowPrice": 9.73,
+      "closePrice": 10.32,
+      "volume": 84683
+    },
+    {
+      "startEpochTime": 1510549200,
+      "openPrice": 10.95,
+      "highPrice": 11.65,
+      "lowPrice": 10.72,
+      "closePrice": 11.31,
+      "volume": 319317
+    },
+    {
+      "startEpochTime": 1510635600,
+      "openPrice": 11.49,
+      "highPrice": 11.85,
+      "lowPrice": 11.14,
+      "closePrice": 11.45,
+      "volume": 138613
+    },
+    {
+      "startEpochTime": 1510722000,
+      "openPrice": 11.5,
+      "highPrice": 11.5,
+      "lowPrice": 10.97,
+      "closePrice": 11.03,
+      "volume": 88657
+    },
+    {
+      "startEpochTime": 1510808400,
+      "openPrice": 11.13,
+      "highPrice": 11.62,
+      "lowPrice": 11.05,
+      "closePrice": 11.33,
+      "volume": 66407
+    },
+    {
+      "startEpochTime": 1510894800,
+      "openPrice": 11.21,
+      "highPrice": 11.65,
+      "lowPrice": 11.0472,
+      "closePrice": 11.5,
+      "volume": 59535
+    },
+    {
+      "startEpochTime": 1511154000,
+      "openPrice": 11.49,
+      "highPrice": 11.76,
+      "lowPrice": 10.71,
+      "closePrice": 11.49,
+      "volume": 63622
+    },
+    {
+      "startEpochTime": 1511240400,
+      "openPrice": 11.59,
+      "highPrice": 12,
+      "lowPrice": 11.55,
+      "closePrice": 11.65,
+      "volume": 91069
+    },
+    {
+      "startEpochTime": 1511326800,
+      "openPrice": 11.45,
+      "highPrice": 11.815,
+      "lowPrice": 11.45,
+      "closePrice": 11.76,
+      "volume": 47328
+    },
+    {
+      "startEpochTime": 1511499600,
+      "openPrice": 11.63,
+      "highPrice": 11.73,
+      "lowPrice": 11.44,
+      "closePrice": 11.69,
+      "volume": 24448
+    },
+    {
+      "startEpochTime": 1511758800,
+      "openPrice": 11.58,
+      "highPrice": 12.05,
+      "lowPrice": 11.58,
+      "closePrice": 11.97,
+      "volume": 94847
+    },
+    {
+      "startEpochTime": 1511845200,
+      "openPrice": 11.88,
+      "highPrice": 12.39,
+      "lowPrice": 11.7822,
+      "closePrice": 12.22,
+      "volume": 116663
+    },
+    {
+      "startEpochTime": 1511931600,
+      "openPrice": 12.22,
+      "highPrice": 12.488,
+      "lowPrice": 12.152,
+      "closePrice": 12.31,
+      "volume": 92629
+    },
+    {
+      "startEpochTime": 1512018000,
+      "openPrice": 12.5,
+      "highPrice": 12.5,
+      "lowPrice": 11.83,
+      "closePrice": 12.17,
+      "volume": 108345
+    },
+    {
+      "startEpochTime": 1512104400,
+      "openPrice": 12.06,
+      "highPrice": 12.15,
+      "lowPrice": 11.61,
+      "closePrice": 12.13,
+      "volume": 78058
+    },
+    {
+      "startEpochTime": 1512363600,
+      "openPrice": 12.39,
+      "highPrice": 12.46,
+      "lowPrice": 11.89,
+      "closePrice": 11.93,
+      "volume": 91145
+    },
+    {
+      "startEpochTime": 1512450000,
+      "openPrice": 11.98,
+      "highPrice": 12.02,
+      "lowPrice": 11.65,
+      "closePrice": 11.67,
+      "volume": 51878
+    },
+    {
+      "startEpochTime": 1512536400,
+      "openPrice": 11.6,
+      "highPrice": 11.6,
+      "lowPrice": 11.39,
+      "closePrice": 11.41,
+      "volume": 51243
+    },
+    {
+      "startEpochTime": 1512622800,
+      "openPrice": 11.39,
+      "highPrice": 11.83,
+      "lowPrice": 11.37,
+      "closePrice": 11.43,
+      "volume": 72565
+    },
+    {
+      "startEpochTime": 1512709200,
+      "openPrice": 11.45,
+      "highPrice": 11.5,
+      "lowPrice": 10.84,
+      "closePrice": 11.01,
+      "volume": 137355
+    },
+    {
+      "startEpochTime": 1512968400,
+      "openPrice": 10.97,
+      "highPrice": 11.12,
+      "lowPrice": 10.38,
+      "closePrice": 10.38,
+      "volume": 143120
+    },
+    {
+      "startEpochTime": 1513054800,
+      "openPrice": 10.39,
+      "highPrice": 10.65,
+      "lowPrice": 10.36,
+      "closePrice": 10.4,
+      "volume": 57460
+    },
+    {
+      "startEpochTime": 1513141200,
+      "openPrice": 10.4,
+      "highPrice": 10.59,
+      "lowPrice": 10.12,
+      "closePrice": 10.2,
+      "volume": 128166
+    },
+    {
+      "startEpochTime": 1513227600,
+      "openPrice": 10.25,
+      "highPrice": 10.53,
+      "lowPrice": 9.41,
+      "closePrice": 9.49,
+      "volume": 235406
+    },
+    {
+      "startEpochTime": 1513314000,
+      "openPrice": 9.6,
+      "highPrice": 9.675,
+      "lowPrice": 8.85,
+      "closePrice": 9.1,
+      "volume": 281044
+    },
+    {
+      "startEpochTime": 1513573200,
+      "openPrice": 9.15,
+      "highPrice": 9.44,
+      "lowPrice": 8.86,
+      "closePrice": 9.05,
+      "volume": 223745
+    },
+    {
+      "startEpochTime": 1513659600,
+      "openPrice": 9.05,
+      "highPrice": 9.23,
+      "lowPrice": 8.92,
+      "closePrice": 9.09,
+      "volume": 213484
+    },
+    {
+      "startEpochTime": 1513746000,
+      "openPrice": 9.11,
+      "highPrice": 9.2425,
+      "lowPrice": 8.72,
+      "closePrice": 8.76,
+      "volume": 144970
+    },
+    {
+      "startEpochTime": 1513832400,
+      "openPrice": 8.78,
+      "highPrice": 9,
+      "lowPrice": 8.76,
+      "closePrice": 8.81,
+      "volume": 174315
+    },
+    {
+      "startEpochTime": 1513918800,
+      "openPrice": 8.75,
+      "highPrice": 9.07,
+      "lowPrice": 8.7,
+      "closePrice": 8.71,
+      "volume": 142083
+    },
+    {
+      "startEpochTime": 1514264400,
+      "openPrice": 8.61,
+      "highPrice": 8.9764,
+      "lowPrice": 8.5762,
+      "closePrice": 8.94,
+      "volume": 127968
+    },
+    {
+      "startEpochTime": 1514350800,
+      "openPrice": 9.02,
+      "highPrice": 9.38,
+      "lowPrice": 8.91,
+      "closePrice": 9.05,
+      "volume": 153822
+    },
+    {
+      "startEpochTime": 1514437200,
+      "openPrice": 8.99,
+      "highPrice": 9.08,
+      "lowPrice": 8.6,
+      "closePrice": 8.67,
+      "volume": 393725
+    },
+    {
+      "startEpochTime": 1514523600,
+      "openPrice": 8.7,
+      "highPrice": 8.88,
+      "lowPrice": 8.38,
+      "closePrice": 8.4,
+      "volume": 283908
+    },
+    {
+      "startEpochTime": 1514869200,
+      "openPrice": 8.41,
+      "highPrice": 8.9622,
+      "lowPrice": 8.4058,
+      "closePrice": 8.88,
+      "volume": 102249
+    },
+    {
+      "startEpochTime": 1514955600,
+      "openPrice": 8.84,
+      "highPrice": 9.25,
+      "lowPrice": 8.84,
+      "closePrice": 9.03,
+      "volume": 169302
+    },
+    {
+      "startEpochTime": 1515042000,
+      "openPrice": 9.13,
+      "highPrice": 9.28,
+      "lowPrice": 9.02,
+      "closePrice": 9.265,
+      "volume": 104459
+    },
+    {
+      "startEpochTime": 1515128400,
+      "openPrice": 9.25,
+      "highPrice": 9.54,
+      "lowPrice": 9.15,
+      "closePrice": 9.49,
+      "volume": 172644
+    },
+    {
+      "startEpochTime": 1515387600,
+      "openPrice": 9.49,
+      "highPrice": 9.71,
+      "lowPrice": 9.301,
+      "closePrice": 9.68,
+      "volume": 131238
+    },
+    {
+      "startEpochTime": 1515474000,
+      "openPrice": 9.67,
+      "highPrice": 9.815,
+      "lowPrice": 9.49,
+      "closePrice": 9.69,
+      "volume": 104249
+    },
+    {
+      "startEpochTime": 1515560400,
+      "openPrice": 9.67,
+      "highPrice": 9.85,
+      "lowPrice": 9.39,
+      "closePrice": 9.83,
+      "volume": 148584
+    },
+    {
+      "startEpochTime": 1515646800,
+      "openPrice": 9.85,
+      "highPrice": 10.05,
+      "lowPrice": 9.691,
+      "closePrice": 9.73,
+      "volume": 199672
+    },
+    {
+      "startEpochTime": 1515733200,
+      "openPrice": 9.85,
+      "highPrice": 10.05,
+      "lowPrice": 9.741,
+      "closePrice": 9.9,
+      "volume": 152201
+    },
+    {
+      "startEpochTime": 1516078800,
+      "openPrice": 9.96,
+      "highPrice": 10.14,
+      "lowPrice": 9.4336,
+      "closePrice": 9.54,
+      "volume": 232911
+    },
+    {
+      "startEpochTime": 1516165200,
+      "openPrice": 9.67,
+      "highPrice": 9.76,
+      "lowPrice": 9.48,
+      "closePrice": 9.7,
+      "volume": 62511
+    },
+    {
+      "startEpochTime": 1516251600,
+      "openPrice": 9.72,
+      "highPrice": 9.92,
+      "lowPrice": 9.53,
+      "closePrice": 9.77,
+      "volume": 94513
+    },
+    {
+      "startEpochTime": 1516338000,
+      "openPrice": 9.73,
+      "highPrice": 10.14,
+      "lowPrice": 9.63,
+      "closePrice": 10.02,
+      "volume": 96256
+    },
+    {
+      "startEpochTime": 1516597200,
+      "openPrice": 10.02,
+      "highPrice": 10.39,
+      "lowPrice": 10.02,
+      "closePrice": 10.325,
+      "volume": 82788
+    },
+    {
+      "startEpochTime": 1516683600,
+      "openPrice": 10.28,
+      "highPrice": 10.3,
+      "lowPrice": 10.07,
+      "closePrice": 10.25,
+      "volume": 37652
+    },
+    {
+      "startEpochTime": 1516770000,
+      "openPrice": 10.15,
+      "highPrice": 10.45,
+      "lowPrice": 10.131,
+      "closePrice": 10.41,
+      "volume": 54863
+    },
+    {
+      "startEpochTime": 1516856400,
+      "openPrice": 10.45,
+      "highPrice": 10.5,
+      "lowPrice": 10.21,
+      "closePrice": 10.37,
+      "volume": 59237
+    },
+    {
+      "startEpochTime": 1516942800,
+      "openPrice": 10.37,
+      "highPrice": 10.47,
+      "lowPrice": 10.22,
+      "closePrice": 10.32,
+      "volume": 46595
+    },
+    {
+      "startEpochTime": 1517202000,
+      "openPrice": 10.11,
+      "highPrice": 10.28,
+      "lowPrice": 9.785,
+      "closePrice": 9.85,
+      "volume": 88760
+    },
+    {
+      "startEpochTime": 1517288400,
+      "openPrice": 9.77,
+      "highPrice": 9.85,
+      "lowPrice": 9.7408,
+      "closePrice": 9.78,
+      "volume": 48027
+    },
+    {
+      "startEpochTime": 1517374800,
+      "openPrice": 9.81,
+      "highPrice": 10.03,
+      "lowPrice": 9.68,
+      "closePrice": 9.82,
+      "volume": 40436
+    },
+    {
+      "startEpochTime": 1517461200,
+      "openPrice": 9.74,
+      "highPrice": 9.85,
+      "lowPrice": 9.67,
+      "closePrice": 9.8,
+      "volume": 35820
+    },
+    {
+      "startEpochTime": 1517547600,
+      "openPrice": 9.66,
+      "highPrice": 9.66,
+      "lowPrice": 8.9,
+      "closePrice": 8.97,
+      "volume": 123837
+    },
+    {
+      "startEpochTime": 1517806800,
+      "openPrice": 8.78,
+      "highPrice": 8.9,
+      "lowPrice": 8.3,
+      "closePrice": 8.37,
+      "volume": 124095
+    },
+    {
+      "startEpochTime": 1517893200,
+      "openPrice": 8.05,
+      "highPrice": 8.5999,
+      "lowPrice": 8.05,
+      "closePrice": 8.36,
+      "volume": 135705
+    },
+    {
+      "startEpochTime": 1517979600,
+      "openPrice": 8.29,
+      "highPrice": 8.88,
+      "lowPrice": 8.29,
+      "closePrice": 8.8,
+      "volume": 66604
+    },
+    {
+      "startEpochTime": 1518066000,
+      "openPrice": 8.8,
+      "highPrice": 8.8568,
+      "lowPrice": 8.39,
+      "closePrice": 8.42,
+      "volume": 49817
+    },
+    {
+      "startEpochTime": 1518152400,
+      "openPrice": 8.53,
+      "highPrice": 8.53,
+      "lowPrice": 8.04,
+      "closePrice": 8.2,
+      "volume": 91299
+    },
+    {
+      "startEpochTime": 1518411600,
+      "openPrice": 8.26,
+      "highPrice": 8.59,
+      "lowPrice": 8.21,
+      "closePrice": 8.47,
+      "volume": 49810
+    },
+    {
+      "startEpochTime": 1518498000,
+      "openPrice": 8.45,
+      "highPrice": 8.5,
+      "lowPrice": 8.4,
+      "closePrice": 8.45,
+      "volume": 40976
+    },
+    {
+      "startEpochTime": 1518584400,
+      "openPrice": 8.4,
+      "highPrice": 8.57,
+      "lowPrice": 8.28,
+      "closePrice": 8.3,
+      "volume": 94479
+    },
+    {
+      "startEpochTime": 1518670800,
+      "openPrice": 8.4,
+      "highPrice": 8.44,
+      "lowPrice": 8.21,
+      "closePrice": 8.28,
+      "volume": 68738
+    },
+    {
+      "startEpochTime": 1518757200,
+      "openPrice": 8.25,
+      "highPrice": 8.45,
+      "lowPrice": 8.22,
+      "closePrice": 8.27,
+      "volume": 72723
+    },
+    {
+      "startEpochTime": 1519102800,
+      "openPrice": 8.21,
+      "highPrice": 8.53,
+      "lowPrice": 8.2001,
+      "closePrice": 8.36,
+      "volume": 47022
+    },
+    {
+      "startEpochTime": 1519189200,
+      "openPrice": 8.3,
+      "highPrice": 8.48,
+      "lowPrice": 8.16,
+      "closePrice": 8.37,
+      "volume": 62275
+    },
+    {
+      "startEpochTime": 1519275600,
+      "openPrice": 8.4,
+      "highPrice": 8.48,
+      "lowPrice": 8.21,
+      "closePrice": 8.38,
+      "volume": 33075
+    },
+    {
+      "startEpochTime": 1519362000,
+      "openPrice": 8.38,
+      "highPrice": 8.701,
+      "lowPrice": 8.27,
+      "closePrice": 8.65,
+      "volume": 81564
+    },
+    {
+      "startEpochTime": 1519621200,
+      "openPrice": 8.63,
+      "highPrice": 8.6982,
+      "lowPrice": 8.42,
+      "closePrice": 8.55,
+      "volume": 49816
+    },
+    {
+      "startEpochTime": 1519707600,
+      "openPrice": 8.53,
+      "highPrice": 8.6198,
+      "lowPrice": 8.35,
+      "closePrice": 8.41,
+      "volume": 16704
+    },
+    {
+      "startEpochTime": 1519794000,
+      "openPrice": 8.44,
+      "highPrice": 8.55,
+      "lowPrice": 8.25,
+      "closePrice": 8.36,
+      "volume": 72124
+    },
+    {
+      "startEpochTime": 1519880400,
+      "openPrice": 8.5,
+      "highPrice": 8.98,
+      "lowPrice": 8.447,
+      "closePrice": 8.82,
+      "volume": 129740
+    },
+    {
+      "startEpochTime": 1519966800,
+      "openPrice": 8.73,
+      "highPrice": 9.33,
+      "lowPrice": 8.37,
+      "closePrice": 9.26,
+      "volume": 77977
+    },
+    {
+      "startEpochTime": 1520226000,
+      "openPrice": 9.19,
+      "highPrice": 9.76,
+      "lowPrice": 9.035,
+      "closePrice": 9.62,
+      "volume": 105161
+    },
+    {
+      "startEpochTime": 1520312400,
+      "openPrice": 9.7,
+      "highPrice": 9.73,
+      "lowPrice": 9.1799,
+      "closePrice": 9.65,
+      "volume": 120985
+    },
+    {
+      "startEpochTime": 1520398800,
+      "openPrice": 9.49,
+      "highPrice": 9.67,
+      "lowPrice": 9.23,
+      "closePrice": 9.5,
+      "volume": 54450
+    },
+    {
+      "startEpochTime": 1520485200,
+      "openPrice": 9.57,
+      "highPrice": 9.587,
+      "lowPrice": 9.12,
+      "closePrice": 9.18,
+      "volume": 136897
+    },
+    {
+      "startEpochTime": 1520571600,
+      "openPrice": 9.28,
+      "highPrice": 9.35,
+      "lowPrice": 9.02,
+      "closePrice": 9.27,
+      "volume": 95985
+    },
+    {
+      "startEpochTime": 1520827200,
+      "openPrice": 9.29,
+      "highPrice": 9.4,
+      "lowPrice": 9.2159,
+      "closePrice": 9.33,
+      "volume": 50659
+    },
+    {
+      "startEpochTime": 1520913600,
+      "openPrice": 9.35,
+      "highPrice": 9.42,
+      "lowPrice": 9.06,
+      "closePrice": 9.26,
+      "volume": 42160
+    },
+    {
+      "startEpochTime": 1521000000,
+      "openPrice": 9.38,
+      "highPrice": 9.38,
+      "lowPrice": 8.945,
+      "closePrice": 9.05,
+      "volume": 62360
+    },
+    {
+      "startEpochTime": 1521086400,
+      "openPrice": 9.11,
+      "highPrice": 9.4,
+      "lowPrice": 8.78,
+      "closePrice": 9.12,
+      "volume": 186712
+    },
+    {
+      "startEpochTime": 1521172800,
+      "openPrice": 8.65,
+      "highPrice": 8.6925,
+      "lowPrice": 8.1,
+      "closePrice": 8.365,
+      "volume": 355010
+    },
+    {
+      "startEpochTime": 1521432000,
+      "openPrice": 8.36,
+      "highPrice": 8.48,
+      "lowPrice": 8.13,
+      "closePrice": 8.29,
+      "volume": 125181
+    },
+    {
+      "startEpochTime": 1521518400,
+      "openPrice": 8.3,
+      "highPrice": 8.3,
+      "lowPrice": 7.87,
+      "closePrice": 7.92,
+      "volume": 183531
+    },
+    {
+      "startEpochTime": 1521604800,
+      "openPrice": 7.9,
+      "highPrice": 8.21,
+      "lowPrice": 7.7,
+      "closePrice": 8.03,
+      "volume": 138024
+    },
+    {
+      "startEpochTime": 1521691200,
+      "openPrice": 7.98,
+      "highPrice": 7.9992,
+      "lowPrice": 7.68,
+      "closePrice": 7.68,
+      "volume": 83197
+    },
+    {
+      "startEpochTime": 1521777600,
+      "openPrice": 7.68,
+      "highPrice": 7.7299,
+      "lowPrice": 7.41,
+      "closePrice": 7.42,
+      "volume": 98960
+    },
+    {
+      "startEpochTime": 1522036800,
+      "openPrice": 7.53,
+      "highPrice": 7.53,
+      "lowPrice": 7.22,
+      "closePrice": 7.4,
+      "volume": 105995
+    },
+    {
+      "startEpochTime": 1522123200,
+      "openPrice": 7.39,
+      "highPrice": 7.44,
+      "lowPrice": 7.03,
+      "closePrice": 7.17,
+      "volume": 103712
+    },
+    {
+      "startEpochTime": 1522209600,
+      "openPrice": 7.13,
+      "highPrice": 7.189,
+      "lowPrice": 6.91,
+      "closePrice": 7,
+      "volume": 119715
+    },
+    {
+      "startEpochTime": 1522296000,
+      "openPrice": 7.05,
+      "highPrice": 7.4221,
+      "lowPrice": 7.03,
+      "closePrice": 7.28,
+      "volume": 83346
+    },
+    {
+      "startEpochTime": 1522641600,
+      "openPrice": 7.29,
+      "highPrice": 7.44,
+      "lowPrice": 6.891,
+      "closePrice": 6.97,
+      "volume": 128178
+    },
+    {
+      "startEpochTime": 1522728000,
+      "openPrice": 7,
+      "highPrice": 7.19,
+      "lowPrice": 6.93,
+      "closePrice": 6.97,
+      "volume": 90852
+    },
+    {
+      "startEpochTime": 1522814400,
+      "openPrice": 6.85,
+      "highPrice": 7.16,
+      "lowPrice": 6.85,
+      "closePrice": 7.1,
+      "volume": 86328
+    },
+    {
+      "startEpochTime": 1522900800,
+      "openPrice": 7.13,
+      "highPrice": 7.279,
+      "lowPrice": 7.01,
+      "closePrice": 7.1,
+      "volume": 53721
+    },
+    {
+      "startEpochTime": 1522987200,
+      "openPrice": 7.03,
+      "highPrice": 7.21,
+      "lowPrice": 6.89,
+      "closePrice": 7.04,
+      "volume": 71736
+    },
+    {
+      "startEpochTime": 1523246400,
+      "openPrice": 7.08,
+      "highPrice": 7.3,
+      "lowPrice": 6.97,
+      "closePrice": 7.07,
+      "volume": 54269
+    },
+    {
+      "startEpochTime": 1523332800,
+      "openPrice": 7.11,
+      "highPrice": 7.57,
+      "lowPrice": 7.11,
+      "closePrice": 7.39,
+      "volume": 142624
+    },
+    {
+      "startEpochTime": 1523419200,
+      "openPrice": 7.39,
+      "highPrice": 7.62,
+      "lowPrice": 7.24,
+      "closePrice": 7.45,
+      "volume": 125810
+    },
+    {
+      "startEpochTime": 1523505600,
+      "openPrice": 7.5,
+      "highPrice": 7.73,
+      "lowPrice": 7.34,
+      "closePrice": 7.36,
+      "volume": 95715
+    },
+    {
+      "startEpochTime": 1523592000,
+      "openPrice": 7.4,
+      "highPrice": 7.539,
+      "lowPrice": 7.23,
+      "closePrice": 7.43,
+      "volume": 58047
+    },
+    {
+      "startEpochTime": 1523851200,
+      "openPrice": 7.49,
+      "highPrice": 7.53,
+      "lowPrice": 7.32,
+      "closePrice": 7.48,
+      "volume": 81567
+    },
+    {
+      "startEpochTime": 1523937600,
+      "openPrice": 7.54,
+      "highPrice": 7.78,
+      "lowPrice": 7.47,
+      "closePrice": 7.72,
+      "volume": 127073
+    },
+    {
+      "startEpochTime": 1524024000,
+      "openPrice": 7.73,
+      "highPrice": 7.84,
+      "lowPrice": 7.56,
+      "closePrice": 7.6,
+      "volume": 109895
+    },
+    {
+      "startEpochTime": 1524110400,
+      "openPrice": 7.62,
+      "highPrice": 7.76,
+      "lowPrice": 7.585,
+      "closePrice": 7.72,
+      "volume": 28103
+    },
+    {
+      "startEpochTime": 1524196800,
+      "openPrice": 7.61,
+      "highPrice": 7.98,
+      "lowPrice": 7.61,
+      "closePrice": 7.95,
+      "volume": 95216
+    },
+    {
+      "startEpochTime": 1524456000,
+      "openPrice": 7.99,
+      "highPrice": 7.99,
+      "lowPrice": 7.4599,
+      "closePrice": 7.59,
+      "volume": 107630
+    },
+    {
+      "startEpochTime": 1524542400,
+      "openPrice": 7.64,
+      "highPrice": 7.69,
+      "lowPrice": 7.36,
+      "closePrice": 7.47,
+      "volume": 55989
+    },
+    {
+      "startEpochTime": 1524628800,
+      "openPrice": 7.5,
+      "highPrice": 7.59,
+      "lowPrice": 7.17,
+      "closePrice": 7.21,
+      "volume": 131297
+    },
+    {
+      "startEpochTime": 1524715200,
+      "openPrice": 7.25,
+      "highPrice": 7.31,
+      "lowPrice": 7.05,
+      "closePrice": 7.1,
+      "volume": 81068
+    },
+    {
+      "startEpochTime": 1524801600,
+      "openPrice": 7.14,
+      "highPrice": 7.1502,
+      "lowPrice": 6.91,
+      "closePrice": 7,
+      "volume": 103311
+    },
+    {
+      "startEpochTime": 1525060800,
+      "openPrice": 7.03,
+      "highPrice": 7.15,
+      "lowPrice": 6.92,
+      "closePrice": 6.92,
+      "volume": 83439
+    },
+    {
+      "startEpochTime": 1525147200,
+      "openPrice": 6.9,
+      "highPrice": 7.0094,
+      "lowPrice": 6.82,
+      "closePrice": 6.94,
+      "volume": 73988
+    },
+    {
+      "startEpochTime": 1525233600,
+      "openPrice": 6.97,
+      "highPrice": 7.035,
+      "lowPrice": 6.87,
+      "closePrice": 6.99,
+      "volume": 71855
+    },
+    {
+      "startEpochTime": 1525320000,
+      "openPrice": 6.95,
+      "highPrice": 6.97,
+      "lowPrice": 6.76,
+      "closePrice": 6.85,
+      "volume": 62051
+    },
+    {
+      "startEpochTime": 1525406400,
+      "openPrice": 6.78,
+      "highPrice": 7.1699,
+      "lowPrice": 6.72,
+      "closePrice": 7.04,
+      "volume": 243881
+    },
+    {
+      "startEpochTime": 1525665600,
+      "openPrice": 7.13,
+      "highPrice": 7.26,
+      "lowPrice": 7.01,
+      "closePrice": 7.01,
+      "volume": 87536
+    },
+    {
+      "startEpochTime": 1525752000,
+      "openPrice": 7.04,
+      "highPrice": 7.14,
+      "lowPrice": 6.96,
+      "closePrice": 6.99,
+      "volume": 101852
+    },
+    {
+      "startEpochTime": 1525838400,
+      "openPrice": 7.01,
+      "highPrice": 7.23,
+      "lowPrice": 6.97,
+      "closePrice": 7.19,
+      "volume": 109529
+    },
+    {
+      "startEpochTime": 1525924800,
+      "openPrice": 7.21,
+      "highPrice": 7.29,
+      "lowPrice": 6.9998,
+      "closePrice": 7,
+      "volume": 221252
+    },
+    {
+      "startEpochTime": 1526011200,
+      "openPrice": 6.71,
+      "highPrice": 6.86,
+      "lowPrice": 6.2601,
+      "closePrice": 6.49,
+      "volume": 495988
+    },
+    {
+      "startEpochTime": 1526270400,
+      "openPrice": 6.48,
+      "highPrice": 6.82,
+      "lowPrice": 6.25,
+      "closePrice": 6.72,
+      "volume": 291252
+    },
+    {
+      "startEpochTime": 1526356800,
+      "openPrice": 6.77,
+      "highPrice": 6.889,
+      "lowPrice": 6.5432,
+      "closePrice": 6.59,
+      "volume": 213287
+    },
+    {
+      "startEpochTime": 1526443200,
+      "openPrice": 6.61,
+      "highPrice": 6.711,
+      "lowPrice": 6.53,
+      "closePrice": 6.56,
+      "volume": 110392
+    },
+    {
+      "startEpochTime": 1526529600,
+      "openPrice": 6.58,
+      "highPrice": 6.782,
+      "lowPrice": 6.52,
+      "closePrice": 6.53,
+      "volume": 122272
+    },
+    {
+      "startEpochTime": 1526616000,
+      "openPrice": 6.58,
+      "highPrice": 6.6148,
+      "lowPrice": 6.38,
+      "closePrice": 6.45,
+      "volume": 129395
+    },
+    {
+      "startEpochTime": 1526875200,
+      "openPrice": 6.46,
+      "highPrice": 6.661,
+      "lowPrice": 6.43,
+      "closePrice": 6.56,
+      "volume": 115442
+    },
+    {
+      "startEpochTime": 1526961600,
+      "openPrice": 6.57,
+      "highPrice": 6.6,
+      "lowPrice": 6.37,
+      "closePrice": 6.4,
+      "volume": 145649
+    },
+    {
+      "startEpochTime": 1527048000,
+      "openPrice": 6.42,
+      "highPrice": 6.49,
+      "lowPrice": 6.23,
+      "closePrice": 6.32,
+      "volume": 162587
+    },
+    {
+      "startEpochTime": 1527134400,
+      "openPrice": 6.41,
+      "highPrice": 6.51,
+      "lowPrice": 6.25,
+      "closePrice": 6.3,
+      "volume": 98653
+    },
+    {
+      "startEpochTime": 1527220800,
+      "openPrice": 6.3,
+      "highPrice": 6.39,
+      "lowPrice": 6.16,
+      "closePrice": 6.29,
+      "volume": 89661
+    },
+    {
+      "startEpochTime": 1527566400,
+      "openPrice": 6.27,
+      "highPrice": 6.35,
+      "lowPrice": 6.209,
+      "closePrice": 6.31,
+      "volume": 127387
+    },
+    {
+      "startEpochTime": 1527652800,
+      "openPrice": 6.37,
+      "highPrice": 6.85,
+      "lowPrice": 6.3,
+      "closePrice": 6.8,
+      "volume": 318751
+    },
+    {
+      "startEpochTime": 1527739200,
+      "openPrice": 6.8,
+      "highPrice": 6.93,
+      "lowPrice": 6.63,
+      "closePrice": 6.79,
+      "volume": 132511
+    },
+    {
+      "startEpochTime": 1527825600,
+      "openPrice": 6.85,
+      "highPrice": 6.9499,
+      "lowPrice": 6.57,
+      "closePrice": 6.62,
+      "volume": 80641
+    },
+    {
+      "startEpochTime": 1528084800,
+      "openPrice": 6.64,
+      "highPrice": 6.79,
+      "lowPrice": 6.49,
+      "closePrice": 6.54,
+      "volume": 107568
+    },
+    {
+      "startEpochTime": 1528171200,
+      "openPrice": 6.53,
+      "highPrice": 6.71,
+      "lowPrice": 6.48,
+      "closePrice": 6.7,
+      "volume": 72803
+    },
+    {
+      "startEpochTime": 1528257600,
+      "openPrice": 6.74,
+      "highPrice": 7,
+      "lowPrice": 6.65,
+      "closePrice": 6.96,
+      "volume": 119401
+    },
+    {
+      "startEpochTime": 1528344000,
+      "openPrice": 7,
+      "highPrice": 7,
+      "lowPrice": 6.75,
+      "closePrice": 6.78,
+      "volume": 70368
+    },
+    {
+      "startEpochTime": 1528430400,
+      "openPrice": 6.75,
+      "highPrice": 6.84,
+      "lowPrice": 6.58,
+      "closePrice": 6.67,
+      "volume": 60731
+    },
+    {
+      "startEpochTime": 1528689600,
+      "openPrice": 6.65,
+      "highPrice": 7.14,
+      "lowPrice": 6.59,
+      "closePrice": 7.11,
+      "volume": 120933
+    },
+    {
+      "startEpochTime": 1528776000,
+      "openPrice": 7.17,
+      "highPrice": 7.28,
+      "lowPrice": 6.96,
+      "closePrice": 7.04,
+      "volume": 106933
+    },
+    {
+      "startEpochTime": 1528862400,
+      "openPrice": 7,
+      "highPrice": 7.02,
+      "lowPrice": 6.65,
+      "closePrice": 6.685,
+      "volume": 204137
+    },
+    {
+      "startEpochTime": 1528948800,
+      "openPrice": 6.67,
+      "highPrice": 6.81,
+      "lowPrice": 6.35,
+      "closePrice": 6.63,
+      "volume": 294953
+    },
+    {
+      "startEpochTime": 1529035200,
+      "openPrice": 6.6,
+      "highPrice": 6.69,
+      "lowPrice": 6.42,
+      "closePrice": 6.51,
+      "volume": 163851
+    },
+    {
+      "startEpochTime": 1529294400,
+      "openPrice": 6.47,
+      "highPrice": 7.5,
+      "lowPrice": 6.46,
+      "closePrice": 7.3,
+      "volume": 280498
+    },
+    {
+      "startEpochTime": 1529380800,
+      "openPrice": 7.15,
+      "highPrice": 7.7,
+      "lowPrice": 7.01,
+      "closePrice": 7.6152,
+      "volume": 256371
+    },
+    {
+      "startEpochTime": 1529467200,
+      "openPrice": 7.67,
+      "highPrice": 8.34,
+      "lowPrice": 7.39,
+      "closePrice": 8.03,
+      "volume": 606100
+    },
+    {
+      "startEpochTime": 1529553600,
+      "openPrice": 8.03,
+      "highPrice": 8.3288,
+      "lowPrice": 7.8,
+      "closePrice": 7.92,
+      "volume": 252462
+    },
+    {
+      "startEpochTime": 1529640000,
+      "openPrice": 7.69,
+      "highPrice": 8.07,
+      "lowPrice": 7.65,
+      "closePrice": 7.79,
+      "volume": 247409
+    },
+    {
+      "startEpochTime": 1529899200,
+      "openPrice": 7.79,
+      "highPrice": 7.79,
+      "lowPrice": 7,
+      "closePrice": 7.04,
+      "volume": 287464
+    },
+    {
+      "startEpochTime": 1529985600,
+      "openPrice": 7.06,
+      "highPrice": 7.64,
+      "lowPrice": 7.06,
+      "closePrice": 7.5,
+      "volume": 177621
+    },
+    {
+      "startEpochTime": 1530072000,
+      "openPrice": 7.5,
+      "highPrice": 7.59,
+      "lowPrice": 7.1,
+      "closePrice": 7.27,
+      "volume": 185937
+    },
+    {
+      "startEpochTime": 1530158400,
+      "openPrice": 7.29,
+      "highPrice": 7.37,
+      "lowPrice": 7.06,
+      "closePrice": 7.17,
+      "volume": 119419
+    },
+    {
+      "startEpochTime": 1530244800,
+      "openPrice": 7.21,
+      "highPrice": 7.3,
+      "lowPrice": 6.89,
+      "closePrice": 7.07,
+      "volume": 179073
+    },
+    {
+      "startEpochTime": 1530504000,
+      "openPrice": 7.06,
+      "highPrice": 7.285,
+      "lowPrice": 6.89,
+      "closePrice": 7.2,
+      "volume": 137228
+    },
+    {
+      "startEpochTime": 1530590400,
+      "openPrice": 7.21,
+      "highPrice": 7.24,
+      "lowPrice": 7.02,
+      "closePrice": 7.23,
+      "volume": 43744
+    },
+    {
+      "startEpochTime": 1530763200,
+      "openPrice": 7.24,
+      "highPrice": 7.39,
+      "lowPrice": 7.1493,
+      "closePrice": 7.39,
+      "volume": 76283
+    },
+    {
+      "startEpochTime": 1530849600,
+      "openPrice": 7.39,
+      "highPrice": 7.59,
+      "lowPrice": 7.297,
+      "closePrice": 7.54,
+      "volume": 108959
+    },
+    {
+      "startEpochTime": 1531108800,
+      "openPrice": 7.64,
+      "highPrice": 7.7714,
+      "lowPrice": 7.54,
+      "closePrice": 7.63,
+      "volume": 113035
+    },
+    {
+      "startEpochTime": 1531195200,
+      "openPrice": 7.56,
+      "highPrice": 7.84,
+      "lowPrice": 7.34,
+      "closePrice": 7.51,
+      "volume": 169348
+    },
+    {
+      "startEpochTime": 1531281600,
+      "openPrice": 7.39,
+      "highPrice": 7.57,
+      "lowPrice": 7.15,
+      "closePrice": 7.23,
+      "volume": 89467
+    },
+    {
+      "startEpochTime": 1531368000,
+      "openPrice": 7.3,
+      "highPrice": 7.44,
+      "lowPrice": 7.1,
+      "closePrice": 7.39,
+      "volume": 76952
+    },
+    {
+      "startEpochTime": 1531454400,
+      "openPrice": 7.38,
+      "highPrice": 7.59,
+      "lowPrice": 7.25,
+      "closePrice": 7.35,
+      "volume": 77195
+    },
+    {
+      "startEpochTime": 1531713600,
+      "openPrice": 7.33,
+      "highPrice": 7.35,
+      "lowPrice": 7.06,
+      "closePrice": 7.19,
+      "volume": 79097
+    },
+    {
+      "startEpochTime": 1531800000,
+      "openPrice": 7.13,
+      "highPrice": 7.334,
+      "lowPrice": 7.13,
+      "closePrice": 7.26,
+      "volume": 45573
+    },
+    {
+      "startEpochTime": 1531886400,
+      "openPrice": 7.25,
+      "highPrice": 7.42,
+      "lowPrice": 7.14,
+      "closePrice": 7.3785,
+      "volume": 61394
+    },
+    {
+      "startEpochTime": 1531972800,
+      "openPrice": 7.32,
+      "highPrice": 7.53,
+      "lowPrice": 7.32,
+      "closePrice": 7.44,
+      "volume": 72968
+    },
+    {
+      "startEpochTime": 1532059200,
+      "openPrice": 7.41,
+      "highPrice": 7.61,
+      "lowPrice": 7.34,
+      "closePrice": 7.58,
+      "volume": 60036
+    },
+    {
+      "startEpochTime": 1532318400,
+      "openPrice": 7.54,
+      "highPrice": 7.64,
+      "lowPrice": 7.3429,
+      "closePrice": 7.61,
+      "volume": 75426
+    },
+    {
+      "startEpochTime": 1532404800,
+      "openPrice": 7.68,
+      "highPrice": 7.75,
+      "lowPrice": 7.24,
+      "closePrice": 7.44,
+      "volume": 212984
+    },
+    {
+      "startEpochTime": 1532491200,
+      "openPrice": 7.4,
+      "highPrice": 7.58,
+      "lowPrice": 7.37,
+      "closePrice": 7.58,
+      "volume": 67477
+    },
+    {
+      "startEpochTime": 1532577600,
+      "openPrice": 7.55,
+      "highPrice": 7.65,
+      "lowPrice": 7.3357,
+      "closePrice": 7.4,
+      "volume": 67469
+    },
+    {
+      "startEpochTime": 1532664000,
+      "openPrice": 7.36,
+      "highPrice": 7.3852,
+      "lowPrice": 7.03,
+      "closePrice": 7.12,
+      "volume": 142150
+    },
+    {
+      "startEpochTime": 1532923200,
+      "openPrice": 7.08,
+      "highPrice": 7.2,
+      "lowPrice": 6.76,
+      "closePrice": 6.85,
+      "volume": 110145
+    },
+    {
+      "startEpochTime": 1533009600,
+      "openPrice": 6.83,
+      "highPrice": 6.98,
+      "lowPrice": 6.7382,
+      "closePrice": 6.94,
+      "volume": 43980
+    },
+    {
+      "startEpochTime": 1533096000,
+      "openPrice": 6.95,
+      "highPrice": 7.189,
+      "lowPrice": 6.95,
+      "closePrice": 7.11,
+      "volume": 34869
+    },
+    {
+      "startEpochTime": 1533182400,
+      "openPrice": 7.08,
+      "highPrice": 7.355,
+      "lowPrice": 7.0571,
+      "closePrice": 7.18,
+      "volume": 67935
+    },
+    {
+      "startEpochTime": 1533268800,
+      "openPrice": 7.25,
+      "highPrice": 7.44,
+      "lowPrice": 7.03,
+      "closePrice": 7.15,
+      "volume": 46772
+    },
+    {
+      "startEpochTime": 1533528000,
+      "openPrice": 7.13,
+      "highPrice": 7.38,
+      "lowPrice": 7.1,
+      "closePrice": 7.33,
+      "volume": 108338
+    },
+    {
+      "startEpochTime": 1533614400,
+      "openPrice": 7.34,
+      "highPrice": 7.44,
+      "lowPrice": 7.1365,
+      "closePrice": 7.18,
+      "volume": 63627
+    },
+    {
+      "startEpochTime": 1533700800,
+      "openPrice": 7.4,
+      "highPrice": 8.18,
+      "lowPrice": 7.4,
+      "closePrice": 7.9999,
+      "volume": 658999
+    },
+    {
+      "startEpochTime": 1533787200,
+      "openPrice": 8.16,
+      "highPrice": 8.25,
+      "lowPrice": 7.751,
+      "closePrice": 8,
+      "volume": 295985
+    },
+    {
+      "startEpochTime": 1533873600,
+      "openPrice": 6.7,
+      "highPrice": 7.1576,
+      "lowPrice": 6.53,
+      "closePrice": 6.72,
+      "volume": 547576
+    },
+    {
+      "startEpochTime": 1534132800,
+      "openPrice": 6.61,
+      "highPrice": 6.75,
+      "lowPrice": 6.34,
+      "closePrice": 6.74,
+      "volume": 286708
+    },
+    {
+      "startEpochTime": 1534219200,
+      "openPrice": 6.7,
+      "highPrice": 7.19,
+      "lowPrice": 6.68,
+      "closePrice": 7.16,
+      "volume": 219298
+    },
+    {
+      "startEpochTime": 1534305600,
+      "openPrice": 7.1,
+      "highPrice": 7.35,
+      "lowPrice": 6.92,
+      "closePrice": 7.26,
+      "volume": 147347
+    },
+    {
+      "startEpochTime": 1534392000,
+      "openPrice": 7.3,
+      "highPrice": 7.63,
+      "lowPrice": 7.2625,
+      "closePrice": 7.5599,
+      "volume": 138311
+    },
+    {
+      "startEpochTime": 1534478400,
+      "openPrice": 7.5,
+      "highPrice": 7.62,
+      "lowPrice": 7.43,
+      "closePrice": 7.49,
+      "volume": 90629
+    },
+    {
+      "startEpochTime": 1534737600,
+      "openPrice": 7.76,
+      "highPrice": 8.17,
+      "lowPrice": 7.48,
+      "closePrice": 8.14,
+      "volume": 255782
+    },
+    {
+      "startEpochTime": 1534824000,
+      "openPrice": 8.14,
+      "highPrice": 8.4,
+      "lowPrice": 8.1195,
+      "closePrice": 8.4,
+      "volume": 183642
+    },
+    {
+      "startEpochTime": 1534910400,
+      "openPrice": 8.4,
+      "highPrice": 8.59,
+      "lowPrice": 8.26,
+      "closePrice": 8.51,
+      "volume": 192983
+    },
+    {
+      "startEpochTime": 1534996800,
+      "openPrice": 8.41,
+      "highPrice": 8.7,
+      "lowPrice": 8.28,
+      "closePrice": 8.39,
+      "volume": 155112
+    },
+    {
+      "startEpochTime": 1535083200,
+      "openPrice": 8.47,
+      "highPrice": 8.59,
+      "lowPrice": 8.35,
+      "closePrice": 8.49,
+      "volume": 92517
+    },
+    {
+      "startEpochTime": 1535342400,
+      "openPrice": 8.5,
+      "highPrice": 8.8,
+      "lowPrice": 8.41,
+      "closePrice": 8.71,
+      "volume": 79966
+    },
+    {
+      "startEpochTime": 1535428800,
+      "openPrice": 8.76,
+      "highPrice": 8.83,
+      "lowPrice": 8.65,
+      "closePrice": 8.72,
+      "volume": 68656
+    },
+    {
+      "startEpochTime": 1535515200,
+      "openPrice": 8.78,
+      "highPrice": 8.95,
+      "lowPrice": 8.61,
+      "closePrice": 8.83,
+      "volume": 142432
+    },
+    {
+      "startEpochTime": 1535601600,
+      "openPrice": 8.83,
+      "highPrice": 8.98,
+      "lowPrice": 8.8,
+      "closePrice": 8.9,
+      "volume": 109380
+    },
+    {
+      "startEpochTime": 1535688000,
+      "openPrice": 8.82,
+      "highPrice": 8.91,
+      "lowPrice": 8.71,
+      "closePrice": 8.82,
+      "volume": 78148
+    },
+    {
+      "startEpochTime": 1536033600,
+      "openPrice": 8.8,
+      "highPrice": 8.8,
+      "lowPrice": 8.3,
+      "closePrice": 8.54,
+      "volume": 190960
+    },
+    {
+      "startEpochTime": 1536120000,
+      "openPrice": 8.5,
+      "highPrice": 8.5579,
+      "lowPrice": 8.3101,
+      "closePrice": 8.48,
+      "volume": 85435
+    },
+    {
+      "startEpochTime": 1536206400,
+      "openPrice": 8.52,
+      "highPrice": 8.52,
+      "lowPrice": 8.3,
+      "closePrice": 8.4,
+      "volume": 67765
+    },
+    {
+      "startEpochTime": 1536292800,
+      "openPrice": 8.33,
+      "highPrice": 8.52,
+      "lowPrice": 8.06,
+      "closePrice": 8.48,
+      "volume": 59432
+    },
+    {
+      "startEpochTime": 1536552000,
+      "openPrice": 8.5,
+      "highPrice": 8.5,
+      "lowPrice": 8.3,
+      "closePrice": 8.39,
+      "volume": 33920
+    },
+    {
+      "startEpochTime": 1536638400,
+      "openPrice": 8.35,
+      "highPrice": 8.57,
+      "lowPrice": 8.12,
+      "closePrice": 8.54,
+      "volume": 123027
+    },
+    {
+      "startEpochTime": 1536724800,
+      "openPrice": 8.53,
+      "highPrice": 8.96,
+      "lowPrice": 8.39,
+      "closePrice": 8.96,
+      "volume": 114144
+    },
+    {
+      "startEpochTime": 1536811200,
+      "openPrice": 8.96,
+      "highPrice": 9.2492,
+      "lowPrice": 8.96,
+      "closePrice": 9.07,
+      "volume": 132915
+    },
+    {
+      "startEpochTime": 1536897600,
+      "openPrice": 9.11,
+      "highPrice": 9.4994,
+      "lowPrice": 9.0131,
+      "closePrice": 9.35,
+      "volume": 157367
+    },
+    {
+      "startEpochTime": 1537156800,
+      "openPrice": 9.48,
+      "highPrice": 9.84,
+      "lowPrice": 9.38,
+      "closePrice": 9.68,
+      "volume": 307761
+    },
+    {
+      "startEpochTime": 1537243200,
+      "openPrice": 9.7,
+      "highPrice": 9.8242,
+      "lowPrice": 9.45,
+      "closePrice": 9.4999,
+      "volume": 243905
+    },
+    {
+      "startEpochTime": 1537329600,
+      "openPrice": 9.5,
+      "highPrice": 9.6449,
+      "lowPrice": 9.39,
+      "closePrice": 9.59,
+      "volume": 189339
+    },
+    {
+      "startEpochTime": 1537416000,
+      "openPrice": 9.6,
+      "highPrice": 9.68,
+      "lowPrice": 9.45,
+      "closePrice": 9.55,
+      "volume": 125736
+    },
+    {
+      "startEpochTime": 1537502400,
+      "openPrice": 9.6,
+      "highPrice": 9.67,
+      "lowPrice": 9.44,
+      "closePrice": 9.52,
+      "volume": 71525
+    },
+    {
+      "startEpochTime": 1537761600,
+      "openPrice": 9.45,
+      "highPrice": 9.5319,
+      "lowPrice": 9.28,
+      "closePrice": 9.46,
+      "volume": 93262
+    },
+    {
+      "startEpochTime": 1537848000,
+      "openPrice": 9.46,
+      "highPrice": 9.83,
+      "lowPrice": 9.39,
+      "closePrice": 9.81,
+      "volume": 155593
+    },
+    {
+      "startEpochTime": 1537934400,
+      "openPrice": 9.83,
+      "highPrice": 9.83,
+      "lowPrice": 9.62,
+      "closePrice": 9.64,
+      "volume": 118612
+    },
+    {
+      "startEpochTime": 1538020800,
+      "openPrice": 9.63,
+      "highPrice": 9.78,
+      "lowPrice": 9.44,
+      "closePrice": 9.71,
+      "volume": 179376
+    },
+    {
+      "startEpochTime": 1538107200,
+      "openPrice": 9.63,
+      "highPrice": 9.73,
+      "lowPrice": 9.46,
+      "closePrice": 9.48,
+      "volume": 110998
+    },
+    {
+      "startEpochTime": 1538366400,
+      "openPrice": 9.52,
+      "highPrice": 9.73,
+      "lowPrice": 9.2578,
+      "closePrice": 9.36,
+      "volume": 161823
+    },
+    {
+      "startEpochTime": 1538452800,
+      "openPrice": 8.81,
+      "highPrice": 9.38,
+      "lowPrice": 8.42,
+      "closePrice": 9.1,
+      "volume": 260808
+    },
+    {
+      "startEpochTime": 1538539200,
+      "openPrice": 9.08,
+      "highPrice": 10.94,
+      "lowPrice": 8.79,
+      "closePrice": 10.56,
+      "volume": 912484
+    },
+    {
+      "startEpochTime": 1538625600,
+      "openPrice": 10.5,
+      "highPrice": 10.5,
+      "lowPrice": 9.79,
+      "closePrice": 10.015,
+      "volume": 293094
+    },
+    {
+      "startEpochTime": 1538712000,
+      "openPrice": 10.02,
+      "highPrice": 10.25,
+      "lowPrice": 9.73,
+      "closePrice": 9.99,
+      "volume": 194418
+    },
+    {
+      "startEpochTime": 1538971200,
+      "openPrice": 9.97,
+      "highPrice": 10.2599,
+      "lowPrice": 9.64,
+      "closePrice": 9.81,
+      "volume": 168469
+    },
+    {
+      "startEpochTime": 1539057600,
+      "openPrice": 9.82,
+      "highPrice": 9.9862,
+      "lowPrice": 9.56,
+      "closePrice": 9.71,
+      "volume": 153061
+    },
+    {
+      "startEpochTime": 1539144000,
+      "openPrice": 9.66,
+      "highPrice": 9.66,
+      "lowPrice": 8.7001,
+      "closePrice": 8.72,
+      "volume": 294137
+    },
+    {
+      "startEpochTime": 1539230400,
+      "openPrice": 8.58,
+      "highPrice": 9.21,
+      "lowPrice": 8.58,
+      "closePrice": 9.15,
+      "volume": 205052
+    },
+    {
+      "startEpochTime": 1539316800,
+      "openPrice": 9.43,
+      "highPrice": 9.55,
+      "lowPrice": 9.25,
+      "closePrice": 9.53,
+      "volume": 230237
+    },
+    {
+      "startEpochTime": 1539576000,
+      "openPrice": 9.83,
+      "highPrice": 9.83,
+      "lowPrice": 9.4,
+      "closePrice": 9.59,
+      "volume": 210079
+    },
+    {
+      "startEpochTime": 1539662400,
+      "openPrice": 9.59,
+      "highPrice": 9.69,
+      "lowPrice": 9.37,
+      "closePrice": 9.6151,
+      "volume": 183108
+    },
+    {
+      "startEpochTime": 1539748800,
+      "openPrice": 9.59,
+      "highPrice": 9.8429,
+      "lowPrice": 9.26,
+      "closePrice": 9.72,
+      "volume": 294751
+    },
+    {
+      "startEpochTime": 1539835200,
+      "openPrice": 9.61,
+      "highPrice": 9.68,
+      "lowPrice": 9.31,
+      "closePrice": 9.4072,
+      "volume": 196523
+    },
+    {
+      "startEpochTime": 1539921600,
+      "openPrice": 9.38,
+      "highPrice": 9.4999,
+      "lowPrice": 8.73,
+      "closePrice": 8.7555,
+      "volume": 361179
+    },
+    {
+      "startEpochTime": 1540180800,
+      "openPrice": 8.57,
+      "highPrice": 9.21,
+      "lowPrice": 8.1,
+      "closePrice": 8.16,
+      "volume": 256710
+    },
+    {
+      "startEpochTime": 1540267200,
+      "openPrice": 7.81,
+      "highPrice": 8.01,
+      "lowPrice": 6.89,
+      "closePrice": 7.01,
+      "volume": 846913
+    },
+    {
+      "startEpochTime": 1540353600,
+      "openPrice": 7.1,
+      "highPrice": 7.38,
+      "lowPrice": 6.9,
+      "closePrice": 6.91,
+      "volume": 259371
+    },
+    {
+      "startEpochTime": 1540440000,
+      "openPrice": 6.91,
+      "highPrice": 7.1,
+      "lowPrice": 6.88,
+      "closePrice": 6.92,
+      "volume": 158620
+    },
+    {
+      "startEpochTime": 1540526400,
+      "openPrice": 6.82,
+      "highPrice": 6.97,
+      "lowPrice": 6.68,
+      "closePrice": 6.79,
+      "volume": 178302
+    },
+    {
+      "startEpochTime": 1540785600,
+      "openPrice": 6.92,
+      "highPrice": 6.92,
+      "lowPrice": 6.46,
+      "closePrice": 6.61,
+      "volume": 208880
+    },
+    {
+      "startEpochTime": 1540872000,
+      "openPrice": 6.52,
+      "highPrice": 7,
+      "lowPrice": 6.52,
+      "closePrice": 6.87,
+      "volume": 175149
+    },
+    {
+      "startEpochTime": 1540958400,
+      "openPrice": 6.86,
+      "highPrice": 6.94,
+      "lowPrice": 6.46,
+      "closePrice": 6.605,
+      "volume": 201077
+    },
+    {
+      "startEpochTime": 1541044800,
+      "openPrice": 6.69,
+      "highPrice": 7.06,
+      "lowPrice": 6.4625,
+      "closePrice": 6.88,
+      "volume": 122845
+    },
+    {
+      "startEpochTime": 1541131200,
+      "openPrice": 6.89,
+      "highPrice": 7.201,
+      "lowPrice": 6.89,
+      "closePrice": 7.13,
+      "volume": 113074
+    },
+    {
+      "startEpochTime": 1541394000,
+      "openPrice": 7.17,
+      "highPrice": 7.1918,
+      "lowPrice": 6.99,
+      "closePrice": 7.11,
+      "volume": 44518
+    },
+    {
+      "startEpochTime": 1541480400,
+      "openPrice": 7.09,
+      "highPrice": 7.39,
+      "lowPrice": 7.09,
+      "closePrice": 7.32,
+      "volume": 123896
+    },
+    {
+      "startEpochTime": 1541566800,
+      "openPrice": 7.34,
+      "highPrice": 7.5,
+      "lowPrice": 7.24,
+      "closePrice": 7.5,
+      "volume": 105921
+    },
+    {
+      "startEpochTime": 1541653200,
+      "openPrice": 8,
+      "highPrice": 9.7083,
+      "lowPrice": 7.95,
+      "closePrice": 9.11,
+      "volume": 823110
+    },
+    {
+      "startEpochTime": 1541739600,
+      "openPrice": 9.01,
+      "highPrice": 9.5325,
+      "lowPrice": 8.62,
+      "closePrice": 9.43,
+      "volume": 175757
+    },
+    {
+      "startEpochTime": 1541998800,
+      "openPrice": 9.44,
+      "highPrice": 9.94,
+      "lowPrice": 9.07,
+      "closePrice": 9.64,
+      "volume": 195074
+    },
+    {
+      "startEpochTime": 1542085200,
+      "openPrice": 9.59,
+      "highPrice": 9.84,
+      "lowPrice": 9.53,
+      "closePrice": 9.57,
+      "volume": 144733
+    },
+    {
+      "startEpochTime": 1542171600,
+      "openPrice": 9.61,
+      "highPrice": 10.09,
+      "lowPrice": 9.505,
+      "closePrice": 9.93,
+      "volume": 167110
+    },
+    {
+      "startEpochTime": 1542258000,
+      "openPrice": 9.76,
+      "highPrice": 10.13,
+      "lowPrice": 9.605,
+      "closePrice": 10.07,
+      "volume": 137089
+    },
+    {
+      "startEpochTime": 1542344400,
+      "openPrice": 9.9,
+      "highPrice": 10.07,
+      "lowPrice": 9.26,
+      "closePrice": 9.89,
+      "volume": 112895
+    },
+    {
+      "startEpochTime": 1542603600,
+      "openPrice": 9.8,
+      "highPrice": 9.929,
+      "lowPrice": 9.09,
+      "closePrice": 9.19,
+      "volume": 104330
+    },
+    {
+      "startEpochTime": 1542690000,
+      "openPrice": 8.88,
+      "highPrice": 9.07,
+      "lowPrice": 8.66,
+      "closePrice": 8.78,
+      "volume": 205985
+    },
+    {
+      "startEpochTime": 1542776400,
+      "openPrice": 8.73,
+      "highPrice": 9,
+      "lowPrice": 8.43,
+      "closePrice": 8.545,
+      "volume": 71603
+    },
+    {
+      "startEpochTime": 1542949200,
+      "openPrice": 8.36,
+      "highPrice": 8.855,
+      "lowPrice": 8.33,
+      "closePrice": 8.38,
+      "volume": 31897
+    },
+    {
+      "startEpochTime": 1543208400,
+      "openPrice": 8.42,
+      "highPrice": 8.5526,
+      "lowPrice": 8.155,
+      "closePrice": 8.42,
+      "volume": 132234
+    },
+    {
+      "startEpochTime": 1543294800,
+      "openPrice": 8.34,
+      "highPrice": 8.8899,
+      "lowPrice": 7.91,
+      "closePrice": 8.08,
+      "volume": 210045
+    },
+    {
+      "startEpochTime": 1543381200,
+      "openPrice": 8.09,
+      "highPrice": 8.31,
+      "lowPrice": 7.94,
+      "closePrice": 7.96,
+      "volume": 100233
+    },
+    {
+      "startEpochTime": 1543467600,
+      "openPrice": 7.92,
+      "highPrice": 8.0587,
+      "lowPrice": 7.69,
+      "closePrice": 7.81,
+      "volume": 68077
+    },
+    {
+      "startEpochTime": 1543554000,
+      "openPrice": 7.78,
+      "highPrice": 8.23,
+      "lowPrice": 7.78,
+      "closePrice": 8.19,
+      "volume": 64777
+    },
+    {
+      "startEpochTime": 1543813200,
+      "openPrice": 8.12,
+      "highPrice": 8.2094,
+      "lowPrice": 7.68,
+      "closePrice": 7.98,
+      "volume": 128319
+    },
+    {
+      "startEpochTime": 1543899600,
+      "openPrice": 7.95,
+      "highPrice": 8.235,
+      "lowPrice": 7.83,
+      "closePrice": 7.89,
+      "volume": 80163
+    },
+    {
+      "startEpochTime": 1544072400,
+      "openPrice": 7.68,
+      "highPrice": 7.98,
+      "lowPrice": 7.6,
+      "closePrice": 7.97,
+      "volume": 156647
+    },
+    {
+      "startEpochTime": 1544158800,
+      "openPrice": 7.95,
+      "highPrice": 8.08,
+      "lowPrice": 7.515,
+      "closePrice": 7.55,
+      "volume": 117174
+    },
+    {
+      "startEpochTime": 1544418000,
+      "openPrice": 7.56,
+      "highPrice": 7.64,
+      "lowPrice": 7.17,
+      "closePrice": 7.27,
+      "volume": 247105
+    },
+    {
+      "startEpochTime": 1544504400,
+      "openPrice": 7.31,
+      "highPrice": 7.425,
+      "lowPrice": 6.96,
+      "closePrice": 7.1601,
+      "volume": 149513
+    },
+    {
+      "startEpochTime": 1544590800,
+      "openPrice": 7.32,
+      "highPrice": 7.53,
+      "lowPrice": 6.9401,
+      "closePrice": 7.12,
+      "volume": 133965
+    },
+    {
+      "startEpochTime": 1544677200,
+      "openPrice": 7.11,
+      "highPrice": 7.3472,
+      "lowPrice": 6.74,
+      "closePrice": 6.87,
+      "volume": 107453
+    },
+    {
+      "startEpochTime": 1544763600,
+      "openPrice": 6.88,
+      "highPrice": 6.88,
+      "lowPrice": 6.49,
+      "closePrice": 6.56,
+      "volume": 204456
+    },
+    {
+      "startEpochTime": 1545022800,
+      "openPrice": 6.56,
+      "highPrice": 6.74,
+      "lowPrice": 6.24,
+      "closePrice": 6.3,
+      "volume": 150845
+    },
+    {
+      "startEpochTime": 1545109200,
+      "openPrice": 6.3,
+      "highPrice": 6.44,
+      "lowPrice": 6.2,
+      "closePrice": 6.33,
+      "volume": 84758
+    },
+    {
+      "startEpochTime": 1545195600,
+      "openPrice": 6.31,
+      "highPrice": 6.665,
+      "lowPrice": 6.13,
+      "closePrice": 6.21,
+      "volume": 108263
+    },
+    {
+      "startEpochTime": 1545282000,
+      "openPrice": 6.33,
+      "highPrice": 6.65,
+      "lowPrice": 6.25,
+      "closePrice": 6.58,
+      "volume": 137209
+    },
+    {
+      "startEpochTime": 1545368400,
+      "openPrice": 6.54,
+      "highPrice": 6.56,
+      "lowPrice": 5.9,
+      "closePrice": 5.9,
+      "volume": 246315
+    },
+    {
+      "startEpochTime": 1545627600,
+      "openPrice": 5.78,
+      "highPrice": 6.11,
+      "lowPrice": 5.734,
+      "closePrice": 6.05,
+      "volume": 83247
+    },
+    {
+      "startEpochTime": 1545800400,
+      "openPrice": 6.05,
+      "highPrice": 6.48,
+      "lowPrice": 5.98,
+      "closePrice": 6.43,
+      "volume": 157824
+    },
+    {
+      "startEpochTime": 1545886800,
+      "openPrice": 6.38,
+      "highPrice": 6.5,
+      "lowPrice": 6.22,
+      "closePrice": 6.38,
+      "volume": 144327
+    },
+    {
+      "startEpochTime": 1545973200,
+      "openPrice": 6.3,
+      "highPrice": 6.77,
+      "lowPrice": 6.3,
+      "closePrice": 6.52,
+      "volume": 154252
+    },
+    {
+      "startEpochTime": 1546232400,
+      "openPrice": 6.53,
+      "highPrice": 6.79,
+      "lowPrice": 6.5287,
+      "closePrice": 6.63,
+      "volume": 181185
+    },
+    {
+      "startEpochTime": 1546405200,
+      "openPrice": 6.45,
+      "highPrice": 7.06,
+      "lowPrice": 6.45,
+      "closePrice": 7,
+      "volume": 72342
+    },
+    {
+      "startEpochTime": 1546491600,
+      "openPrice": 6.97,
+      "highPrice": 7.0334,
+      "lowPrice": 6.68,
+      "closePrice": 6.78,
+      "volume": 49444
+    },
+    {
+      "startEpochTime": 1546578000,
+      "openPrice": 6.85,
+      "highPrice": 7.19,
+      "lowPrice": 6.78,
+      "closePrice": 6.94,
+      "volume": 43264
+    },
+    {
+      "startEpochTime": 1546837200,
+      "openPrice": 6.94,
+      "highPrice": 7.27,
+      "lowPrice": 6.9,
+      "closePrice": 7.18,
+      "volume": 53463
+    },
+    {
+      "startEpochTime": 1546923600,
+      "openPrice": 7.27,
+      "highPrice": 7.3655,
+      "lowPrice": 7.05,
+      "closePrice": 7.235,
+      "volume": 68550
+    },
+    {
+      "startEpochTime": 1547010000,
+      "openPrice": 7.28,
+      "highPrice": 7.49,
+      "lowPrice": 7.18,
+      "closePrice": 7.4301,
+      "volume": 51315
+    },
+    {
+      "startEpochTime": 1547096400,
+      "openPrice": 7.36,
+      "highPrice": 7.85,
+      "lowPrice": 7.36,
+      "closePrice": 7.51,
+      "volume": 92821
+    },
+    {
+      "startEpochTime": 1547182800,
+      "openPrice": 7.48,
+      "highPrice": 7.76,
+      "lowPrice": 7.33,
+      "closePrice": 7.65,
+      "volume": 45338
+    },
+    {
+      "startEpochTime": 1547442000,
+      "openPrice": 7.62,
+      "highPrice": 7.7,
+      "lowPrice": 7.41,
+      "closePrice": 7.46,
+      "volume": 42883
+    },
+    {
+      "startEpochTime": 1547528400,
+      "openPrice": 7.58,
+      "highPrice": 7.81,
+      "lowPrice": 7.4751,
+      "closePrice": 7.49,
+      "volume": 75947
+    },
+    {
+      "startEpochTime": 1547614800,
+      "openPrice": 7.5,
+      "highPrice": 7.76,
+      "lowPrice": 7.34,
+      "closePrice": 7.36,
+      "volume": 74924
+    },
+    {
+      "startEpochTime": 1547701200,
+      "openPrice": 7.27,
+      "highPrice": 7.58,
+      "lowPrice": 7.21,
+      "closePrice": 7.41,
+      "volume": 81710
+    },
+    {
+      "startEpochTime": 1547787600,
+      "openPrice": 7.5,
+      "highPrice": 7.81,
+      "lowPrice": 7.34,
+      "closePrice": 7.785,
+      "volume": 87130
+    },
+    {
+      "startEpochTime": 1548133200,
+      "openPrice": 7.67,
+      "highPrice": 7.76,
+      "lowPrice": 7.46,
+      "closePrice": 7.57,
+      "volume": 72165
+    },
+    {
+      "startEpochTime": 1548219600,
+      "openPrice": 7.6,
+      "highPrice": 7.93,
+      "lowPrice": 7.53,
+      "closePrice": 7.56,
+      "volume": 46469
+    },
+    {
+      "startEpochTime": 1548306000,
+      "openPrice": 7.56,
+      "highPrice": 7.81,
+      "lowPrice": 7.46,
+      "closePrice": 7.5,
+      "volume": 54106
+    },
+    {
+      "startEpochTime": 1548392400,
+      "openPrice": 7.57,
+      "highPrice": 7.96,
+      "lowPrice": 7.57,
+      "closePrice": 7.76,
+      "volume": 103642
+    },
+    {
+      "startEpochTime": 1548651600,
+      "openPrice": 7.66,
+      "highPrice": 8.06,
+      "lowPrice": 7.55,
+      "closePrice": 8.06,
+      "volume": 82206
+    },
+    {
+      "startEpochTime": 1548738000,
+      "openPrice": 8.21,
+      "highPrice": 8.39,
+      "lowPrice": 8.1338,
+      "closePrice": 8.33,
+      "volume": 149218
+    },
+    {
+      "startEpochTime": 1548824400,
+      "openPrice": 8.34,
+      "highPrice": 8.61,
+      "lowPrice": 8.155,
+      "closePrice": 8.5,
+      "volume": 142260
+    },
+    {
+      "startEpochTime": 1548910800,
+      "openPrice": 8.5,
+      "highPrice": 9,
+      "lowPrice": 8.4,
+      "closePrice": 8.94,
+      "volume": 148488
+    },
+    {
+      "startEpochTime": 1548997200,
+      "openPrice": 8.99,
+      "highPrice": 9.26,
+      "lowPrice": 8.72,
+      "closePrice": 8.98,
+      "volume": 143113
+    },
+    {
+      "startEpochTime": 1549256400,
+      "openPrice": 9.07,
+      "highPrice": 9.6,
+      "lowPrice": 9.04,
+      "closePrice": 9.56,
+      "volume": 165541
+    },
+    {
+      "startEpochTime": 1549342800,
+      "openPrice": 9.56,
+      "highPrice": 9.88,
+      "lowPrice": 9.46,
+      "closePrice": 9.72,
+      "volume": 136204
+    },
+    {
+      "startEpochTime": 1549429200,
+      "openPrice": 9.71,
+      "highPrice": 10.06,
+      "lowPrice": 9.7035,
+      "closePrice": 9.8599,
+      "volume": 152780
+    },
+    {
+      "startEpochTime": 1549515600,
+      "openPrice": 9.86,
+      "highPrice": 9.98,
+      "lowPrice": 9.45,
+      "closePrice": 9.86,
+      "volume": 170075
+    },
+    {
+      "startEpochTime": 1549602000,
+      "openPrice": 9.73,
+      "highPrice": 10.16,
+      "lowPrice": 9.7,
+      "closePrice": 9.92,
+      "volume": 158646
+    },
+    {
+      "startEpochTime": 1549861200,
+      "openPrice": 9.98,
+      "highPrice": 10.59,
+      "lowPrice": 9.9,
+      "closePrice": 10.55,
+      "volume": 277138
+    },
+    {
+      "startEpochTime": 1549947600,
+      "openPrice": 10.59,
+      "highPrice": 10.9,
+      "lowPrice": 10.57,
+      "closePrice": 10.84,
+      "volume": 208669
+    },
+    {
+      "startEpochTime": 1550034000,
+      "openPrice": 10.89,
+      "highPrice": 11.08,
+      "lowPrice": 10.27,
+      "closePrice": 10.91,
+      "volume": 242535
+    },
+    {
+      "startEpochTime": 1550120400,
+      "openPrice": 10.84,
+      "highPrice": 10.93,
+      "lowPrice": 10.5726,
+      "closePrice": 10.87,
+      "volume": 118330
+    },
+    {
+      "startEpochTime": 1550206800,
+      "openPrice": 10.88,
+      "highPrice": 11.07,
+      "lowPrice": 10.78,
+      "closePrice": 11.0501,
+      "volume": 128308
+    },
+    {
+      "startEpochTime": 1550638800,
+      "openPrice": 11.2,
+      "highPrice": 11.49,
+      "lowPrice": 11.06,
+      "closePrice": 11.43,
+      "volume": 155599
+    },
+    {
+      "startEpochTime": 1550725200,
+      "openPrice": 11.4,
+      "highPrice": 11.59,
+      "lowPrice": 11.3035,
+      "closePrice": 11.45,
+      "volume": 116740
+    },
+    {
+      "startEpochTime": 1550811600,
+      "openPrice": 11.47,
+      "highPrice": 11.64,
+      "lowPrice": 11.44,
+      "closePrice": 11.59,
+      "volume": 128448
+    },
+    {
+      "startEpochTime": 1551070800,
+      "openPrice": 11.71,
+      "highPrice": 11.73,
+      "lowPrice": 11.51,
+      "closePrice": 11.55,
+      "volume": 111348
+    },
+    {
+      "startEpochTime": 1551157200,
+      "openPrice": 11.51,
+      "highPrice": 11.68,
+      "lowPrice": 10.85,
+      "closePrice": 11.45,
+      "volume": 181991
+    },
+    {
+      "startEpochTime": 1551243600,
+      "openPrice": 11.32,
+      "highPrice": 11.48,
+      "lowPrice": 11.03,
+      "closePrice": 11.14,
+      "volume": 96617
+    },
+    {
+      "startEpochTime": 1551330000,
+      "openPrice": 11.12,
+      "highPrice": 11.48,
+      "lowPrice": 11.0001,
+      "closePrice": 11.25,
+      "volume": 104425
+    },
+    {
+      "startEpochTime": 1551416400,
+      "openPrice": 11.26,
+      "highPrice": 11.46,
+      "lowPrice": 10.58,
+      "closePrice": 10.66,
+      "volume": 146390
+    },
+    {
+      "startEpochTime": 1551675600,
+      "openPrice": 10.4,
+      "highPrice": 10.93,
+      "lowPrice": 10.11,
+      "closePrice": 10.39,
+      "volume": 239445
+    },
+    {
+      "startEpochTime": 1551762000,
+      "openPrice": 10.35,
+      "highPrice": 10.52,
+      "lowPrice": 10.13,
+      "closePrice": 10.24,
+      "volume": 119295
+    },
+    {
+      "startEpochTime": 1551848400,
+      "openPrice": 10.21,
+      "highPrice": 10.44,
+      "lowPrice": 10.04,
+      "closePrice": 10.07,
+      "volume": 69765
+    },
+    {
+      "startEpochTime": 1551934800,
+      "openPrice": 10.04,
+      "highPrice": 10.1006,
+      "lowPrice": 9.242,
+      "closePrice": 9.53,
+      "volume": 170791
+    },
+    {
+      "startEpochTime": 1552021200,
+      "openPrice": 9.47,
+      "highPrice": 9.66,
+      "lowPrice": 9.21,
+      "closePrice": 9.43,
+      "volume": 156037
+    },
+    {
+      "startEpochTime": 1552276800,
+      "openPrice": 9.45,
+      "highPrice": 10.08,
+      "lowPrice": 9.45,
+      "closePrice": 9.97,
+      "volume": 129112
+    },
+    {
+      "startEpochTime": 1552363200,
+      "openPrice": 9.91,
+      "highPrice": 10.03,
+      "lowPrice": 9.74,
+      "closePrice": 9.84,
+      "volume": 111887
+    },
+    {
+      "startEpochTime": 1552449600,
+      "openPrice": 9.87,
+      "highPrice": 9.9,
+      "lowPrice": 9.36,
+      "closePrice": 9.39,
+      "volume": 152560
+    },
+    {
+      "startEpochTime": 1552536000,
+      "openPrice": 9.82,
+      "highPrice": 10.68,
+      "lowPrice": 9.71,
+      "closePrice": 10.58,
+      "volume": 475771
+    },
+    {
+      "startEpochTime": 1552622400,
+      "openPrice": 10.095,
+      "highPrice": 10.42,
+      "lowPrice": 9.96,
+      "closePrice": 10.13,
+      "volume": 187432
+    },
+    {
+      "startEpochTime": 1552881600,
+      "openPrice": 10.16,
+      "highPrice": 10.16,
+      "lowPrice": 9.63,
+      "closePrice": 9.8,
+      "volume": 143433
+    },
+    {
+      "startEpochTime": 1552968000,
+      "openPrice": 9.84,
+      "highPrice": 9.9,
+      "lowPrice": 9.25,
+      "closePrice": 9.82,
+      "volume": 140717
+    },
+    {
+      "startEpochTime": 1553054400,
+      "openPrice": 9.77,
+      "highPrice": 9.89,
+      "lowPrice": 9.49,
+      "closePrice": 9.68,
+      "volume": 108485
+    },
+    {
+      "startEpochTime": 1553140800,
+      "openPrice": 9.65,
+      "highPrice": 9.95,
+      "lowPrice": 9.62,
+      "closePrice": 9.67,
+      "volume": 147961
+    },
+    {
+      "startEpochTime": 1553227200,
+      "openPrice": 8.76,
+      "highPrice": 8.8,
+      "lowPrice": 8.76,
+      "closePrice": 8.8,
+      "volume": 3936
+    },
+    {
+      "startEpochTime": 1553486400,
+      "openPrice": 8.69,
+      "highPrice": 8.72,
+      "lowPrice": 8.07,
+      "closePrice": 8.45,
+      "volume": 336793
+    },
+    {
+      "startEpochTime": 1553572800,
+      "openPrice": 8.52,
+      "highPrice": 8.76,
+      "lowPrice": 8.5,
+      "closePrice": 8.66,
+      "volume": 104532
+    },
+    {
+      "startEpochTime": 1553659200,
+      "openPrice": 8.65,
+      "highPrice": 8.79,
+      "lowPrice": 8.3,
+      "closePrice": 8.49,
+      "volume": 80762
+    },
+    {
+      "startEpochTime": 1553745600,
+      "openPrice": 8.47,
+      "highPrice": 8.61,
+      "lowPrice": 8.35,
+      "closePrice": 8.48,
+      "volume": 81228
+    },
+    {
+      "startEpochTime": 1553832000,
+      "openPrice": 8.56,
+      "highPrice": 8.7699,
+      "lowPrice": 8.3,
+      "closePrice": 8.49,
+      "volume": 68100
+    },
+    {
+      "startEpochTime": 1554091200,
+      "openPrice": 8.55,
+      "highPrice": 8.93,
+      "lowPrice": 8.4981,
+      "closePrice": 8.88,
+      "volume": 54510
+    },
+    {
+      "startEpochTime": 1554177600,
+      "openPrice": 8.88,
+      "highPrice": 9.1,
+      "lowPrice": 8.74,
+      "closePrice": 9.08,
+      "volume": 129380
+    },
+    {
+      "startEpochTime": 1554264000,
+      "openPrice": 9.13,
+      "highPrice": 9.355,
+      "lowPrice": 8.845,
+      "closePrice": 9.28,
+      "volume": 164389
+    },
+    {
+      "startEpochTime": 1554350400,
+      "openPrice": 9.22,
+      "highPrice": 9.29,
+      "lowPrice": 8.8425,
+      "closePrice": 8.94,
+      "volume": 120272
+    },
+    {
+      "startEpochTime": 1554436800,
+      "openPrice": 8.94,
+      "highPrice": 9.08,
+      "lowPrice": 8.77,
+      "closePrice": 9.0198,
+      "volume": 59745
+    },
+    {
+      "startEpochTime": 1554696000,
+      "openPrice": 8.97,
+      "highPrice": 9.115,
+      "lowPrice": 8.7829,
+      "closePrice": 8.88,
+      "volume": 99314
+    },
+    {
+      "startEpochTime": 1554782400,
+      "openPrice": 8.7675,
+      "highPrice": 8.8299,
+      "lowPrice": 8.51,
+      "closePrice": 8.59,
+      "volume": 90811
+    },
+    {
+      "startEpochTime": 1554868800,
+      "openPrice": 8.56,
+      "highPrice": 8.84,
+      "lowPrice": 8.36,
+      "closePrice": 8.58,
+      "volume": 98984
+    },
+    {
+      "startEpochTime": 1554955200,
+      "openPrice": 8.59,
+      "highPrice": 8.66,
+      "lowPrice": 8.35,
+      "closePrice": 8.44,
+      "volume": 90202
+    },
+    {
+      "startEpochTime": 1555041600,
+      "openPrice": 8.49,
+      "highPrice": 8.55,
+      "lowPrice": 8.18,
+      "closePrice": 8.23,
+      "volume": 151792
+    },
+    {
+      "startEpochTime": 1555300800,
+      "openPrice": 8.23,
+      "highPrice": 8.61,
+      "lowPrice": 8.21,
+      "closePrice": 8.33,
+      "volume": 95191
+    },
+    {
+      "startEpochTime": 1555387200,
+      "openPrice": 8.37,
+      "highPrice": 8.8,
+      "lowPrice": 8.37,
+      "closePrice": 8.72,
+      "volume": 88356
+    },
+    {
+      "startEpochTime": 1555473600,
+      "openPrice": 8.77,
+      "highPrice": 8.92,
+      "lowPrice": 8.53,
+      "closePrice": 8.89,
+      "volume": 86789
+    },
+    {
+      "startEpochTime": 1555560000,
+      "openPrice": 8.85,
+      "highPrice": 9.03,
+      "lowPrice": 8.64,
+      "closePrice": 9,
+      "volume": 110006
+    },
+    {
+      "startEpochTime": 1555905600,
+      "openPrice": 9.01,
+      "highPrice": 9.0599,
+      "lowPrice": 8.63,
+      "closePrice": 8.79,
+      "volume": 81728
+    },
+    {
+      "startEpochTime": 1555992000,
+      "openPrice": 8.74,
+      "highPrice": 9.109,
+      "lowPrice": 8.59,
+      "closePrice": 9.05,
+      "volume": 71117
+    },
+    {
+      "startEpochTime": 1556078400,
+      "openPrice": 9.07,
+      "highPrice": 9.07,
+      "lowPrice": 8.88,
+      "closePrice": 9.02,
+      "volume": 43386
+    },
+    {
+      "startEpochTime": 1556164800,
+      "openPrice": 8.93,
+      "highPrice": 8.93,
+      "lowPrice": 8.45,
+      "closePrice": 8.73,
+      "volume": 85057
+    },
+    {
+      "startEpochTime": 1556251200,
+      "openPrice": 8.69,
+      "highPrice": 8.89,
+      "lowPrice": 8.63,
+      "closePrice": 8.89,
+      "volume": 38916
+    },
+    {
+      "startEpochTime": 1556510400,
+      "openPrice": 8.88,
+      "highPrice": 8.9637,
+      "lowPrice": 8.52,
+      "closePrice": 8.86,
+      "volume": 52354
+    },
+    {
+      "startEpochTime": 1556596800,
+      "openPrice": 8.83,
+      "highPrice": 8.89,
+      "lowPrice": 8.42,
+      "closePrice": 8.87,
+      "volume": 84300
+    },
+    {
+      "startEpochTime": 1556683200,
+      "openPrice": 8.91,
+      "highPrice": 8.99,
+      "lowPrice": 8.33,
+      "closePrice": 8.87,
+      "volume": 43556
+    },
+    {
+      "startEpochTime": 1556769600,
+      "openPrice": 8.78,
+      "highPrice": 8.8149,
+      "lowPrice": 8.33,
+      "closePrice": 8.5,
+      "volume": 135780
+    },
+    {
+      "startEpochTime": 1556856000,
+      "openPrice": 8.51,
+      "highPrice": 8.84,
+      "lowPrice": 8.5,
+      "closePrice": 8.78,
+      "volume": 80249
+    },
+    {
+      "startEpochTime": 1557115200,
+      "openPrice": 8.59,
+      "highPrice": 8.78,
+      "lowPrice": 8.35,
+      "closePrice": 8.57,
+      "volume": 55945
+    },
+    {
+      "startEpochTime": 1557201600,
+      "openPrice": 8.47,
+      "highPrice": 8.59,
+      "lowPrice": 8.25,
+      "closePrice": 8.26,
+      "volume": 124073
+    },
+    {
+      "startEpochTime": 1557288000,
+      "openPrice": 8.15,
+      "highPrice": 8.36,
+      "lowPrice": 7.89,
+      "closePrice": 7.9,
+      "volume": 169874
+    },
+    {
+      "startEpochTime": 1557374400,
+      "openPrice": 8.17,
+      "highPrice": 8.7,
+      "lowPrice": 7.773,
+      "closePrice": 8.52,
+      "volume": 212403
+    },
+    {
+      "startEpochTime": 1557460800,
+      "openPrice": 8.44,
+      "highPrice": 8.66,
+      "lowPrice": 8.13,
+      "closePrice": 8.22,
+      "volume": 174408
+    },
+    {
+      "startEpochTime": 1557720000,
+      "openPrice": 8,
+      "highPrice": 8.06,
+      "lowPrice": 7.66,
+      "closePrice": 8.06,
+      "volume": 229578
+    },
+    {
+      "startEpochTime": 1557806400,
+      "openPrice": 7.98,
+      "highPrice": 8.44,
+      "lowPrice": 7.82,
+      "closePrice": 8.29,
+      "volume": 123909
+    },
+    {
+      "startEpochTime": 1557892800,
+      "openPrice": 8.07,
+      "highPrice": 8.33,
+      "lowPrice": 7.751,
+      "closePrice": 8.23,
+      "volume": 78008
+    },
+    {
+      "startEpochTime": 1557979200,
+      "openPrice": 8.1,
+      "highPrice": 8.38,
+      "lowPrice": 7.99,
+      "closePrice": 8.28,
+      "volume": 88203
+    },
+    {
+      "startEpochTime": 1558065600,
+      "openPrice": 8.16,
+      "highPrice": 8.51,
+      "lowPrice": 8,
+      "closePrice": 8.2632,
+      "volume": 85007
+    },
+    {
+      "startEpochTime": 1558324800,
+      "openPrice": 7.96,
+      "highPrice": 8.2061,
+      "lowPrice": 7.8,
+      "closePrice": 8.06,
+      "volume": 209881
+    },
+    {
+      "startEpochTime": 1558411200,
+      "openPrice": 8.09,
+      "highPrice": 8.385,
+      "lowPrice": 8.09,
+      "closePrice": 8.31,
+      "volume": 119029
+    },
+    {
+      "startEpochTime": 1558497600,
+      "openPrice": 8.26,
+      "highPrice": 8.5,
+      "lowPrice": 8.26,
+      "closePrice": 8.35,
+      "volume": 53207
+    },
+    {
+      "startEpochTime": 1558584000,
+      "openPrice": 8.47,
+      "highPrice": 8.47,
+      "lowPrice": 8.1675,
+      "closePrice": 8.23,
+      "volume": 124443
+    },
+    {
+      "startEpochTime": 1558670400,
+      "openPrice": 8.14,
+      "highPrice": 8.37,
+      "lowPrice": 8.06,
+      "closePrice": 8.09,
+      "volume": 68068
+    },
+    {
+      "startEpochTime": 1559016000,
+      "openPrice": 8.07,
+      "highPrice": 8.14,
+      "lowPrice": 7.95,
+      "closePrice": 8.06,
+      "volume": 140214
+    },
+    {
+      "startEpochTime": 1559102400,
+      "openPrice": 8.01,
+      "highPrice": 8.16,
+      "lowPrice": 7.9542,
+      "closePrice": 8.09,
+      "volume": 112212
+    },
+    {
+      "startEpochTime": 1559188800,
+      "openPrice": 8.08,
+      "highPrice": 8.2,
+      "lowPrice": 8.08,
+      "closePrice": 8.12,
+      "volume": 73252
+    },
+    {
+      "startEpochTime": 1559275200,
+      "openPrice": 7.94,
+      "highPrice": 8.19,
+      "lowPrice": 7.89,
+      "closePrice": 7.95,
+      "volume": 80300
+    },
+    {
+      "startEpochTime": 1559620800,
+      "openPrice": 7.65,
+      "highPrice": 7.8399,
+      "lowPrice": 7.5841,
+      "closePrice": 7.78,
+      "volume": 59861
+    },
+    {
+      "startEpochTime": 1559707200,
+      "openPrice": 7.85,
+      "highPrice": 7.94,
+      "lowPrice": 7.69,
+      "closePrice": 7.78,
+      "volume": 30748
+    },
+    {
+      "startEpochTime": 1559793600,
+      "openPrice": 7.46,
+      "highPrice": 7.48,
+      "lowPrice": 7.45,
+      "closePrice": 7.46,
+      "volume": 5324
+    },
+    {
+      "startEpochTime": 1559880000,
+      "openPrice": 7.52,
+      "highPrice": 7.69,
+      "lowPrice": 7.47,
+      "closePrice": 7.6,
+      "volume": 54939
+    },
+    {
+      "startEpochTime": 1560139200,
+      "openPrice": 7.64,
+      "highPrice": 7.88,
+      "lowPrice": 7.31,
+      "closePrice": 7.39,
+      "volume": 73689
+    },
+    {
+      "startEpochTime": 1560225600,
+      "openPrice": 7.42,
+      "highPrice": 7.55,
+      "lowPrice": 7.35,
+      "closePrice": 7.41,
+      "volume": 47694
+    },
+    {
+      "startEpochTime": 1560312000,
+      "openPrice": 7.4,
+      "highPrice": 7.57,
+      "lowPrice": 7.05,
+      "closePrice": 7.07,
+      "volume": 114771
+    },
+    {
+      "startEpochTime": 1560398400,
+      "openPrice": 7.17,
+      "highPrice": 7.41,
+      "lowPrice": 7.06,
+      "closePrice": 7.23,
+      "volume": 240932
+    },
+    {
+      "startEpochTime": 1560484800,
+      "openPrice": 7.33,
+      "highPrice": 7.395,
+      "lowPrice": 6.79,
+      "closePrice": 7.05,
+      "volume": 451972
+    },
+    {
+      "startEpochTime": 1560744000,
+      "openPrice": 7.07,
+      "highPrice": 7.37,
+      "lowPrice": 7.07,
+      "closePrice": 7.19,
+      "volume": 30835
+    },
+    {
+      "startEpochTime": 1560830400,
+      "openPrice": 7.19,
+      "highPrice": 7.49,
+      "lowPrice": 7.19,
+      "closePrice": 7.34,
+      "volume": 75010
+    },
+    {
+      "startEpochTime": 1560916800,
+      "openPrice": 7.32,
+      "highPrice": 7.4634,
+      "lowPrice": 7.3,
+      "closePrice": 7.4,
+      "volume": 31019
+    },
+    {
+      "startEpochTime": 1561003200,
+      "openPrice": 7.5,
+      "highPrice": 7.7285,
+      "lowPrice": 7.45,
+      "closePrice": 7.57,
+      "volume": 58247
+    },
+    {
+      "startEpochTime": 1561089600,
+      "openPrice": 7.52,
+      "highPrice": 7.72,
+      "lowPrice": 7.4,
+      "closePrice": 7.62,
+      "volume": 67716
+    },
+    {
+      "startEpochTime": 1561348800,
+      "openPrice": 7.58,
+      "highPrice": 7.82,
+      "lowPrice": 7.2348,
+      "closePrice": 7.3911,
+      "volume": 73476
+    },
+    {
+      "startEpochTime": 1561435200,
+      "openPrice": 7.45,
+      "highPrice": 7.8,
+      "lowPrice": 7.38,
+      "closePrice": 7.8,
+      "volume": 65284
+    },
+    {
+      "startEpochTime": 1561521600,
+      "openPrice": 7.75,
+      "highPrice": 8.05,
+      "lowPrice": 7.7,
+      "closePrice": 8.03,
+      "volume": 84646
+    },
+    {
+      "startEpochTime": 1561608000,
+      "openPrice": 8.04,
+      "highPrice": 8.28,
+      "lowPrice": 7.86,
+      "closePrice": 8.22,
+      "volume": 131592
+    },
+    {
+      "startEpochTime": 1561694400,
+      "openPrice": 8.06,
+      "highPrice": 9.3,
+      "lowPrice": 8.06,
+      "closePrice": 9.3,
+      "volume": 281528
+    },
+    {
+      "startEpochTime": 1561953600,
+      "openPrice": 9.39,
+      "highPrice": 9.53,
+      "lowPrice": 9.07,
+      "closePrice": 9.5,
+      "volume": 222961
+    },
+    {
+      "startEpochTime": 1562040000,
+      "openPrice": 9.48,
+      "highPrice": 9.5,
+      "lowPrice": 8.8,
+      "closePrice": 9,
+      "volume": 140328
+    },
+    {
+      "startEpochTime": 1562126400,
+      "openPrice": 9.05,
+      "highPrice": 9.05,
+      "lowPrice": 8.77,
+      "closePrice": 8.79,
+      "volume": 52278
+    },
+    {
+      "startEpochTime": 1562299200,
+      "openPrice": 8.75,
+      "highPrice": 8.78,
+      "lowPrice": 8.47,
+      "closePrice": 8.74,
+      "volume": 50792
+    },
+    {
+      "startEpochTime": 1562558400,
+      "openPrice": 8.67,
+      "highPrice": 8.7599,
+      "lowPrice": 8.44,
+      "closePrice": 8.62,
+      "volume": 80675
+    },
+    {
+      "startEpochTime": 1562644800,
+      "openPrice": 8.61,
+      "highPrice": 8.8687,
+      "lowPrice": 8.51,
+      "closePrice": 8.725,
+      "volume": 71092
+    },
+    {
+      "startEpochTime": 1562731200,
+      "openPrice": 8.72,
+      "highPrice": 8.84,
+      "lowPrice": 8.36,
+      "closePrice": 8.42,
+      "volume": 112591
+    },
+    {
+      "startEpochTime": 1562817600,
+      "openPrice": 8.4,
+      "highPrice": 8.43,
+      "lowPrice": 8.1,
+      "closePrice": 8.42,
+      "volume": 107093
+    },
+    {
+      "startEpochTime": 1562904000,
+      "openPrice": 8.18,
+      "highPrice": 8.31,
+      "lowPrice": 8.11,
+      "closePrice": 8.2399,
+      "volume": 30014
+    },
+    {
+      "startEpochTime": 1563163200,
+      "openPrice": 8.2,
+      "highPrice": 8.25,
+      "lowPrice": 7.9,
+      "closePrice": 8.15,
+      "volume": 42568
+    },
+    {
+      "startEpochTime": 1563249600,
+      "openPrice": 8.1,
+      "highPrice": 8.46,
+      "lowPrice": 8.065,
+      "closePrice": 8.21,
+      "volume": 64342
+    },
+    {
+      "startEpochTime": 1563336000,
+      "openPrice": 8.21,
+      "highPrice": 8.21,
+      "lowPrice": 8,
+      "closePrice": 8.01,
+      "volume": 49508
+    },
+    {
+      "startEpochTime": 1563422400,
+      "openPrice": 8.07,
+      "highPrice": 8.07,
+      "lowPrice": 7.665,
+      "closePrice": 7.86,
+      "volume": 104683
+    },
+    {
+      "startEpochTime": 1563508800,
+      "openPrice": 7.98,
+      "highPrice": 7.98,
+      "lowPrice": 7.73,
+      "closePrice": 7.78,
+      "volume": 76354
+    },
+    {
+      "startEpochTime": 1563768000,
+      "openPrice": 7.82,
+      "highPrice": 7.97,
+      "lowPrice": 7.7,
+      "closePrice": 7.88,
+      "volume": 39158
+    },
+    {
+      "startEpochTime": 1563854400,
+      "openPrice": 7.86,
+      "highPrice": 7.9899,
+      "lowPrice": 7.72,
+      "closePrice": 7.91,
+      "volume": 50068
+    },
+    {
+      "startEpochTime": 1563940800,
+      "openPrice": 7.85,
+      "highPrice": 8.24,
+      "lowPrice": 7.71,
+      "closePrice": 8.24,
+      "volume": 38851
+    },
+    {
+      "startEpochTime": 1564027200,
+      "openPrice": 8.1,
+      "highPrice": 8.27,
+      "lowPrice": 7.9134,
+      "closePrice": 8.22,
+      "volume": 67912
+    },
+    {
+      "startEpochTime": 1564113600,
+      "openPrice": 8.21,
+      "highPrice": 8.45,
+      "lowPrice": 7.95,
+      "closePrice": 8.29,
+      "volume": 72231
+    },
+    {
+      "startEpochTime": 1564372800,
+      "openPrice": 8.33,
+      "highPrice": 8.33,
+      "lowPrice": 7.875,
+      "closePrice": 8.12,
+      "volume": 46500
+    },
+    {
+      "startEpochTime": 1564459200,
+      "openPrice": 8.11,
+      "highPrice": 8.4,
+      "lowPrice": 7.96,
+      "closePrice": 8.17,
+      "volume": 65271
+    },
+    {
+      "startEpochTime": 1564545600,
+      "openPrice": 8.2,
+      "highPrice": 8.22,
+      "lowPrice": 7.76,
+      "closePrice": 8.01,
+      "volume": 65339
+    },
+    {
+      "startEpochTime": 1564632000,
+      "openPrice": 7.87,
+      "highPrice": 7.94,
+      "lowPrice": 7.61,
+      "closePrice": 7.895,
+      "volume": 118417
+    },
+    {
+      "startEpochTime": 1564718400,
+      "openPrice": 7.87,
+      "highPrice": 8.0268,
+      "lowPrice": 7.41,
+      "closePrice": 7.41,
+      "volume": 53965
+    },
+    {
+      "startEpochTime": 1564977600,
+      "openPrice": 7.35,
+      "highPrice": 7.46,
+      "lowPrice": 6.86,
+      "closePrice": 7,
+      "volume": 180864
+    },
+    {
+      "startEpochTime": 1565064000,
+      "openPrice": 7.09,
+      "highPrice": 7.1744,
+      "lowPrice": 6.78,
+      "closePrice": 7.07,
+      "volume": 72650
+    },
+    {
+      "startEpochTime": 1565150400,
+      "openPrice": 7,
+      "highPrice": 7.38,
+      "lowPrice": 6.8945,
+      "closePrice": 7.36,
+      "volume": 84577
+    },
+    {
+      "startEpochTime": 1565236800,
+      "openPrice": 7.5,
+      "highPrice": 7.7,
+      "lowPrice": 6.9,
+      "closePrice": 6.91,
+      "volume": 118700
+    },
+    {
+      "startEpochTime": 1565323200,
+      "openPrice": 6.9,
+      "highPrice": 7.1299,
+      "lowPrice": 6.8,
+      "closePrice": 6.8,
+      "volume": 95972
+    },
+    {
+      "startEpochTime": 1565582400,
+      "openPrice": 6.8,
+      "highPrice": 7.29,
+      "lowPrice": 6.75,
+      "closePrice": 7.075,
+      "volume": 98801
+    },
+    {
+      "startEpochTime": 1565668800,
+      "openPrice": 7.2,
+      "highPrice": 7.28,
+      "lowPrice": 6.81,
+      "closePrice": 7.27,
+      "volume": 68752
+    },
+    {
+      "startEpochTime": 1565755200,
+      "openPrice": 7.18,
+      "highPrice": 7.4245,
+      "lowPrice": 6.77,
+      "closePrice": 6.94,
+      "volume": 93414
+    },
+    {
+      "startEpochTime": 1565841600,
+      "openPrice": 6.93,
+      "highPrice": 6.9508,
+      "lowPrice": 6.76,
+      "closePrice": 6.88,
+      "volume": 66718
+    },
+    {
+      "startEpochTime": 1565928000,
+      "openPrice": 6.94,
+      "highPrice": 7.49,
+      "lowPrice": 6.899,
+      "closePrice": 7.39,
+      "volume": 177153
+    },
+    {
+      "startEpochTime": 1566187200,
+      "openPrice": 7.42,
+      "highPrice": 7.55,
+      "lowPrice": 7.28,
+      "closePrice": 7.39,
+      "volume": 76110
+    },
+    {
+      "startEpochTime": 1566273600,
+      "openPrice": 7.36,
+      "highPrice": 7.41,
+      "lowPrice": 7.12,
+      "closePrice": 7.39,
+      "volume": 45723
+    },
+    {
+      "startEpochTime": 1566360000,
+      "openPrice": 7.39,
+      "highPrice": 7.5062,
+      "lowPrice": 7.09,
+      "closePrice": 7.31,
+      "volume": 54989
+    },
+    {
+      "startEpochTime": 1566446400,
+      "openPrice": 7.3,
+      "highPrice": 7.38,
+      "lowPrice": 7.19,
+      "closePrice": 7.29,
+      "volume": 23385
+    },
+    {
+      "startEpochTime": 1566532800,
+      "openPrice": 7.21,
+      "highPrice": 7.27,
+      "lowPrice": 7,
+      "closePrice": 7.24,
+      "volume": 36073
+    },
+    {
+      "startEpochTime": 1566792000,
+      "openPrice": 7.3,
+      "highPrice": 7.52,
+      "lowPrice": 7.1456,
+      "closePrice": 7.43,
+      "volume": 125329
+    },
+    {
+      "startEpochTime": 1566878400,
+      "openPrice": 7.45,
+      "highPrice": 7.7,
+      "lowPrice": 7.22,
+      "closePrice": 7.48,
+      "volume": 115222
+    },
+    {
+      "startEpochTime": 1566964800,
+      "openPrice": 7.39,
+      "highPrice": 7.67,
+      "lowPrice": 7.25,
+      "closePrice": 7.65,
+      "volume": 40580
+    },
+    {
+      "startEpochTime": 1567051200,
+      "openPrice": 7.75,
+      "highPrice": 8,
+      "lowPrice": 7.73,
+      "closePrice": 7.99,
+      "volume": 85598
+    },
+    {
+      "startEpochTime": 1567137600,
+      "openPrice": 8,
+      "highPrice": 8.25,
+      "lowPrice": 7.91,
+      "closePrice": 8.22,
+      "volume": 61567
+    },
+    {
+      "startEpochTime": 1567483200,
+      "openPrice": 8.25,
+      "highPrice": 8.66,
+      "lowPrice": 8.25,
+      "closePrice": 8.59,
+      "volume": 172225
+    },
+    {
+      "startEpochTime": 1567569600,
+      "openPrice": 8.68,
+      "highPrice": 9.09,
+      "lowPrice": 8.4,
+      "closePrice": 9.09,
+      "volume": 155461
+    },
+    {
+      "startEpochTime": 1567656000,
+      "openPrice": 9.06,
+      "highPrice": 9.2,
+      "lowPrice": 8.76,
+      "closePrice": 8.79,
+      "volume": 142938
+    },
+    {
+      "startEpochTime": 1567742400,
+      "openPrice": 8.93,
+      "highPrice": 9.07,
+      "lowPrice": 8.7,
+      "closePrice": 9.07,
+      "volume": 90211
+    },
+    {
+      "startEpochTime": 1568001600,
+      "openPrice": 9.08,
+      "highPrice": 9.24,
+      "lowPrice": 8.87,
+      "closePrice": 9.21,
+      "volume": 150303
+    },
+    {
+      "startEpochTime": 1568088000,
+      "openPrice": 9.16,
+      "highPrice": 9.28,
+      "lowPrice": 8.95,
+      "closePrice": 9.05,
+      "volume": 91687
+    },
+    {
+      "startEpochTime": 1568174400,
+      "openPrice": 8.98,
+      "highPrice": 9.34,
+      "lowPrice": 8.88,
+      "closePrice": 9.33,
+      "volume": 172679
+    },
+    {
+      "startEpochTime": 1568260800,
+      "openPrice": 9.24,
+      "highPrice": 9.36,
+      "lowPrice": 9.04,
+      "closePrice": 9.35,
+      "volume": 53416
+    },
+    {
+      "startEpochTime": 1568347200,
+      "openPrice": 9.28,
+      "highPrice": 9.355,
+      "lowPrice": 8.95,
+      "closePrice": 9.05,
+      "volume": 60650
+    },
+    {
+      "startEpochTime": 1568606400,
+      "openPrice": 8.91,
+      "highPrice": 9.14,
+      "lowPrice": 8.9,
+      "closePrice": 9.03,
+      "volume": 68244
+    },
+    {
+      "startEpochTime": 1568692800,
+      "openPrice": 8.89,
+      "highPrice": 9.0849,
+      "lowPrice": 8.8,
+      "closePrice": 9.02,
+      "volume": 48357
+    },
+    {
+      "startEpochTime": 1568779200,
+      "openPrice": 9.06,
+      "highPrice": 9.06,
+      "lowPrice": 8.58,
+      "closePrice": 8.87,
+      "volume": 56603
+    },
+    {
+      "startEpochTime": 1568865600,
+      "openPrice": 8.76,
+      "highPrice": 9.13,
+      "lowPrice": 8.63,
+      "closePrice": 9.12,
+      "volume": 139745
+    },
+    {
+      "startEpochTime": 1568952000,
+      "openPrice": 9.11,
+      "highPrice": 9.24,
+      "lowPrice": 8.96,
+      "closePrice": 9.13,
+      "volume": 75976
+    },
+    {
+      "startEpochTime": 1569211200,
+      "openPrice": 9.05,
+      "highPrice": 9.05,
+      "lowPrice": 8.88,
+      "closePrice": 8.8801,
+      "volume": 42192
+    },
+    {
+      "startEpochTime": 1569297600,
+      "openPrice": 8.94,
+      "highPrice": 8.94,
+      "lowPrice": 8.46,
+      "closePrice": 8.6,
+      "volume": 92876
+    },
+    {
+      "startEpochTime": 1569384000,
+      "openPrice": 8.73,
+      "highPrice": 8.865,
+      "lowPrice": 8.3575,
+      "closePrice": 8.73,
+      "volume": 69815
+    },
+    {
+      "startEpochTime": 1569470400,
+      "openPrice": 8.69,
+      "highPrice": 8.78,
+      "lowPrice": 8.28,
+      "closePrice": 8.31,
+      "volume": 39938
+    },
+    {
+      "startEpochTime": 1569556800,
+      "openPrice": 8.24,
+      "highPrice": 8.72,
+      "lowPrice": 8.24,
+      "closePrice": 8.72,
+      "volume": 69926
+    },
+    {
+      "startEpochTime": 1569816000,
+      "openPrice": 8.6,
+      "highPrice": 8.9,
+      "lowPrice": 8.33,
+      "closePrice": 8.85,
+      "volume": 51396
+    },
+    {
+      "startEpochTime": 1569902400,
+      "openPrice": 8.85,
+      "highPrice": 8.96,
+      "lowPrice": 8.15,
+      "closePrice": 8.28,
+      "volume": 79979
+    },
+    {
+      "startEpochTime": 1569988800,
+      "openPrice": 8.23,
+      "highPrice": 8.32,
+      "lowPrice": 8.04,
+      "closePrice": 8.05,
+      "volume": 59276
+    },
+    {
+      "startEpochTime": 1570075200,
+      "openPrice": 8.06,
+      "highPrice": 8.09,
+      "lowPrice": 7.71,
+      "closePrice": 8.09,
+      "volume": 34726
+    },
+    {
+      "startEpochTime": 1570161600,
+      "openPrice": 8.19,
+      "highPrice": 8.19,
+      "lowPrice": 7.97,
+      "closePrice": 8.06,
+      "volume": 28162
+    },
+    {
+      "startEpochTime": 1570420800,
+      "openPrice": 8,
+      "highPrice": 8.15,
+      "lowPrice": 7.88,
+      "closePrice": 8.09,
+      "volume": 25444
+    },
+    {
+      "startEpochTime": 1570507200,
+      "openPrice": 7.97,
+      "highPrice": 8.13,
+      "lowPrice": 7.7601,
+      "closePrice": 8.1,
+      "volume": 42454
+    },
+    {
+      "startEpochTime": 1570593600,
+      "openPrice": 8.13,
+      "highPrice": 8.3,
+      "lowPrice": 8.01,
+      "closePrice": 8.26,
+      "volume": 49036
+    },
+    {
+      "startEpochTime": 1570680000,
+      "openPrice": 8.28,
+      "highPrice": 8.28,
+      "lowPrice": 8.09,
+      "closePrice": 8.25,
+      "volume": 46888
+    },
+    {
+      "startEpochTime": 1570766400,
+      "openPrice": 7.09,
+      "highPrice": 7.64,
+      "lowPrice": 6.81,
+      "closePrice": 7.12,
+      "volume": 779979
+    },
+    {
+      "startEpochTime": 1571025600,
+      "openPrice": 7.11,
+      "highPrice": 7.24,
+      "lowPrice": 6.88,
+      "closePrice": 6.93,
+      "volume": 330952
+    },
+    {
+      "startEpochTime": 1571112000,
+      "openPrice": 6.88,
+      "highPrice": 7.09,
+      "lowPrice": 6.54,
+      "closePrice": 6.745,
+      "volume": 465199
+    },
+    {
+      "startEpochTime": 1571198400,
+      "openPrice": 6.7,
+      "highPrice": 6.7,
+      "lowPrice": 6.43,
+      "closePrice": 6.56,
+      "volume": 320116
+    },
+    {
+      "startEpochTime": 1571284800,
+      "openPrice": 6.7,
+      "highPrice": 6.8,
+      "lowPrice": 6.46,
+      "closePrice": 6.72,
+      "volume": 212978
+    },
+    {
+      "startEpochTime": 1571371200,
+      "openPrice": 6.76,
+      "highPrice": 6.93,
+      "lowPrice": 6.62,
+      "closePrice": 6.67,
+      "volume": 249921
+    },
+    {
+      "startEpochTime": 1571630400,
+      "openPrice": 6.67,
+      "highPrice": 7,
+      "lowPrice": 6.64,
+      "closePrice": 6.91,
+      "volume": 58952
+    },
+    {
+      "startEpochTime": 1571716800,
+      "openPrice": 6.94,
+      "highPrice": 7.01,
+      "lowPrice": 6.7723,
+      "closePrice": 6.85,
+      "volume": 67390
+    },
+    {
+      "startEpochTime": 1571803200,
+      "openPrice": 6.87,
+      "highPrice": 7.11,
+      "lowPrice": 6.83,
+      "closePrice": 7.11,
+      "volume": 66226
+    },
+    {
+      "startEpochTime": 1571889600,
+      "openPrice": 7.23,
+      "highPrice": 7.23,
+      "lowPrice": 6.82,
+      "closePrice": 6.85,
+      "volume": 38852
+    },
+    {
+      "startEpochTime": 1571976000,
+      "openPrice": 6.81,
+      "highPrice": 7.19,
+      "lowPrice": 6.68,
+      "closePrice": 7.1,
+      "volume": 108115
+    },
+    {
+      "startEpochTime": 1572235200,
+      "openPrice": 6.94,
+      "highPrice": 7.14,
+      "lowPrice": 6.79,
+      "closePrice": 7.14,
+      "volume": 54983
+    },
+    {
+      "startEpochTime": 1572321600,
+      "openPrice": 7.03,
+      "highPrice": 7.1383,
+      "lowPrice": 6.79,
+      "closePrice": 7,
+      "volume": 55406
+    },
+    {
+      "startEpochTime": 1572408000,
+      "openPrice": 6.93,
+      "highPrice": 6.93,
+      "lowPrice": 6.5,
+      "closePrice": 6.59,
+      "volume": 71815
+    },
+    {
+      "startEpochTime": 1572494400,
+      "openPrice": 6.67,
+      "highPrice": 6.791,
+      "lowPrice": 6.5673,
+      "closePrice": 6.69,
+      "volume": 75390
+    },
+    {
+      "startEpochTime": 1572580800,
+      "openPrice": 6.7,
+      "highPrice": 6.9,
+      "lowPrice": 6.61,
+      "closePrice": 6.76,
+      "volume": 98271
+    },
+    {
+      "startEpochTime": 1572843600,
+      "openPrice": 6.77,
+      "highPrice": 7.0954,
+      "lowPrice": 6.77,
+      "closePrice": 7,
+      "volume": 100538
+    },
+    {
+      "startEpochTime": 1572930000,
+      "openPrice": 7.01,
+      "highPrice": 7.5,
+      "lowPrice": 7.01,
+      "closePrice": 7.5,
+      "volume": 127400
+    },
+    {
+      "startEpochTime": 1573016400,
+      "openPrice": 7.59,
+      "highPrice": 7.59,
+      "lowPrice": 7.035,
+      "closePrice": 7.27,
+      "volume": 129968
+    },
+    {
+      "startEpochTime": 1573102800,
+      "openPrice": 7.33,
+      "highPrice": 7.4,
+      "lowPrice": 7.04,
+      "closePrice": 7.08,
+      "volume": 54392
+    },
+    {
+      "startEpochTime": 1573189200,
+      "openPrice": 6.76,
+      "highPrice": 7.2765,
+      "lowPrice": 6.45,
+      "closePrice": 6.98,
+      "volume": 259525
+    },
+    {
+      "startEpochTime": 1573448400,
+      "openPrice": 6.89,
+      "highPrice": 7.26,
+      "lowPrice": 6.655,
+      "closePrice": 6.95,
+      "volume": 132073
+    },
+    {
+      "startEpochTime": 1573534800,
+      "openPrice": 6.88,
+      "highPrice": 7.11,
+      "lowPrice": 6.88,
+      "closePrice": 6.93,
+      "volume": 34932
+    },
+    {
+      "startEpochTime": 1573621200,
+      "openPrice": 6.87,
+      "highPrice": 6.97,
+      "lowPrice": 6.72,
+      "closePrice": 6.97,
+      "volume": 49982
+    },
+    {
+      "startEpochTime": 1573707600,
+      "openPrice": 6.92,
+      "highPrice": 7.105,
+      "lowPrice": 6.8,
+      "closePrice": 7.08,
+      "volume": 71725
+    },
+    {
+      "startEpochTime": 1573794000,
+      "openPrice": 7.04,
+      "highPrice": 7.1,
+      "lowPrice": 6.9,
+      "closePrice": 6.92,
+      "volume": 29896
+    },
+    {
+      "startEpochTime": 1574053200,
+      "openPrice": 6.82,
+      "highPrice": 7.07,
+      "lowPrice": 6.73,
+      "closePrice": 7.06,
+      "volume": 52277
+    },
+    {
+      "startEpochTime": 1574139600,
+      "openPrice": 6.72,
+      "highPrice": 7.07,
+      "lowPrice": 6.72,
+      "closePrice": 6.92,
+      "volume": 15849
+    },
+    {
+      "startEpochTime": 1574226000,
+      "openPrice": 6.85,
+      "highPrice": 7.02,
+      "lowPrice": 6.78,
+      "closePrice": 7.02,
+      "volume": 64160
+    },
+    {
+      "startEpochTime": 1574312400,
+      "openPrice": 7.02,
+      "highPrice": 7.02,
+      "lowPrice": 6.69,
+      "closePrice": 6.7,
+      "volume": 29396
+    },
+    {
+      "startEpochTime": 1574398800,
+      "openPrice": 6.7,
+      "highPrice": 6.8881,
+      "lowPrice": 6.7,
+      "closePrice": 6.81,
+      "volume": 24375
+    },
+    {
+      "startEpochTime": 1574658000,
+      "openPrice": 6.8,
+      "highPrice": 7,
+      "lowPrice": 6.8,
+      "closePrice": 6.95,
+      "volume": 33990
+    },
+    {
+      "startEpochTime": 1574744400,
+      "openPrice": 6.97,
+      "highPrice": 6.985,
+      "lowPrice": 6.71,
+      "closePrice": 6.97,
+      "volume": 57477
+    },
+    {
+      "startEpochTime": 1574830800,
+      "openPrice": 7,
+      "highPrice": 7,
+      "lowPrice": 6.73,
+      "closePrice": 6.91,
+      "volume": 36252
+    },
+    {
+      "startEpochTime": 1575003600,
+      "openPrice": 6.81,
+      "highPrice": 6.99,
+      "lowPrice": 6.78,
+      "closePrice": 6.86,
+      "volume": 13470
+    },
+    {
+      "startEpochTime": 1575262800,
+      "openPrice": 6.86,
+      "highPrice": 6.89,
+      "lowPrice": 6.7,
+      "closePrice": 6.74,
+      "volume": 55541
+    },
+    {
+      "startEpochTime": 1575349200,
+      "openPrice": 6.67,
+      "highPrice": 6.74,
+      "lowPrice": 6.5251,
+      "closePrice": 6.74,
+      "volume": 34114
+    },
+    {
+      "startEpochTime": 1575435600,
+      "openPrice": 6.81,
+      "highPrice": 6.81,
+      "lowPrice": 6.6,
+      "closePrice": 6.68,
+      "volume": 37869
+    },
+    {
+      "startEpochTime": 1575522000,
+      "openPrice": 6.7,
+      "highPrice": 6.875,
+      "lowPrice": 6.66,
+      "closePrice": 6.75,
+      "volume": 49926
+    },
+    {
+      "startEpochTime": 1575608400,
+      "openPrice": 6.8,
+      "highPrice": 6.94,
+      "lowPrice": 6.74,
+      "closePrice": 6.84,
+      "volume": 59576
+    },
+    {
+      "startEpochTime": 1575867600,
+      "openPrice": 6.77,
+      "highPrice": 6.83,
+      "lowPrice": 6.65,
+      "closePrice": 6.75,
+      "volume": 24812
+    },
+    {
+      "startEpochTime": 1575954000,
+      "openPrice": 6.75,
+      "highPrice": 6.96,
+      "lowPrice": 6.75,
+      "closePrice": 6.9,
+      "volume": 62554
+    },
+    {
+      "startEpochTime": 1576040400,
+      "openPrice": 6.87,
+      "highPrice": 6.98,
+      "lowPrice": 6.8128,
+      "closePrice": 6.88,
+      "volume": 30226
+    },
+    {
+      "startEpochTime": 1576126800,
+      "openPrice": 6.92,
+      "highPrice": 6.9714,
+      "lowPrice": 6.86,
+      "closePrice": 6.95,
+      "volume": 47546
+    },
+    {
+      "startEpochTime": 1576213200,
+      "openPrice": 6.88,
+      "highPrice": 6.97,
+      "lowPrice": 6.87,
+      "closePrice": 6.93,
+      "volume": 27092
+    },
+    {
+      "startEpochTime": 1576472400,
+      "openPrice": 6.92,
+      "highPrice": 7.04,
+      "lowPrice": 6.88,
+      "closePrice": 7.02,
+      "volume": 47412
+    },
+    {
+      "startEpochTime": 1576558800,
+      "openPrice": 7,
+      "highPrice": 7.25,
+      "lowPrice": 6.99,
+      "closePrice": 7.16,
+      "volume": 51816
+    },
+    {
+      "startEpochTime": 1576645200,
+      "openPrice": 7.15,
+      "highPrice": 7.49,
+      "lowPrice": 7.01,
+      "closePrice": 7.23,
+      "volume": 65479
+    },
+    {
+      "startEpochTime": 1576731600,
+      "openPrice": 7.29,
+      "highPrice": 7.5,
+      "lowPrice": 7.29,
+      "closePrice": 7.44,
+      "volume": 57278
+    },
+    {
+      "startEpochTime": 1576818000,
+      "openPrice": 7.42,
+      "highPrice": 7.4244,
+      "lowPrice": 7.17,
+      "closePrice": 7.22,
+      "volume": 95650
+    },
+    {
+      "startEpochTime": 1577077200,
+      "openPrice": 7.23,
+      "highPrice": 7.68,
+      "lowPrice": 7.1858,
+      "closePrice": 7.64,
+      "volume": 119279
+    },
+    {
+      "startEpochTime": 1577163600,
+      "openPrice": 7.62,
+      "highPrice": 7.69,
+      "lowPrice": 7.38,
+      "closePrice": 7.43,
+      "volume": 33080
+    },
+    {
+      "startEpochTime": 1577336400,
+      "openPrice": 7.42,
+      "highPrice": 7.5419,
+      "lowPrice": 7.3145,
+      "closePrice": 7.5,
+      "volume": 41005
+    },
+    {
+      "startEpochTime": 1577422800,
+      "openPrice": 7.53,
+      "highPrice": 7.56,
+      "lowPrice": 7.32,
+      "closePrice": 7.39,
+      "volume": 48303
+    },
+    {
+      "startEpochTime": 1577682000,
+      "openPrice": 7.4,
+      "highPrice": 7.51,
+      "lowPrice": 7.23,
+      "closePrice": 7.28,
+      "volume": 54769
+    },
+    {
+      "startEpochTime": 1577768400,
+      "openPrice": 7.3,
+      "highPrice": 7.5,
+      "lowPrice": 7.21,
+      "closePrice": 7.5,
+      "volume": 41081
+    },
+    {
+      "startEpochTime": 1577941200,
+      "openPrice": 7.52,
+      "highPrice": 7.599,
+      "lowPrice": 7.4108,
+      "closePrice": 7.58,
+      "volume": 45890
+    },
+    {
+      "startEpochTime": 1578027600,
+      "openPrice": 7.48,
+      "highPrice": 7.57,
+      "lowPrice": 7.42,
+      "closePrice": 7.47,
+      "volume": 21782
+    },
+    {
+      "startEpochTime": 1578286800,
+      "openPrice": 7.38,
+      "highPrice": 7.55,
+      "lowPrice": 7.2201,
+      "closePrice": 7.53,
+      "volume": 36856
+    },
+    {
+      "startEpochTime": 1578373200,
+      "openPrice": 7.47,
+      "highPrice": 7.5497,
+      "lowPrice": 7.3905,
+      "closePrice": 7.49,
+      "volume": 21564
+    },
+    {
+      "startEpochTime": 1578459600,
+      "openPrice": 7.54,
+      "highPrice": 7.69,
+      "lowPrice": 7.53,
+      "closePrice": 7.62,
+      "volume": 35105
+    },
+    {
+      "startEpochTime": 1578546000,
+      "openPrice": 7.67,
+      "highPrice": 7.77,
+      "lowPrice": 7.56,
+      "closePrice": 7.64,
+      "volume": 44649
+    },
+    {
+      "startEpochTime": 1578632400,
+      "openPrice": 7.66,
+      "highPrice": 7.891,
+      "lowPrice": 7.51,
+      "closePrice": 7.88,
+      "volume": 54197
+    },
+    {
+      "startEpochTime": 1578891600,
+      "openPrice": 7.85,
+      "highPrice": 7.945,
+      "lowPrice": 7.65,
+      "closePrice": 7.65,
+      "volume": 52300
+    },
+    {
+      "startEpochTime": 1578978000,
+      "openPrice": 7.66,
+      "highPrice": 7.8431,
+      "lowPrice": 7.61,
+      "closePrice": 7.77,
+      "volume": 31764
+    },
+    {
+      "startEpochTime": 1579064400,
+      "openPrice": 7.69,
+      "highPrice": 7.8838,
+      "lowPrice": 7.55,
+      "closePrice": 7.68,
+      "volume": 61852
+    },
+    {
+      "startEpochTime": 1579150800,
+      "openPrice": 7.68,
+      "highPrice": 7.7,
+      "lowPrice": 7.07,
+      "closePrice": 7.07,
+      "volume": 149836
+    },
+    {
+      "startEpochTime": 1579237200,
+      "openPrice": 7.06,
+      "highPrice": 7.27,
+      "lowPrice": 7.02,
+      "closePrice": 7.07,
+      "volume": 56414
+    },
+    {
+      "startEpochTime": 1579582800,
+      "openPrice": 7.05,
+      "highPrice": 7.2,
+      "lowPrice": 7.05,
+      "closePrice": 7.15,
+      "volume": 42938
+    },
+    {
+      "startEpochTime": 1579669200,
+      "openPrice": 7.25,
+      "highPrice": 7.35,
+      "lowPrice": 7.114,
+      "closePrice": 7.2,
+      "volume": 100908
+    },
+    {
+      "startEpochTime": 1579755600,
+      "openPrice": 7.25,
+      "highPrice": 7.31,
+      "lowPrice": 7.13,
+      "closePrice": 7.19,
+      "volume": 59056
+    },
+    {
+      "startEpochTime": 1579842000,
+      "openPrice": 7.19,
+      "highPrice": 7.5,
+      "lowPrice": 7.12,
+      "closePrice": 7.5,
+      "volume": 79250
+    },
+    {
+      "startEpochTime": 1580101200,
+      "openPrice": 7.35,
+      "highPrice": 7.44,
+      "lowPrice": 7.07,
+      "closePrice": 7.08,
+      "volume": 99033
+    },
+    {
+      "startEpochTime": 1580187600,
+      "openPrice": 7.1,
+      "highPrice": 7.32,
+      "lowPrice": 7.1,
+      "closePrice": 7.18,
+      "volume": 28952
+    },
+    {
+      "startEpochTime": 1580274000,
+      "openPrice": 7.17,
+      "highPrice": 7.2989,
+      "lowPrice": 7.1,
+      "closePrice": 7.16,
+      "volume": 22955
+    },
+    {
+      "startEpochTime": 1580360400,
+      "openPrice": 7.11,
+      "highPrice": 7.15,
+      "lowPrice": 6.87,
+      "closePrice": 6.93,
+      "volume": 77140
+    },
+    {
+      "startEpochTime": 1580446800,
+      "openPrice": 6.91,
+      "highPrice": 7,
+      "lowPrice": 6.875,
+      "closePrice": 7,
+      "volume": 40496
+    },
+    {
+      "startEpochTime": 1580706000,
+      "openPrice": 7,
+      "highPrice": 7.15,
+      "lowPrice": 7,
+      "closePrice": 7.09,
+      "volume": 16558
+    },
+    {
+      "startEpochTime": 1580792400,
+      "openPrice": 7.1,
+      "highPrice": 7.1515,
+      "lowPrice": 7.04,
+      "closePrice": 7.05,
+      "volume": 19275
+    },
+    {
+      "startEpochTime": 1580878800,
+      "openPrice": 7.07,
+      "highPrice": 7.29,
+      "lowPrice": 7.01,
+      "closePrice": 7.1,
+      "volume": 27195
+    },
+    {
+      "startEpochTime": 1580965200,
+      "openPrice": 7.1,
+      "highPrice": 7.1,
+      "lowPrice": 6.95,
+      "closePrice": 6.97,
+      "volume": 14128
+    },
+    {
+      "startEpochTime": 1581051600,
+      "openPrice": 6.96,
+      "highPrice": 7.0269,
+      "lowPrice": 6.9,
+      "closePrice": 6.9466,
+      "volume": 34802
+    },
+    {
+      "startEpochTime": 1581310800,
+      "openPrice": 6.93,
+      "highPrice": 7.06,
+      "lowPrice": 6.8,
+      "closePrice": 6.99,
+      "volume": 16704
+    },
+    {
+      "startEpochTime": 1581397200,
+      "openPrice": 7.01,
+      "highPrice": 7.38,
+      "lowPrice": 7.01,
+      "closePrice": 7.27,
+      "volume": 56399
+    },
+    {
+      "startEpochTime": 1581483600,
+      "openPrice": 7.29,
+      "highPrice": 7.34,
+      "lowPrice": 7.05,
+      "closePrice": 7.28,
+      "volume": 38869
+    },
+    {
+      "startEpochTime": 1581570000,
+      "openPrice": 7.2,
+      "highPrice": 7.34,
+      "lowPrice": 7.14,
+      "closePrice": 7.285,
+      "volume": 18129
+    },
+    {
+      "startEpochTime": 1581656400,
+      "openPrice": 7.33,
+      "highPrice": 7.38,
+      "lowPrice": 7.21,
+      "closePrice": 7.38,
+      "volume": 26277
+    },
+    {
+      "startEpochTime": 1582002000,
+      "openPrice": 7.25,
+      "highPrice": 7.37,
+      "lowPrice": 7.21,
+      "closePrice": 7.33,
+      "volume": 18815
+    },
+    {
+      "startEpochTime": 1582088400,
+      "openPrice": 7.34,
+      "highPrice": 7.53,
+      "lowPrice": 7.2355,
+      "closePrice": 7.36,
+      "volume": 47278
+    },
+    {
+      "startEpochTime": 1582174800,
+      "openPrice": 7.85,
+      "highPrice": 7.85,
+      "lowPrice": 7.26,
+      "closePrice": 7.42,
+      "volume": 51534
+    },
+    {
+      "startEpochTime": 1582261200,
+      "openPrice": 7.4,
+      "highPrice": 7.55,
+      "lowPrice": 7.2,
+      "closePrice": 7.2,
+      "volume": 26830
+    },
+    {
+      "startEpochTime": 1582520400,
+      "openPrice": 7.51,
+      "highPrice": 7.51,
+      "lowPrice": 6.8735,
+      "closePrice": 7.13,
+      "volume": 40034
+    },
+    {
+      "startEpochTime": 1582606800,
+      "openPrice": 7.11,
+      "highPrice": 7.11,
+      "lowPrice": 6.56,
+      "closePrice": 6.65,
+      "volume": 91474
+    },
+    {
+      "startEpochTime": 1582693200,
+      "openPrice": 6.61,
+      "highPrice": 6.86,
+      "lowPrice": 6.41,
+      "closePrice": 6.6,
+      "volume": 94686
+    },
+    {
+      "startEpochTime": 1582779600,
+      "openPrice": 6.71,
+      "highPrice": 7.2463,
+      "lowPrice": 6.22,
+      "closePrice": 6.24,
+      "volume": 94103
+    },
+    {
+      "startEpochTime": 1582866000,
+      "openPrice": 6.11,
+      "highPrice": 6.33,
+      "lowPrice": 6.02,
+      "closePrice": 6.33,
+      "volume": 102482
+    },
+    {
+      "startEpochTime": 1583125200,
+      "openPrice": 6.08,
+      "highPrice": 7.09,
+      "lowPrice": 6.0633,
+      "closePrice": 6.65,
+      "volume": 63084
+    },
+    {
+      "startEpochTime": 1583211600,
+      "openPrice": 6.69,
+      "highPrice": 6.86,
+      "lowPrice": 6.34,
+      "closePrice": 6.37,
+      "volume": 37390
+    },
+    {
+      "startEpochTime": 1583298000,
+      "openPrice": 6.47,
+      "highPrice": 6.62,
+      "lowPrice": 6.29,
+      "closePrice": 6.46,
+      "volume": 18301
+    },
+    {
+      "startEpochTime": 1583384400,
+      "openPrice": 6.29,
+      "highPrice": 6.3964,
+      "lowPrice": 6,
+      "closePrice": 6.06,
+      "volume": 94289
+    },
+    {
+      "startEpochTime": 1583470800,
+      "openPrice": 6,
+      "highPrice": 6.0003,
+      "lowPrice": 5.72,
+      "closePrice": 5.8,
+      "volume": 229222
+    },
+    {
+      "startEpochTime": 1583726400,
+      "openPrice": 5.49,
+      "highPrice": 5.5912,
+      "lowPrice": 5.03,
+      "closePrice": 5.3701,
+      "volume": 133226
+    },
+    {
+      "startEpochTime": 1583812800,
+      "openPrice": 5.68,
+      "highPrice": 5.68,
+      "lowPrice": 5.3,
+      "closePrice": 5.36,
+      "volume": 51603
+    },
+    {
+      "startEpochTime": 1583899200,
+      "openPrice": 5.42,
+      "highPrice": 5.44,
+      "lowPrice": 5.06,
+      "closePrice": 5.15,
+      "volume": 101402
+    },
+    {
+      "startEpochTime": 1583985600,
+      "openPrice": 4.82,
+      "highPrice": 4.9,
+      "lowPrice": 4.18,
+      "closePrice": 4.49,
+      "volume": 92050
+    },
+    {
+      "startEpochTime": 1584072000,
+      "openPrice": 4.47,
+      "highPrice": 4.7,
+      "lowPrice": 4.13,
+      "closePrice": 4.15,
+      "volume": 184506
+    },
+    {
+      "startEpochTime": 1584331200,
+      "openPrice": 3.77,
+      "highPrice": 4.1897,
+      "lowPrice": 3.55,
+      "closePrice": 3.84,
+      "volume": 342348
+    },
+    {
+      "startEpochTime": 1584417600,
+      "openPrice": 4.03,
+      "highPrice": 4.68,
+      "lowPrice": 3.95,
+      "closePrice": 4.51,
+      "volume": 109974
+    },
+    {
+      "startEpochTime": 1584504000,
+      "openPrice": 4.57,
+      "highPrice": 4.7046,
+      "lowPrice": 4.1936,
+      "closePrice": 4.52,
+      "volume": 360782
+    },
+    {
+      "startEpochTime": 1584590400,
+      "openPrice": 4.63,
+      "highPrice": 5.19,
+      "lowPrice": 4.63,
+      "closePrice": 5.05,
+      "volume": 93404
+    },
+    {
+      "startEpochTime": 1584676800,
+      "openPrice": 5.18,
+      "highPrice": 5.48,
+      "lowPrice": 4.85,
+      "closePrice": 5.43,
+      "volume": 113356
+    },
+    {
+      "startEpochTime": 1584936000,
+      "openPrice": 5.82,
+      "highPrice": 5.984,
+      "lowPrice": 4.88,
+      "closePrice": 5.01,
+      "volume": 109036
+    },
+    {
+      "startEpochTime": 1585022400,
+      "openPrice": 5.32,
+      "highPrice": 5.84,
+      "lowPrice": 5.23,
+      "closePrice": 5.38,
+      "volume": 88640
+    },
+    {
+      "startEpochTime": 1585108800,
+      "openPrice": 5.74,
+      "highPrice": 6.15,
+      "lowPrice": 5.4,
+      "closePrice": 5.73,
+      "volume": 129036
+    },
+    {
+      "startEpochTime": 1585195200,
+      "openPrice": 5.77,
+      "highPrice": 5.99,
+      "lowPrice": 5.655,
+      "closePrice": 5.92,
+      "volume": 83686
+    },
+    {
+      "startEpochTime": 1585281600,
+      "openPrice": 5.74,
+      "highPrice": 6.14,
+      "lowPrice": 5.5295,
+      "closePrice": 6.0401,
+      "volume": 72523
+    },
+    {
+      "startEpochTime": 1585540800,
+      "openPrice": 6.13,
+      "highPrice": 6.54,
+      "lowPrice": 6.0713,
+      "closePrice": 6.46,
+      "volume": 67140
+    },
+    {
+      "startEpochTime": 1585627200,
+      "openPrice": 6.59,
+      "highPrice": 6.86,
+      "lowPrice": 6.28,
+      "closePrice": 6.39,
+      "volume": 72357
+    },
+    {
+      "startEpochTime": 1585713600,
+      "openPrice": 6.16,
+      "highPrice": 6.24,
+      "lowPrice": 5.795,
+      "closePrice": 5.87,
+      "volume": 58844
+    },
+    {
+      "startEpochTime": 1585800000,
+      "openPrice": 5.97,
+      "highPrice": 6.74,
+      "lowPrice": 5.97,
+      "closePrice": 6.28,
+      "volume": 77057
+    },
+    {
+      "startEpochTime": 1585886400,
+      "openPrice": 6.25,
+      "highPrice": 6.7,
+      "lowPrice": 6.25,
+      "closePrice": 6.7,
+      "volume": 84938
+    },
+    {
+      "startEpochTime": 1586145600,
+      "openPrice": 6.85,
+      "highPrice": 7.19,
+      "lowPrice": 6.34,
+      "closePrice": 7.09,
+      "volume": 230548
+    },
+    {
+      "startEpochTime": 1586232000,
+      "openPrice": 7.29,
+      "highPrice": 7.29,
+      "lowPrice": 6.7,
+      "closePrice": 6.865,
+      "volume": 69480
+    },
+    {
+      "startEpochTime": 1586318400,
+      "openPrice": 6.8,
+      "highPrice": 6.89,
+      "lowPrice": 6.72,
+      "closePrice": 6.77,
+      "volume": 157398
+    },
+    {
+      "startEpochTime": 1586404800,
+      "openPrice": 6.9,
+      "highPrice": 7.1,
+      "lowPrice": 6.8,
+      "closePrice": 7.03,
+      "volume": 85512
+    },
+    {
+      "startEpochTime": 1586750400,
+      "openPrice": 7.08,
+      "highPrice": 7.08,
+      "lowPrice": 6.52,
+      "closePrice": 6.61,
+      "volume": 79573
+    },
+    {
+      "startEpochTime": 1586836800,
+      "openPrice": 6.64,
+      "highPrice": 6.92,
+      "lowPrice": 6.4338,
+      "closePrice": 6.83,
+      "volume": 190126
+    },
+    {
+      "startEpochTime": 1586923200,
+      "openPrice": 6.7,
+      "highPrice": 6.73,
+      "lowPrice": 6.32,
+      "closePrice": 6.63,
+      "volume": 156356
+    },
+    {
+      "startEpochTime": 1587009600,
+      "openPrice": 6.58,
+      "highPrice": 6.66,
+      "lowPrice": 6.2,
+      "closePrice": 6.38,
+      "volume": 238989
+    },
+    {
+      "startEpochTime": 1587096000,
+      "openPrice": 6.43,
+      "highPrice": 6.49,
+      "lowPrice": 6.17,
+      "closePrice": 6.22,
+      "volume": 230246
+    },
+    {
+      "startEpochTime": 1587355200,
+      "openPrice": 6.24,
+      "highPrice": 6.79,
+      "lowPrice": 6.21,
+      "closePrice": 6.36,
+      "volume": 174219
+    },
+    {
+      "startEpochTime": 1587441600,
+      "openPrice": 6.29,
+      "highPrice": 6.53,
+      "lowPrice": 6.2,
+      "closePrice": 6.27,
+      "volume": 263444
+    },
+    {
+      "startEpochTime": 1587528000,
+      "openPrice": 6.54,
+      "highPrice": 6.59,
+      "lowPrice": 6.3211,
+      "closePrice": 6.58,
+      "volume": 123465
+    },
+    {
+      "startEpochTime": 1587614400,
+      "openPrice": 6.63,
+      "highPrice": 6.6801,
+      "lowPrice": 6.54,
+      "closePrice": 6.65,
+      "volume": 104688
+    },
+    {
+      "startEpochTime": 1587700800,
+      "openPrice": 6.72,
+      "highPrice": 6.72,
+      "lowPrice": 6.3,
+      "closePrice": 6.6,
+      "volume": 63032
+    },
+    {
+      "startEpochTime": 1587960000,
+      "openPrice": 6.78,
+      "highPrice": 7.49,
+      "lowPrice": 6.64,
+      "closePrice": 7.32,
+      "volume": 699870
+    },
+    {
+      "startEpochTime": 1588046400,
+      "openPrice": 7.44,
+      "highPrice": 8,
+      "lowPrice": 7.22,
+      "closePrice": 7.92,
+      "volume": 200808
+    },
+    {
+      "startEpochTime": 1588132800,
+      "openPrice": 8,
+      "highPrice": 8,
+      "lowPrice": 7.73,
+      "closePrice": 7.99,
+      "volume": 193814
+    },
+    {
+      "startEpochTime": 1588219200,
+      "openPrice": 7.9,
+      "highPrice": 7.9,
+      "lowPrice": 7.525,
+      "closePrice": 7.735,
+      "volume": 320412
+    },
+    {
+      "startEpochTime": 1588305600,
+      "openPrice": 7.72,
+      "highPrice": 7.84,
+      "lowPrice": 7.12,
+      "closePrice": 7.255,
+      "volume": 110490
+    },
+    {
+      "startEpochTime": 1588564800,
+      "openPrice": 7.25,
+      "highPrice": 7.72,
+      "lowPrice": 6.87,
+      "closePrice": 7.71,
+      "volume": 201934
+    },
+    {
+      "startEpochTime": 1588651200,
+      "openPrice": 7.67,
+      "highPrice": 8,
+      "lowPrice": 7.63,
+      "closePrice": 7.9706,
+      "volume": 98064
+    },
+    {
+      "startEpochTime": 1588737600,
+      "openPrice": 7.95,
+      "highPrice": 8,
+      "lowPrice": 7.78,
+      "closePrice": 8,
+      "volume": 134868
+    },
+    {
+      "startEpochTime": 1588824000,
+      "openPrice": 7.87,
+      "highPrice": 7.98,
+      "lowPrice": 7.63,
+      "closePrice": 7.98,
+      "volume": 67134
+    },
+    {
+      "startEpochTime": 1588910400,
+      "openPrice": 8,
+      "highPrice": 8.4,
+      "lowPrice": 7.17,
+      "closePrice": 7.24,
+      "volume": 784364
+    },
+    {
+      "startEpochTime": 1589169600,
+      "openPrice": 7.16,
+      "highPrice": 7.62,
+      "lowPrice": 7.16,
+      "closePrice": 7.44,
+      "volume": 169738
+    },
+    {
+      "startEpochTime": 1589256000,
+      "openPrice": 7.46,
+      "highPrice": 7.765,
+      "lowPrice": 7.44,
+      "closePrice": 7.6,
+      "volume": 126012
+    },
+    {
+      "startEpochTime": 1589342400,
+      "openPrice": 7.65,
+      "highPrice": 7.76,
+      "lowPrice": 7.3,
+      "closePrice": 7.47,
+      "volume": 53797
+    },
+    {
+      "startEpochTime": 1589428800,
+      "openPrice": 7.42,
+      "highPrice": 7.71,
+      "lowPrice": 7.13,
+      "closePrice": 7.56,
+      "volume": 68598
+    },
+    {
+      "startEpochTime": 1589515200,
+      "openPrice": 7.53,
+      "highPrice": 7.76,
+      "lowPrice": 7.1967,
+      "closePrice": 7.54,
+      "volume": 213754
+    }
+  ]
+}

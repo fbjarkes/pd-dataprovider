@@ -17,7 +17,20 @@ class TestCsv(unittest.TestCase):
         assert datas[1].df.loc['2020-05-12 16:35']['Close'] == 284.88
 
 
+    def test_alpaca_week(self):
+        provider = JSONDataProvider(['data/alpaca'],
+                                    ['startEpochTime', 'openPrice', 'highPrice', 'lowPrice', 'closePrice', 'volume'],
+                                    epoch=True, verbose=2)
+        symbol_datas = [
+            SymbolData('XONE', 'day', 'day', '2020-01-11', '2020-05-17', rth_only=True),
+            SymbolData('XONE', 'day', 'week', '2020-01-11', '2020-05-17', rth_only=True)]
 
+        datas = provider.get_datas(symbol_datas)
+        daily = datas[0].df
+        weekly = datas[1].df
+        #assert d.timeframe == 'week'
+        print(daily)
+        print(weekly)
 
 
 

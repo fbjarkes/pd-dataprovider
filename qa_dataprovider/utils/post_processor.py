@@ -61,6 +61,11 @@ class PostProcessor:
                 data = self._transform_min(60, data)
             elif kwargs['transform'] == '240min':
                 data = self._transform_min(240, data)
+            elif kwargs['transform'] == 'day':
+                data = self._transform_day(data, 1)
+            elif kwargs['transform'] == 'week':
+                daily = self._transform_day(data, 1)
+                data = self._transform_week(daily)
         else:
             raise Exception(
                 f"NOT IMPLEMENTED: transform '{kwargs['timeframe']}' to '{kwargs['transform']}'")

@@ -55,7 +55,7 @@ class ProviderFactory:
             return JSONDataProvider(
                 cfg[provider]['paths'].split(),
                 verbose=verbose,
-                keys=['t', 'o', 'h', 'l', 'c', 'v'],
+                keys=['startEpochTime', 'openPrice', 'highPrice', 'lowPrice', 'closePrice', 'volume'],
                 epoch=True
             )
         raise Exception(f"Invalid provider {provider}")
