@@ -6,3 +6,4 @@ pandas-market-calendars
 urllib3
 aiofile
 ib_insync
+aiofiles

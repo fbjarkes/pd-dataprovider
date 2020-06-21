@@ -8,7 +8,7 @@ from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 from qa_dataprovider.objects import SymbolData
 
 
-def download_intraday(symbols, file, timeframe, verbose, tz='America/New_York'):
+def download_intraday(symbols, file, timeframe, verbose, start, tz='America/New_York', id=0):
     """
     TICKER # Stock type and SMART exchange
 
@@ -61,7 +61,7 @@ def download_intraday(symbols, file, timeframe, verbose, tz='America/New_York'):
             symbols = [ticker.rstrip() for ticker in f.readlines() if not ticker.startswith('#')]
     chunks = [symbols[i:i + 3] for i in range(0, len(symbols), 3)]
     for chunk in chunks:
-        datas = ib.get_datas([SymbolData(symbol, timeframe, timeframe, '', '', True) for symbol in chunk])
+        datas = ib.get_datas([SymbolData(symbol, timeframe, timeframe, start, '', True) for symbol in chunk])
         for symbol, data in zip(chunk, datas):
             data.df.to_csv(f"{symbol}.csv", header=True)
             print(f"Wrote {len(data.df)} rows to {symbol}.csv")
@@ -72,9 +72,11 @@ def download_intraday(symbols, file, timeframe, verbose, tz='America/New_York'):
 @click.option('--file', type=click.Path(exists=True), help='Read symbols from file')
 @click.option('--timeframe', default='5min')
 @click.option('-v', '--verbose', count=True)
+@click.option('--start')
 @click.option('--tz', default='America/New_York')
-def main(symbols, file, timeframe, verbose, tz):
-    download_intraday(symbols, file, timeframe, verbose, tz)
+@click.option('--id', default='0')
+def main(symbols, file, timeframe, verbose, start, tz, id):
+    download_intraday(symbols, file, timeframe, verbose, start, tz, id)
 
 
 if __name__ == '__main__':

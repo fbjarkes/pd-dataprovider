@@ -31,18 +31,7 @@ class GenericDataProvider(metaclass=ABCMeta):
                                  **kwargs) -> pd.DataFrame:
         pass
 
-    #@abstractmethod
-    def add_quotes(self, data, ticker):
-        """
-        If quotes are available by this provider, append quotes row to data.
-
-        :param data dataframe: pd.DataFrame
-        :param ticker string: The ticker, eg. 'SPY'
-        :return: pd.DataFrame
-        """
-        pass
-
-    def __init__(self, logger, verbose: int, tz, chunk_size: int = 100):
+    def __init__(self, logger, verbose: int, tz, chunk_size: int = 6):
         self.errors = 0
         self.chunk_size = chunk_size
         self.tz = pytz.timezone(tz)
@@ -61,14 +50,14 @@ class GenericDataProvider(metaclass=ABCMeta):
         """
         pass
 
-    def get_datas(self, symbol_datas: [SymbolData]) -> [Data]:
+    def get_datas(self, symbol_datas: [SymbolData], **kwargs) -> [Data]:
         datas = []
         self._initialize()
         chunks = self.chunks(symbol_datas, self.chunk_size)
         for chunk in chunks:
             dataframes = []
             for symbol_data in chunk:
-                df = self._get_data_internal(symbol_data)
+                df = self._get_data_internal(symbol_data, **kwargs)
                 dataframes.append(df)
             datas += self.create_data_class(zip(dataframes, chunk))
 
@@ -81,7 +70,8 @@ class GenericDataProvider(metaclass=ABCMeta):
         datas = []
         for df, symbol_data in lst:
             if not df.empty:
-                datas.append(Data(df, symbol_data.symbol, symbol_data.transform, df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
+                datas.append(Data(df, symbol_data.symbol, symbol_data.transform,
+                                  df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
         return datas
 
     def chunks(self, l, n):
@@ -93,7 +83,9 @@ class GenericDataProvider(metaclass=ABCMeta):
         chunks = self.chunks(symbol_datas, self.chunk_size)
         datas = []
         for chunk in chunks:
-            dfs = await asyncio.gather(*[self._get_data_internal_async(symbol_data, **kwargs) for symbol_data in chunk])
+            funcs = [self._get_data_internal_async(
+                symbol_data, **kwargs) for symbol_data in chunk]
+            dfs = await asyncio.gather(*funcs)
             datas += self.create_data_class(zip(dfs, chunk))
         self._finish()
         return datas
@@ -130,7 +122,7 @@ class GenericDataProvider(metaclass=ABCMeta):
                  self.post_processor.validate,
                  self.post_processor.transform_timeframe,
                  self.post_processor.fill_na,
-                 self.post_processor.add_trading_days,
+                 #self.post_processor.add_trading_days,
                  self.post_processor.add_meta_data,
                  ]
 

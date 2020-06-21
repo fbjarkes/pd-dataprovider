@@ -16,7 +16,8 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     logger = logging.getLogger(__name__)
 
-    def __init__(self, verbose: int, host: str, port: int, timeout: int, chunk_size: int, tz='America/New_York', **kwargs):
+    def __init__(self, verbose: int, host: str, port: int, timeout: int, chunk_size: int, id=0,
+                 tz='America/New_York', **kwargs):
         super(AsyncIBDataProvider, self).__init__(self.logger, verbose, tz,chunk_size=chunk_size)
         self.port = port
         self.host = host
@@ -25,12 +26,16 @@ class AsyncIBDataProvider(GenericDataProvider):
         if 'keep_alive' in kwargs:
             self.keep_alive = kwargs['keep_alive']
         self.ib = IB()
+        self.id = id
 
     def disconnect(self):
         self.ib.disconnect()
 
     def connect(self):
-        id = int(random.uniform(1, 10000))
+        if self.id == 0:
+            id = int(random.uniform(1, 1000))
+        else:
+            id = self.id
         self.logger.info(f"IBAsync: {self.host}:{self.port}, timeout={self.timeout}, id={id}")
         self.ib.connect(self.host, self.port, clientId=id, timeout=self.timeout, readonly=True)
 
@@ -55,26 +60,40 @@ class AsyncIBDataProvider(GenericDataProvider):
             dataframe = self._to_dataframe(bars)
 
         elif symbol_data.timeframe == '60min':
-            if not symbol_data.end:
-                to_date = f"{(datetime.now()):%Y-%m-%d}"
-            else:
-                to_date = symbol_data.end
-            #to_dt = datetime.strptime(to_date, "%Y-%m-%d")
-
-            duration = '30 D'
-            symbol, bars = self._get_intraday(symbol_data.symbol, to_date, duration, '1 hour',
-                                              symbol_data.rth_only)
+            now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
+            duration = '365 D'
+            if symbol_data.start:
+                diff = datetime.strptime(now, '%Y-%m-%d %H:%M') - datetime.strptime(symbol_data.start, '%Y-%m-%d %H:%M')
+                if diff.days < 365:
+                    duration = f"{diff.days} D"
+            symbol, bars = self._get_intraday(symbol_data.symbol, now, duration, '1 hour', symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self._to_dataframe(bars, tz_fix=True)
 
         elif symbol_data.timeframe == '5min':
-            now = f"{(datetime.now()):%Y-%m-%d}"
+            now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
             duration = '30 D'
+            if symbol_data.start:
+                diff = datetime.strptime(now, '%Y-%m-%d %H:%M') - datetime.strptime(symbol_data.start, '%Y-%m-%d %H:%M')
+                if diff.days < 30:
+                    duration = f"{diff.days} D"
 
-            symbol, bars = self._get_intraday(
-                symbol_data.symbol, now, duration, '5 mins', symbol_data.rth_only)
+            symbol, bars = self._get_intraday(symbol_data.symbol, now, duration, '5 mins', symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self._to_dataframe(bars, tz_fix=True)
+
+        elif symbol_data.timeframe == '15min':
+            now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
+            duration = '60 D'
+            if symbol_data.start:
+                diff = datetime.strptime(now, '%Y-%m-%d %H:%M') - datetime.strptime(symbol_data.start, '%Y-%m-%d %H:%M')
+                if diff.days < 60:
+                    duration = f"{diff.days} D"
+            symbol, bars = self._get_intraday(
+                symbol_data.symbol, now, duration, '15 mins', symbol_data.rth_only)
+            symbol = symbol_data.symbol.split('-')[0]
+            dataframe = self._to_dataframe(bars, tz_fix=True)
+
         else:
             raise Exception(f"{symbol_data.timeframe} not implemented!")
 
@@ -191,7 +210,7 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     def _get_intraday(self, ticker: str, to_date: str, duration: str,
                       barsize: str, rth_only: bool) -> (str, [BarData]):
-        to_dt = datetime.strptime(f"{to_date} 11:59", '%Y-%m-%d %H:%M')
+        to_dt = datetime.strptime(f"{to_date}", '%Y-%m-%d %H:%M')
         contract = AsyncIBDataProvider.parse_contract(ticker)
         whatToShow = 'MIDPOINT' if isinstance(
             contract, (Forex, CFD, Commodity)) else 'TRADES'
@@ -203,6 +222,7 @@ class AsyncIBDataProvider(GenericDataProvider):
         return contract.symbol, bars
 
     def _get_daily(self, from_date: str, ticker: str, to_date: str) -> (str, [BarData]):
+        #TODO: strip HH:MM from start/end dates?
         from_dt = datetime.strptime(from_date, "%Y-%m-%d")
         today = datetime.strptime(to_date, "%Y-%m-%d")
         to_dt = datetime(today.year, today.month, today.day, 23, 59, 59)

@@ -44,35 +44,34 @@ class CsvFileDataProvider(GenericDataProvider):
 
     async def _get_data_internal_async(self, symbol_data: SymbolData, **kwargs) -> pd.DataFrame:
         for path in self.paths:
-            filenames = [
-                "{}/{}_{}.{}".format(path, prefix, symbol_data.symbol, 'csv') for prefix in self.prefix]
-            filenames.append("{}/{}.{}".format(path, symbol_data.symbol, 'csv'))
+            # filenames = [
+            #     "{}/{}_{}.{}".format(path, prefix, symbol_data.symbol, 'csv') for prefix in self.prefix]
+            #filenames.append("{}/{}.{}".format(path, symbol_data.symbol, 'csv'))
+            filename = (f"{path}/{symbol_data.timeframe}/{symbol_data.symbol}.csv")
+            self.logger.debug("Trying '{}'".format(filename))
+            if os.path.exists(filename):
+                with open(filename) as f:
+                #async with AIOFile(filename, 'r') as f:
+                    df = pd.read_csv(f, dtype={self.col_names[1]: np.float32, self.col_names[2]: np.float32,
+                                               self.col_names[3]: np.float32,
+                                               self.col_names[4]: np.float32, self.col_names[5]: np.float32},
+                                     parse_dates=True, index_col=self.col_names[0])
+                    df = df.sort_index()
+                    if self.epoch:
+                        df.index = pd.to_datetime(df.index, unit='s')
 
-            for filename in filenames:
-                self.logger.debug("Trying '{}'".format(filename))
-                if os.path.exists(filename):
-                    with open(filename) as f:
-                    #async with AIOFile(filename, 'r') as f:
-                        df = pd.read_csv(f, dtype={self.col_names[1]: np.float32, self.col_names[2]: np.float32,
-                                                   self.col_names[3]: np.float32,
-                                                   self.col_names[4]: np.float32, self.col_names[5]: np.float32},
-                                         parse_dates=True, index_col=self.col_names[0])
-                        df = df.sort_index()
-                        if self.epoch:
-                            df.index = pd.to_datetime(df.index, unit='s')
+                    if not all(elem in self.col_names for elem in self.DEFAULT_COL_NAMES):
+                        df.rename(columns={self.col_names[1]: 'Open', self.col_names[2]: 'High',
+                                           self.col_names[3]: 'Low', self.col_names[4]: 'Close',
+                                           self.col_names[5]: 'Volume'},
+                                  inplace=True)
+                    self.logger.info("{}, {:d} rows ({} to {})"
+                                     .format(f.name, len(df), df.index[0], df.index[-1]))
 
-                        if not all(elem in self.col_names for elem in self.DEFAULT_COL_NAMES):
-                            df.rename(columns={self.col_names[1]: 'Open', self.col_names[2]: 'High',
-                                               self.col_names[3]: 'Low', self.col_names[4]: 'Close',
-                                               self.col_names[5]: 'Volume'},
-                                      inplace=True)
-                        self.logger.info("{}, {:d} rows ({} to {})"
-                                         .format(f.name, len(df), df.index[0], df.index[-1]))
-
-                        data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, rth_only=symbol_data.rth_only, **kwargs)
-                        return data
+                    data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, rth_only=symbol_data.rth_only, **kwargs)
+                    return data
         if 'graceful' in kwargs and kwargs['graceful']:
-            self.logger.warning("{} not found in {}".format(symbol_data.symbol, self.paths))
+            self.logger.warning(f"Could not find or open {symbol_data.symbol} in {self.paths}")
             return pd.DataFrame()
         else:
             raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))
@@ -87,24 +86,31 @@ class CsvFileDataProvider(GenericDataProvider):
                 self.logger.debug("Trying '{}'".format(filename))
                 if os.path.exists(filename):
                     with open(filename) as f:
-                        df = pd.read_csv(f, dtype={self.col_names[1]: np.float32, self.col_names[2]: np.float32, self.col_names[3]: np.float32,
-                                                   self.col_names[4]: np.float32, self.col_names[5]: np.float32}, parse_dates=True, index_col=self.col_names[0])
-                        df = df.sort_index()
-                        if self.epoch:
-                            df.index = pd.to_datetime(df.index, unit='s')
+                        try:
+                            df = pd.read_csv(f, dtype={self.col_names[1]: np.float32, self.col_names[2]: np.float32, self.col_names[3]: np.float32,
+                                                       self.col_names[4]: np.float32, self.col_names[5]: np.float32}, parse_dates=True, index_col=self.col_names[0])
+                            df = df.sort_index()
+                            if self.epoch:
+                                df.index = pd.to_datetime(df.index, unit='s')
 
-                        if not all(elem in self.col_names for elem in self.DEFAULT_COL_NAMES):
-                            df.rename(columns = {self.col_names[1]: 'Open', self.col_names[2]: 'High',
-                                                 self.col_names[3]: 'Low', self.col_names[4]: 'Close',
-                                                 self.col_names[5]: 'Volume'},
-                                      inplace = True)
-                        self.logger.info("{}, {:d} rows ({} to {})"
-                                         .format(f.name, len(df), df.index[0], df.index[-1]))
+                            if not all(elem in self.col_names for elem in self.DEFAULT_COL_NAMES):
+                                df.rename(columns = {self.col_names[1]: 'Open', self.col_names[2]: 'High',
+                                                     self.col_names[3]: 'Low', self.col_names[4]: 'Close',
+                                                     self.col_names[5]: 'Volume'},
+                                          inplace = True)
+                            self.logger.info("{}, {:d} rows ({} to {})"
+                                             .format(f.name, len(df), df.index[0], df.index[-1]))
 
-                        data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, rth_only=symbol_data.rth_only, **kwargs)
-                        return data
+                            data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end, symbol_data.timeframe, symbol_data.transform, rth_only=symbol_data.rth_only, **kwargs)
+                            return data
+                        except Exception as e:
+                            self.logger.warning(f"Error reading and processsing df: ", e)
 
-        self.logger.info("{} not found in {}".format(symbol_data.symbol, self.paths))
+        if 'graceful' in kwargs and kwargs['graceful']:
+            self.logger.warning(f"Could not find or open {symbol_data.symbol} in {self.paths}")
+            return pd.DataFrame()
+        else:
+            raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))
 
     def add_quotes(self, data, ticker):
         """

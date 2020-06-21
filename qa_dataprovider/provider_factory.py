@@ -10,6 +10,7 @@ class ProviderFactory:
     @staticmethod
     def make_provider(provider :str, verbose: int = 0, **kwargs):
         cfg = ConfigParser()
+        # TODO: get config path from env (if deployed in cloud for instance)
         cwd = os.path.dirname(os.path.realpath(__file__))
         cfg.read(f"{os.path.split(cwd)[0]}/qa_dataprovider.ini")
 
@@ -21,9 +22,8 @@ class ProviderFactory:
                                        chunk_size=int(cfg[provider]['chunk_size']),
                                        **kwargs)
 
-        elif provider in ['ibfile', 'quandl', 'csv','ibfile_intraday']:
+        elif provider in ['ibfile', 'quandl', 'csv','ibfile-intraday']:
             return CsvFileDataProvider(cfg[provider]['paths'].split(), verbose=verbose)
-
         elif provider == 'tradingview':
             return CsvFileDataProvider(
                 cfg[provider]['paths'].split(),

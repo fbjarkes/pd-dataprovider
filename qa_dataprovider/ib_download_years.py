@@ -75,10 +75,10 @@ def download_years(symbols: str, file: str, years: str, verbose: int):
                 print(f"Error for {y}: '{e}'. Stopping.")
                 break
 
-        name = f"{total['Ticker'].iloc[0]}"
+
         total = total.sort_index(ascending=True)
-        print(f"Writing {len(total)} rows to {name}.csv")
-        total.to_csv(f"{name}.csv", header=True)
+        print(f"Writing {len(total)} rows to {symbol}.csv")
+        total.to_csv(f"{symbol}.csv", header=True)
 
 
 
