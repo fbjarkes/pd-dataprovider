@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+pandas = "*"
+requests_cache = "*"
+pandas_datareader = "*"
+pytz = "*"
+pandas-market-calendars = "*"
+urllib3 = "*"
+aiofile = "*"
+ib_insync = "*"
+aiofiles = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
