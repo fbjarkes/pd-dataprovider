@@ -42,8 +42,12 @@ class PostProcessor:
             if "D" in kwargs['transform'] and kwargs['transform'] != "1D":
                 data = self._transform_day(data, kwargs['transform'][:-1])
         elif kwargs['timeframe'] == '5min':
+            if kwargs['transform'] == '10min':
+                data = self._transform_min(10, data)
             if kwargs['transform'] == '15min':
                 data = self._transform_min(15, data)
+            if kwargs['transform'] == '30min':
+                data = self._transform_min(30, data)
             if kwargs['transform'] == '60min':
                 data = self._transform_hour(data)
             if kwargs['transform'] == 'day':
