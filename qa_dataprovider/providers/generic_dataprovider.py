@@ -31,12 +31,12 @@ class GenericDataProvider(metaclass=ABCMeta):
                                  **kwargs) -> pd.DataFrame:
         pass
 
-    def __init__(self, logger, verbose: int, tz, chunk_size: int = 6):
+    def __init__(self, logger, verbose: int, tz, chunk_size: int = 6, **kwargs):
         self.errors = 0
         self.chunk_size = chunk_size
         self.tz = pytz.timezone(tz)
         log_helper.init_logging([self._logger, logger], verbose)
-        self.post_processor = PostProcessor(logger)
+        self.post_processor = PostProcessor(logger, **kwargs)
 
     def _initialize(self):
         """
@@ -69,6 +69,8 @@ class GenericDataProvider(metaclass=ABCMeta):
     def create_data_class(self, lst):
         datas = []
         for df, symbol_data in lst:
+            if df.symbol != symbol_data.symbol:
+                raise Exception(f"Symbol data missmats: {df.symbol} != {symbol_data.symbol}")
             if not df.empty:
                 datas.append(Data(df, symbol_data.symbol, symbol_data.transform,
                                   df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
@@ -124,6 +126,7 @@ class GenericDataProvider(metaclass=ABCMeta):
                  self.post_processor.fill_na,
                  #self.post_processor.add_trading_days,
                  self.post_processor.add_meta_data,
+                 self.post_processor.add_linearity
                  ]
 
         return reduce((lambda result, func: func(result, func_args)), funcs, data)

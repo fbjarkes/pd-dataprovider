@@ -7,7 +7,6 @@ import pandas as pd
 import numpy as np
 from qa_dataprovider.objects import SymbolData
 
-
 class CsvFileDataProvider(GenericDataProvider):
     """
     Expecting data to have Columns (case sensitive): Date, Open, High, Low, Close, Volume
@@ -21,7 +20,7 @@ class CsvFileDataProvider(GenericDataProvider):
                         format='%(filename)s: %(message)s')
     logger = logging.getLogger(__name__)
 
-    def __init__(self, paths, verbose = 0, prefix=[], col_names=DEFAULT_COL_NAMES, epoch=False):
+    def __init__(self, paths, verbose = 0, prefix=[], col_names=DEFAULT_COL_NAMES, epoch=False, **kwargs):
         """
         Initialize with a list of paths for which each call to get_data() tries to open
         csv file directly in paths. 
@@ -36,7 +35,7 @@ class CsvFileDataProvider(GenericDataProvider):
         :param list col_names: Specify custom column names
         :param epoch: Datetimes in epoch or as string
         """
-        super(CsvFileDataProvider, self).__init__(self.logger, verbose, tz='America/New_York')
+        super(CsvFileDataProvider, self).__init__(self.logger, verbose, tz='America/New_York', **kwargs)
         self.paths = paths
         self.prefix = prefix
         self.col_names = col_names
@@ -52,6 +51,7 @@ class CsvFileDataProvider(GenericDataProvider):
             if os.path.exists(filename):
                 with open(filename) as f:
                 #async with AIOFile(filename, 'r') as f:
+                    #TODO: check if file contains any data? To avoid ambigous async error if empty file
                     df = pd.read_csv(f, dtype={self.col_names[1]: np.float32, self.col_names[2]: np.float32,
                                                self.col_names[3]: np.float32,
                                                self.col_names[4]: np.float32, self.col_names[5]: np.float32},
@@ -79,9 +79,8 @@ class CsvFileDataProvider(GenericDataProvider):
     def _get_data_internal(self, symbol_data: SymbolData, **kwargs) -> pd.DataFrame:
         for path in self.paths:
             filenames = [
-                "{}/{}_{}.{}".format(path, prefix, symbol_data.symbol, 'csv') for prefix in self.prefix]
-            filenames.append("{}/{}.{}".format(path, symbol_data.symbol, 'csv'))
-
+                "{}/{}/{}_{}.{}".format(path, symbol_data.timeframe, prefix, symbol_data.symbol, 'csv') for prefix in self.prefix]
+            filenames.append("{}/{}/{}.{}".format(path, symbol_data.timeframe, symbol_data.symbol, 'csv'))
             for filename in filenames:
                 self.logger.debug("Trying '{}'".format(filename))
                 if os.path.exists(filename):
@@ -121,14 +120,16 @@ class CsvFileDataProvider(GenericDataProvider):
 
 
 if __name__ == '__main__':
-    paths = [f"/Users/{os.environ['USER']}/Dropbox/csv/"]
+    paths = [f"/Users/{os.environ['USER']}/OneDrive/Data/tradingview"]
     tradingview = CsvFileDataProvider(paths, col_names=['time','open','high','low','close','Volume'], epoch=True)
     #alphavantage = CsvFileDataProvider(paths, col_names=['timestamp', 'open', 'high', 'low', 'close', 'Volume'], epoch=False)
     #data = provider.get_data(['OMXS30 F18-OMF_1 Minute'], '2017-12-01', '2017-12-31', timeframe='1min', transform='1h')
     symbols_data = [
-        #{'symbol': 'SKA_B_1H', 'timeframe': '60min', 'transform': '60min'},
-        SymbolData('SKA_B_1H', '60min', '60min', '2020-04-02 10:00:00', '2020-04-03 15:00:00')
+        SymbolData('BIDU', '5min', '5min', '2021-02-24 09:30', '2021-02-26 16:00')
+        #SymbolData('SKA_B_1H', '60min', '60min', '2020-04-02 10:00:00', '2020-04-03 15:00:00')
     ]
     datas = asyncio.run(tradingview.get_datas_async(symbols_data))
-    print(datas)
+    df = datas[0].df
+    print(df.tail())
+
 

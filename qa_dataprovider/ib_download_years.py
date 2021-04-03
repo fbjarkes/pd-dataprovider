@@ -77,8 +77,11 @@ def download_years(symbols: str, file: str, years: str, verbose: int):
 
 
         total = total.sort_index(ascending=True)
-        print(f"Writing {len(total)} rows to {symbol}.csv")
-        total.to_csv(f"{symbol}.csv", header=True)
+        if len(total) > 0:
+            print(f"Writing {len(total)} rows to {symbol}.csv")
+            total.to_csv(f"{symbol}.csv", header=True)
+        else:
+            print(f"No data found for {symbol}")
 
 
 
