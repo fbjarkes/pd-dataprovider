@@ -90,7 +90,9 @@ class CsvFileDataProvider(GenericDataProvider):
                                                        self.col_names[4]: np.float32, self.col_names[5]: np.float32}, parse_dates=True, index_col=self.col_names[0])
                             df = df.sort_index()
                             if self.epoch:
-                                df.index = pd.to_datetime(df.index, unit='s')
+                                #df.index = pd.to_datetime(df.index, unit='s')
+                                df.index = pd.to_datetime(df.index, unit='s', utc=True).tz_convert(self.tz).tz_localize(None)
+
 
                             if not all(elem in self.col_names for elem in self.DEFAULT_COL_NAMES):
                                 df.rename(columns = {self.col_names[1]: 'Open', self.col_names[2]: 'High',
