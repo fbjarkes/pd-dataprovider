@@ -64,25 +64,6 @@ class TestPostProcessor(unittest.TestCase):
         assert datas[2].timeframe == 'month'
 
 
-    # def test_vwap(self):
-    #     provider = CsvFileDataProvider(
-    #             ['data'],
-    #             verbose=2,
-    #             col_names=['time','open','high','low','close', 'VWAP', 'MA', 'MA Volume'],
-    #             epoch=True)
-    #     datas = provider.get_datas([SymbolData('SPY_VWAP', '5min', '5min', '', '', 1)])
-    #     df = datas[0].df
-    #     curr_day = 26
-    #     sum = 0
-    #     for index, row in df.iterrows():
-    #         if index.day != curr_day:
-    #             print('VWAP for session day', curr_day, sum)
-    #             sum = row[4]
-    #             curr_day = index.day
-    #         else:
-    #             sum += row[4]
-    #         #print(index, row[4])
-
     def test_cons_highs_lows(self):
         provider = CsvFileDataProvider(["data"], verbose=2, ta={'linearity': True})
         datas = provider.get_datas([SymbolData('SPY', 'day', 'day', '2016-01-01', '2016-01-15')])

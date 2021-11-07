@@ -199,12 +199,13 @@ class PostProcessor:
         self.logger.debug(f"Transforming to 1M")
         transdat = data.loc[:, ["Open", "High", "Low", "Close", 'Volume']]
 
-        transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.week)
+        #transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: x.month)
+        #transdat["week"] = pd.to_datetime(transdat.index).map(lambda x: pd.Int64Index(x.isocalendar().week))
         transdat["year"] = pd.to_datetime(transdat.index).map(lambda x: x.year)
         transdat["month"] = pd.to_datetime(transdat.index).map(lambda x: x.month)
 
         # Group by year and other appropriate variable
-        grouped = transdat.groupby(list(set(["year", "month"])))
+        grouped = transdat.groupby(list({"year", "month"}))
         dataframes = pd.DataFrame({"Open": [], "High": [], "Low": [], "Close": [], "Volume": []})
         for name, group in grouped:
             df = pd.DataFrame(
@@ -215,9 +216,6 @@ class PostProcessor:
         sorted = dataframes.sort_index()
 
         return sorted
-
-    def add_day_of_month(self, data, kwargs):
-        pass #TODO
 
     def add_trading_days(self, data, kwargs):
         if kwargs['transform'] == 'day':
