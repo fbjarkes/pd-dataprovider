@@ -2,10 +2,10 @@ import asyncio
 import logging
 import os
 
-from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
+from pd_dataprovider.providers.generic_dataprovider import GenericDataProvider
 import pandas as pd
 import numpy as np
-from qa_dataprovider.objects import SymbolData
+from pd_dataprovider.objects import SymbolData
 
 class CsvFileDataProvider(GenericDataProvider):
     """

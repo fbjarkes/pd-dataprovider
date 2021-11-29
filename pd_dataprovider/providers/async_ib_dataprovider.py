@@ -8,8 +8,8 @@ import sys
 import pytz
 from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, BarData
 
-from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
-from qa_dataprovider.objects import SymbolData
+from pd_dataprovider.providers.generic_dataprovider import GenericDataProvider
+from pd_dataprovider.objects import SymbolData
 
 
 class AsyncIBDataProvider(GenericDataProvider):

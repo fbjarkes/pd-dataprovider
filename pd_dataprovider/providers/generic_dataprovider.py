@@ -8,9 +8,9 @@ from functools import reduce
 import pandas as pd
 import pytz
 
-from qa_dataprovider.utils.post_processor import PostProcessor
-from qa_dataprovider.objects import SymbolData, Data
-import qa_dataprovider.utils.log_helper as log_helper
+from pd_dataprovider.utils.post_processor import PostProcessor
+from pd_dataprovider.objects import SymbolData, Data
+import pd_dataprovider.utils.log_helper as log_helper
 
 
 class GenericDataProvider(metaclass=ABCMeta):

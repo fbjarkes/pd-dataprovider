@@ -1,8 +1,8 @@
 import os
 from configparser import ConfigParser
-from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
-from qa_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
-from qa_dataprovider.providers.json_dataprovider import JSONDataProvider
+from pd_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
+from pd_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
+from pd_dataprovider.providers.json_dataprovider import JSONDataProvider
 
 
 class ProviderFactory:

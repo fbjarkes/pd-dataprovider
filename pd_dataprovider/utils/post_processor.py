@@ -2,8 +2,8 @@ import logging
 import pandas as pd
 import numpy as np
 
-from qa_dataprovider.utils import log_helper
-from qa_dataprovider.utils.validator import Validator
+from pd_dataprovider.utils import log_helper
+from pd_dataprovider.utils.validator import Validator
 
 
 class PostProcessor:

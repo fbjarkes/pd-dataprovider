@@ -6,7 +6,7 @@ except ImportError:
     from distutils.core import setup
 
 
-setup(name='pd-dataprovider',
+setup(name='pd_dataprovider',
       version='0.2.3',
       description='',
       author='',
@@ -19,5 +19,5 @@ setup(name='pd-dataprovider',
       #     'pytz',
       #     'bizdays'
       # ],
-      packages=['pd-dataprovider'],
+      packages=['pd_dataprovider'],
       )
