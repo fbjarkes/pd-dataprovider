@@ -2,9 +2,8 @@ Wrapper for getting Pandas dataframes from various sources.
 
 ### Installation
 ```
-$ git clone https://github.com/fbjarkes/qa-dataprovider.git
-$ cd qa-dataprovider && pip install -r requirements.txt
-$ ./setup.py develop 
+$ git clone https://github.com/fbjarkes/pd-dataprovider.git
+$ cd pd-dataprovider && pipenv install
 ```
 
 ### Tests

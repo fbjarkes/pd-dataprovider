@@ -3,9 +3,9 @@
 
 import unittest
 
-from qa_dataprovider.objects import SymbolData
-from qa_dataprovider.provider_factory import ProviderFactory
-from qa_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
+from pd_dataprovider.objects import SymbolData
+from pd_dataprovider.provider_factory import ProviderFactory
+from pd_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
 import pandas as pd
 
 
