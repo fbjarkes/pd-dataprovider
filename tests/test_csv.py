@@ -2,8 +2,8 @@ import unittest
 
 import pandas_market_calendars as mcal
 
-from qa_dataprovider.objects import SymbolData
-from qa_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
+from pd_dataprovider.objects import SymbolData
+from pd_dataprovider.providers.csv_dataprovider import CsvFileDataProvider
 
 class TestCsv(unittest.TestCase):
 

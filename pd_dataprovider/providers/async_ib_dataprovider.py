@@ -8,8 +8,8 @@ import sys
 import pytz
 from ib_insync import IB, Stock, Index, Forex, Future, CFD, Commodity, BarData
 
-from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
-from qa_dataprovider.objects import SymbolData
+from pd_dataprovider.providers.generic_dataprovider import GenericDataProvider
+from pd_dataprovider.objects import SymbolData
 
 
 class AsyncIBDataProvider(GenericDataProvider):
@@ -18,7 +18,7 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     def __init__(self, verbose: int, host: str, port: int, timeout: int, chunk_size: int, id=0,
                  tz='America/New_York', **kwargs):
-        super(AsyncIBDataProvider, self).__init__(self.logger, verbose, tz,chunk_size=chunk_size)
+        super(AsyncIBDataProvider, self).__init__(self.logger, verbose, tz,chunk_size=chunk_size, **kwargs)
         self.port = port
         self.host = host
         self.timeout = timeout

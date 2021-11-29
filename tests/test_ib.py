@@ -1,6 +1,6 @@
 import unittest
 
-from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
+from pd_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
 
 
 class TestIb(unittest.TestCase):

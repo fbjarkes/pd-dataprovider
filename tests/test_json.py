@@ -1,7 +1,7 @@
 import unittest
 
-from qa_dataprovider.objects import SymbolData, Data
-from qa_dataprovider.providers.json_dataprovider import JSONDataProvider
+from pd_dataprovider.objects import SymbolData, Data
+from pd_dataprovider.providers.json_dataprovider import JSONDataProvider
 
 class TestCsv(unittest.TestCase):
 

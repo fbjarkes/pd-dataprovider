@@ -5,8 +5,8 @@ import json
 import aiofiles
 import pandas as pd
 
-from qa_dataprovider.providers.generic_dataprovider import GenericDataProvider
-from qa_dataprovider.objects import SymbolData
+from pd_dataprovider.providers.generic_dataprovider import GenericDataProvider
+from pd_dataprovider.objects import SymbolData
 
 
 class JSONDataProvider(GenericDataProvider):
@@ -43,10 +43,13 @@ class JSONDataProvider(GenericDataProvider):
                     data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end,
                                                   symbol_data.timeframe, symbol_data.transform,
                                                   rth_only=symbol_data.rth_only, **kwargs)
+                    data.symbol = symbol_data.symbol
                     return data
         if 'graceful' in kwargs and kwargs['graceful']:
             self.logger.warning("{} not found in {}".format(symbol_data.symbol, self.paths))
-            return pd.DataFrame()
+            df = pd.DataFrame()
+            df.symbol = symbol_data.symbol
+            return df
         else:
             raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))
 
@@ -73,10 +76,13 @@ class JSONDataProvider(GenericDataProvider):
                         data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end,
                                                   symbol_data.timeframe, symbol_data.transform,
                                                   rth_only=symbol_data.rth_only, **kwargs)
+                        data.symbol = symbol_data.symbol
                         return data
 
         if 'graceful' in kwargs and kwargs['graceful']:
             self.logger.warning("{} not found in {}".format(symbol_data.symbol, self.paths))
-            return pd.DataFrame()
+            df = pd.DataFrame()
+            df.symbol = symbol_data.symbol
+            return df
         else:
             raise Exception("{} not found in {}".format(symbol_data.symbol, self.paths))

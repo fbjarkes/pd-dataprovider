@@ -6,9 +6,9 @@ except ImportError:
     from distutils.core import setup
 
 
-setup(name='qa-dataprovider',
+setup(name='pd_dataprovider',
       version='0.2.3',
-      description='Wrapper for pandas DataReader and other data sources',
+      description='',
       author='',
       author_email='',
       # install_requires=[
@@ -19,5 +19,5 @@ setup(name='qa-dataprovider',
       #     'pytz',
       #     'bizdays'
       # ],
-      packages=['qa_dataprovider'],
+      packages=['pd_dataprovider'],
       )
