@@ -11,12 +11,14 @@ class ProviderFactory:
     def make_provider(provider :str, verbose: int = 0, **kwargs):
         cfg = ConfigParser()
         cwd = os.path.dirname(os.path.realpath(__file__))
-        cfg.read(f"{os.path.split(cwd)[0]}/qa_dataprovider.ini")
+        cfg.read(f"{os.path.split(cwd)[0]}/pd_dataprovider.ini") # TODO: override cfg path from env-variable
 
-        paths = cfg[provider]['paths'].split()
-        if 'paths' in kwargs:
-            paths = kwargs['paths']
-        # TODO: get config path from env (if deployed in cloud for instance)
+        # Can override paths from cfg with parameter
+        paths = []
+        if provider in cfg:
+            paths = cfg[provider]['paths'].split(',')
+        if provider in kwargs and 'paths' in kwargs[provider]:
+            paths = kwargs[provider]['paths'].split(',')
 
         if provider == 'ibasync':
             return AsyncIBDataProvider(verbose=verbose,
@@ -28,6 +30,7 @@ class ProviderFactory:
 
         elif provider in ['ibfile', 'quandl', 'csv','ibfile-intraday']:
             return CsvFileDataProvider(paths, verbose=verbose)
+
         elif provider == 'tradingview':
             return CsvFileDataProvider(
                 paths,
@@ -35,6 +38,7 @@ class ProviderFactory:
                 col_names=['time','open','high','low','close', 'volume'],
                 epoch=True
             )
+
         elif provider == 'avfile':
             return CsvFileDataProvider(
                 paths,
