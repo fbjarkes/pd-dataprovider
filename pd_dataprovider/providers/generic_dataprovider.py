@@ -22,7 +22,7 @@ class GenericDataProvider(metaclass=ABCMeta):
     _logger = logging.getLogger(__name__)
 
     @abstractmethod
-    def _get_data_internal(self, symbol_data: SymbolData) -> \
+    def _get_data_internal(self, symbol_data: SymbolData, **kwargs) -> \
             pd.DataFrame:
         pass
 

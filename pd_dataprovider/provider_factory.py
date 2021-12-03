@@ -64,6 +64,7 @@ class ProviderFactory:
                 paths,
                 verbose=verbose,
                 keys=['startEpochTime', 'openPrice', 'highPrice', 'lowPrice', 'closePrice', 'volume'],
-                epoch=True
+                epoch=True,
+                **kwargs
             )
         raise Exception(f"Invalid provider {provider}")

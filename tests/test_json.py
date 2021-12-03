@@ -32,6 +32,21 @@ class TestCsv(unittest.TestCase):
         print(daily)
         print(weekly)
 
+    def test_alpaca_intraday_v2(self):
+        provider = JSONDataProvider(['data/alpaca-v2'],
+                                    ['DateTime', 'Open', 'High', 'Low', 'Close', 'Volume'],
+                                    verbose=2)
+
+    def test_daily_with_snapshots(self):
+        provider = JSONDataProvider(['data/alpaca-v2'],
+                                    ['DateTime', 'Open', 'High', 'Low', 'Close', 'Volume'],
+                                    verbose=2)
+        sym_datas = [SymbolData('AAPL', 'day', 'day', '2021-01-01', '2021-12-02')]
+        df = provider.get_datas(sym_datas, snapshots=True)[0].df
+        assert df.loc['2021-01-05']['Close'] == 130.20761
+        assert df.loc['2021-11-30']['Close'] == 165.3   # Last bar from daily file
+        assert df.loc['2021-12-01']['Close'] == 164.77  # Single bar from snapshots file
+
 
 
 if __name__ == '__main__':
