@@ -36,6 +36,9 @@ class TestCsv(unittest.TestCase):
         provider = JSONDataProvider(['data/alpaca-v2'],
                                     ['DateTime', 'Open', 'High', 'Low', 'Close', 'Volume'],
                                     verbose=2)
+        sym_datas = [SymbolData('AAPL', '1min', '1min', '2021-12-01', '2021-12-03', rth_only=False)]
+        df = provider.get_datas(sym_datas)[0].df
+        assert df.loc['2021-12-03 07:59']['Close'] == 163.76
 
     def test_daily_with_snapshots(self):
         provider = JSONDataProvider(['data/alpaca-v2'],
