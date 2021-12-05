@@ -96,23 +96,24 @@ class JSONDataProvider(GenericDataProvider):
             filename = f"{path}/{symbol_data.timeframe}/{symbol_data.symbol}.json"
             self.logger.debug(f"Trying '{filename}'")
             if os.path.exists(filename):
-                df = self.json_to_df(filename, symbol_data)
-                df = self.append_snapshots(df, path, symbol_data, kwargs)
-                data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end,
-                                          symbol_data.timeframe, symbol_data.transform,
-                                          rth_only=symbol_data.rth_only, **kwargs)
-                data.symbol = symbol_data.symbol
-                return data
-
-        if 'graceful' in kwargs and kwargs['graceful']:
-            self.logger.warning("{} not found in {}".format(
-                symbol_data.symbol, self.paths))
-            df = pd.DataFrame()
-            df.symbol = symbol_data.symbol
-            return df
-        else:
-            raise Exception("{} not found in {}".format(
-                symbol_data.symbol, self.paths))
+                try:
+                    df = self.json_to_df(filename, symbol_data)
+                    df = self.append_snapshots(df, path, symbol_data, kwargs)
+                    data = self._post_process(df, symbol_data.symbol, symbol_data.start, symbol_data.end,
+                                              symbol_data.timeframe, symbol_data.transform,
+                                              rth_only=symbol_data.rth_only, **kwargs)
+                    data.symbol = symbol_data.symbol
+                    return data
+                except Exception as e:
+                    self.logger.warning(f"{symbol_data.symbol}: {e}")
+                    df = pd.DataFrame()
+                    df.symbol = symbol_data.symbol
+                    return df
+            else:
+                self.logger.warning(f"{symbol_data.symbol} not found in paths {self.paths}")
+                df = pd.DataFrame()
+                df.symbol = symbol_data.symbol
+                return df
 
     def append_snapshots(self, df: pd.DataFrame, path: str, symbol_data: SymbolData, kwargs: dict) -> pd.DataFrame:
         if not df.empty and 'snapshots' in kwargs and kwargs['snapshots'] and symbol_data.timeframe == 'day':
@@ -127,7 +128,7 @@ class JSONDataProvider(GenericDataProvider):
             else:
                 if snapshot_df.index.isin(df.index):
                     self.logger.debug(
-                        f"Not adding already existing data point for snapshot '{snapshot_filename}'")
+                        f"Skipping snapshot: datetime '{snapshot_df.index[0]}' is present in historical df")
                 else:
                     df = df.append(snapshot_df)
         return df

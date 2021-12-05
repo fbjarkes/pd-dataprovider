@@ -67,4 +67,11 @@ class ProviderFactory:
                 epoch=True,
                 **kwargs
             )
+        elif provider == 'alpaca-file-v2':
+            return JSONDataProvider(
+                paths,
+                verbose=verbose,
+                keys=['DateTime', 'Open', 'High', 'Low', 'Close', 'Volume'],
+                **kwargs
+            )
         raise Exception(f"Invalid provider {provider}")
