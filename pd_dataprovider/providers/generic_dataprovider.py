@@ -124,9 +124,7 @@ class GenericDataProvider(metaclass=ABCMeta):
                  self.post_processor.validate,
                  self.post_processor.transform_timeframe,
                  self.post_processor.fill_na,
-                 #self.post_processor.add_trading_days,
                  self.post_processor.add_meta_data,
-                 self.post_processor.add_linearity
                  ]
 
         return reduce((lambda result, func: func(result, func_args)), funcs, data)
