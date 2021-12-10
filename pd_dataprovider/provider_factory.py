@@ -9,6 +9,14 @@ class ProviderFactory:
 
     @staticmethod
     def make_provider(provider :str, verbose: int = 0, **kwargs):
+        """
+        Create an instance of data provider. Optional configuration provided as dict.
+            Example:
+                CONFIG = {
+                    'alpaca-file-v2': {'paths': '/Users/fbjarkes/Bardata/alpaca-v2'},
+                    'tradingview': {'paths': '/Users/fbjarkes/Bardata/tradingview'}
+                }
+        """
         cfg = ConfigParser()
         cwd = os.path.dirname(os.path.realpath(__file__))
         cfg.read(f"{os.path.split(cwd)[0]}/pd_dataprovider.ini") # TODO: override cfg path from env-variable
