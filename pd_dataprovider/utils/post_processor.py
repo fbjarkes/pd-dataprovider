@@ -58,6 +58,10 @@ class PostProcessor:
         elif kwargs['timeframe'] == '1min':
             if kwargs['transform'] == '5min':
                 data = self._transform_min(5, data)
+            if kwargs['transform'] == '15min':
+                data = self._transform_min(15, data)
+            if kwargs['transform'] == '30min':
+                data = self._transform_min(30, data)
             if kwargs['transform'] == '60min':
                 data = self._transform_hour(data)
         elif kwargs['timeframe'] == '60min':
