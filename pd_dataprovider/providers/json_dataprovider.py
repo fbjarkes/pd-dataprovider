@@ -22,6 +22,7 @@ class JSONDataProvider(GenericDataProvider):
         self.keys = keys
         self.epoch = epoch
 
+    @DeprecationWarning
     async def _get_data_internal_async(self, symbol_data: SymbolData, **kwargs) -> pd.DataFrame:
         for path in self.paths:
             filename = (
@@ -85,6 +86,7 @@ class JSONDataProvider(GenericDataProvider):
                         self.tz).tz_localize(None)
                 self.logger.info("{}, {:d} rows ({} to {})".format(
                     f.name, len(df), df.index[0], df.index[-1]))
+                #TODO: remove unexpected columns?
                 return df
             else:
                 self.logger.warning(
