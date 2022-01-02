@@ -64,57 +64,5 @@ class TestPostProcessor(unittest.TestCase):
         assert datas[2].timeframe == 'month'
 
 
-    def test_cons_highs_lows(self):
-        provider = CsvFileDataProvider(["data"], verbose=2, ta={'linearity': True})
-        datas = provider.get_datas([SymbolData('SPY', 'day', 'day', '2016-01-01', '2016-01-15')])
-        df = datas[0].df
-
-        assert df.loc['2016-01-04']['ConsOpen'] == 0
-        assert df.loc['2016-01-05']['ConsOpen'] == 1
-        assert df.loc['2016-01-06']['ConsOpen'] == -1
-        assert df.loc['2016-01-07']['ConsOpen'] == -2
-        assert df.loc['2016-01-08']['ConsOpen'] == -3
-        assert df.loc['2016-01-11']['ConsOpen'] == -4
-        assert df.loc['2016-01-12']['ConsOpen'] == 1
-        assert df.loc['2016-01-13']['ConsOpen'] == 2
-        assert df.loc['2016-01-14']['ConsOpen'] == -1
-        assert df.loc['2016-01-15']['ConsOpen'] == -2
-
-        assert df.loc['2016-01-04']['ConsHigh'] == 0
-        assert df.loc['2016-01-05']['ConsHigh'] == 1
-        assert df.loc['2016-01-06']['ConsHigh'] == -1
-        assert df.loc['2016-01-07']['ConsHigh'] == -2
-        assert df.loc['2016-01-08']['ConsHigh'] == -3
-        assert df.loc['2016-01-11']['ConsHigh'] == -4
-        assert df.loc['2016-01-12']['ConsHigh'] == 1
-        assert df.loc['2016-01-13']['ConsHigh'] == 2
-        assert df.loc['2016-01-14']['ConsHigh'] == -1
-        assert df.loc['2016-01-15']['ConsHigh'] == -2
-
-        assert df.loc['2016-01-04']['ConsLow'] == 0
-        assert df.loc['2016-01-05']['ConsLow'] == 1
-        assert df.loc['2016-01-06']['ConsLow'] == -1
-        assert df.loc['2016-01-07']['ConsLow'] == -2
-        assert df.loc['2016-01-08']['ConsLow'] == -3
-        assert df.loc['2016-01-11']['ConsLow'] == -4
-        assert df.loc['2016-01-12']['ConsLow'] == 1
-        assert df.loc['2016-01-13']['ConsLow'] == -1
-        assert df.loc['2016-01-14']['ConsLow'] == -2
-        assert df.loc['2016-01-15']['ConsLow'] == -3
-
-        assert df.loc['2016-01-04']['ConsClose'] == 0
-        assert df.loc['2016-01-05']['ConsClose'] == 1
-        assert df.loc['2016-01-06']['ConsClose'] == -1
-        assert df.loc['2016-01-07']['ConsClose'] == -2
-        assert df.loc['2016-01-08']['ConsClose'] == -3
-        assert df.loc['2016-01-11']['ConsClose'] == 1
-        assert df.loc['2016-01-12']['ConsClose'] == 2
-        assert df.loc['2016-01-13']['ConsClose'] == -1
-        assert df.loc['2016-01-14']['ConsClose'] == 1
-        assert df.loc['2016-01-15']['ConsClose'] == -1
-
-
-
-
 if __name__ == '__main__':
     unittest.main()

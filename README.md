@@ -9,7 +9,9 @@ $ cd pd-dataprovider && pipenv install
 ### Tests
 Run tests in tests folder:
 ```
-tests/$ python -m unittest discover
+$ pipenv shell
+$ export PYTHONPATH=`pwd`
+$ cd tests && python -m unittest discover
 ```
 
 ### Data Model

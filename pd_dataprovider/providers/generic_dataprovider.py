@@ -22,7 +22,7 @@ class GenericDataProvider(metaclass=ABCMeta):
     _logger = logging.getLogger(__name__)
 
     @abstractmethod
-    def _get_data_internal(self, symbol_data: SymbolData) -> \
+    def _get_data_internal(self, symbol_data: SymbolData, **kwargs) -> \
             pd.DataFrame:
         pass
 
@@ -124,9 +124,7 @@ class GenericDataProvider(metaclass=ABCMeta):
                  self.post_processor.validate,
                  self.post_processor.transform_timeframe,
                  self.post_processor.fill_na,
-                 #self.post_processor.add_trading_days,
                  self.post_processor.add_meta_data,
-                 self.post_processor.add_linearity
                  ]
 
         return reduce((lambda result, func: func(result, func_args)), funcs, data)

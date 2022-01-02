@@ -58,6 +58,10 @@ class PostProcessor:
         elif kwargs['timeframe'] == '1min':
             if kwargs['transform'] == '5min':
                 data = self._transform_min(5, data)
+            if kwargs['transform'] == '15min':
+                data = self._transform_min(15, data)
+            if kwargs['transform'] == '30min':
+                data = self._transform_min(30, data)
             if kwargs['transform'] == '60min':
                 data = self._transform_hour(data)
         elif kwargs['timeframe'] == '60min':
@@ -98,57 +102,6 @@ class PostProcessor:
         #df['Ticker'] = kwargs['ticker']
         df.symbol = kwargs['ticker']
         return df
-
-    def add_vwap(self, df, kwargs):
-        pass
-        # For each session:
-        #   p = (df['High'] + df['Low'] + df['Close']) / 3
-        #   q = df
-
-    def add_linearity(self, df: pd.DataFrame, kwargs):
-        """
-        Add Columns: ConsOpen, ConsHigh, ConsLow, ConsClose
-        """
-        if 'linearity' not in self.ta:
-            return df
-
-        df['ConsOpen'], df['ConsHigh'], df['ConsLow'], df['ConsClose'] = 0, 0, 0, 0
-        n_cols = len(df.columns)
-        co_idx, ch_idx, cl_idx, cc_idx = n_cols-4, n_cols-3, n_cols-2, n_cols-1
-
-        def func(i, j, col1, col2):
-            if df.iloc[i][col1] >= df.iloc[i-1][col1]:
-                if df.iloc[i-1][col2] >= 0:
-                    df.iat[i, j] = df.iloc[i-1][col2] + 1
-                else:
-                    df.iat[i, j] = 1
-            else:
-                if df.iloc[i - 1][col2] <= 0:
-                    df.iat[i, j] = df.iloc[i-1][col2] - 1
-                else:
-                    df.iat[i, j] = -1
-
-        #for i in range(1, len(df)):
-        period = 10
-        for i in range(1, period):
-            idx = len(df) - period + i
-            func(idx, co_idx, 'Open', 'ConsOpen')
-            func(idx, ch_idx, 'High', 'ConsHigh')
-            func(idx, cl_idx, 'Low', 'ConsLow')
-            func(idx, cc_idx,'Close', 'ConsClose')
-            # if df.iloc[i].Open >= df.iloc[i-1].Open:
-            #     if df.iloc[i-1].ConsOpen >= 0:
-            #         df.iat[i, co_idx] = df.iloc[i-1].ConsOpen + 1
-            #     else:
-            #         df.iat[i, co_idx] = 1
-            # else:
-            #     if df.iloc[i - 1].ConsOpen <= 0:
-            #         df.iat[i, co_idx] = df.iloc[i-1].ConsOpen - 1
-            #     else:
-            #         df.iat[i, co_idx] = -1
-        return df
-
-
 
     def fill_na(self, df, kwargs):
         df.fillna(method='ffill', inplace=True)
