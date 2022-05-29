@@ -69,8 +69,8 @@ class GenericDataProvider(metaclass=ABCMeta):
     def create_data_class(self, lst):
         datas = []
         for df, symbol_data in lst:
-            if df.symbol != symbol_data.symbol:
-                raise Exception(f"Symbol data missmats: {df.symbol} != {symbol_data.symbol}")
+            if hasattr(df, 'symbol') and df.symbol != symbol_data.symbol:
+                raise Exception(f"Symbol data missmatch: {df.symbol} != {symbol_data.symbol}")
             if not df.empty:
                 datas.append(Data(df, symbol_data.symbol, symbol_data.transform,
                                   df.index[0].to_pydatetime(), df.index[-1].to_pydatetime()))
