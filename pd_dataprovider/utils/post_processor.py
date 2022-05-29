@@ -123,7 +123,7 @@ class PostProcessor:
                 {"Open": group.iloc[0, 0], "High": max(group.High), "Low": min(group.Low),
                  "Close": group.iloc[-1, 3], "Volume": group.Volume.sum()},
                 index=[group.index[0]])
-            dataframes = dataframes.append(df)
+            dataframes = pd.concat([dataframes, df])
         sorted = dataframes.sort_index()
 
         return sorted
@@ -165,7 +165,7 @@ class PostProcessor:
                 {"Open": group.iloc[0, 0], "High": max(group.High), "Low": min(group.Low),
                  "Close": group.iloc[-1, 3], "Volume": group.Volume.sum()},
                 index=[group.index[0]])
-            dataframes = dataframes.append(df)
+            dataframes = pd.concat([dataframes, df])
         sorted = dataframes.sort_index()
 
         return sorted
