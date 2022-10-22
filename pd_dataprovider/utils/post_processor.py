@@ -26,7 +26,7 @@ class PostProcessor:
     def filter_rth(self, data, kwargs):
         if kwargs['timeframe'] not in ['day', 'week', 'month'] and 'rth_only' in kwargs and kwargs['rth_only']:
             self.logger.debug('Filtering for RTH only')
-            return pd.DataFrame(data.between_time('09:30', '16:00'))
+            return pd.DataFrame(data.between_time('09:30', '16:00', inclusive='left'))
         else:
             return data
 
