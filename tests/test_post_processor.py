@@ -17,7 +17,7 @@ class TestPostProcessor(unittest.TestCase):
         df = provider.get_dataframes([SymbolData('AAPL_2017-11-03', '5min', '5min', '2017-10-10', '2017-10-31', rth_only=True)])[0]
         assert len(df.at_time('09:25:00')) == 0
         assert len(df.at_time('09:30:00')) > 0
-        assert len(df.at_time('16:05:00')) == 0
+        assert len(df.at_time('16:00:00')) == 0
 
     def test_resample_timeframe(self):
         provider = CsvFileDataProvider(["data"], verbose=2)
@@ -36,8 +36,8 @@ class TestPostProcessor(unittest.TestCase):
         assert str(df.loc[pd.to_datetime('2017-12-29 10:00:00')]['Low']) == "169.31"
         assert str(df.loc[pd.to_datetime('2017-12-29 10:00:00')]['Close']) == "169.64"
 
-        # Assert 2017-12-29 16:00: O=169.23
-        assert str(df.loc[pd.to_datetime('2017-12-29 16:00:00')]['Open']) == "169.23"
+        # Assert 2017-12-29 15:00: O=169.99
+        assert str(df.loc[pd.to_datetime('2017-12-29 15:00:00')]['Open']) == "169.99"
 
 
     def test_resample_multi_timeframes(self):
