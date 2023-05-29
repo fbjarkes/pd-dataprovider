@@ -132,5 +132,6 @@ class JSONDataProvider(GenericDataProvider):
                     self.logger.debug(
                         f"Skipping snapshot: datetime '{snapshot_df.index[0]}' is present in historical df")
                 else:
-                    df = df.append(snapshot_df)
+                    df = pd.concat([df, snapshot_df])
+
         return df

@@ -3,7 +3,8 @@ import unittest
 from pd_dataprovider.objects import SymbolData, Data
 from pd_dataprovider.providers.json_dataprovider import JSONDataProvider
 
-class TestCsv(unittest.TestCase):
+
+class TestJSON(unittest.TestCase):
 
     def test_alpaca_intraday(self):
         provider = JSONDataProvider(['data/alpaca'], ['t', 'o', 'h', 'l', 'c', 'v'], epoch=True, verbose=2)
@@ -15,7 +16,6 @@ class TestCsv(unittest.TestCase):
         assert datas[1].timeframe == '5min'
         assert datas[0].df.loc['2020-05-12 16:15']['Close'] == 285.48
         assert datas[1].df.loc['2020-05-12 16:35']['Close'] == 284.88
-
 
     def test_alpaca_week(self):
         provider = JSONDataProvider(['data/alpaca'],
