@@ -23,18 +23,19 @@ class ProviderFactory:
 
         # Can override paths from cfg with parameter
         paths = []
-        if provider in cfg:
+        if provider in cfg and 'paths' in cfg[provider]:
             paths = cfg[provider]['paths'].split(',')
         if provider in kwargs and 'paths' in kwargs[provider]:
             paths = kwargs[provider]['paths'].split(',')
 
         if provider == 'ibasync':
-            return AsyncIBDataProvider(verbose=verbose,
-                                       host=cfg[provider]['host'],
-                                       port=int(cfg[provider]['port']),
-                                       timeout=int(cfg[provider]['timeout']),
-                                       chunk_size=int(cfg[provider]['chunk_size']),
-                                       **kwargs)
+                # return AsyncIBDataProvider(verbose=verbose,
+                #                        host=cfg[provider]['host'],
+                #                        port=int(cfg[provider]['port']),
+                #                        timeout=int(cfg[provider]['timeout']),
+                #                        chunk_size=int(cfg[provider]['chunk_size']),
+                #                        **kwargs)
+                return AsyncIBDataProvider(verbose=verbose, **kwargs, timeout=60, chunk_size=10)
 
         elif provider in ['ibfile', 'quandl', 'csv','ibfile-intraday']:
             return CsvFileDataProvider(paths, verbose=verbose)
