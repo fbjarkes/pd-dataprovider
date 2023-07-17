@@ -100,7 +100,7 @@ class CsvFileDataProvider(GenericDataProvider):
                             df = pd.read_csv(f, dtype={self.col_names[1]: np.float32, self.col_names[2]: np.float32,
                                                        self.col_names[3]: np.float32,
                                                        self.col_names[4]: np.float32, self.col_names[5]: np.float32},
-                                             parse_dates=True, index_col=self.col_names[0])
+                                             parse_dates=not self.epoch, index_col=self.col_names[0])
                             df = df.sort_index()
                             if self.epoch:
                                 # df.index = pd.to_datetime(df.index, unit='s')
