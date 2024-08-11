@@ -52,7 +52,11 @@ class AsyncIBDataProvider(GenericDataProvider):
 
     def _get_data_internal(self, symbol_data: SymbolData) -> pd.DataFrame:
         self.logger.info(f"Getting symbol data: {symbol_data}")
-
+        timezone = pytz.timezone("America/New_York")
+        now = datetime.now(timezone)
+        now_utc = now.astimezone(pytz.UTC)
+        now_utc_str = now_utc.strftime("%Y%m%d-%H:%M:%S")
+        print(f"now={now}, now_utc={now_utc}, now_utc_str={now_utc_str}")
         if symbol_data.timeframe == 'day':
             symbol, bars = self._get_daily(
                 symbol_data.start, symbol_data.symbol, symbol_data.end)
@@ -60,18 +64,21 @@ class AsyncIBDataProvider(GenericDataProvider):
             dataframe = self._to_dataframe(bars)
 
         elif symbol_data.timeframe == '60min':
-            now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
+            #now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
             duration = '365 D'
             if symbol_data.start:
-                diff = datetime.strptime(now, '%Y-%m-%d %H:%M') - datetime.strptime(symbol_data.start, '%Y-%m-%d %H:%M')
+                start = datetime.strptime(symbol_data.start, '%Y-%m-%d %H:%M')
+                start_tz = timezone.localize(start)
+                diff = now - start_tz
                 if diff.days < 365:
                     duration = f"{diff.days} D"
-            symbol, bars = self._get_intraday(symbol_data.symbol, now, duration, '1 hour', symbol_data.rth_only)
+
+            symbol, bars = self._get_intraday(symbol_data.symbol, now_utc, duration, '1 hour', symbol_data.rth_only)
             symbol = symbol_data.symbol.split('-')[0]
             dataframe = self._to_dataframe(bars, tz_fix=True)
 
         elif symbol_data.timeframe == '5min':
-            now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
+            #now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
             duration = '30 D'
             if symbol_data.start:
                 diff = datetime.strptime(now, '%Y-%m-%d %H:%M') - datetime.strptime(symbol_data.start, '%Y-%m-%d %H:%M')
@@ -83,7 +90,7 @@ class AsyncIBDataProvider(GenericDataProvider):
             dataframe = self._to_dataframe(bars, tz_fix=True)
 
         elif symbol_data.timeframe == '15min':
-            now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
+            #now = f"{(datetime.now()):%Y-%m-%d %H:%M}"
             duration = '60 D'
             if symbol_data.start:
                 diff = datetime.strptime(now, '%Y-%m-%d %H:%M') - datetime.strptime(symbol_data.start, '%Y-%m-%d %H:%M')
@@ -208,13 +215,13 @@ class AsyncIBDataProvider(GenericDataProvider):
         else:
             return Stock(symbol, exchange, currency)
 
-    def _get_intraday(self, ticker: str, to_date: str, duration: str,
+    def _get_intraday(self, ticker: str, to_date: datetime, duration: str,
                       barsize: str, rth_only: bool) -> (str, [BarData]):
-        to_dt = datetime.strptime(f"{to_date}", '%Y-%m-%d %H:%M')
+        #to_dt = datetime.strptime(f"{to_date}", '%Y-%m-%d %H:%M')
         contract = AsyncIBDataProvider.parse_contract(ticker)
         whatToShow = 'MIDPOINT' if isinstance(
             contract, (Forex, CFD, Commodity)) else 'TRADES'
-        bars = self.ib.reqHistoricalData(contract, endDateTime=to_dt, durationStr=duration,
+        bars = self.ib.reqHistoricalData(contract, endDateTime='', durationStr=duration,
                                          barSizeSetting=barsize,
                                          whatToShow=whatToShow,
                                          useRTH=rth_only,

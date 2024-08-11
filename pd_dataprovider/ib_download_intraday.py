@@ -1,14 +1,16 @@
 #!/usr/bin/env python
-# -*- coding: utf-8; py-indent-offset:4 -*-
 
-import click
+import argparse
+import logging
+
 import pandas as pd
-from qa_dataprovider.provider_factory import ProviderFactory
-from qa_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
-from qa_dataprovider.objects import SymbolData
+# TODO: import with "." ?
+from pd_dataprovider.provider_factory import ProviderFactory
+from pd_dataprovider.providers.async_ib_dataprovider import AsyncIBDataProvider
+from pd_dataprovider.objects import SymbolData
 
 
-def download_intraday(symbols, file, timeframe, verbose, start, tz='America/New_York', id=0):
+def download_intraday(symbols, file, timeframe, verbose, start, tz='America/New_York', id=0, host='127.0.0.1', port=7498):
     """
     TICKER # Stock type and SMART exchange
 
@@ -54,7 +56,7 @@ def download_intraday(symbols, file, timeframe, verbose, start, tz='America/New_
 
     TICKER-OPT-EXCHANGE-CURRENCY-YYYYMMDD-STRIKE-RIGHT-MULT # OPT
     """
-    ib = ProviderFactory.make_provider('ibasync', verbose=verbose, keep_alive=True, tz=tz)
+    ib = ProviderFactory.make_provider('ibasync', verbose=verbose, keep_alive=True, tz=tz, host=host, port=port)
     symbols = symbols.split(',')
     if file:
         with open(file) as f:
@@ -67,17 +69,23 @@ def download_intraday(symbols, file, timeframe, verbose, start, tz='America/New_
             print(f"Wrote {len(data.df)} rows to {symbol}.csv")
 
 
-@click.command()
-@click.option('--symbols', default="SPY", help="Comma separated list of symbols", show_default=True)
-@click.option('--file', type=click.Path(exists=True), help='Read symbols from file')
-@click.option('--timeframe', default='5min')
-@click.option('-v', '--verbose', count=True)
-@click.option('--start')
-@click.option('--tz', default='America/New_York')
-@click.option('--id', default='0')
-def main(symbols, file, timeframe, verbose, start, tz, id):
-    download_intraday(symbols, file, timeframe, verbose, start, tz, id)
+def main():
+    logging.getLogger('ib_insync').setLevel(logging.DEBUG)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--symbols', default="SPY", help="Comma separated list of symbols", dest='symbols')
+    parser.add_argument('--file', help='Read symbols from file', dest='file')
+    parser.add_argument('--timeframe', default='5min', dest='timeframe')
+    parser.add_argument('-v', '--verbose', action='count', dest='verbose')
+    parser.add_argument('--start', dest='start')
+    parser.add_argument('--tz', default='America/New_York', dest='tz')
+    parser.add_argument('--id', default='0', dest='id')
+    parser.add_argument('--host', default='127.0.0.1', dest='host')
+    parser.add_argument('--port', default=7498, type=int, dest='port')
+
+    args = parser.parse_args()
+    download_intraday(args.symbols, args.file, args.timeframe, args.verbose, args.start, args.tz, args.id, args.host, args.port)
 
 
 if __name__ == '__main__':
     main()
+
